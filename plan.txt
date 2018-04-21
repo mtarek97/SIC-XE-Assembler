@@ -1,0 +1,88 @@
+We must think of the program as a one phase so that we can work in phase II easily
+
+The translation of source program to object code requires us to accomplish the following overall functions (not necessarily in the order given):
+    1.	Convert mnemonic operation codes to their machine language equivalents e.g., translate STL to 14
+    2.	Convert symbolic operands to their equivalent machine addresses e.g., translate RETADR to 1033
+    3.	Build the machine instructions in the proper format
+    4.	Convert the data constants specified in the source program into their internal machine representations e.g., translate EOF to 454F46
+    5.	Write the object program and the assembly listing
+
+Pass I (define symbols):
+    1.	Assign addresses to all statements in the program.
+    2.	Save the values (addresses) assigned to all labels for use in Pass 2.
+    3.	Perform some processing of assembler directives. (This includes processing that affects address assignment, such as determining the length of data areas defined by BYTE, RESW, etc.)
+
+Pass 2 (assemble instructions and generate object program):
+    1.	Assemble instructions (translating operation codes and looking up addresses).
+    2.	Generate data values defined by BYTE, WORD, etc.
+    3.	Perform processing of assembler directives not done during Pass 1.
+    4.	Write the object program and the assembly listing.
+
+
+We (maybe) have these objects:
+    SourceProgram
+    ObjectProgram
+    AssemblyListing
+    SymbolTable
+    OpCodeTable
+
+Skeleton of the program:
+
+    class SourceProgram
+        member variables
+            File sourceFile                 // to be translated
+            int locationCounter             // location counter value
+            SourceLines[] sourceLines       // to iterate on it
+
+        // in construction we must initialize sourceLines by parsing
+        constructor(File sourceFile)
+
+        methods
+            // generates the object program and the assembly listing files
+            // will call two private methods pass1() and pass2()
+            void assemble(File)
+
+
+    class sourceLine
+        member variables
+            line information (i.e. line number, loc in memory, label, operation, operand)
+
+        methods
+            // to be called on pass1, return the new value of locationCounter
+            int assignLocation()
+            // contains the logic, write it in assemblyList and objectProgram
+            void generateObjectCode()
+
+
+    class symbolTable
+        member variables
+            hashTable(key is symbol, value is loc in memory)
+        methods
+            insert
+            search
+
+    class OpCodeTable
+        member variables
+            hashTable(key is mnemonic, value is info about mnemonic)
+        methods
+            insertAll
+            search
+
+
+    class ObjectProgram
+        member variables
+            File objectProgram
+        methods
+            // add text record
+            void enterText()
+            // complete it (write Header, End)
+            void generateObjectProgram()
+
+
+    class AssemblyListing
+        member variables
+            // info about errors, etc
+            File assemblyListing
+        methods
+            void enterLine()
+            void generateAssemblyListing()
