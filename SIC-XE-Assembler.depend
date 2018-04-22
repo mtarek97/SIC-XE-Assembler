@@ -1,0 +1,12 @@
+# depslib dependency file v1.0
+1524427073 source:d:\programming\projects\sic-xe assembler\sic-xe-assembler\main.cpp
+	<iostream>
+	"SymbolTable.h"
+
+1524427064 source:d:\programming\projects\sic-xe assembler\sic-xe-assembler\src\symboltable.cpp
+	"SymbolTable.h"
+
+1524426840 d:\programming\projects\sic-xe assembler\sic-xe-assembler\include\symboltable.h
+	<string>
+	<map>
+
