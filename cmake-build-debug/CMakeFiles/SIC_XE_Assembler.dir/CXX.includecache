@@ -1,0 +1,74 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../include/AssemblyListing.h
+
+../include/ObjectProgram.h
+
+../include/OpCodeTable.h
+string
+-
+OpInfo.h
+../include/OpInfo.h
+unordered_map
+-
+
+../include/OpInfo.h
+string
+-
+
+../include/SourceLine.h
+
+../include/SourceProgram.h
+
+../include/SymbolTable.h
+string
+-
+map
+-
+
+C:/Users/Mohamed Mashaal/Desktop/SIC Assembler/SIC-XE-Assembler/main.cpp
+iostream
+-
+SymbolTable.h
+C:/Users/Mohamed Mashaal/Desktop/SIC Assembler/SIC-XE-Assembler/SymbolTable.h
+OpCodeTable.h
+C:/Users/Mohamed Mashaal/Desktop/SIC Assembler/SIC-XE-Assembler/OpCodeTable.h
+
+C:/Users/Mohamed Mashaal/Desktop/SIC Assembler/SIC-XE-Assembler/src/AssemblyListing.cpp
+AssemblyListing.h
+C:/Users/Mohamed Mashaal/Desktop/SIC Assembler/SIC-XE-Assembler/src/AssemblyListing.h
+
+C:/Users/Mohamed Mashaal/Desktop/SIC Assembler/SIC-XE-Assembler/src/ObjectProgram.cpp
+ObjectProgram.h
+C:/Users/Mohamed Mashaal/Desktop/SIC Assembler/SIC-XE-Assembler/src/ObjectProgram.h
+
+C:/Users/Mohamed Mashaal/Desktop/SIC Assembler/SIC-XE-Assembler/src/OpCodeTable.cpp
+OpCodeTable.h
+C:/Users/Mohamed Mashaal/Desktop/SIC Assembler/SIC-XE-Assembler/src/OpCodeTable.h
+iostream
+-
+fstream
+-
+
+C:/Users/Mohamed Mashaal/Desktop/SIC Assembler/SIC-XE-Assembler/src/OpInfo.cpp
+OpInfo.h
+C:/Users/Mohamed Mashaal/Desktop/SIC Assembler/SIC-XE-Assembler/src/OpInfo.h
+
+C:/Users/Mohamed Mashaal/Desktop/SIC Assembler/SIC-XE-Assembler/src/SourceLine.cpp
+SourceLine.h
+C:/Users/Mohamed Mashaal/Desktop/SIC Assembler/SIC-XE-Assembler/src/SourceLine.h
+
+C:/Users/Mohamed Mashaal/Desktop/SIC Assembler/SIC-XE-Assembler/src/SourceProgram.cpp
+SourceProgram.h
+C:/Users/Mohamed Mashaal/Desktop/SIC Assembler/SIC-XE-Assembler/src/SourceProgram.h
+
+C:/Users/Mohamed Mashaal/Desktop/SIC Assembler/SIC-XE-Assembler/src/SymbolTable.cpp
+SymbolTable.h
+C:/Users/Mohamed Mashaal/Desktop/SIC Assembler/SIC-XE-Assembler/src/SymbolTable.h
+
