@@ -3,7 +3,7 @@
 //
 #include "OpInfo.h"
 
-const std::string NOT_FOUND = "11";
+const std::string OpInfo::NOT_FOUND = "11";
 
 std::string OpInfo::getOpCode(){
     return this->opCode;
@@ -13,11 +13,12 @@ int OpInfo::getFormateBytes() {
     return this->formatBytes;
 }
 
-OpInfo::OpInfo(std::string opCode, int formateBytes) {
+OpInfo::OpInfo(std::string opCode, int formateBytes , int operands) {
     this->opCode = opCode;
     this->formatBytes = formateBytes;
+    this-> operands = operands;
 }
 
 int OpInfo::getNumberOfOperands() {
-    
+    return this->operands;
 }

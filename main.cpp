@@ -16,9 +16,10 @@ int main()
     cout << "var3 = " << symtab.search("var3") << endl;*/
     OpCodeTable* opTable = OpCodeTable::getOpTable();
     OpInfo info =  opTable->getInfo("LOL");
-    if(info.getOpCode() == info.NOT_FOUND)
+    if(info.getOpCode()== info.NOT_FOUND)
         cout << "Not found" << "\n";
+
     info = opTable->getInfo("LDA");
-    cout << info.getOpCode() << " " << info.getFormateBytes();
+    cout << info.getOpCode() << " " << info.getFormateBytes() << " " << info.getNumberOfOperands();
     return 0;
 }

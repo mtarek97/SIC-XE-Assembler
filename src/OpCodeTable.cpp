@@ -13,9 +13,9 @@ OpCodeTable::OpCodeTable()
     ifstream infile;
     infile.open (this->filePath);
     string operationKey, opCode;
-    int formatBytes;
-    while(infile >> operationKey >> opCode >> formatBytes){
-        this->opTable.insert(pair<string, OpInfo> (operationKey, OpInfo(opCode, formatBytes)));
+    int formatBytes, operands;
+    while(infile >> operationKey >> opCode >> formatBytes >> operands){
+        this->opTable.insert(pair<string, OpInfo> (operationKey, OpInfo(opCode, formatBytes, operands)));
     }
     infile.close();
 }
@@ -30,7 +30,7 @@ OpCodeTable* OpCodeTable::getOpTable() {
 OpInfo OpCodeTable::getInfo(std::string key) {
     std::unordered_map<std::string,OpInfo>::const_iterator got = this->opTable.find(key);
     if ( got == this->opTable.end())
-        return OpInfo("11" , 0);
+        return OpInfo("11" , 0 , 0);
     else
         return got->second;
 }

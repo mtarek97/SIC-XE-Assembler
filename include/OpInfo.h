@@ -9,11 +9,12 @@ class OpInfo{
     public:
         std::string getOpCode();
         int getFormateBytes();
-        OpInfo(std::string opCode, int formateBytes);
+        OpInfo(std::string opCode, int formateBytes, int operands);
          static const std::string NOT_FOUND;
          int getNumberOfOperands();
     private:
         std::string opCode;
         int formatBytes;
+        int operands;
 };
 #endif //SIC_XE_ASSEMBLER_OPINFO_H
