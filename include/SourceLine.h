@@ -18,7 +18,7 @@ class SourceLine
         void setOperand(string operand);
 
     private:
-        string lable, operation, operand, comment;
+        string lable="", operation="", operand="", comment="";
 };
 
 #endif // SOURCELINE_H

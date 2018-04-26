@@ -36,9 +36,5 @@ string SourceLine::getOperand()
 {
     return this->operand;
 }
-bool SourceLine::valid()
-{
 
-
-}
 

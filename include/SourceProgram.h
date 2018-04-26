@@ -9,13 +9,12 @@ class SourceProgram
 {
     public:
         SourceProgram();
-        void parse(string fileName);
-        bool valid();
+        void parse(char* fileName);
     private:
         SourceLine identifier(vector<string> sourceLine);
         int locationCounter=0;
         bool isComment(vector<string> sourceLine);
-
+        vector<string> getWords(string parser);
 };
 
 #endif
