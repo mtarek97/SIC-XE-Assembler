@@ -2,6 +2,8 @@
 
 #include "SymbolTable.h"
 #include "OpCodeTable.h"
+#include "SourceLine.h"
+#include "SyntaxValidator.h"
 
 using namespace std;
 
@@ -14,12 +16,23 @@ int main()
     cout << "var1 = " << symtab.search("var1") << endl;
     cout << "var2 = " << symtab.search("var2") << endl;
     cout << "var3 = " << symtab.search("var3") << endl;*/
-    OpCodeTable* opTable = OpCodeTable::getOpTable();
+    /*OpCodeTable* opTable = OpCodeTable::getOpTable();
     OpInfo info =  opTable->getInfo("LOL");
     if(info.getOpCode()== info.NOT_FOUND)
         cout << "Not found" << "\n";
 
     info = opTable->getInfo("LDA");
-    cout << info.getOpCode() << " " << info.getFormateBytes() << " " << info.getNumberOfOperands();
+    cout << info.getOpCode() << " " << info.getFormateBytes() << " " << info.getNumberOfOperands();*/
+
+    SourceLine srcLine;
+    srcLine.setLable("PROG1");
+    srcLine.setOperation("MULR");
+    srcLine.setOperand("ALPHA,X");
+    SyntaxValidator validator;
+    if(validator.isValid(srcLine)){
+        cout << "valid source line" << endl;
+    }else{
+        cout << validator.getErrorMessage() << endl;
+    }
     return 0;
 }

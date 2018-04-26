@@ -10,3 +10,40 @@
 	<string>
 	<map>
 
+1524683080 source:c:\users\hp\documents\sic-xe-assembler\src\assemblylisting.cpp
+	"AssemblyListing.h"
+
+1524683080 source:c:\users\hp\documents\sic-xe-assembler\src\objectprogram.cpp
+	"ObjectProgram.h"
+
+1524683080 source:c:\users\hp\documents\sic-xe-assembler\src\symboltable.cpp
+	"SymbolTable.h"
+
+1524785729 source:c:\users\hp\documents\sic-xe-assembler\src\syntaxvalidator.cpp
+	"SyntaxValidator.h"
+
+1524785791 source:c:\users\hp\documents\sic-xe-assembler\src\opcodetable.cpp
+	"OpCodeTable.h"
+	<iostream>
+	<fstream>
+
+1524785768 source:c:\users\hp\documents\sic-xe-assembler\src\opinfo.cpp
+	"OpInfo.h"
+
+1524785791 source:c:\users\hp\documents\sic-xe-assembler\src\sourceline.cpp
+	"SourceLine.h"
+
+1524785791 source:c:\users\hp\documents\sic-xe-assembler\src\sourceprogram.cpp
+	"SourceProgram.h"
+	<SourceLine.h>
+	<string.h>
+	<bits/stdc++.h>
+	"OpCodeTable.h"
+
+1524786163 source:c:\users\hp\documents\sic-xe-assembler\main.cpp
+	<iostream>
+	"SymbolTable.h"
+	"OpCodeTable.h"
+	"SourceLine.h"
+	"SyntaxValidator.h"
+
