@@ -10,40 +10,47 @@
 	<string>
 	<map>
 
-1524683080 source:c:\users\hp\documents\sic-xe-assembler\src\assemblylisting.cpp
+1524848747 source:c:\users\hp\documents\sic-xe-assembler\src\assemblylisting.cpp
+	<bits/stdc++.h>
 	"AssemblyListing.h"
+	<SourceLine.h>
 
-1524683080 source:c:\users\hp\documents\sic-xe-assembler\src\objectprogram.cpp
+1524848747 source:c:\users\hp\documents\sic-xe-assembler\src\objectprogram.cpp
 	"ObjectProgram.h"
 
-1524683080 source:c:\users\hp\documents\sic-xe-assembler\src\symboltable.cpp
+1524848747 source:c:\users\hp\documents\sic-xe-assembler\src\symboltable.cpp
 	"SymbolTable.h"
 
-1524785729 source:c:\users\hp\documents\sic-xe-assembler\src\syntaxvalidator.cpp
+1524847821 source:c:\users\hp\documents\sic-xe-assembler\src\syntaxvalidator.cpp
 	"SyntaxValidator.h"
 
-1524785791 source:c:\users\hp\documents\sic-xe-assembler\src\opcodetable.cpp
+1524848747 source:c:\users\hp\documents\sic-xe-assembler\src\opcodetable.cpp
 	"OpCodeTable.h"
 	<iostream>
 	<fstream>
 
-1524785768 source:c:\users\hp\documents\sic-xe-assembler\src\opinfo.cpp
+1524848747 source:c:\users\hp\documents\sic-xe-assembler\src\opinfo.cpp
 	"OpInfo.h"
 
-1524785791 source:c:\users\hp\documents\sic-xe-assembler\src\sourceline.cpp
+1524848747 source:c:\users\hp\documents\sic-xe-assembler\src\sourceline.cpp
 	"SourceLine.h"
 
-1524785791 source:c:\users\hp\documents\sic-xe-assembler\src\sourceprogram.cpp
-	"SourceProgram.h"
-	<SourceLine.h>
-	<string.h>
+1524848747 source:c:\users\hp\documents\sic-xe-assembler\src\sourceprogram.cpp
 	<bits/stdc++.h>
-	"OpCodeTable.h"
+	<SourceProgram.h>
+	<SourceLine.h>
+	<OpCodeTable.h>
+	<SyntaxValidator.h>
+	<AssemblyListing.h>
+	<SymbolTable.h>
 
-1524786163 source:c:\users\hp\documents\sic-xe-assembler\main.cpp
+1524849233 source:c:\users\hp\documents\sic-xe-assembler\main.cpp
 	<iostream>
 	"SymbolTable.h"
 	"OpCodeTable.h"
 	"SourceLine.h"
 	"SyntaxValidator.h"
+
+1524847671 source:c:\users\hp\documents\sic-xe-assembler\src\validatorutilities.cpp
+	"ValidatorUtilities.h"
 
