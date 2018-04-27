@@ -1,0 +1,16 @@
+progr1                            start      0010
+       LdA     Z
+      SUB     Y
+     STA     BETA
+.kkkkkkkkkkkkkkkkkkkkkkkkk
+       LDA     V
+     ADD     W
+      DIV                 BETA
+         STA     E
+         J       *
+   Z        WORD    9 
+Y              WORD    4
+BETA              RESW    3
+V           WORD    5
+E                   RESW    1
+         END     P

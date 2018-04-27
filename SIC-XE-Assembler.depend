@@ -54,3 +54,98 @@
 1524847671 source:c:\users\hp\documents\sic-xe-assembler\src\validatorutilities.cpp
 	"ValidatorUtilities.h"
 
+1524852280 source:f:\projects second year\assembly\main.cpp
+	<iostream>
+	"SymbolTable.h"
+	"OpCodeTable.h"
+	"SourceLine.h"
+	"SyntaxValidator.h"
+	<SourceProgram.h>
+
+1524465241 f:\projects second year\assembly\include\symboltable.h
+	<string>
+	<map>
+
+1524852208 f:\projects second year\assembly\include\opcodetable.h
+	<string>
+	"OpInfo.h"
+	<unordered_map>
+
+1524694557 f:\projects second year\assembly\include\opinfo.h
+	<string>
+
+1524742912 f:\projects second year\assembly\include\sourceline.h
+	<bits/stdc++.h>
+
+1524851401 f:\projects second year\assembly\include\syntaxvalidator.h
+	"OpInfo.h"
+	"OpCodeTable.h"
+	"SourceLine.h"
+	<string.h>
+	<vector>
+	<string>
+	"ValidatorUtilities.h"
+
+1524851401 f:\projects second year\assembly\include\validatorutilities.h
+	"OpInfo.h"
+	"OpCodeTable.h"
+	<string.h>
+	<vector>
+	<string>
+	<algorithm>
+	<ctype.h>
+	<sstream>
+
+1524841036 source:f:\projects second year\assembly\src\assemblylisting.cpp
+	<bits/stdc++.h>
+	"AssemblyListing.h"
+	<SourceLine.h>
+
+1524838627 f:\projects second year\assembly\include\assemblylisting.h
+	<SourceLine.h>
+	<bits/stdc++.h>
+
+1524851440 source:f:\projects second year\assembly\src\mm.cpp
+	"mm.h"
+
+1524851440 f:\projects second year\assembly\include\mm.h
+
+1524837972 source:f:\projects second year\assembly\src\objectprogram.cpp
+	"ObjectProgram.h"
+
+1524837967 f:\projects second year\assembly\include\objectprogram.h
+
+1524852644 source:f:\projects second year\assembly\src\opcodetable.cpp
+	"OpCodeTable.h"
+	<iostream>
+	<fstream>
+
+1524694557 source:f:\projects second year\assembly\src\opinfo.cpp
+	"OpInfo.h"
+
+1524742928 source:f:\projects second year\assembly\src\sourceline.cpp
+	"SourceLine.h"
+
+1524840805 source:f:\projects second year\assembly\src\sourceprogram.cpp
+	<bits/stdc++.h>
+	<SourceProgram.h>
+	<SourceLine.h>
+	<OpCodeTable.h>
+	<SyntaxValidator.h>
+	<AssemblyListing.h>
+	<SymbolTable.h>
+
+1524840392 f:\projects second year\assembly\include\sourceprogram.h
+	<bits/stdc++.h>
+	<SourceLine.h>
+	<SymbolTable.h>
+
+1524466071 source:f:\projects second year\assembly\src\symboltable.cpp
+	"SymbolTable.h"
+
+1524851401 source:f:\projects second year\assembly\src\syntaxvalidator.cpp
+	"SyntaxValidator.h"
+
+1524851401 source:f:\projects second year\assembly\src\validatorutilities.cpp
+	"ValidatorUtilities.h"
+
