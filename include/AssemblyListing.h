@@ -1,12 +1,13 @@
 #ifndef ASSEMBLYLISTING_H
 #define ASSEMBLYLISTING_H
-
+#include<SourceLine.h>
+#include<bits/stdc++.h>
 
 class AssemblyListing
 {
     public:
         AssemblyListing();
-        ~AssemblyListing();
+        void write(SourceLine sourceLine, string locationCounter, string error);
 
     protected:
 

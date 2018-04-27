@@ -1,5 +1,6 @@
 #include <bits/stdc++.h>
 #include<SourceLine.h>
+#include<SymbolTable.h>
 #ifndef SOURCEPROGRAM_H
 #define SOURCEPROGRAM_H
 
@@ -15,6 +16,13 @@ class SourceProgram
         int locationCounter=0;
         bool isComment(vector<string> sourceLine);
         vector<string> getWords(string parser);
+        string getUpper(string word);
+        set<string> direcive;
+        void write(SourceLine sourceLine, string error);
+        SymbolTable symbolTable;
+        void detectStart(SourceLine sourceLine);
+        void updateLocationCounter(SourceLine sourceLine);
+
 };
 
 #endif

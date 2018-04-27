@@ -5,7 +5,4 @@ ObjectProgram::ObjectProgram()
     //ctor
 }
 
-ObjectProgram::~ObjectProgram()
-{
-    //dtor
-}
+

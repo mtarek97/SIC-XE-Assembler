@@ -37,6 +37,7 @@ class SyntaxValidator
         bool isHexAddress(string str, int maxlength);
         bool isReservedKeyword(string str);
         bool isRegister(string str);
+        bool checkInstructionOperand();
 };
 
 #endif // VALIDATOR_H_INCLUDED

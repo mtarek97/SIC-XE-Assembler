@@ -6,7 +6,6 @@ class ObjectProgram
 {
     public:
         ObjectProgram();
-        ~ObjectProgram();
 
     protected:
 
