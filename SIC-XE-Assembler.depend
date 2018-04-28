@@ -96,12 +96,15 @@
 	<ctype.h>
 	<sstream>
 
-1524841036 source:f:\projects second year\assembly\src\assemblylisting.cpp
+1524917308 source:f:\projects second year\assembly\src\assemblylisting.cpp
 	<bits/stdc++.h>
 	"AssemblyListing.h"
 	<SourceLine.h>
+	<string>
+	<fstream>
+	<iostream>
 
-1524838627 f:\projects second year\assembly\include\assemblylisting.h
+1524915800 f:\projects second year\assembly\include\assemblylisting.h
 	<SourceLine.h>
 	<bits/stdc++.h>
 
@@ -135,10 +138,11 @@
 	<AssemblyListing.h>
 	<SymbolTable.h>
 
-1524840392 f:\projects second year\assembly\include\sourceprogram.h
+1524917466 f:\projects second year\assembly\include\sourceprogram.h
 	<bits/stdc++.h>
 	<SourceLine.h>
 	<SymbolTable.h>
+	<AssemblyListing.h>
 
 1524466071 source:f:\projects second year\assembly\src\symboltable.cpp
 	"SymbolTable.h"

@@ -12,6 +12,7 @@ class AssemblyListing
     protected:
 
     private:
+        int counter = 0;
 };
 
 #endif // ASSEMBLYLISTING_H

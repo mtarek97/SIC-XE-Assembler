@@ -122,7 +122,6 @@ void SourceProgram::write(SourceLine sourceLine, string error)
 {
     std::stringstream stream;
     stream << std::hex << locationCounter;
-    AssemblyListing assemblyListing;
     string locationCounterinhex = stream.str();
     assemblyListing.write(sourceLine, locationCounterinhex, error);
 }

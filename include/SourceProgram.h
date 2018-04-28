@@ -1,6 +1,7 @@
 #include <bits/stdc++.h>
 #include<SourceLine.h>
 #include<SymbolTable.h>
+#include<AssemblyListing.h>
 #ifndef SOURCEPROGRAM_H
 #define SOURCEPROGRAM_H
 
@@ -22,6 +23,7 @@ class SourceProgram
         SymbolTable symbolTable;
         void detectStart(SourceLine sourceLine);
         void updateLocationCounter(SourceLine sourceLine);
+        AssemblyListing assemblyListing;
 
 };
 
