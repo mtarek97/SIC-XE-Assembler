@@ -5,7 +5,7 @@ progr1                            start      0010
 .kkkkkkkkkkkkkkkkkkkkkkkkk
        LDA     V
      ADD     W
-      DIV                 BETA
+      DIV                 BETA          thsrthsrthrth thsthsth hsethseth thseths
          STA     E
          J       *
    Z        WORD    9 

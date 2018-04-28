@@ -54,7 +54,7 @@ void SourceProgram::parse(char* fileName)
             int index = 0;
             while(index != line.size())
             {
-                comment += line[index++];
+                comment += line[index++] + " ";
             }
             sourceLine.setComment(comment);
             sourceLine.setLable("");
@@ -92,7 +92,7 @@ SourceLine SourceProgram::identifier(vector<string> line)
     string comment = "";
     while(index != line.size())
     {
-        comment += line[index++];
+        comment += line[index++]+" ";
     }
     sourceLine.setComment(comment);
 

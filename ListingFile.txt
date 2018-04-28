@@ -5,10 +5,10 @@ start is invalid operation
 LdA is invalid operation
   2     3              SUB       Y         
   3     6              STA       BETA      
-  4             ..kkkkkkkkkkkkkkkkkkkkkkkkk
+  4             ..kkkkkkkkkkkkkkkkkkkkkkkkk 
   5     9              LDA       V         
   6     c              ADD       W         
-  7     f              DIV       BETA      
+  7     f              DIV       BETA      thsrthsrthrth thsthsth hsethseth thseths 
   8     12              STA       E         
   9     12              J         *         
 * is invalid operand
