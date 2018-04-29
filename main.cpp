@@ -4,7 +4,7 @@
 #include "OpCodeTable.h"
 #include "SourceLine.h"
 #include "SyntaxValidator.h"
-#include<SourceProgram.h>
+#include "SourceProgram.h"
 using namespace std;
 
 int main()
@@ -16,8 +16,8 @@ int main()
     cout << "var1 = " << symtab.search("var1") << endl;
     cout << "var2 = " << symtab.search("var2") << endl;
     cout << "var3 = " << symtab.search("var3") << endl;*/
-    /*
-    OpCodeTable* opTable = OpCodeTable::getOpTable();
+
+    /*OpCodeTable* opTable = OpCodeTable::getOpTable();
     OpInfo info =  opTable->getInfo("START");
     if(info.getOpCode()== info.NOT_FOUND)
         cout << "Not found" << "\n";
@@ -35,15 +35,21 @@ int main()
     srcLine.setLable("mah");
     srcLine.setOperation("MULR");
     srcLine.setOperand("R,X");
+=======
+    srcLine.setOperation("END");
+    srcLine.setOperand("");
+>>>>>>> 98d69528885d670faee138267e17f0a456f18ed3
     SyntaxValidator validator;
     if(validator.isValid(srcLine)){
         cout << "valid source line" << endl;
     }else{
         cout << validator.getErrorMessage() << endl;
+<<<<<<< HEAD
     }*/
+    //SourceProgram sourceProgram;
+    //}
     SourceProgram sourceProgram;
     string l = "aaa.txt";
     sourceProgram.parse(&l[0]);
-
     return 0;
 }

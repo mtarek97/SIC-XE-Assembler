@@ -1,19 +1,22 @@
 Line    Loc            Source statement       
   0             ..1354844 
-  1     2    progr1              START               0010                
-  2     2                        LDA                 Z                   
-  3     5                        SUB                 Y                   
-  4     8                        STA                 BETA                
-  5             ..kkkkkkkkkkkkkkkkkkkkkkkkk 
-  6     b                        LDA                 V                   
-  7     e                        ADD                 W                   
-  8     11                        DIV                 BETA                thsrthsrthrth thsthsth hsethseth thseths 
-  9     14                        STA                 E                   
- 10     17                        J                   *                   
- 11     1a    Z                   WORD                9                   
- 12     1d    Y                   WORD                4                   
- 13     20    BETA                RESW                3                   
- 14     29    V                   BYTE                C'shazly ya rab'    
- 15     36    E                   RESW                1                   
- 16     39                        END                                     
-you must specify the operand
+  1             ..1354844 
+  2             ..1354844 
+  3             ..1354844 
+  4             ..1354844 
+  5     2    progr1              START               0010                
+  6     2                        LDA                 Z                   
+  7     5                        SUB                 Y                   
+  8     8                        STA                 BETA                
+  9             ..kkkkkkkkkkkkkkkkkkkkkkkkk 
+ 10     b                        LDA                 V                   
+ 11     e                        ADD                 W                   
+ 12     11                        DIV                 BETA                thsrthsrthrth thsthsth hsethseth thseths 
+ 13     14                        STA                 E                   
+ 14     17                        J                   *                   
+ 15     1a    Z                   WORD                9                   
+ 16     1d    Y                   WORD                4                   
+ 17     20    BETA                RESW                3                   wgwg wgw wgwg 
+ 18     29    V                   BYTE                C'shazly ya rab'    wgwegwef wewegw 
+ 19     36    E                   RESW                1                   
+ 20     39                        END                                     

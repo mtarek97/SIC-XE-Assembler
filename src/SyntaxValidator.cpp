@@ -159,7 +159,7 @@ bool SyntaxValidator::checkFormat3or4Operand(OpInfo info){
 bool SyntaxValidator::checkDirectiveOperand(){
     string directive = sourceLine.getOperation();
     string operand = sourceLine.getOperand();
-    if(operand == ""){
+    if(operand == "" && directive!="END"){
         this->errorMessage="you must specify the operand";
         return false;
     }
@@ -202,6 +202,10 @@ bool SyntaxValidator::checkDirectiveOperand(){
     }else if(directive == "RESB" || directive == "RESW"){
         if(!ValidatorUtilities::isDecimalNumber(operand,4,false)){
             this->errorMessage= "operand must be a positive decimal value (up to 4 decimal digits)";
+            return false;
+        }
+        if(stoi(operand)==0){
+            this->errorMessage="operand must be a POSITIVE (NOT ZERO) decimal value (up to 4 decimal digits)";
             return false;
         }
     }else if(directive == "START"){

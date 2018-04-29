@@ -94,7 +94,7 @@ C:/Users/Mohamed Mashaal/Desktop/SIC Assembler/SIC-XE-Assembler/SourceLine.h
 SyntaxValidator.h
 C:/Users/Mohamed Mashaal/Desktop/SIC Assembler/SIC-XE-Assembler/SyntaxValidator.h
 SourceProgram.h
--
+C:/Users/Mohamed Mashaal/Desktop/SIC Assembler/SIC-XE-Assembler/SourceProgram.h
 
 C:/Users/Mohamed Mashaal/Desktop/SIC Assembler/SIC-XE-Assembler/src/AssemblyListing.cpp
 bits/stdc++.h
@@ -144,6 +144,8 @@ SyntaxValidator.h
 AssemblyListing.h
 -
 SymbolTable.h
+-
+ValidatorUtilities.h
 -
 
 C:/Users/Mohamed Mashaal/Desktop/SIC Assembler/SIC-XE-Assembler/src/SymbolTable.cpp

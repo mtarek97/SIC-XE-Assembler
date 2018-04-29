@@ -10,7 +10,7 @@
 	<string>
 	<map>
 
-1524989790 source:c:\users\hp\documents\sic-xe-assembler\src\assemblylisting.cpp
+1525029905 source:c:\users\hp\documents\sic-xe-assembler\src\assemblylisting.cpp
 	<bits/stdc++.h>
 	"AssemblyListing.h"
 	<SourceLine.h>
@@ -18,27 +18,27 @@
 	<fstream>
 	<iostream>
 
-1524848747 source:c:\users\hp\documents\sic-xe-assembler\src\objectprogram.cpp
+1525029905 source:c:\users\hp\documents\sic-xe-assembler\src\objectprogram.cpp
 	"ObjectProgram.h"
 
-1524848747 source:c:\users\hp\documents\sic-xe-assembler\src\symboltable.cpp
+1525029905 source:c:\users\hp\documents\sic-xe-assembler\src\symboltable.cpp
 	"SymbolTable.h"
 
-1525024147 source:c:\users\hp\documents\sic-xe-assembler\src\syntaxvalidator.cpp
+1525029989 source:c:\users\hp\documents\sic-xe-assembler\src\syntaxvalidator.cpp
 	"SyntaxValidator.h"
 
-1524860490 source:c:\users\hp\documents\sic-xe-assembler\src\opcodetable.cpp
+1525029905 source:c:\users\hp\documents\sic-xe-assembler\src\opcodetable.cpp
 	"OpCodeTable.h"
 	<iostream>
 	<fstream>
 
-1524848747 source:c:\users\hp\documents\sic-xe-assembler\src\opinfo.cpp
+1525029905 source:c:\users\hp\documents\sic-xe-assembler\src\opinfo.cpp
 	"OpInfo.h"
 
-1524848747 source:c:\users\hp\documents\sic-xe-assembler\src\sourceline.cpp
+1525029905 source:c:\users\hp\documents\sic-xe-assembler\src\sourceline.cpp
 	"SourceLine.h"
 
-1524989790 source:c:\users\hp\documents\sic-xe-assembler\src\sourceprogram.cpp
+1525029905 source:c:\users\hp\documents\sic-xe-assembler\src\sourceprogram.cpp
 	<bits/stdc++.h>
 	<SourceProgram.h>
 	<SourceLine.h>
@@ -46,6 +46,7 @@
 	<SyntaxValidator.h>
 	<AssemblyListing.h>
 	<SymbolTable.h>
+	<ValidatorUtilities.h>
 
 1525023651 source:c:\users\hp\documents\sic-xe-assembler\main.cpp
 	<iostream>
@@ -55,16 +56,16 @@
 	"SyntaxValidator.h"
 	<SourceProgram.h>
 
-1525018046 source:c:\users\hp\documents\sic-xe-assembler\src\validatorutilities.cpp
+1525029905 source:c:\users\hp\documents\sic-xe-assembler\src\validatorutilities.cpp
 	"ValidatorUtilities.h"
 
-1525028676 source:f:\projects second year\assembly\main.cpp
+1525034514 source:f:\projects second year\assembly\main.cpp
 	<iostream>
 	"SymbolTable.h"
 	"OpCodeTable.h"
 	"SourceLine.h"
 	"SyntaxValidator.h"
-	<SourceProgram.h>
+	"SourceProgram.h"
 
 1524465241 f:\projects second year\assembly\include\symboltable.h
 	<string>
@@ -134,7 +135,7 @@
 1524742928 source:f:\projects second year\assembly\src\sourceline.cpp
 	"SourceLine.h"
 
-1525034261 source:f:\projects second year\assembly\src\sourceprogram.cpp
+1525034393 source:f:\projects second year\assembly\src\sourceprogram.cpp
 	<bits/stdc++.h>
 	<SourceProgram.h>
 	<SourceLine.h>
@@ -153,9 +154,56 @@
 1524466071 source:f:\projects second year\assembly\src\symboltable.cpp
 	"SymbolTable.h"
 
-1525026795 source:f:\projects second year\assembly\src\syntaxvalidator.cpp
+1525034470 source:f:\projects second year\assembly\src\syntaxvalidator.cpp
 	"SyntaxValidator.h"
 
 1525026795 source:f:\projects second year\assembly\src\validatorutilities.cpp
 	"ValidatorUtilities.h"
+
+1525029905 c:\users\hp\documents\sic-xe-assembler\include\assemblylisting.h
+	<SourceLine.h>
+	<bits/stdc++.h>
+
+1525029905 c:\users\hp\documents\sic-xe-assembler\include\sourceline.h
+	<bits/stdc++.h>
+
+1525029905 c:\users\hp\documents\sic-xe-assembler\include\objectprogram.h
+
+1525029905 c:\users\hp\documents\sic-xe-assembler\include\opcodetable.h
+	<string>
+	"OpInfo.h"
+	<unordered_map>
+
+1525029905 c:\users\hp\documents\sic-xe-assembler\include\opinfo.h
+	<string>
+
+1525029905 c:\users\hp\documents\sic-xe-assembler\include\sourceprogram.h
+	<bits/stdc++.h>
+	<SourceLine.h>
+	<SymbolTable.h>
+	<AssemblyListing.h>
+
+1525029905 c:\users\hp\documents\sic-xe-assembler\include\symboltable.h
+	<string>
+	<map>
+
+1525029905 c:\users\hp\documents\sic-xe-assembler\include\syntaxvalidator.h
+	"OpInfo.h"
+	"OpCodeTable.h"
+	"SourceLine.h"
+	<string.h>
+	<vector>
+	<string>
+	"ValidatorUtilities.h"
+
+1525029905 c:\users\hp\documents\sic-xe-assembler\include\validatorutilities.h
+	"OpInfo.h"
+	"OpCodeTable.h"
+	"SourceLine.h"
+	<string.h>
+	<vector>
+	<string>
+	<algorithm>
+	<ctype.h>
+	<sstream>
 

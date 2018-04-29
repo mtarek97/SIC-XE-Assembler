@@ -254,7 +254,7 @@ SourceLine SourceProgram::handleByte(SourceLine sourceLine, vector<string> line,
         operand = i->str();
         i++;
         for (; i != std::sregex_iterator(); i++)
-          comment += i->str();
+          comment += i->str()+" ";
 
         break;
 
