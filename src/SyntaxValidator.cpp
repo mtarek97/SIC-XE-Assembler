@@ -11,7 +11,7 @@ SyntaxValidator::SyntaxValidator(){
 }
 
 bool SyntaxValidator::isValid(SourceLine srcLine){
-    this->sourceLine = srcLine;
+    this->sourceLine = ValidatorUtilities::toUpperCase(srcLine);
     if(sourceLine.getOperation()=="END" && sourceLine.getLable()!=""){
         this->errorMessage = "label must be blank at the END statement";
         return false;
@@ -73,7 +73,12 @@ int SyntaxValidator::checkOperation(std::string operation){
 }
 
 bool SyntaxValidator::checkFormat2Operand(OpInfo info){
-    vector<std::string> splittedOperands = ValidatorUtilities::split(sourceLine.getOperand(),',');
+    string operand =  sourceLine.getOperand();
+    if(operand[0]==',' || operand[operand.size()-1]==','){
+        errorMessage = operand + " is invalid operand";
+            return false;
+    }
+    vector<std::string> splittedOperands = ValidatorUtilities::split(operand,',');
     int noOfOperands = info.getNumberOfOperands();
     if(splittedOperands.size() == noOfOperands){
         for(int i=0;i<noOfOperands;i++){
@@ -96,13 +101,17 @@ bool SyntaxValidator::checkFormat3or4Operand(OpInfo info){
             return false;
         }
     }
-    vector<std::string> splittedOperands = ValidatorUtilities::split(sourceLine.getOperand(),',');
+    string operand = sourceLine.getOperand();
+    if(operand[0]==',' || operand[operand.size()-1]==','){
+        errorMessage = operand + " is invalid operand";
+            return false;
+    }
+    vector<std::string> splittedOperands = ValidatorUtilities::split(operand,',');
     if(splittedOperands.size()==2){
         if(!(splittedOperands[1]=="X")){
             this->errorMessage = "can't use register rather than X to indexed addressing";
             return false;
         }
-        // we can show special message for immediate or indirect addressing with indexed (if we have time)
         else if(ValidatorUtilities::isRegister(splittedOperands[0])){
             this->errorMessage = "can't use registers with indexed addressing" ;
             return false;
@@ -116,7 +125,6 @@ bool SyntaxValidator::checkFormat3or4Operand(OpInfo info){
             this->errorMessage = splittedOperands[0] + " is invalid operand";
             return false;
         }
-        /// TODO : handle literals
         else{
             return true;
         }
@@ -134,11 +142,10 @@ bool SyntaxValidator::checkFormat3or4Operand(OpInfo info){
             return false;
         }
         if(!ValidatorUtilities::isSymbol(nonPrefixedOperand,LABEL_MAXLENGTH)
-           && !ValidatorUtilities::isHexAddress(nonPrefixedOperand,6)){
+           && !ValidatorUtilities::isHexAddress(nonPrefixedOperand,6) && !(nonPrefixedOperand=="*")){
             this->errorMessage = splittedOperands[0] + " is invalid operand";
             return false;
         }
-        /// TODO : handle literals
         else{
             return true;
         }
@@ -152,6 +159,10 @@ bool SyntaxValidator::checkFormat3or4Operand(OpInfo info){
 bool SyntaxValidator::checkDirectiveOperand(){
     string directive = sourceLine.getOperation();
     string operand = sourceLine.getOperand();
+    if(operand == ""){
+        this->errorMessage="you must specify the operand";
+        return false;
+    }
     if(directive == "BYTE"){
         if(operand.size()>=3 && operand[1]== '\'' && operand[operand.size()-1]=='\''){
             string actualOperand = operand.substr(2,operand.size()-3);
@@ -176,6 +187,10 @@ bool SyntaxValidator::checkDirectiveOperand(){
             return false;
         }
     }else if(directive == "WORD"){
+        if(operand[0]==',' || operand[operand.size()-1]==','){
+        errorMessage = operand + " is invalid operand";
+            return false;
+        }
         vector<std::string> splittedOperands = ValidatorUtilities::split(operand,',');
         for(string str : splittedOperands){
             if(!ValidatorUtilities::isSymbol(str,LABEL_MAXLENGTH)

@@ -93,4 +93,19 @@ bool ValidatorUtilities::isDecimalNumber(string str, int maxDigitsCount, bool ca
     return true;
 }
 
+SourceLine ValidatorUtilities::toUpperCase(SourceLine srcLine){
+    string label = srcLine.getLable();
+    string operand = srcLine.getOperand();
+    string operation = srcLine.getOperation();
+    string comment = srcLine.getComment();
+    transform(label.begin(), label.end(), label.begin(), ::toupper);
+    transform(operand.begin(), operand.end(), operand.begin(), ::toupper);
+    transform(operation.begin(), operation.end(), operation.begin(), ::toupper);
+    transform(comment.begin(), comment.end(), comment.begin(), ::toupper);
+    srcLine.setLable(label);
+    srcLine.setOperand(operand);
+    srcLine.setOperation(operation);
+    srcLine.setComment(comment);
+    return srcLine;
+}
 
