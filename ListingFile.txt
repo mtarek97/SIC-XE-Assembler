@@ -1,21 +1,19 @@
 Line    Loc            Source statement       
-  0     0    progr1              start               0010                
-start is invalid operation
-  1     0                        LdA                 Z                   
-LdA is invalid operation
-  2     0                        SUB                 Y                   
-  3     3                        STA                 BETA                
+  0     2    progr1              START               0010                
+  1     2                        LDA                 Z                   
+  2     5                        SUB                 Y                   
+  3     8                        STA                 BETA                
   4             ..kkkkkkkkkkkkkkkkkkkkkkkkk 
-  5     6                        LDA                 V                   
-  6     9                        ADD                 W                   
-  7     c                        DIV                 BETA                thsrthsrthrth thsthsth hsethseth thseths 
-  8     f                        STA                 E                   
-  9     12                        J                   *                   
+  5     b                        LDA                 V                   
+  6     e                        ADD                 W                   
+  7     11                        DIV                 BETA                thsrthsrthrth thsthsth hsethseth thseths 
+  8     14                        STA                 E                   
+  9     17                        J                   *                   
 * is invalid operand
- 10     12    Z                   WORD                9                   
- 11     15    Y                   WORD                4                   
- 12     18    BETA                RESW                3                   
- 13     21    V                   BYTE                C'shazly ya rab'    
+ 10     17    Z                   WORD                9                   
+ 11     1a    Y                   WORD                4                   
+ 12     1d    BETA                RESW                3                   
+ 13     26    V                   BYTE                C'shazly ya rab'    
 operand must be a character string or hexadecimal constant
- 14     21    E                   RESW                1                   
- 15     24                        END                                     
+ 14     26    E                   RESW                1                   
+ 15     29                        END                                     

@@ -1,5 +1,5 @@
-progr1                            start      0010
-       LdA     Z
+progr1                            START      0010
+       LDA     Z
       SUB     Y
      STA     BETA
 .kkkkkkkkkkkkkkkkkkkkkkkkk
