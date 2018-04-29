@@ -12,6 +12,8 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "C:/Users/Mohamed Mashaal/Desktop/SIC Assembler/SIC-XE-Assembler/src/SourceLine.cpp" "C:/Users/Mohamed Mashaal/Desktop/SIC Assembler/SIC-XE-Assembler/cmake-build-debug/CMakeFiles/SIC_XE_Assembler.dir/src/SourceLine.cpp.obj"
   "C:/Users/Mohamed Mashaal/Desktop/SIC Assembler/SIC-XE-Assembler/src/SourceProgram.cpp" "C:/Users/Mohamed Mashaal/Desktop/SIC Assembler/SIC-XE-Assembler/cmake-build-debug/CMakeFiles/SIC_XE_Assembler.dir/src/SourceProgram.cpp.obj"
   "C:/Users/Mohamed Mashaal/Desktop/SIC Assembler/SIC-XE-Assembler/src/SymbolTable.cpp" "C:/Users/Mohamed Mashaal/Desktop/SIC Assembler/SIC-XE-Assembler/cmake-build-debug/CMakeFiles/SIC_XE_Assembler.dir/src/SymbolTable.cpp.obj"
+  "C:/Users/Mohamed Mashaal/Desktop/SIC Assembler/SIC-XE-Assembler/src/SyntaxValidator.cpp" "C:/Users/Mohamed Mashaal/Desktop/SIC Assembler/SIC-XE-Assembler/cmake-build-debug/CMakeFiles/SIC_XE_Assembler.dir/src/SyntaxValidator.cpp.obj"
+  "C:/Users/Mohamed Mashaal/Desktop/SIC Assembler/SIC-XE-Assembler/src/ValidatorUtilities.cpp" "C:/Users/Mohamed Mashaal/Desktop/SIC Assembler/SIC-XE-Assembler/cmake-build-debug/CMakeFiles/SIC_XE_Assembler.dir/src/ValidatorUtilities.cpp.obj"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

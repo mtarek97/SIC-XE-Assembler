@@ -12,10 +12,16 @@ add_executable(SIC_XE_Assembler
         include/SourceLine.h
         include/SourceProgram.h
         include/SymbolTable.h
+        include/SyntaxValidator.h
+        include/ValidatorUtilities.h
+        include/OpInfo.h
         src/AssemblyListing.cpp
         src/ObjectProgram.cpp
         src/OpCodeTable.cpp
         src/SourceLine.cpp
         src/SourceProgram.cpp
         src/SymbolTable.cpp
-        main.cpp include/OpInfo.h src/OpInfo.cpp)
+        src/SyntaxValidator.cpp
+        src/ValidatorUtilities.cpp
+        src/OpInfo.cpp
+        main.cpp )

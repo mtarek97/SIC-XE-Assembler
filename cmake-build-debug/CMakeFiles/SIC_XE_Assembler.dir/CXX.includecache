@@ -7,6 +7,10 @@
 #IncludeRegexTransform: 
 
 ../include/AssemblyListing.h
+SourceLine.h
+-
+bits/stdc++.h
+-
 
 ../include/ObjectProgram.h
 
@@ -23,13 +27,59 @@ string
 -
 
 ../include/SourceLine.h
+bits/stdc++.h
+-
 
 ../include/SourceProgram.h
+bits/stdc++.h
+-
+SourceLine.h
+-
+SymbolTable.h
+-
+AssemblyListing.h
+-
 
 ../include/SymbolTable.h
 string
 -
 map
+-
+
+../include/SyntaxValidator.h
+OpInfo.h
+../include/OpInfo.h
+OpCodeTable.h
+../include/OpCodeTable.h
+SourceLine.h
+../include/SourceLine.h
+string.h
+-
+vector
+-
+string
+-
+ValidatorUtilities.h
+../include/ValidatorUtilities.h
+
+../include/ValidatorUtilities.h
+OpInfo.h
+../include/OpInfo.h
+OpCodeTable.h
+../include/OpCodeTable.h
+SourceLine.h
+../include/SourceLine.h
+string.h
+-
+vector
+-
+string
+-
+algorithm
+-
+ctype.h
+-
+sstream
 -
 
 C:/Users/Mohamed Mashaal/Desktop/SIC Assembler/SIC-XE-Assembler/main.cpp
@@ -39,10 +89,26 @@ SymbolTable.h
 C:/Users/Mohamed Mashaal/Desktop/SIC Assembler/SIC-XE-Assembler/SymbolTable.h
 OpCodeTable.h
 C:/Users/Mohamed Mashaal/Desktop/SIC Assembler/SIC-XE-Assembler/OpCodeTable.h
+SourceLine.h
+C:/Users/Mohamed Mashaal/Desktop/SIC Assembler/SIC-XE-Assembler/SourceLine.h
+SyntaxValidator.h
+C:/Users/Mohamed Mashaal/Desktop/SIC Assembler/SIC-XE-Assembler/SyntaxValidator.h
+SourceProgram.h
+-
 
 C:/Users/Mohamed Mashaal/Desktop/SIC Assembler/SIC-XE-Assembler/src/AssemblyListing.cpp
+bits/stdc++.h
+-
 AssemblyListing.h
 C:/Users/Mohamed Mashaal/Desktop/SIC Assembler/SIC-XE-Assembler/src/AssemblyListing.h
+SourceLine.h
+-
+string
+-
+fstream
+-
+iostream
+-
 
 C:/Users/Mohamed Mashaal/Desktop/SIC Assembler/SIC-XE-Assembler/src/ObjectProgram.cpp
 ObjectProgram.h
@@ -65,10 +131,30 @@ SourceLine.h
 C:/Users/Mohamed Mashaal/Desktop/SIC Assembler/SIC-XE-Assembler/src/SourceLine.h
 
 C:/Users/Mohamed Mashaal/Desktop/SIC Assembler/SIC-XE-Assembler/src/SourceProgram.cpp
+bits/stdc++.h
+-
 SourceProgram.h
-C:/Users/Mohamed Mashaal/Desktop/SIC Assembler/SIC-XE-Assembler/src/SourceProgram.h
+-
+SourceLine.h
+-
+OpCodeTable.h
+-
+SyntaxValidator.h
+-
+AssemblyListing.h
+-
+SymbolTable.h
+-
 
 C:/Users/Mohamed Mashaal/Desktop/SIC Assembler/SIC-XE-Assembler/src/SymbolTable.cpp
 SymbolTable.h
 C:/Users/Mohamed Mashaal/Desktop/SIC Assembler/SIC-XE-Assembler/src/SymbolTable.h
+
+C:/Users/Mohamed Mashaal/Desktop/SIC Assembler/SIC-XE-Assembler/src/SyntaxValidator.cpp
+SyntaxValidator.h
+C:/Users/Mohamed Mashaal/Desktop/SIC Assembler/SIC-XE-Assembler/src/SyntaxValidator.h
+
+C:/Users/Mohamed Mashaal/Desktop/SIC Assembler/SIC-XE-Assembler/src/ValidatorUtilities.cpp
+ValidatorUtilities.h
+C:/Users/Mohamed Mashaal/Desktop/SIC Assembler/SIC-XE-Assembler/src/ValidatorUtilities.h
 

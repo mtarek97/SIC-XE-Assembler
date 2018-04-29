@@ -16,7 +16,7 @@ int main()
     cout << "var1 = " << symtab.search("var1") << endl;
     cout << "var2 = " << symtab.search("var2") << endl;
     cout << "var3 = " << symtab.search("var3") << endl;*/
-    /*SourceProgram sourceProgram;
+    SourceProgram sourceProgram;
     string l = "aaa.txt";
     sourceProgram.parse(&l[0]);
 
@@ -28,9 +28,9 @@ int main()
             cout<<"Found"<<endl;
 
     info = opTable->getInfo("MUL");
-    cout << info.getOpCode() << " " << info.getFormateBytes() << " " << info.getNumberOfOperands();*/
+    cout << info.getOpCode() << " " << info.getFormateBytes() << " " << info.getNumberOfOperands();
 
-    SourceLine srcLine;
+    /*SourceLine srcLine;
     srcLine.setLable("mah");
     srcLine.setOperation("MULR");
     srcLine.setOperand("R,X");
@@ -39,6 +39,6 @@ int main()
         cout << "valid source line" << endl;
     }else{
         cout << validator.getErrorMessage() << endl;
-    }
+    }*/
     return 0;
 }
