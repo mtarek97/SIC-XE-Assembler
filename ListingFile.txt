@@ -1,8 +1,50 @@
 Line    Loc            Source statement       
   0             ..2345678901234567890 
-  1     00000    FIRST     START     0         
-  2     00000              RSUB                
+  1     00000              START     0         
+  2     00000              +JSUB     WRREC     
+  3     00004              J         CLOOP     
+  4     00007    ENDFIL    LDA       EOF       
+  5     0000a              STA       BUFFER    
+  6     0000d              LDA       #3        
+  7     00010              STA       LENGTH    
+  8     00013              +JSUB     WRREC     
+  9     00017              J         @RETADR   
+ 10     0001a    EOF       BYTE      C'EOF'    
+ 11     0001d    RETADR    RESW      1         
+ 12     00020    LENGTH    RESW      1         
+ 13     00023    BUFFER    RESB      4096      
+ 14             .. 
+ 15             .. SUBROUTINE TO READ RECORD INTO BUFFER 
+ 16             .. 
+ 17     01023    RDREC     CLEAR     X         
+ 18     01025              CLEAR     A         
+ 19     01027              CLEAR     S         
+ 20     01029              +LDT      #4096     
+ 21     0102d    RLOOP     TD        INPUT     
+ 22     01030              JEQ       RLOOP     
+ 23     01033              RD        INPUT     
+ 24     01036              COMPR     A,S       
+ 25     01038              JEQ       EXIT      
+ 26     0103b              STCH      BUFFER,X  
+ 27     0103e              TIXR      T         
+ 28     01040              JLT       RLOOP     
+ 29     01043    EXIT      STX       LENGTH    
+ 30     01046              RSUB                
                 number of operands must be 1
-  3     00000    INPUT     BYTE      X'F1'     
-  4     00001              END       FIRST     
+ 31     01046    INPUT     BYTE      X'F1'     
+ 32             .. 
+ 33             .. SUBROUTINE TO WRITE RECORD FROM BUFFER 
+ 34             .. 
+ 35     01047    WRREC     CLEAR     X         
+ 36     01049              LDT       LENGTH    
+ 37     0104c    WLOOP     TD        OUTPUT    
+ 38     0104f              JEQ       WLOOP     
+ 39     01052              LDCH      BUFFER,X  
+ 40     01055              WD        OUTPUT    
+ 41     01058              TIXR      T         
+ 42     0105a              JLT       WLOOP     
+ 43     0105d              RSUB                
+                number of operands must be 1
+ 44     0105d    OUTPUT    BYTE      X'05'     
+ 45     0105e              END       FIRST     
                 operand must be a hexadecimal constant (up to 4 digits)
