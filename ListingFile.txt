@@ -1,8 +1,8 @@
 Line    Loc            Source statement       
   0             ..2345678901234567890 
-  1     0    FIRST               START               0                   
-  2     0                        RSUB                                    
-number of operands must be 1
-  3     0    INPUT               BYTE                X'F1'               
-  4     1                        END                 FIRST               
-operand must be a hexadecimal constant (up to 4 digits)
+  1     00000    FIRST     START     0         
+  2     00000              RSUB                
+                number of operands must be 1
+  3     00000    INPUT     BYTE      X'F1'     
+  4     00001              END       FIRST     
+                operand must be a hexadecimal constant (up to 4 digits)

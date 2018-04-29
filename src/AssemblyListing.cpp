@@ -31,17 +31,22 @@ void AssemblyListing::write(SourceLine sourceLine, string locationCounter, strin
         line = line +"        ."+sourceLine.getComment()+"\n";
         //cout<<sourceLine.getComment()<<endl;
     } else {
+        string zeros ="";
+        for(i = 0; i < 5 -locationCounter.length(); i++){
+            zeros = zeros + "0";
+        }
+        locationCounter = zeros + locationCounter;
         line = line +locationCounter + "    "+sourceLine.getLable();
-        for(i = 0; i < 20-sourceLine.getLable().length();i++){
+        for(i = 0; i < 10-sourceLine.getLable().length();i++){
             line = line +" ";
         }
 
         line = line + sourceLine.getOperation();
-        for(i = 0; i < 20-sourceLine.getOperation().length();i++){
+        for(i = 0; i < 10-sourceLine.getOperation().length();i++){
             line = line +" ";
         }
         line = line + sourceLine.getOperand();
-        for(i = 0; i < 20-sourceLine.getOperand().length();i++){
+        for(i = 0; i < 10-sourceLine.getOperand().length();i++){
             line = line +" ";
         }
         line = line + sourceLine.getComment()+"\n";
@@ -50,7 +55,7 @@ void AssemblyListing::write(SourceLine sourceLine, string locationCounter, strin
 
       //  cout<<sourceLine.getLable()<<"  "<<sourceLine.getOperation()<<" "<<sourceLine.getOperand()<<"   "<<sourceLine.getComment()<<"   "<<locationCounter<<endl;
         if(error != ""){
-            line = line + error +"\n";
+            line = line +"                "+ error +"\n";
             //cout<<error<<endl;
         }
     }
