@@ -11,7 +11,9 @@ OpCodeTable* OpCodeTable::uniqueInstance = 0;
 OpCodeTable::OpCodeTable()
 {
     ifstream infile;
-    infile.open (this->filePath);
+    //infile.open (this->filePath);
+    infile.open ("opTable.txt");
+
     string operationKey, opCode;
     int formatBytes, operands;
     while(infile >> operationKey >> opCode >> formatBytes >> operands){
