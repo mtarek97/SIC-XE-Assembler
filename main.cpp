@@ -16,10 +16,7 @@ int main()
     cout << "var1 = " << symtab.search("var1") << endl;
     cout << "var2 = " << symtab.search("var2") << endl;
     cout << "var3 = " << symtab.search("var3") << endl;*/
-    SourceProgram sourceProgram;
-    string l = "aaa.txt";
-    sourceProgram.parse(&l[0]);
-
+    /*
     OpCodeTable* opTable = OpCodeTable::getOpTable();
     OpInfo info =  opTable->getInfo("START");
     if(info.getOpCode()== info.NOT_FOUND)
@@ -28,17 +25,21 @@ int main()
             cout<<"Found"<<endl;
 
     info = opTable->getInfo("MUL");
-    cout << info.getOpCode() << " " << info.getFormateBytes() << " " << info.getNumberOfOperands();
+    cout << info.getOpCode() << " " << info.getFormateBytes() << " " << info.getNumberOfOperands();*/
 
-    /*SourceLine srcLine;
+    SourceLine srcLine;
     srcLine.setLable("");
-    srcLine.setOperation("MUL");
-    srcLine.setOperand("");
+    srcLine.setOperation("BYTE");
+    srcLine.setOperand("C'shazly   ya rb'");
     SyntaxValidator validator;
     if(validator.isValid(srcLine)){
         cout << "valid source line" << endl;
     }else{
         cout << validator.getErrorMessage() << endl;
-    }*/
+    }
+    SourceProgram sourceProgram;
+    string l = "aaa.txt";
+    sourceProgram.parse(&l[0]);
+
     return 0;
 }

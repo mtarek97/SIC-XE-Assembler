@@ -13,7 +13,7 @@ class SourceProgram
         SourceProgram();
         void parse(char* fileName);
     private:
-        SourceLine identifier(vector<string> sourceLine);
+        SourceLine identifier(vector<string> sourceLine, string psrser);
         int locationCounter=0;
         bool isComment(vector<string> sourceLine);
         vector<string> getWords(string parser);
@@ -24,6 +24,7 @@ class SourceProgram
         void detectStart(SourceLine sourceLine);
         void updateLocationCounter(SourceLine sourceLine);
         AssemblyListing assemblyListing;
+        SourceLine handleByte(SourceLine sourceLine, vector<string> line, int index);
 
 };
 

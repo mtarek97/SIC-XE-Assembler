@@ -1,21 +1,21 @@
 Line    Loc            Source statement       
-  0     0    progr1    start     0010      
+  0     0    progr1              start               0010                
 start is invalid operation
-  1     0              LdA       Z         
+  1     0                        LdA                 Z                   
 LdA is invalid operation
-  2     3              SUB       Y         
-  3     6              STA       BETA      
+  2     0                        SUB                 Y                   
+  3     3                        STA                 BETA                
   4             ..kkkkkkkkkkkkkkkkkkkkkkkkk 
-  5     9              LDA       V         
-  6     c              ADD       W         
-  7     f              DIV       BETA      thsrthsrthrth thsthsth hsethseth thseths 
-  8     12              STA       E         
-  9     12              J         *         
+  5     6                        LDA                 V                   
+  6     9                        ADD                 W                   
+  7     c                        DIV                 BETA                thsrthsrthrth thsthsth hsethseth thseths 
+  8     f                        STA                 E                   
+  9     12                        J                   *                   
 * is invalid operand
- 10     15    Z         WORD      9         
- 11     18    Y         WORD      4         
- 12     21    BETA      RESW      3         
- 13     24    V         WORD      5         
- 14     27    E         RESW      1         
- 15     27    END       P                   
-label can't be a reserved keyword
+ 10     12    Z                   WORD                9                   
+ 11     15    Y                   WORD                4                   
+ 12     18    BETA                RESW                3                   
+ 13     21    V                   BYTE                C'shazly ya rab'    
+operand must be a character string or hexadecimal constant
+ 14     21    E                   RESW                1                   
+ 15     24                        END                                     

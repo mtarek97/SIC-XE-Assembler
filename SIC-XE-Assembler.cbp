@@ -13,6 +13,7 @@
 				<Option compiler="gcc" />
 				<Compiler>
 					<Add option="-g" />
+					<Add directory="include" />
 				</Compiler>
 			</Target>
 			<Target title="Release">
@@ -22,6 +23,7 @@
 				<Option compiler="gcc" />
 				<Compiler>
 					<Add option="-O2" />
+					<Add directory="include" />
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
@@ -32,7 +34,25 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="include/AssemblyListing.h" />
+		<Unit filename="include/ObjectProgram.h" />
+		<Unit filename="include/OpCodeTable.h" />
+		<Unit filename="include/OpInfo.h" />
+		<Unit filename="include/SourceLine.h" />
+		<Unit filename="include/SourceProgram.h" />
+		<Unit filename="include/SymbolTable.h" />
+		<Unit filename="include/SyntaxValidator.h" />
+		<Unit filename="include/ValidatorUtilities.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="src/AssemblyListing.cpp" />
+		<Unit filename="src/ObjectProgram.cpp" />
+		<Unit filename="src/OpCodeTable.cpp" />
+		<Unit filename="src/OpInfo.cpp" />
+		<Unit filename="src/SourceLine.cpp" />
+		<Unit filename="src/SourceProgram.cpp" />
+		<Unit filename="src/SymbolTable.cpp" />
+		<Unit filename="src/SyntaxValidator.cpp" />
+		<Unit filename="src/ValidatorUtilities.cpp" />
 		<Extensions>
 			<code_completion />
 			<envvars />

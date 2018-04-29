@@ -5,6 +5,7 @@
 #include<SyntaxValidator.h>
 #include<AssemblyListing.h>
 #include<SymbolTable.h>
+#include<ValidatorUtilities.h>
 
 
 SourceProgram::SourceProgram()
@@ -25,7 +26,7 @@ void SourceProgram::parse(char* fileName)
     SourceLine sourceLine;
     getline(cin, parser);
     line = getWords(parser);
-    sourceLine = identifier(line);
+    sourceLine = identifier(line, parser);
     detectStart(sourceLine);
     while(!stop)
     {
@@ -45,7 +46,7 @@ void SourceProgram::parse(char* fileName)
         SourceLine sourceLine;
         if(!isComment(line))
         {
-            sourceLine = identifier(line);
+            sourceLine = identifier(line, parser);
             updateLocationCounter(sourceLine);
         }
         else  // Comment Line
@@ -72,7 +73,7 @@ string SourceProgram::getUpper(string word)
     return upperForm;
 
 }
-SourceLine SourceProgram::identifier(vector<string> line)
+SourceLine SourceProgram::identifier(vector<string> line, string parser)
 {
 
     int index = 0;
@@ -82,10 +83,19 @@ SourceLine SourceProgram::identifier(vector<string> line)
     OpInfo opinfo = opCodeTable->getInfo(upperForm);
     if(opinfo.getOpCode() == "11" && direcive.count(upperForm) == 0)
     {
+        if(getUpper(line[index]) != "END")
         sourceLine.setLable(line[index]);
+        else
+            sourceLine.setOperation(line[index]);
         index++;
     }
-    sourceLine.setOperation(line[index++]);
+    if(index != line.size()){
+        sourceLine.setOperation(line[index++]);
+     if(getUpper(sourceLine.getOperation())=="BYTE"){
+       return handleByte(sourceLine, line, index);
+     }
+
+    }
     if(index != line.size())
         sourceLine.setOperand(line[index++]);
 
@@ -171,6 +181,7 @@ void SourceProgram::updateLocationCounter(SourceLine sourceLine)
         }
         OpCodeTable* opCodeTable = OpCodeTable::getOpTable();
         OpInfo opinfo = opCodeTable->getInfo(getUpper(sourceLine.getOperation()));
+        write(sourceLine, error);
 
         if(opinfo.getOpCode() != "11")
         {
@@ -185,10 +196,15 @@ void SourceProgram::updateLocationCounter(SourceLine sourceLine)
         {
             string operation = getUpper(sourceLine.getOperation());
             if(operation == "WORD") {
-                locationCounter+=3;
+
+               int numberOfWords = ValidatorUtilities::split(sourceLine.getOperand(), ',').size();
+                locationCounter=locationCounter + 3 * numberOfWords;
             }
             else if(operation == "BYTE") {
-                locationCounter = locationCounter + (sourceLine.getOperand().length());
+                if(sourceLine.getOperand()[0]=='C')
+                  locationCounter = locationCounter + (sourceLine.getOperand().length()) - 3;
+                else
+                  locationCounter = locationCounter + ((sourceLine.getOperand().length() - 3 + 1 )/2);
             }
             else if(operation == "RESB") {
              locationCounter = locationCounter + stoi(sourceLine.getOperand());
@@ -198,11 +214,40 @@ void SourceProgram::updateLocationCounter(SourceLine sourceLine)
              locationCounter = locationCounter + 3 * stoi(sourceLine.getOperand());
             }
         }
-        write(sourceLine, error);
     }
     else
     {
         write(sourceLine, syntaxValidator.getErrorMessage());
 
     }
+}
+SourceLine SourceProgram::handleByte(SourceLine sourceLine, vector<string> line, int index){
+    string operand = "";
+    int numberOfQuots = 0;
+    int i;
+    for(i = index; i < line.size(); i++) {
+            operand+=line[i] + " ";
+        if(count(line[i].begin(), line[i].end(), '\'') == 2){
+          i++;
+          break;
+        }
+        if(count(line[i].begin(), line[i].end(), '\'') == 1){
+            numberOfQuots++;
+            if(numberOfQuots == 2){
+                i++;
+                break;
+            }
+        }
+    }
+
+    sourceLine.setOperand(operand);
+    string comment = "";
+    while(i < line.size())
+    {
+        comment += line[i++]+" ";
+    }
+    sourceLine.setComment(comment);
+    return sourceLine;
+
+
 }
