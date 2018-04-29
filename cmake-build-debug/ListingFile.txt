@@ -4,57 +4,55 @@ Line    Loc            Source statement
 You wirte START operation more than one time
   2     0    FIRST               STL                 RETADR              
   3     3                        LDB                 #LENGTH             
-  4     6    BASE                LENGTH                                  
-LENGTH is invalid operation
-  5     6    CLOOP               +JSUB               RDREC               
-  6     6                        LDA                 LENGTH              
-  7     9                        COMP                #0                  
-  8     c                        JEQ                 ENDFIL              
-  9     f    +JSUB               WRREC                                   
+  4     6    CLOOP               +JSUB               RDREC               
+  5     6                        LDA                 LENGTH              
+  6     9                        COMP                #0                  
+  7     c                        JEQ                 ENDFIL              
+  8     f    +JSUB               WRREC                                   
 +JSUB is invalid. label must start with a letter and consist of letters, numbers, or '_'
- 10     f                        J                   CLOOP               
- 11     12    ENDFIL              LDA                 EOF                 
- 12     15                        STA                 BUFFER              
- 13     18                        LDA                 #3                  
- 14     1b                        STA                 LENGTH              
- 15     1e    +JSUB               WRREC                                   
+  9     f                        J                   CLOOP               
+ 10     12    ENDFIL              LDA                 EOF                 
+ 11     15                        STA                 BUFFER              
+ 12     18                        LDA                 #3                  
+ 13     1b                        STA                 LENGTH              
+ 14     1e    +JSUB               WRREC                                   
 +JSUB is invalid. label must start with a letter and consist of letters, numbers, or '_'
- 16     1e                        J                   @RETADR             
- 17     21    EOF                 BYTE                C'EOF'              
- 18     24    RETADR              RESW                1                   
- 19     27    LENGTH              RESW                1                   
- 20     2a    BUFFER              RESB                4096                
- 21             .. 
- 22             .. SUBROUTINE TO READ RECORD INTO BUFFER 
- 23             .. 
- 24     102a    RDREC               CLEAR               X                   
- 25     102c                        CLEAR               A                   
- 26     102e                        CLEAR               S                   
- 27     1030    +LDT                #4096                                   
+ 15     1e                        J                   @RETADR             
+ 16     21    EOF                 BYTE                C'EOF'              
+ 17     24    RETADR              RESW                1                   
+ 18     27    LENGTH              RESW                1                   
+ 19     2a    BUFFER              RESB                4096                
+ 20             .. 
+ 21             .. SUBROUTINE TO READ RECORD INTO BUFFER 
+ 22             .. 
+ 23     102a    RDREC               CLEAR               X                   
+ 24     102c                        CLEAR               A                   
+ 25     102e                        CLEAR               S                   
+ 26     1030    +LDT                #4096                                   
 +LDT is invalid. label must start with a letter and consist of letters, numbers, or '_'
- 28     1030    RLOOP               TD                  INPUT               
- 29     1033                        JEQ                 RLOOP               
- 30     1036                        RD                  INPUT               
- 31     1039                        COMPR               A,S                 
- 32     103b                        JEQ                 EXIT                
- 33     103e                        STCH                BUFFER,X            
- 34     1041                        TIXR                T                   
- 35     1043                        JLT                 RLOOP               
- 36     1046    EXIT                STX                 LENGTH              
- 37             .
- 38     1049    INPUT               BYTE                X'F1'               
- 39             .. 
- 40             .. SUBROUTINE TO WRITE RECORD FROM BUFFER 
- 41             .. 
- 42     104a    WRREC               CLEAR               X                   
- 43     104c                        LDT                 LENGTH              
- 44     104f    WLOOP               TD                  OUTPUT              
- 45     1052                        JEQ                 WLOOP               
- 46     1055                        LDCH                BUFFER,X            
- 47     1058                        WD                  OUTPUT              
- 48     105b                        TIXR                T                   
- 49     105d                        JLT                 WLOOP               
- 50             .
- 51     1060    OUTPUT              BYTE                X'05'               
- 52     1061                        FIRST                                   
+ 27     1030    RLOOP               TD                  INPUT               
+ 28     1033                        JEQ                 RLOOP               
+ 29     1036                        RD                  INPUT               
+ 30     1039                        COMPR               A,S                 
+ 31     103b                        JEQ                 EXIT                
+ 32     103e                        STCH                BUFFER,X            
+ 33     1041                        TIXR                T                   
+ 34     1043                        JLT                 RLOOP               
+ 35     1046    EXIT                STX                 LENGTH              
+ 36             .
+ 37     1049    INPUT               BYTE                X'F1'               
+ 38             .. 
+ 39             .. SUBROUTINE TO WRITE RECORD FROM BUFFER 
+ 40             .. 
+ 41     104a    WRREC               CLEAR               X                   
+ 42     104c                        LDT                 LENGTH              
+ 43     104f    WLOOP               TD                  OUTPUT              
+ 44     1052                        JEQ                 WLOOP               
+ 45     1055                        LDCH                BUFFER,X            
+ 46     1058                        WD                  OUTPUT              
+ 47     105b                        TIXR                T                   
+ 48     105d                        JLT                 WLOOP               
+ 49             .
+ 50     1060    OUTPUT              BYTE                X'05'               
+ 51     1061                        FIRST                                   
 FIRST is invalid operation
