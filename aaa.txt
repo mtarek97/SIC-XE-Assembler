@@ -18,4 +18,5 @@ Y              WORD    4
 BETA              RESW    3  wgwg wgw wgwg
 V           BYTE	C'shazly ya rab' wgwegwef wewegw
 E                   RESW    1
+ww5                 resw                c'asdas             '' 
             END

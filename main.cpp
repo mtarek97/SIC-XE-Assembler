@@ -49,7 +49,7 @@ int main()
     //SourceProgram sourceProgram;
     //}
     SourceProgram sourceProgram;
-    string l = "aaa.txt";
+    string l = "aaaa.txt";
     sourceProgram.parse(&l[0]);
     return 0;
 }
