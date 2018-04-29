@@ -178,15 +178,17 @@ void SourceProgram::updateLocationCounter(SourceLine sourceLine)
         OpCodeTable* opCodeTable = OpCodeTable::getOpTable();
         OpInfo opinfo = opCodeTable->getInfo(getUpper(sourceLine.getOperation()));
         write(sourceLine, error);
-
         if(opinfo.getOpCode() != "11")
         {
             locationCounter+=opinfo.getFormateBytes();
-
-            if(sourceLine.getOperation()[0] == '+')
-            {
-                locationCounter++;
-            }
+        }
+        else if(sourceLine.getOperation()[0] == '+')
+        {
+        string withOutPlus = sourceLine.getOperation();
+        withOutPlus.erase(withOutPlus.begin());
+        if(opCodeTable->getInfo(getUpper(withOutPlus)).getOpCode() != opinfo.NOT_FOUND){
+                locationCounter+=4;
+        }
         }
         else
         {
@@ -214,7 +216,6 @@ void SourceProgram::updateLocationCounter(SourceLine sourceLine)
     else
     {
         write(sourceLine, syntaxValidator.getErrorMessage());
-
     }
 }
 SourceLine SourceProgram::handleByte(SourceLine sourceLine, vector<string> line, int index, string subject){
