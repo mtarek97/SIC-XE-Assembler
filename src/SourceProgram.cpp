@@ -14,10 +14,13 @@ SourceProgram::SourceProgram()
 void SourceProgram::parse(char* fileName)
 {
     freopen(fileName, "r", stdin);
+    direcive.insert("START");
+    direcive.insert("END");
     direcive.insert("BYTE");
     direcive.insert("RESB");
     direcive.insert("RESW");
     direcive.insert("WORD");
+
     string parser, word;
     bool stop = false;
     this->locationCounter=0;
@@ -27,8 +30,6 @@ void SourceProgram::parse(char* fileName)
         string word;
         line.clear();
         stringstream strem(parser);
-
-
         line = getWords(parser);
 //   We Collect all words in vector called line
 
@@ -38,6 +39,7 @@ void SourceProgram::parse(char* fileName)
         {
             sourceLine = identifier(line, parser);
             updateLocationCounter(sourceLine);
+            lineNumber++;
         }
         else  // Comment Line
         {
@@ -53,7 +55,6 @@ void SourceProgram::parse(char* fileName)
             sourceLine.setOperation("");
             write(sourceLine,"");
         }
-        lineNumber++;
     }
 
 }
@@ -70,15 +71,16 @@ SourceLine SourceProgram::identifier(vector<string> line, string parser)
     int index = 0;
     SourceLine sourceLine;
     OpCodeTable* opCodeTable = OpCodeTable::getOpTable();
+
     string upperForm =  getUpper(line[index]);
-    OpInfo opinfo = opCodeTable->getInfo(upperForm);
-    if(opinfo.getOpCode() == "11" && direcive.count(upperForm) == 0)
+    OpInfo opinfo =opCodeTable->getInfo(upperForm);
+    string s= upperForm;
+    s.erase(s.begin());
+   // cout<<s;
+    if(opinfo.getOpCode() == opinfo.NOT_FOUND && direcive.find(upperForm) == direcive.end() &&opCodeTable->getInfo(s).getOpCode() == opinfo.NOT_FOUND)
     {
-        cout<<line[index]<<"\n";
-        if(getUpper(line[index]) != "END")
+        cout<<line[index]<<line[index].length()<<"\n";
         sourceLine.setLable(line[index++]);
-        else
-            sourceLine.setOperation(line[index++]);
     }
     if(index != line.size()){
         sourceLine.setOperation(line[index++]);
@@ -157,6 +159,7 @@ void SourceProgram::updateLocationCounter(SourceLine sourceLine)
             start++;
             if(start == 1 && lineNumber == 0){
                 detectStart(sourceLine);
+                return;
             }
             else
             error = "You wirte START operation more than one time";
@@ -219,13 +222,11 @@ SourceLine SourceProgram::handleByte(SourceLine sourceLine, vector<string> line,
     string comment="";
     std::regex pattern("C'.*'|\\w+");
     for (auto i = std::sregex_iterator(subject.begin(), subject.end(), pattern); i != std::sregex_iterator(); ++i) {
-   // cout<<i->str()<<"\n";
      if(i->str()[0] == 'C') {
         operand = i->str();
         i++;
         for (; i != std::sregex_iterator(); i++)
           comment += i->str()+" ";
-
         break;
 
         }
