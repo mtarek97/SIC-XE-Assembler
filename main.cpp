@@ -27,10 +27,17 @@ int main()
     info = opTable->getInfo("MUL");
     cout << info.getOpCode() << " " << info.getFormateBytes() << " " << info.getNumberOfOperands();*/
 
+<<<<<<< HEAD
     SourceLine srcLine;
     srcLine.setLable("");
     srcLine.setOperation("BYTE");
     srcLine.setOperand("C'shazly   ya rb'");
+=======
+    /*SourceLine srcLine;
+    srcLine.setLable("mah");
+    srcLine.setOperation("MULR");
+    srcLine.setOperand("R,X");
+>>>>>>> 7b9a8dd12842e60c59b37ee55f75b9375cad3ab5
     SyntaxValidator validator;
     if(validator.isValid(srcLine)){
         cout << "valid source line" << endl;

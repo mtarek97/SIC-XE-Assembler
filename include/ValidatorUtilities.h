@@ -1,5 +1,6 @@
 #include "OpInfo.h"
 #include "OpCodeTable.h"
+#include "SourceLine.h"
 #include <string.h>
 #include <vector>
 #include <string>
@@ -21,6 +22,7 @@ class ValidatorUtilities
         static bool isRegister(std::string str);
         static bool isDirective(std::string str);
         static std::vector<std::string> split(std::string str, char delimiter);
+        static SourceLine toUpperCase(SourceLine srcLine);
 
     private:
         ValidatorUtilities();

@@ -206,35 +206,60 @@ CMakeFiles/SIC_XE_Assembler.dir/src/SymbolTable.cpp.obj.provides: CMakeFiles/SIC
 CMakeFiles/SIC_XE_Assembler.dir/src/SymbolTable.cpp.obj.provides.build: CMakeFiles/SIC_XE_Assembler.dir/src/SymbolTable.cpp.obj
 
 
-CMakeFiles/SIC_XE_Assembler.dir/main.cpp.obj: CMakeFiles/SIC_XE_Assembler.dir/flags.make
-CMakeFiles/SIC_XE_Assembler.dir/main.cpp.obj: CMakeFiles/SIC_XE_Assembler.dir/includes_CXX.rsp
-CMakeFiles/SIC_XE_Assembler.dir/main.cpp.obj: ../main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\Mohamed Mashaal\Desktop\SIC Assembler\SIC-XE-Assembler\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/SIC_XE_Assembler.dir/main.cpp.obj"
-	C:\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\SIC_XE_Assembler.dir\main.cpp.obj -c "C:\Users\Mohamed Mashaal\Desktop\SIC Assembler\SIC-XE-Assembler\main.cpp"
+CMakeFiles/SIC_XE_Assembler.dir/src/SyntaxValidator.cpp.obj: CMakeFiles/SIC_XE_Assembler.dir/flags.make
+CMakeFiles/SIC_XE_Assembler.dir/src/SyntaxValidator.cpp.obj: CMakeFiles/SIC_XE_Assembler.dir/includes_CXX.rsp
+CMakeFiles/SIC_XE_Assembler.dir/src/SyntaxValidator.cpp.obj: ../src/SyntaxValidator.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\Mohamed Mashaal\Desktop\SIC Assembler\SIC-XE-Assembler\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/SIC_XE_Assembler.dir/src/SyntaxValidator.cpp.obj"
+	C:\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\SIC_XE_Assembler.dir\src\SyntaxValidator.cpp.obj -c "C:\Users\Mohamed Mashaal\Desktop\SIC Assembler\SIC-XE-Assembler\src\SyntaxValidator.cpp"
 
-CMakeFiles/SIC_XE_Assembler.dir/main.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/SIC_XE_Assembler.dir/main.cpp.i"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\Mohamed Mashaal\Desktop\SIC Assembler\SIC-XE-Assembler\main.cpp" > CMakeFiles\SIC_XE_Assembler.dir\main.cpp.i
+CMakeFiles/SIC_XE_Assembler.dir/src/SyntaxValidator.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/SIC_XE_Assembler.dir/src/SyntaxValidator.cpp.i"
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\Mohamed Mashaal\Desktop\SIC Assembler\SIC-XE-Assembler\src\SyntaxValidator.cpp" > CMakeFiles\SIC_XE_Assembler.dir\src\SyntaxValidator.cpp.i
 
-CMakeFiles/SIC_XE_Assembler.dir/main.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/SIC_XE_Assembler.dir/main.cpp.s"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\Mohamed Mashaal\Desktop\SIC Assembler\SIC-XE-Assembler\main.cpp" -o CMakeFiles\SIC_XE_Assembler.dir\main.cpp.s
+CMakeFiles/SIC_XE_Assembler.dir/src/SyntaxValidator.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/SIC_XE_Assembler.dir/src/SyntaxValidator.cpp.s"
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\Mohamed Mashaal\Desktop\SIC Assembler\SIC-XE-Assembler\src\SyntaxValidator.cpp" -o CMakeFiles\SIC_XE_Assembler.dir\src\SyntaxValidator.cpp.s
 
-CMakeFiles/SIC_XE_Assembler.dir/main.cpp.obj.requires:
+CMakeFiles/SIC_XE_Assembler.dir/src/SyntaxValidator.cpp.obj.requires:
 
-.PHONY : CMakeFiles/SIC_XE_Assembler.dir/main.cpp.obj.requires
+.PHONY : CMakeFiles/SIC_XE_Assembler.dir/src/SyntaxValidator.cpp.obj.requires
 
-CMakeFiles/SIC_XE_Assembler.dir/main.cpp.obj.provides: CMakeFiles/SIC_XE_Assembler.dir/main.cpp.obj.requires
-	$(MAKE) -f CMakeFiles\SIC_XE_Assembler.dir\build.make CMakeFiles/SIC_XE_Assembler.dir/main.cpp.obj.provides.build
-.PHONY : CMakeFiles/SIC_XE_Assembler.dir/main.cpp.obj.provides
+CMakeFiles/SIC_XE_Assembler.dir/src/SyntaxValidator.cpp.obj.provides: CMakeFiles/SIC_XE_Assembler.dir/src/SyntaxValidator.cpp.obj.requires
+	$(MAKE) -f CMakeFiles\SIC_XE_Assembler.dir\build.make CMakeFiles/SIC_XE_Assembler.dir/src/SyntaxValidator.cpp.obj.provides.build
+.PHONY : CMakeFiles/SIC_XE_Assembler.dir/src/SyntaxValidator.cpp.obj.provides
 
-CMakeFiles/SIC_XE_Assembler.dir/main.cpp.obj.provides.build: CMakeFiles/SIC_XE_Assembler.dir/main.cpp.obj
+CMakeFiles/SIC_XE_Assembler.dir/src/SyntaxValidator.cpp.obj.provides.build: CMakeFiles/SIC_XE_Assembler.dir/src/SyntaxValidator.cpp.obj
+
+
+CMakeFiles/SIC_XE_Assembler.dir/src/ValidatorUtilities.cpp.obj: CMakeFiles/SIC_XE_Assembler.dir/flags.make
+CMakeFiles/SIC_XE_Assembler.dir/src/ValidatorUtilities.cpp.obj: CMakeFiles/SIC_XE_Assembler.dir/includes_CXX.rsp
+CMakeFiles/SIC_XE_Assembler.dir/src/ValidatorUtilities.cpp.obj: ../src/ValidatorUtilities.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\Mohamed Mashaal\Desktop\SIC Assembler\SIC-XE-Assembler\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/SIC_XE_Assembler.dir/src/ValidatorUtilities.cpp.obj"
+	C:\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\SIC_XE_Assembler.dir\src\ValidatorUtilities.cpp.obj -c "C:\Users\Mohamed Mashaal\Desktop\SIC Assembler\SIC-XE-Assembler\src\ValidatorUtilities.cpp"
+
+CMakeFiles/SIC_XE_Assembler.dir/src/ValidatorUtilities.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/SIC_XE_Assembler.dir/src/ValidatorUtilities.cpp.i"
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\Mohamed Mashaal\Desktop\SIC Assembler\SIC-XE-Assembler\src\ValidatorUtilities.cpp" > CMakeFiles\SIC_XE_Assembler.dir\src\ValidatorUtilities.cpp.i
+
+CMakeFiles/SIC_XE_Assembler.dir/src/ValidatorUtilities.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/SIC_XE_Assembler.dir/src/ValidatorUtilities.cpp.s"
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\Mohamed Mashaal\Desktop\SIC Assembler\SIC-XE-Assembler\src\ValidatorUtilities.cpp" -o CMakeFiles\SIC_XE_Assembler.dir\src\ValidatorUtilities.cpp.s
+
+CMakeFiles/SIC_XE_Assembler.dir/src/ValidatorUtilities.cpp.obj.requires:
+
+.PHONY : CMakeFiles/SIC_XE_Assembler.dir/src/ValidatorUtilities.cpp.obj.requires
+
+CMakeFiles/SIC_XE_Assembler.dir/src/ValidatorUtilities.cpp.obj.provides: CMakeFiles/SIC_XE_Assembler.dir/src/ValidatorUtilities.cpp.obj.requires
+	$(MAKE) -f CMakeFiles\SIC_XE_Assembler.dir\build.make CMakeFiles/SIC_XE_Assembler.dir/src/ValidatorUtilities.cpp.obj.provides.build
+.PHONY : CMakeFiles/SIC_XE_Assembler.dir/src/ValidatorUtilities.cpp.obj.provides
+
+CMakeFiles/SIC_XE_Assembler.dir/src/ValidatorUtilities.cpp.obj.provides.build: CMakeFiles/SIC_XE_Assembler.dir/src/ValidatorUtilities.cpp.obj
 
 
 CMakeFiles/SIC_XE_Assembler.dir/src/OpInfo.cpp.obj: CMakeFiles/SIC_XE_Assembler.dir/flags.make
 CMakeFiles/SIC_XE_Assembler.dir/src/OpInfo.cpp.obj: CMakeFiles/SIC_XE_Assembler.dir/includes_CXX.rsp
 CMakeFiles/SIC_XE_Assembler.dir/src/OpInfo.cpp.obj: ../src/OpInfo.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\Mohamed Mashaal\Desktop\SIC Assembler\SIC-XE-Assembler\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/SIC_XE_Assembler.dir/src/OpInfo.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\Mohamed Mashaal\Desktop\SIC Assembler\SIC-XE-Assembler\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/SIC_XE_Assembler.dir/src/OpInfo.cpp.obj"
 	C:\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\SIC_XE_Assembler.dir\src\OpInfo.cpp.obj -c "C:\Users\Mohamed Mashaal\Desktop\SIC Assembler\SIC-XE-Assembler\src\OpInfo.cpp"
 
 CMakeFiles/SIC_XE_Assembler.dir/src/OpInfo.cpp.i: cmake_force
@@ -256,6 +281,31 @@ CMakeFiles/SIC_XE_Assembler.dir/src/OpInfo.cpp.obj.provides: CMakeFiles/SIC_XE_A
 CMakeFiles/SIC_XE_Assembler.dir/src/OpInfo.cpp.obj.provides.build: CMakeFiles/SIC_XE_Assembler.dir/src/OpInfo.cpp.obj
 
 
+CMakeFiles/SIC_XE_Assembler.dir/main.cpp.obj: CMakeFiles/SIC_XE_Assembler.dir/flags.make
+CMakeFiles/SIC_XE_Assembler.dir/main.cpp.obj: CMakeFiles/SIC_XE_Assembler.dir/includes_CXX.rsp
+CMakeFiles/SIC_XE_Assembler.dir/main.cpp.obj: ../main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\Mohamed Mashaal\Desktop\SIC Assembler\SIC-XE-Assembler\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/SIC_XE_Assembler.dir/main.cpp.obj"
+	C:\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\SIC_XE_Assembler.dir\main.cpp.obj -c "C:\Users\Mohamed Mashaal\Desktop\SIC Assembler\SIC-XE-Assembler\main.cpp"
+
+CMakeFiles/SIC_XE_Assembler.dir/main.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/SIC_XE_Assembler.dir/main.cpp.i"
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\Mohamed Mashaal\Desktop\SIC Assembler\SIC-XE-Assembler\main.cpp" > CMakeFiles\SIC_XE_Assembler.dir\main.cpp.i
+
+CMakeFiles/SIC_XE_Assembler.dir/main.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/SIC_XE_Assembler.dir/main.cpp.s"
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\Mohamed Mashaal\Desktop\SIC Assembler\SIC-XE-Assembler\main.cpp" -o CMakeFiles\SIC_XE_Assembler.dir\main.cpp.s
+
+CMakeFiles/SIC_XE_Assembler.dir/main.cpp.obj.requires:
+
+.PHONY : CMakeFiles/SIC_XE_Assembler.dir/main.cpp.obj.requires
+
+CMakeFiles/SIC_XE_Assembler.dir/main.cpp.obj.provides: CMakeFiles/SIC_XE_Assembler.dir/main.cpp.obj.requires
+	$(MAKE) -f CMakeFiles\SIC_XE_Assembler.dir\build.make CMakeFiles/SIC_XE_Assembler.dir/main.cpp.obj.provides.build
+.PHONY : CMakeFiles/SIC_XE_Assembler.dir/main.cpp.obj.provides
+
+CMakeFiles/SIC_XE_Assembler.dir/main.cpp.obj.provides.build: CMakeFiles/SIC_XE_Assembler.dir/main.cpp.obj
+
+
 # Object files for target SIC_XE_Assembler
 SIC_XE_Assembler_OBJECTS = \
 "CMakeFiles/SIC_XE_Assembler.dir/src/AssemblyListing.cpp.obj" \
@@ -264,8 +314,10 @@ SIC_XE_Assembler_OBJECTS = \
 "CMakeFiles/SIC_XE_Assembler.dir/src/SourceLine.cpp.obj" \
 "CMakeFiles/SIC_XE_Assembler.dir/src/SourceProgram.cpp.obj" \
 "CMakeFiles/SIC_XE_Assembler.dir/src/SymbolTable.cpp.obj" \
-"CMakeFiles/SIC_XE_Assembler.dir/main.cpp.obj" \
-"CMakeFiles/SIC_XE_Assembler.dir/src/OpInfo.cpp.obj"
+"CMakeFiles/SIC_XE_Assembler.dir/src/SyntaxValidator.cpp.obj" \
+"CMakeFiles/SIC_XE_Assembler.dir/src/ValidatorUtilities.cpp.obj" \
+"CMakeFiles/SIC_XE_Assembler.dir/src/OpInfo.cpp.obj" \
+"CMakeFiles/SIC_XE_Assembler.dir/main.cpp.obj"
 
 # External object files for target SIC_XE_Assembler
 SIC_XE_Assembler_EXTERNAL_OBJECTS =
@@ -276,13 +328,15 @@ SIC_XE_Assembler.exe: CMakeFiles/SIC_XE_Assembler.dir/src/OpCodeTable.cpp.obj
 SIC_XE_Assembler.exe: CMakeFiles/SIC_XE_Assembler.dir/src/SourceLine.cpp.obj
 SIC_XE_Assembler.exe: CMakeFiles/SIC_XE_Assembler.dir/src/SourceProgram.cpp.obj
 SIC_XE_Assembler.exe: CMakeFiles/SIC_XE_Assembler.dir/src/SymbolTable.cpp.obj
-SIC_XE_Assembler.exe: CMakeFiles/SIC_XE_Assembler.dir/main.cpp.obj
+SIC_XE_Assembler.exe: CMakeFiles/SIC_XE_Assembler.dir/src/SyntaxValidator.cpp.obj
+SIC_XE_Assembler.exe: CMakeFiles/SIC_XE_Assembler.dir/src/ValidatorUtilities.cpp.obj
 SIC_XE_Assembler.exe: CMakeFiles/SIC_XE_Assembler.dir/src/OpInfo.cpp.obj
+SIC_XE_Assembler.exe: CMakeFiles/SIC_XE_Assembler.dir/main.cpp.obj
 SIC_XE_Assembler.exe: CMakeFiles/SIC_XE_Assembler.dir/build.make
 SIC_XE_Assembler.exe: CMakeFiles/SIC_XE_Assembler.dir/linklibs.rsp
 SIC_XE_Assembler.exe: CMakeFiles/SIC_XE_Assembler.dir/objects1.rsp
 SIC_XE_Assembler.exe: CMakeFiles/SIC_XE_Assembler.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="C:\Users\Mohamed Mashaal\Desktop\SIC Assembler\SIC-XE-Assembler\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_9) "Linking CXX executable SIC_XE_Assembler.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="C:\Users\Mohamed Mashaal\Desktop\SIC Assembler\SIC-XE-Assembler\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_11) "Linking CXX executable SIC_XE_Assembler.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\SIC_XE_Assembler.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -296,8 +350,10 @@ CMakeFiles/SIC_XE_Assembler.dir/requires: CMakeFiles/SIC_XE_Assembler.dir/src/Op
 CMakeFiles/SIC_XE_Assembler.dir/requires: CMakeFiles/SIC_XE_Assembler.dir/src/SourceLine.cpp.obj.requires
 CMakeFiles/SIC_XE_Assembler.dir/requires: CMakeFiles/SIC_XE_Assembler.dir/src/SourceProgram.cpp.obj.requires
 CMakeFiles/SIC_XE_Assembler.dir/requires: CMakeFiles/SIC_XE_Assembler.dir/src/SymbolTable.cpp.obj.requires
-CMakeFiles/SIC_XE_Assembler.dir/requires: CMakeFiles/SIC_XE_Assembler.dir/main.cpp.obj.requires
+CMakeFiles/SIC_XE_Assembler.dir/requires: CMakeFiles/SIC_XE_Assembler.dir/src/SyntaxValidator.cpp.obj.requires
+CMakeFiles/SIC_XE_Assembler.dir/requires: CMakeFiles/SIC_XE_Assembler.dir/src/ValidatorUtilities.cpp.obj.requires
 CMakeFiles/SIC_XE_Assembler.dir/requires: CMakeFiles/SIC_XE_Assembler.dir/src/OpInfo.cpp.obj.requires
+CMakeFiles/SIC_XE_Assembler.dir/requires: CMakeFiles/SIC_XE_Assembler.dir/main.cpp.obj.requires
 
 .PHONY : CMakeFiles/SIC_XE_Assembler.dir/requires
 

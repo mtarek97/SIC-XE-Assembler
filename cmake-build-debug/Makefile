@@ -338,6 +338,60 @@ src/SymbolTable.cpp.s:
 	$(MAKE) -f CMakeFiles\SIC_XE_Assembler.dir\build.make CMakeFiles/SIC_XE_Assembler.dir/src/SymbolTable.cpp.s
 .PHONY : src/SymbolTable.cpp.s
 
+src/SyntaxValidator.obj: src/SyntaxValidator.cpp.obj
+
+.PHONY : src/SyntaxValidator.obj
+
+# target to build an object file
+src/SyntaxValidator.cpp.obj:
+	$(MAKE) -f CMakeFiles\SIC_XE_Assembler.dir\build.make CMakeFiles/SIC_XE_Assembler.dir/src/SyntaxValidator.cpp.obj
+.PHONY : src/SyntaxValidator.cpp.obj
+
+src/SyntaxValidator.i: src/SyntaxValidator.cpp.i
+
+.PHONY : src/SyntaxValidator.i
+
+# target to preprocess a source file
+src/SyntaxValidator.cpp.i:
+	$(MAKE) -f CMakeFiles\SIC_XE_Assembler.dir\build.make CMakeFiles/SIC_XE_Assembler.dir/src/SyntaxValidator.cpp.i
+.PHONY : src/SyntaxValidator.cpp.i
+
+src/SyntaxValidator.s: src/SyntaxValidator.cpp.s
+
+.PHONY : src/SyntaxValidator.s
+
+# target to generate assembly for a file
+src/SyntaxValidator.cpp.s:
+	$(MAKE) -f CMakeFiles\SIC_XE_Assembler.dir\build.make CMakeFiles/SIC_XE_Assembler.dir/src/SyntaxValidator.cpp.s
+.PHONY : src/SyntaxValidator.cpp.s
+
+src/ValidatorUtilities.obj: src/ValidatorUtilities.cpp.obj
+
+.PHONY : src/ValidatorUtilities.obj
+
+# target to build an object file
+src/ValidatorUtilities.cpp.obj:
+	$(MAKE) -f CMakeFiles\SIC_XE_Assembler.dir\build.make CMakeFiles/SIC_XE_Assembler.dir/src/ValidatorUtilities.cpp.obj
+.PHONY : src/ValidatorUtilities.cpp.obj
+
+src/ValidatorUtilities.i: src/ValidatorUtilities.cpp.i
+
+.PHONY : src/ValidatorUtilities.i
+
+# target to preprocess a source file
+src/ValidatorUtilities.cpp.i:
+	$(MAKE) -f CMakeFiles\SIC_XE_Assembler.dir\build.make CMakeFiles/SIC_XE_Assembler.dir/src/ValidatorUtilities.cpp.i
+.PHONY : src/ValidatorUtilities.cpp.i
+
+src/ValidatorUtilities.s: src/ValidatorUtilities.cpp.s
+
+.PHONY : src/ValidatorUtilities.s
+
+# target to generate assembly for a file
+src/ValidatorUtilities.cpp.s:
+	$(MAKE) -f CMakeFiles\SIC_XE_Assembler.dir\build.make CMakeFiles/SIC_XE_Assembler.dir/src/ValidatorUtilities.cpp.s
+.PHONY : src/ValidatorUtilities.cpp.s
+
 # Help Target
 help:
 	@echo The following are some of the valid targets for this Makefile:
@@ -371,6 +425,12 @@ help:
 	@echo ... src/SymbolTable.obj
 	@echo ... src/SymbolTable.i
 	@echo ... src/SymbolTable.s
+	@echo ... src/SyntaxValidator.obj
+	@echo ... src/SyntaxValidator.i
+	@echo ... src/SyntaxValidator.s
+	@echo ... src/ValidatorUtilities.obj
+	@echo ... src/ValidatorUtilities.i
+	@echo ... src/ValidatorUtilities.s
 .PHONY : help
 
 
