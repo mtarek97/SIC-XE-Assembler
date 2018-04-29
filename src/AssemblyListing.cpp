@@ -48,7 +48,7 @@ void AssemblyListing::write(SourceLine sourceLine, string locationCounter, strin
 
 
 
-        cout<<sourceLine.getLable()<<"  "<<sourceLine.getOperation()<<" "<<sourceLine.getOperand()<<"   "<<sourceLine.getComment()<<"   "<<locationCounter<<endl;
+      //  cout<<sourceLine.getLable()<<"  "<<sourceLine.getOperation()<<" "<<sourceLine.getOperand()<<"   "<<sourceLine.getComment()<<"   "<<locationCounter<<endl;
         if(error != ""){
             line = line + error +"\n";
             //cout<<error<<endl;

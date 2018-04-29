@@ -1,3 +1,9 @@
+<<<<<<< HEAD
+.1354844
+.1354844
+.1354844
+.1354844
+.1354844
 progr1                            START      0010
        LDA     Z
       SUB     Y
@@ -10,7 +16,11 @@ progr1                            START      0010
          J       *
    Z        WORD    9 
 Y              WORD    4
-BETA              RESW    3
-V           BYTE	C'shazly ya rab'
+BETA              RESW    3  wgwg wgw wgwg
+V           BYTE	C'shazly ya rab' wgwegwef wewegw
 E                   RESW    1
+ww5                 resw                c'asdas             '' 
             END
+=======
+ALPHA   WORD    1,2 ,3,
+>>>>>>> ed56a86e08d0615baad4abc7dcb380d7376140d3

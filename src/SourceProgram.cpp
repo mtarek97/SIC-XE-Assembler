@@ -18,27 +18,17 @@ void SourceProgram::parse(char* fileName)
     direcive.insert("RESB");
     direcive.insert("RESW");
     direcive.insert("WORD");
-
     string parser, word;
     bool stop = false;
     this->locationCounter=0;
     vector<string> line;
-    SourceLine sourceLine;
-    getline(cin, parser);
-    line = getWords(parser);
-    sourceLine = identifier(line, parser);
-    detectStart(sourceLine);
-    while(!stop)
+    while(getline(cin,parser))
     {
+        string word;
         line.clear();
-        getline(cin,parser);
         stringstream strem(parser);
 
-        if(!(strem>>word))
-        {
-            stop = true;  // END OF FILE
-            continue;
-        }
+
         line = getWords(parser);
 //   We Collect all words in vector called line
 
@@ -63,6 +53,7 @@ void SourceProgram::parse(char* fileName)
             sourceLine.setOperation("");
             write(sourceLine,"");
         }
+        lineNumber++;
     }
 
 }
@@ -83,16 +74,19 @@ SourceLine SourceProgram::identifier(vector<string> line, string parser)
     OpInfo opinfo = opCodeTable->getInfo(upperForm);
     if(opinfo.getOpCode() == "11" && direcive.count(upperForm) == 0)
     {
+        cout<<line[index]<<"\n";
         if(getUpper(line[index]) != "END")
-        sourceLine.setLable(line[index]);
+        sourceLine.setLable(line[index++]);
         else
-            sourceLine.setOperation(line[index]);
-        index++;
+            sourceLine.setOperation(line[index++]);
     }
     if(index != line.size()){
         sourceLine.setOperation(line[index++]);
      if(getUpper(sourceLine.getOperation())=="BYTE"){
-       return handleByte(sourceLine, line, index);
+        if(index != line.size()) {
+        if(line[index][0]=='C')
+          return handleByte(sourceLine, line, index, parser);
+     }
      }
 
     }
@@ -139,9 +133,7 @@ void SourceProgram::detectStart(SourceLine sourceLine)
 {
 
     SyntaxValidator syntaxValidator;
-    if(getUpper(sourceLine.getOperation()) == "START")
-    {
-        if(syntaxValidator.isValid(sourceLine))
+     if(syntaxValidator.isValid(sourceLine))
         {
             this->locationCounter = std::stoi(sourceLine.getOperand(), nullptr, 2);
             write(sourceLine, "");
@@ -151,11 +143,7 @@ void SourceProgram::detectStart(SourceLine sourceLine)
         {
             write(sourceLine, syntaxValidator.getErrorMessage());
         }
-    }
-    else
-    {
-        updateLocationCounter(sourceLine);
-    }
+
 }
 
 void SourceProgram::updateLocationCounter(SourceLine sourceLine)
@@ -166,6 +154,11 @@ void SourceProgram::updateLocationCounter(SourceLine sourceLine)
     {
         if(getUpper(sourceLine.getOperation()) == "START")
         {
+            start++;
+            if(start == 1 && lineNumber == 0){
+                detectStart(sourceLine);
+            }
+            else
             error = "You wirte START operation more than one time";
         }
 
@@ -221,33 +214,23 @@ void SourceProgram::updateLocationCounter(SourceLine sourceLine)
 
     }
 }
-SourceLine SourceProgram::handleByte(SourceLine sourceLine, vector<string> line, int index){
+SourceLine SourceProgram::handleByte(SourceLine sourceLine, vector<string> line, int index, string subject){
     string operand = "";
-    int numberOfQuots = 0;
-    int i;
-    for(i = index; i < line.size(); i++) {
-            operand+=line[i] + " ";
-        if(count(line[i].begin(), line[i].end(), '\'') == 2){
-          i++;
-          break;
-        }
-        if(count(line[i].begin(), line[i].end(), '\'') == 1){
-            numberOfQuots++;
-            if(numberOfQuots == 2){
-                i++;
-                break;
-            }
+    string comment="";
+    std::regex pattern("C'.*'|\\w+");
+    for (auto i = std::sregex_iterator(subject.begin(), subject.end(), pattern); i != std::sregex_iterator(); ++i) {
+   // cout<<i->str()<<"\n";
+     if(i->str()[0] == 'C') {
+        operand = i->str();
+        i++;
+        for (; i != std::sregex_iterator(); i++)
+          comment += i->str()+" ";
+
+        break;
+
         }
     }
-
-    sourceLine.setOperand(operand);
-    string comment = "";
-    while(i < line.size())
-    {
-        comment += line[i++]+" ";
-    }
-    sourceLine.setComment(comment);
-    return sourceLine;
-
-
+sourceLine.setOperand(operand);
+sourceLine.setComment(comment);
+return sourceLine;
 }
