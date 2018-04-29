@@ -28,8 +28,6 @@ int main()
     cout << info.getOpCode() << " " << info.getFormateBytes() << " " << info.getNumberOfOperands();*/
 
     /*SourceLine srcLine;
-<<<<<<< HEAD
-=======
     srcLine.setLable("");
     srcLine.setOperation("BYTE");
     srcLine.setOperand("C'shazly   ya rb'");*/
@@ -37,6 +35,7 @@ int main()
     srcLine.setLable("");
     srcLine.setOperation("END");
     srcLine.setOperand("bgn");
+    srcLine.setOperand("");
     SyntaxValidator validator;
     if(validator.isValid(srcLine)){
         cout << "valid source line" << endl;
@@ -45,11 +44,11 @@ int main()
     }*/
     //SourceProgram sourceProgram;
     //}
-    SourceProgram sourceProgram;
-    string l = "aaa.txt";
-    sourceProgram.parse(&l[0]);
     /*SourceProgram sourceProgram;
     string l = "aaa.txt";
     sourceProgram.parse(&l[0]);*/
+    SourceProgram sourceProgram;
+    string l = "aaa.txt";
+    sourceProgram.parse(&l[0]);
     return 0;
 }

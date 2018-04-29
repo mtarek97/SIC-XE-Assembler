@@ -36,21 +36,18 @@ Line    Loc            Source statement
  34     01043              JLT       RLOOP     
  35     01046    EXIT      STX       LENGTH    
  36     01049              RSUB                
-                RSUB is invalid operation
- 37     01049    INPUT     BYTE      X'F1'     
+ 37     0104c    INPUT     BYTE      X'F1'     
  38             .. 
  39             .. SUBROUTINE TO WRITE RECORD FROM BUFFER 
  40             .. 
- 41     0104a    WRREC     CLEAR     X         
- 42     0104c              LDT       LENGTH    
- 43     0104f    WLOOP     TD        OUTPUT    
- 44     01052              JEQ       WLOOP     
- 45     01055              LDCH      BUFFER,X  
- 46     01058              WD        OUTPUT    
- 47     0105b              TIXR      T         
- 48     0105d              JLT       WLOOP     
- 49     01060              RSUB                
-                RSUB is invalid operation
- 50     01060    OUTPUT    BYTE      X'05'     
- 51     01061              END       FIRST     
-                operand must be a hexadecimal constant (up to 4 digits)
+ 41     0104d    WRREC     CLEAR     X         
+ 42     0104f              LDT       LENGTH    
+ 43     01052    WLOOP     TD        OUTPUT    
+ 44     01055              JEQ       WLOOP     
+ 45     01058              LDCH      BUFFER,X  
+ 46     0105b              WD        OUTPUT    
+ 47     0105e              TIXR      T         
+ 48     01060              JLT       WLOOP     
+ 49     01063              RSUB                
+ 50     01066    OUTPUT    BYTE      X'05'     
+ 51     01067              END       FIRST     
