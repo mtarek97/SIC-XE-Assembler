@@ -1,22 +1,1990 @@
 Line    Loc            Source statement       
-  0             ..1354844 
-  1             ..1354844 
-  2             ..1354844 
-  3             ..1354844 
-  4             ..1354844 
-  5     2    progr1              START               0010                
-  6     2                        LDA                 Z                   
-  7     5                        SUB                 Y                   
-  8     8                        STA                 BETA                
-  9             ..kkkkkkkkkkkkkkkkkkkkkkkkk 
- 10     b                        LDA                 V                   
- 11     e                        ADD                 W                   
- 12     11                        DIV                 BETA                thsrthsrthrth thsthsth hsethseth thseths 
- 13     14                        STA                 E                   
- 14     17                        J                   *                   
- 15     1a    Z                   WORD                9                   
- 16     1d    Y                   WORD                4                   
- 17     20    BETA                RESW                3                   wgwg wgw wgwg 
- 18     29    V                   BYTE                C'shazly ya rab'    wgwegwef wewegw 
- 19     36    E                   RESW                1                   
- 20     39                        END                                     
+  0             .. word 
+  1     0    ALPH                word                1,2,                3, 
+1,2, is invalid operand
+  2     0    BETA                word                1,                  -2, 3 
+1, is invalid operand
+  3     0    BETA                word                -1,-2,-3            
+operand must be a label or a decimal value (up to 4 decimal digits)
+  4     0    GAMMA               word                                    
+you must specify the operand
+  5     0    LALA                +word               1                   
++WORD is invalid operation
+  6     0    HAHA                word                -1231               
+operand must be a label or a decimal value (up to 4 decimal digits)
+  7             .. 
+  8             .. 
+  9             .. bytes 
+ 10     0    1BB                 byte                                    
+1BB is invalid. label must start with a letter and consist of letters, numbers, or '_'
+ 11     0    BB2                 byte                                    
+you must specify the operand
+ 12     0    BB3                 byte                C'a sd sd'          
+ 13     7    BB_4                byte                                    
+you must specify the operand
+ 14     7    bB5                 BYTE                                    
+you must specify the operand
+ 15     7    bB5                 BYTE                                    
+you must specify the operand
+ 16     7    bB5                 BYTE                                    
+you must specify the operand
+ 17     7    bB5                 BYTE                                    
+you must specify the operand
+ 18     7    bb6                 BytE                                    
+you must specify the operand
+ 19     7    bB5                 BYTE                C'asa as'           
+ 20     d    bB5                 BYTE                                    
+you must specify the operand
+ 21     d    bB5                 BYTE                                    
+you must specify the operand
+ 22     d    bB5                 BYTE                                    
+you must specify the operand
+ 23     d    bB5                 BYTE                                    
+you must specify the operand
+ 24     d    bB5                 BYTE                                    
+you must specify the operand
+ 25     d    bB5                 BYTE                                    
+you must specify the operand
+ 26             ... 
+ 27             .. resw 
+ 28     d    ww1                 resw                1,2,3               
+operand must be a positive decimal value (up to 4 decimal digits)
+ 29     d    ww2                 RESW                -1                  
+operand must be a positive decimal value (up to 4 decimal digits)
+ 30     d    wW3                 RESw                FA0                 
+operand must be a positive decimal value (up to 4 decimal digits)
+ 31     d    ww4                 resw                x'                  
+operand must be a positive decimal value (up to 4 decimal digits)
+ 32     d    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+ 33     d    ww6                 resw                1001                
+ 34             .. 
+ 35             .. resb 
+ 36     bc8    ww1                 resw                1,2,3               
+operand must be a positive decimal value (up to 4 decimal digits)
+ 37     bc8    ww2                 RESW                -1                  
+operand must be a positive decimal value (up to 4 decimal digits)
+ 38     bc8    wW3                 RESw                FA0                 
+operand must be a positive decimal value (up to 4 decimal digits)
+ 39     bc8    ww4                 resw                x'                  
+operand must be a positive decimal value (up to 4 decimal digits)
+ 40     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+ 41     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+ 42     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+ 43     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+ 44     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+ 45     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+ 46     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+ 47     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+ 48     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+ 49     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+ 50     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+ 51     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+ 52     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+ 53     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+ 54     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+ 55     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+ 56     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+ 57     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+ 58     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+ 59     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+ 60     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+ 61     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+ 62     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+ 63     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+ 64     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+ 65     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+ 66     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+ 67     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+ 68     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+ 69     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+ 70     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+ 71     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+ 72     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+ 73     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+ 74     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+ 75     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+ 76     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+ 77     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+ 78     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+ 79     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+ 80     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+ 81     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+ 82     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+ 83     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+ 84     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+ 85     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+ 86     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+ 87     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+ 88     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+ 89     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+ 90     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+ 91     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+ 92     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+ 93     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+ 94     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+ 95     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+ 96     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+ 97     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+ 98     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+ 99     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+100     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+101     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+102     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+103     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+104     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+105     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+106     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+107     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+108     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+109     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+110     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+111     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+112     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+113     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+114     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+115     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+116     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+117     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+118     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+119     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+120     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+121     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+122     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+123     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+124     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+125     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+126     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+127     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+128     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+129     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+130     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+131     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+132     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+133     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+134     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+135     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+136     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+137     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+138     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+139     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+140     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+141     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+142     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+143     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+144     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+145     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+146     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+147     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+148     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+149     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+150     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+151     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+152     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+153     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+154     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+155     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+156     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+157     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+158     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+159     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+160     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+161     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+162     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+163     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+164     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+165     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+166     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+167     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+168     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+169     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+170     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+171     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+172     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+173     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+174     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+175     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+176     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+177     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+178     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+179     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+180     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+181     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+182     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+183     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+184     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+185     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+186     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+187     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+188     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+189     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+190     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+191     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+192     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+193     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+194     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+195     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+196     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+197     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+198     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+199     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+200     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+201     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+202     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+203     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+204     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+205     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+206     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+207     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+208     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+209     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+210     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+211     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+212     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+213     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+214     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+215     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+216     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+217     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+218     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+219     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+220     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+221     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+222     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+223     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+224     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+225     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+226     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+227     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+228     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+229     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+230     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+231     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+232     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+233     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+234     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+235     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+236     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+237     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+238     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+239     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+240     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+241     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+242     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+243     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+244     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+245     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+246     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+247     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+248     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+249     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+250     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+251     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+252     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+253     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+254     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+255     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+256     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+257     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+258     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+259     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+260     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+261     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+262     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+263     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+264     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+265     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+266     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+267     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+268     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+269     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+270     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+271     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+272     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+273     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+274     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+275     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+276     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+277     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+278     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+279     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+280     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+281     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+282     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+283     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+284     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+285     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+286     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+287     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+288     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+289     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+290     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+291     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+292     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+293     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+294     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+295     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+296     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+297     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+298     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+299     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+300     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+301     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+302     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+303     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+304     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+305     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+306     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+307     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+308     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+309     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+310     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+311     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+312     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+313     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+314     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+315     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+316     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+317     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+318     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+319     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+320     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+321     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+322     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+323     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+324     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+325     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+326     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+327     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+328     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+329     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+330     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+331     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+332     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+333     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+334     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+335     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+336     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+337     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+338     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+339     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+340     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+341     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+342     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+343     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+344     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+345     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+346     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+347     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+348     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+349     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+350     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+351     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+352     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+353     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+354     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+355     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+356     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+357     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+358     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+359     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+360     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+361     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+362     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+363     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+364     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+365     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+366     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+367     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+368     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+369     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+370     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+371     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+372     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+373     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+374     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+375     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+376     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+377     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+378     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+379     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+380     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+381     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+382     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+383     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+384     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+385     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+386     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+387     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+388     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+389     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+390     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+391     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+392     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+393     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+394     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+395     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+396     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+397     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+398     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+399     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+400     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+401     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+402     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+403     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+404     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+405     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+406     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+407     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+408     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+409     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+410     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+411     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+412     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+413     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+414     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+415     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+416     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+417     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+418     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+419     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+420     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+421     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+422     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+423     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+424     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+425     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+426     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+427     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+428     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+429     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+430     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+431     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+432     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+433     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+434     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+435     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+436     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+437     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+438     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+439     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+440     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+441     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+442     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+443     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+444     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+445     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+446     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+447     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+448     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+449     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+450     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+451     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+452     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+453     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+454     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+455     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+456     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+457     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+458     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+459     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+460     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+461     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+462     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+463     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+464     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+465     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+466     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+467     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+468     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+469     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+470     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+471     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+472     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+473     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+474     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+475     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+476     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+477     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+478     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+479     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+480     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+481     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+482     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+483     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+484     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+485     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+486     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+487     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+488     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+489     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+490     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+491     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+492     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+493     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+494     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+495     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+496     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+497     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+498     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+499     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+500     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+501     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+502     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+503     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+504     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+505     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+506     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+507     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+508     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+509     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+510     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+511     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+512     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+513     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+514     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+515     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+516     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+517     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+518     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+519     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+520     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+521     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+522     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+523     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+524     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+525     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+526     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+527     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+528     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+529     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+530     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+531     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+532     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+533     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+534     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+535     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+536     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+537     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+538     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+539     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+540     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+541     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+542     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+543     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+544     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+545     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+546     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+547     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+548     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+549     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+550     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+551     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+552     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+553     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+554     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+555     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+556     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+557     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+558     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+559     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+560     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+561     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+562     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+563     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+564     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+565     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+566     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+567     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+568     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+569     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+570     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+571     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+572     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+573     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+574     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+575     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+576     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+577     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+578     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+579     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+580     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+581     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+582     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+583     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+584     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+585     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+586     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+587     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+588     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+589     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+590     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+591     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+592     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+593     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+594     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+595     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+596     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+597     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+598     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+599     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+600     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+601     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+602     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+603     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+604     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+605     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+606     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+607     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+608     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+609     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+610     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+611     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+612     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+613     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+614     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+615     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+616     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+617     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+618     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+619     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+620     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+621     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+622     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+623     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+624     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+625     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+626     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+627     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+628     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+629     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+630     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+631     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+632     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+633     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+634     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+635     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+636     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+637     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+638     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+639     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+640     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+641     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+642     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+643     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+644     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+645     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+646     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+647     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+648     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+649     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+650     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+651     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+652     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+653     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+654     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+655     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+656     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+657     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+658     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+659     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+660     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+661     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+662     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+663     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+664     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+665     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+666     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+667     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+668     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+669     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+670     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+671     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+672     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+673     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+674     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+675     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+676     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+677     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+678     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+679     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+680     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+681     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+682     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+683     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+684     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+685     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+686     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+687     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+688     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+689     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+690     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+691     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+692     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+693     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+694     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+695     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+696     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+697     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+698     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+699     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+700     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+701     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+702     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+703     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+704     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+705     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+706     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+707     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+708     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+709     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+710     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+711     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+712     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+713     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+714     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+715     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+716     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+717     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+718     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+719     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+720     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+721     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+722     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+723     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+724     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+725     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+726     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+727     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+728     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+729     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+730     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+731     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+732     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+733     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+734     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+735     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+736     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+737     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+738     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+739     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+740     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+741     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+742     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+743     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+744     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+745     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+746     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+747     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+748     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+749     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+750     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+751     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+752     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+753     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+754     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+755     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+756     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+757     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+758     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+759     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+760     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+761     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+762     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+763     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+764     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+765     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+766     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+767     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+768     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+769     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+770     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+771     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+772     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+773     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+774     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+775     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+776     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+777     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+778     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+779     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+780     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+781     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+782     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+783     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+784     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+785     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+786     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+787     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+788     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+789     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+790     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+791     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+792     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+793     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+794     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+795     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+796     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+797     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+798     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+799     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+800     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+801     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+802     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+803     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+804     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+805     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+806     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+807     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+808     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+809     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+810     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+811     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+812     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+813     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+814     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+815     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+816     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+817     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+818     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+819     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+820     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+821     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+822     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+823     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+824     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+825     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+826     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+827     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+828     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+829     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+830     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+831     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+832     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+833     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+834     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+835     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+836     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+837     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+838     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+839     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+840     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+841     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+842     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+843     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+844     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+845     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+846     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+847     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+848     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+849     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+850     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+851     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+852     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+853     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+854     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+855     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+856     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+857     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+858     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+859     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+860     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+861     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+862     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+863     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+864     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+865     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+866     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+867     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+868     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+869     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+870     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+871     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+872     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+873     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+874     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+875     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+876     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+877     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+878     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+879     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+880     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+881     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+882     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+883     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+884     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+885     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+886     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+887     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+888     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+889     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+890     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+891     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+892     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+893     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+894     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+895     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+896     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+897     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+898     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+899     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+900     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+901     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+902     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+903     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+904     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+905     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+906     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+907     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+908     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+909     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+910     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+911     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+912     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+913     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+914     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+915     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+916     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+917     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+918     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+919     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+920     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+921     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+922     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+923     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+924     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+925     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+926     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+927     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+928     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+929     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+930     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+931     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+932     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+933     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+934     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+935     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+936     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+937     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+938     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+939     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+940     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+941     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+942     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+943     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+944     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+945     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+946     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+947     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+948     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+949     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+950     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+951     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+952     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+953     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+954     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+955     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+956     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+957     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+958     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+959     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+960     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+961     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+962     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+963     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+964     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+965     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+966     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+967     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+968     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+969     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+970     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+971     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+972     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+973     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+974     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+975     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+976     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+977     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+978     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+979     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+980     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+981     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+982     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+983     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+984     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+985     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+986     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+987     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+988     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+989     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+990     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+991     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+992     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+993     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+994     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+995     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+996     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+997     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+998     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)
+999     bc8    ww5                 resw                c'asdas             '' 
+operand must be a positive decimal value (up to 4 decimal digits)

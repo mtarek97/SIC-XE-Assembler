@@ -86,7 +86,7 @@ bool ValidatorUtilities::isDecimalNumber(string str, int maxDigitsCount, bool ca
         return false;
     }
     for(int i=0;i<absolute.size();i++){
-        if(!isdigit(str[i])){
+        if(!isdigit(absolute[i])){
             return false;
         }
     }
