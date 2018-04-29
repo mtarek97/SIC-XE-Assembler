@@ -34,7 +34,7 @@ int main()
     SourceLine srcLine;
     srcLine.setLable("");
     srcLine.setOperation("END");
-    srcLine.setOperand("bgn");
+    srcLine.setOperand("");
 
     SyntaxValidator validator;
     if(validator.isValid(srcLine)){
@@ -44,9 +44,9 @@ int main()
     }
     //SourceProgram sourceProgram;
     //}
-    SourceProgram sourceProgram;
+    /*SourceProgram sourceProgram;
     string l = "aaa.txt";
-    sourceProgram.parse(&l[0]);
+    sourceProgram.parse(&l[0]);*/
     /*SourceProgram sourceProgram;
     string l = "aaa.txt";
     sourceProgram.parse(&l[0]);*/

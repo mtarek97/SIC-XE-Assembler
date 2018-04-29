@@ -99,6 +99,8 @@ bool SyntaxValidator::checkFormat3or4Operand(OpInfo info){
         if(sourceLine.getOperand() != ""){
             this->errorMessage = "RSUB can't take any operand";
             return false;
+        }else{
+            return true;
         }
     }
     string operand = sourceLine.getOperand();
@@ -218,8 +220,8 @@ bool SyntaxValidator::checkDirectiveOperand(){
             return false;
         }
     }else{  // "END"
-        if(!ValidatorUtilities::isHexAddress(operand,4)){
-            this->errorMessage="operand must be a hexadecimal constant (up to 4 digits)";
+        if(!ValidatorUtilities::isHexAddress(operand,4) && !(ValidatorUtilities::isSymbol(operand,LABEL_MAXLENGTH)) ){
+            this->errorMessage="operand must be a hexadecimal constant (up to 4 digits) or a symbol";
             return false;
         }
     }
