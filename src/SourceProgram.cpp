@@ -27,7 +27,7 @@ void SourceProgram::parse(char* fileName)
     getline(cin, parser);
     line = getWords(parser);
     sourceLine = identifier(line, parser);
-    detectStart(sourceLine);
+    detectStart(sourceLine, line);
     while(!stop)
     {
         line.clear();
@@ -92,7 +92,7 @@ SourceLine SourceProgram::identifier(vector<string> line, string parser)
     if(index != line.size()){
         sourceLine.setOperation(line[index++]);
      if(getUpper(sourceLine.getOperation())=="BYTE"){
-       return handleByte(sourceLine, line, index);
+       return handleByte(sourceLine, line, index, parser);
      }
 
     }
@@ -135,7 +135,7 @@ void SourceProgram::write(SourceLine sourceLine, string error)
     string locationCounterinhex = stream.str();
     assemblyListing.write(sourceLine, locationCounterinhex, error);
 }
-void SourceProgram::detectStart(SourceLine sourceLine)
+void SourceProgram::detectStart(SourceLine sourceLine, vector<string> line)
 {
 
     SyntaxValidator syntaxValidator;
@@ -154,7 +154,30 @@ void SourceProgram::detectStart(SourceLine sourceLine)
     }
     else
     {
+        if(!isComment(line))
         updateLocationCounter(sourceLine);
+        else
+        {
+            string comment = "";
+            int index = 0;
+            while(index != line.size())
+            {
+                comment += line[index++] + " ";
+            }
+            sourceLine.setComment(comment);
+            sourceLine.setLable("");
+            sourceLine.setOperand("");
+            sourceLine.setOperation("");
+            write(sourceLine,"");
+            string parser;
+            vector<string> line;
+            SourceLine sourceLine;
+            getline(cin, parser);
+            line = getWords(parser);
+            sourceLine = identifier(line, parser);
+            detectStart(sourceLine, line);
+
+        }
     }
 }
 
@@ -221,33 +244,23 @@ void SourceProgram::updateLocationCounter(SourceLine sourceLine)
 
     }
 }
-SourceLine SourceProgram::handleByte(SourceLine sourceLine, vector<string> line, int index){
+SourceLine SourceProgram::handleByte(SourceLine sourceLine, vector<string> line, int index, string subject){
     string operand = "";
-    int numberOfQuots = 0;
-    int i;
-    for(i = index; i < line.size(); i++) {
-            operand+=line[i] + " ";
-        if(count(line[i].begin(), line[i].end(), '\'') == 2){
-          i++;
-          break;
-        }
-        if(count(line[i].begin(), line[i].end(), '\'') == 1){
-            numberOfQuots++;
-            if(numberOfQuots == 2){
-                i++;
-                break;
-            }
+    string comment="";
+    std::regex pattern("C'.*'|\\w+");
+    for (auto i = std::sregex_iterator(subject.begin(), subject.end(), pattern); i != std::sregex_iterator(); ++i) {
+    cout<<i->str()<<"\n";
+     if(i->str()[0] == 'C') {
+        operand = i->str();
+        i++;
+        for (; i != std::sregex_iterator(); i++)
+          comment += i->str();
+
+        break;
+
         }
     }
-
-    sourceLine.setOperand(operand);
-    string comment = "";
-    while(i < line.size())
-    {
-        comment += line[i++]+" ";
-    }
-    sourceLine.setComment(comment);
-    return sourceLine;
-
-
+sourceLine.setOperand(operand);
+sourceLine.setComment(comment);
+return sourceLine;
 }

@@ -21,10 +21,10 @@ class SourceProgram
         set<string> direcive;
         void write(SourceLine sourceLine, string error);
         SymbolTable symbolTable;
-        void detectStart(SourceLine sourceLine);
+        void detectStart(SourceLine sourceLine, vector<string> line);
         void updateLocationCounter(SourceLine sourceLine);
         AssemblyListing assemblyListing;
-        SourceLine handleByte(SourceLine sourceLine, vector<string> line, int index);
+        SourceLine handleByte(SourceLine sourceLine, vector<string> line, int index, string parser);
 
 };
 
