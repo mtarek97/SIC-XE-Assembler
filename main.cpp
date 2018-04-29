@@ -27,29 +27,28 @@ int main()
     info = opTable->getInfo("MUL");
     cout << info.getOpCode() << " " << info.getFormateBytes() << " " << info.getNumberOfOperands();*/
 
-    SourceLine srcLine;
+    /*SourceLine srcLine;
     srcLine.setLable("");
     srcLine.setOperation("BYTE");
-    srcLine.setOperand("C'shazly   ya rb'");
-    /*SourceLine srcLine;
-    srcLine.setLable("mah");
-    srcLine.setOperation("MULR");
-    srcLine.setOperand("R,X");
-=======
+    srcLine.setOperand("C'shazly   ya rb'");*/
+    SourceLine srcLine;
+    srcLine.setLable("");
     srcLine.setOperation("END");
-    srcLine.setOperand("");
->>>>>>> 98d69528885d670faee138267e17f0a456f18ed3
+    srcLine.setOperand("bgn");
+
     SyntaxValidator validator;
     if(validator.isValid(srcLine)){
         cout << "valid source line" << endl;
     }else{
         cout << validator.getErrorMessage() << endl;
-<<<<<<< HEAD
-    }*/
+    }
     //SourceProgram sourceProgram;
     //}
     SourceProgram sourceProgram;
     string l = "aaaa.txt";
     sourceProgram.parse(&l[0]);
+    /*SourceProgram sourceProgram;
+    string l = "aaa.txt";
+    sourceProgram.parse(&l[0]);*/
     return 0;
 }

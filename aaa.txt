@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .1354844
 .1354844
 .1354844
@@ -20,3 +21,6 @@ V           BYTE	C'shazly ya rab' wgwegwef wewegw
 E                   RESW    1
 ww5                 resw                c'asdas             '' 
             END
+=======
+ALPHA   WORD    1,2 ,3,
+>>>>>>> ed56a86e08d0615baad4abc7dcb380d7376140d3
