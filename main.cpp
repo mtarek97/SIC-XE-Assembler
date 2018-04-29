@@ -47,8 +47,8 @@ int main()
     /*SourceProgram sourceProgram;
     string l = "aaa.txt";
     sourceProgram.parse(&l[0]);*/
-    /*SourceProgram sourceProgram;
+    SourceProgram sourceProgram;
     string l = "aaa.txt";
-    sourceProgram.parse(&l[0]);*/
+    sourceProgram.parse(&l[0]);
     return 0;
 }

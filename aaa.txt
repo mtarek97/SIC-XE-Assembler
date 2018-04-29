@@ -1,5 +1,11 @@
 .2345678901234567890
- START   0
+COPY     START   0
+FIRST    STL     RETADR
+         LDB     #LENGTH
+CLOOP   +JSUB    RDREC
+         LDA     LENGTH
+         COMP    #0
+         JEQ     ENDFIL
         +JSUB    WRREC
          J       CLOOP
 ENDFIL   LDA     EOF
