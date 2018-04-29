@@ -27,7 +27,7 @@ int main()
     info = opTable->getInfo("MUL");
     cout << info.getOpCode() << " " << info.getFormateBytes() << " " << info.getNumberOfOperands();*/
 
-    SourceLine srcLine;
+    /*SourceLine srcLine;
     srcLine.setLable("");
     srcLine.setOperation("END");
     srcLine.setOperand("");
@@ -36,9 +36,9 @@ int main()
         cout << "valid source line" << endl;
     }else{
         cout << validator.getErrorMessage() << endl;
-    }
-    /*SourceProgram sourceProgram;
+    }*/
+    SourceProgram sourceProgram;
     string l = "aaa.txt";
     sourceProgram.parse(&l[0]);
-    return 0;*/
+    return 0;
 }

@@ -1,51 +1,52 @@
 .2345678901234567890
-COPY     START   0000
+COPY     START   0
 FIRST    STL     RETADR
-CLOOP    JSUB    RDREC
+         LDB     #LENGTH
+         BASE    LENGTH
+CLOOP   +JSUB    RDREC
          LDA     LENGTH
-         COMP    ZERO
+         COMP    #0
          JEQ     ENDFIL
-         JSUB    WRREC
+        +JSUB    WRREC
          J       CLOOP
 ENDFIL   LDA     EOF
          STA     BUFFER
-         LDA     THREE
+         LDA     #3
          STA     LENGTH
-         JSUB    WRREC
-         LDL     RETADR
-         RSUB
+        +JSUB    WRREC
+         J       @RETADR
 EOF      BYTE    C'EOF'
-THREE    WORD    3
-ZERO     WORD    0
 RETADR   RESW    1
 LENGTH   RESW    1
 BUFFER   RESB    4096
 .
 .        SUBROUTINE TO READ RECORD INTO BUFFER
 .
-RDREC    LDX     ZERO
-         LDA     ZERO
+RDREC    CLEAR   X
+         CLEAR   A
+         CLEAR   S
+        +LDT    #4096
 RLOOP    TD      INPUT
          JEQ     RLOOP
          RD      INPUT
-         COMP    ZERO
+         COMPR   A,S
          JEQ     EXIT
          STCH    BUFFER,X
-         TIX     MAXLEN
+         TIXR    T
          JLT     RLOOP
 EXIT     STX     LENGTH
          RSUB
 INPUT    BYTE    X'F1'
-MAXLEN   WORD    4096
 .
 .        SUBROUTINE TO WRITE RECORD FROM BUFFER
 .
-WRREC    LDX     ZERO
+WRREC    CLEAR   X
+         LDT     LENGTH
 WLOOP    TD      OUTPUT
          JEQ     WLOOP
          LDCH    BUFFER,X
          WD      OUTPUT
-         TIX     LENGTH
+         TIXR    T
          JLT     WLOOP
          RSUB
 OUTPUT   BYTE    X'05'
