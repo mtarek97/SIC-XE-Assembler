@@ -1,53 +1,18 @@
 Line    Loc            Source statement       
-  0             ..2345678901234567890 
-  1     00000    COPY      START     0         
-  2     00000    FIRST     STL       RETADR    
-  3     00003              LDB       #LENGTH   
-  4     00006    CLOOP     +JSUB     RDREC     
-  5     00006              LDA       LENGTH    
-  6     00009              COMP      #0        
-  7     0000c              JEQ       ENDFIL    
-  8     0000f              +JSUB     WRREC     
-  9     0000f              J         CLOOP     
- 10     00012    ENDFIL    LDA       EOF       
- 11     00015              STA       BUFFER    
- 12     00018              LDA       #3        
- 13     0001b              STA       LENGTH    
- 14     0001e              +JSUB     WRREC     
- 15     0001e              J         @RETADR   
- 16     00021    EOF       BYTE      C'EOF'    
- 17     00024    RETADR    RESW      1         
- 18     00027    LENGTH    RESW      1         
- 19     0002a    BUFFER    RESB      4096      
- 20             .. 
- 21             .. SUBROUTINE TO READ RECORD INTO BUFFER 
- 22             .. 
- 23     0102a    RDREC     CLEAR     X         
- 24     0102c              CLEAR     A         
- 25     0102e              CLEAR     S         
- 26     01030              +LDT      #4096     
- 27     01030    RLOOP     TD        INPUT     
- 28     01033              JEQ       RLOOP     
- 29     01036              RD        INPUT     
- 30     01039              COMPR     A,S       
- 31     0103b              JEQ       EXIT      
- 32     0103e              STCH      BUFFER,X  
- 33     01041              TIXR      T         
- 34     01043              JLT       RLOOP     
- 35     01046    EXIT      STX       LENGTH    
- 36     01049              RSUB                
- 37     0104c    INPUT     BYTE      X'F1'     
- 38             .. 
- 39             .. SUBROUTINE TO WRITE RECORD FROM BUFFER 
- 40             .. 
- 41     0104d    WRREC     CLEAR     X         
- 42     0104f              LDT       LENGTH    
- 43     01052    WLOOP     TD        OUTPUT    
- 44     01055              JEQ       WLOOP     
- 45     01058              LDCH      BUFFER,X  
- 46     0105b              WD        OUTPUT    
- 47     0105e              TIXR      T         
- 48     01060              JLT       WLOOP     
- 49     01063              RSUB                
- 50     01066    OUTPUT    BYTE      X'05'     
- 51     01067              END       FIRST     
+  0             ..23456789012345678901234567890123456 
+  1             .. ALT & Enter to toggle full screen 
+  2             ..Label. Opcode The O p e r a n d 
+  3             .. 
+  4     00004              START     0100      
+  5     00004    BGN       LDA       FIVE      
+  6     00007              STA       ALPHA     
+  7     0000a              LDCH      CHRZ      
+  8     0000d              STCH      C1        
+  9     00010              J         *         
+ 10             .. 
+ 11     00013    FIVE      WORD      5         
+ 12     00016    CHRZ      BYTE      CHRZ      BYTE C'Z' 
+                operand must be a character string or hexadecimal constant
+ 13     00016    ALPHA     RESW      1         
+ 14     00019    C1        RESB      1         
+ 15     0001a              END       BGN       
