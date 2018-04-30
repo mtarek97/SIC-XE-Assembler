@@ -1,17 +1,18 @@
 Line    Loc            Source statement       
-  0             ..23456789012345678901234567890123456 
-  1             .. ALT & Enter to toggle full screen 
-  2             ..Label. Opcode The O p e r a n d 
-  3             .. 
-  4     00004                        START               0100                
-  5     00004    BGN                 LDA                 FIVE                
-  6     00007                        STA                 ALPHA               
-  7     0000a                        LDCH                CHRZ                
-  8     0000d                        STCH                C1                  
-  9     00010                        J                   *                   
- 10             .. 
- 11     00013    FIVE                WORD                5                   
- 12     00016    CHRZ                BYTE                X'6656'             
- 13     00018    ALPHA               RESW                1                   
- 14     0001b    C1                  RESB                1                   
- 15     0001c                        END                 BGN                 
+  0             .. copy string s1 to s2 
+  1             .. Loop where index = 1 
+  2     00000    prog                start               0000                
+  3     00000    bgn                 ldx                 initl               
+  4     00003    loop                ldch                str1,x              
+  5     00006    loop                stch                str2,x              
+                This lable is used before
+  6     00009                        tix                 test                
+  7     0000c                        jlt                 loop                
+  8     0000f                        j                   *                   
+  9             .. 
+ 10     00012    str1                byte                c'test              string' 
+                operand must be a character string or hexadecimal constant
+ 11     00012    str2                resb                11                  
+ 12     0001d    initl               word                0                   
+ 13     00020    test                word                11                  
+ 14     00023                        end                 bgn                 

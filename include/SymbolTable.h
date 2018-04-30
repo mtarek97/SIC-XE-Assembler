@@ -12,9 +12,10 @@ class SymbolTable{
         SymbolTable();
         void insert(string symbol, int locInMemory);
         int search(string symbol);
+                map<string, int> hashtable;
+
 
     private:
-        map<string, int> hashtable;
         map<string, bool> inserted;
 };
 

@@ -167,13 +167,12 @@ void SourceProgram::updateLocationCounter(SourceLine sourceLine)
 
         if(sourceLine.getLable() != "")
         {
-            if(symbolTable.search(sourceLine.getLable()) != -1)
+            if(symbolTable.hashtable.count(sourceLine.getLable()) != 0)
             {
                 error = "This lable is used before";
             }
             else
                 symbolTable.insert(sourceLine.getLable(), locationCounter);
-
         }
         OpCodeTable* opCodeTable = OpCodeTable::getOpTable();
         OpInfo opinfo = opCodeTable->getInfo(getUpper(sourceLine.getOperation()));

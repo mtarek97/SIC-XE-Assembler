@@ -1,16 +1,15 @@
-.23456789012345678901234567890123456
-. ALT & Enter to toggle full screen
-.Label.  Opcode  The  O p e r a n d
+.  copy string s1 to s2
+.   Loop  where index = 1
+prog     start   0000
+bgn      ldx     initl
+loop     ldch    str1,x
+loop         stch    str2,x
+         tix     test
+         jlt     loop
+         j       *
 .
-         START   0100
-BGN      LDA     FIVE
-         STA     ALPHA
-         LDCH    CHRZ
-         STCH    C1
-         J       *
-.
-FIVE     WORD    5
-CHRZ     BYTE    X'6656'
-ALPHA    RESW    1
-C1       RESB    1
-         END     BGN
+str1     byte    c'test string'
+str2     resb    11
+initl    word    0
+test     word    11
+         end     bgn
