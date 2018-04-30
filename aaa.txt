@@ -1,6 +1,6 @@
 .  copy string s1 to s2
 .   Loop  where index = 1
-prog     start   0000
+     start   0000
 bgn      ldx     initl
 loop     ldch    str1,x
          stch    str2,x

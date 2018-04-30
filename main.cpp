@@ -56,8 +56,11 @@ int main( )
     /*SourceProgram sourceProgram;
     string l = "aaa.txt";
     sourceProgram.parse(&l[0]);*/
+    string fileName;
+    cout<<"Enter File Name\n";
+    cin>>fileName;
     SourceProgram sourceProgram;
     string l = "aaaa.txt";
-    sourceProgram.parse(&l[0]);
+    sourceProgram.parse(&fileName[0]);
     return 0;
 }
