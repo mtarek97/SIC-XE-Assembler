@@ -59,7 +59,7 @@
 1525036381 source:c:\users\hp\documents\sic-xe-assembler\src\validatorutilities.cpp
 	"ValidatorUtilities.h"
 
-1525045670 source:f:\projects second year\assembly\main.cpp
+1525076785 source:f:\projects second year\assembly\main.cpp
 	<iostream>
 	"SymbolTable.h"
 	"OpCodeTable.h"
@@ -67,7 +67,7 @@
 	"SyntaxValidator.h"
 	"SourceProgram.h"
 
-1525051393 f:\projects second year\assembly\include\symboltable.h
+1525076785 f:\projects second year\assembly\include\symboltable.h
 	<string>
 	<map>
 
@@ -102,7 +102,7 @@
 	<ctype.h>
 	<sstream>
 
-1525046315 source:f:\projects second year\assembly\src\assemblylisting.cpp
+1525076785 source:f:\projects second year\assembly\src\assemblylisting.cpp
 	<bits/stdc++.h>
 	"AssemblyListing.h"
 	<SourceLine.h>
@@ -135,7 +135,7 @@
 1524742928 source:f:\projects second year\assembly\src\sourceline.cpp
 	"SourceLine.h"
 
-1525051094 source:f:\projects second year\assembly\src\sourceprogram.cpp
+1525076941 source:f:\projects second year\assembly\src\sourceprogram.cpp
 	<bits/stdc++.h>
 	<SourceProgram.h>
 	<SourceLine.h>
@@ -151,8 +151,12 @@
 	<SymbolTable.h>
 	<AssemblyListing.h>
 
-1524466071 source:f:\projects second year\assembly\src\symboltable.cpp
+1525076785 source:f:\projects second year\assembly\src\symboltable.cpp
 	"SymbolTable.h"
+	<bits/stdc++.h>
+	<string>
+	<fstream>
+	<iostream>
 
 1525045626 source:f:\projects second year\assembly\src\syntaxvalidator.cpp
 	"SyntaxValidator.h"

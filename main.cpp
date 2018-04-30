@@ -57,7 +57,7 @@ int main( )
     string l = "aaa.txt";
     sourceProgram.parse(&l[0]);*/
     SourceProgram sourceProgram;
-    string l = "aaa.txt";
+    string l = "aaaa.txt";
     sourceProgram.parse(&l[0]);
     return 0;
 }

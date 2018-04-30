@@ -138,6 +138,8 @@ void SourceProgram::detectStart(SourceLine sourceLine)
      if(syntaxValidator.isValid(sourceLine))
         {
             this->locationCounter = std::stoi(sourceLine.getOperand(), nullptr, 2);
+            if(sourceLine.getLable() != "")
+            symbolTable.insert(sourceLine.getLable(), locationCounter);
             write(sourceLine, "");
 
         }
