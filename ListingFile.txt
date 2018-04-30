@@ -10,9 +10,8 @@ Line    Loc            Source statement
   7     0000c                        jlt                 loop                
   8     0000f                        j                   *                   
   9             .. 
- 10     00012    str1                byte                c'test              string' 
-                operand must be a character string or hexadecimal constant
- 11     00012    str2                resb                11                  
- 12     0001d    initl               word                0                   
- 13     00020    test                word                11                  
- 14     00023                        end                 bgn                 
+ 10     00012    str1                byte                c'test string'      
+ 11     0001d    str2                resb                11                  
+ 12     00028    initl               word                0                   
+ 13     0002b    test                word                11                  
+ 14     0002e                        end                 bgn                 

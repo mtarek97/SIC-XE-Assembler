@@ -31,17 +31,17 @@ int main()
     srcLine.setLable("");
     srcLine.setOperation("BYTE");
     srcLine.setOperand("C'shazly   ya rb'");*/
-    SourceLine srcLine;
+    /*SourceLine srcLine;
     srcLine.setLable("");
     srcLine.setOperation("END");
+    srcLine.setOperand("bgn");
     srcLine.setOperand("");
-
     SyntaxValidator validator;
     if(validator.isValid(srcLine)){
         cout << "valid source line" << endl;
     }else{
         cout << validator.getErrorMessage() << endl;
-    }
+    }*/
     //SourceProgram sourceProgram;
     //}
     /*SourceProgram sourceProgram;
