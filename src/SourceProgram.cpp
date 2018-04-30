@@ -79,7 +79,7 @@ SourceLine SourceProgram::identifier(vector<string> line, string parser)
    // cout<<s;
     if(opinfo.getOpCode() == opinfo.NOT_FOUND && direcive.find(upperForm) == direcive.end() &&opCodeTable->getInfo(s).getOpCode() == opinfo.NOT_FOUND)
     {
-        cout<<line[index]<<line[index].length()<<"\n";
+       // cout<<line[index]<<line[index].length()<<"\n";
         sourceLine.setLable(line[index++]);
     }
     if(index != line.size()){
@@ -222,17 +222,24 @@ SourceLine SourceProgram::handleByte(SourceLine sourceLine, vector<string> line,
     string operand = "";
     string comment="";
     std::regex pattern("C'.*'|\\w+");
+   // cout<<subject;
+    int flag = 0, counter = 0;
     for (auto i = std::sregex_iterator(subject.begin(), subject.end(), pattern); i != std::sregex_iterator(); ++i) {
-     if(i->str()[0] == 'C') {
-        operand = i->str();
-        i++;
-        for (; i != std::sregex_iterator(); i++)
-          comment += i->str()+" ";
-        break;
+     cout<<i->str()<<"\n";
 
-        }
+     if(flag){
+        comment += i->str()+" ";
+        continue;
+     }
+     if(i->str()[0] == 'C' && counter) {
+        operand = i->str();
+        flag = 1;
+        continue;
+     }
+     counter++;
     }
 sourceLine.setOperand(operand);
 sourceLine.setComment(comment);
+//cout<<comment;
 return sourceLine;
 }
