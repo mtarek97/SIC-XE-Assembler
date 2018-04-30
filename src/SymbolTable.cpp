@@ -32,7 +32,7 @@ void SymbolTable::writeInFile(string symbol, int locInMemory)
         out << line;
         out.close();
         isFirst = false;
-    } else {
+    }
         std:: string line("");
         std::string loc = to_string(locInMemory);
         std::string zeros = "";
@@ -46,6 +46,5 @@ void SymbolTable::writeInFile(string symbol, int locInMemory)
         out << line;
         out.close();
 
-    }
 
 }
