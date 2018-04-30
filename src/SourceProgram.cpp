@@ -86,7 +86,7 @@ SourceLine SourceProgram::identifier(vector<string> line, string parser)
         sourceLine.setOperation(line[index++]);
      if(getUpper(sourceLine.getOperation())=="BYTE"){
         if(index != line.size()) {
-        if(line[index][0]=='C')
+        if(line[index][0]=='C' || line[index][0]=='c')
           return handleByte(sourceLine, line, index, parser);
      }
      }
@@ -199,7 +199,7 @@ void SourceProgram::updateLocationCounter(SourceLine sourceLine)
                 locationCounter=locationCounter + 3 * numberOfWords;
             }
             else if(operation == "BYTE") {
-                if(sourceLine.getOperand()[0]=='C')
+                if(sourceLine.getOperand()[0]=='C' || sourceLine.getOperand()[0]=='c')
                   locationCounter = locationCounter + (sourceLine.getOperand().length()) - 3;
                 else
                   locationCounter = locationCounter + ((sourceLine.getOperand().length() - 3 + 1 )/2);
@@ -221,7 +221,7 @@ void SourceProgram::updateLocationCounter(SourceLine sourceLine)
 SourceLine SourceProgram::handleByte(SourceLine sourceLine, vector<string> line, int index, string subject){
     string operand = "";
     string comment="";
-    std::regex pattern("C'.*'|\\w+");
+    std::regex pattern("C'.*'|c'.*'|\\w+");
    // cout<<subject;
     int flag = 0, counter = 0;
     for (auto i = std::sregex_iterator(subject.begin(), subject.end(), pattern); i != std::sregex_iterator(); ++i) {
@@ -231,7 +231,7 @@ SourceLine SourceProgram::handleByte(SourceLine sourceLine, vector<string> line,
         comment += i->str()+" ";
         continue;
      }
-     if(i->str()[0] == 'C' && counter) {
+     if((i->str()[0] == 'C' || i->str()[0] == 'c') && counter) {
         operand = i->str();
         flag = 1;
         continue;
