@@ -28,7 +28,7 @@ void AssemblyListing::write(SourceLine sourceLine, string locationCounter, strin
 
 
     if(sourceLine.getOperation() == ""){
-        line = line +"        ."+sourceLine.getComment()+"\n";
+        line = line +"         "+sourceLine.getComment()+"\n";
         //cout<<sourceLine.getComment()<<endl;
     } else {
         string zeros ="";
@@ -55,7 +55,7 @@ void AssemblyListing::write(SourceLine sourceLine, string locationCounter, strin
 
       //  cout<<sourceLine.getLable()<<"  "<<sourceLine.getOperation()<<" "<<sourceLine.getOperand()<<"   "<<sourceLine.getComment()<<"   "<<locationCounter<<endl;
         if(error != ""){
-            line = line +"                "+ error +"\n";
+            line = line +"       ****Error:"+ error +"\n";
             //cout<<error<<endl;
         }
     }

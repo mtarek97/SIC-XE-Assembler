@@ -17,6 +17,8 @@ class SymbolTable{
 
     private:
         map<string, bool> inserted;
+        bool isFirst = true;
+        void writeInFile(string symbol, int locInMemory);
 };
 
 #endif // SYMBOLTABLE_H
