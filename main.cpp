@@ -7,8 +7,17 @@
 #include "SourceProgram.h"
 using namespace std;
 
-int main()
+/*int main( int argc, char *argv[] ){
+
+    SourceProgram sourceProgram;
+    string l = argv[2];
+    sourceProgram.parse(&l[0]);
+    return 0;
+}*/
+
+int main( )
 {
+
     // testing symbol table
     /*SymbolTable symtab;
     symtab.insert("var1", 1000);

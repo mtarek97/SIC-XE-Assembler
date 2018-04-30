@@ -207,3 +207,95 @@
 	<ctype.h>
 	<sstream>
 
+1525058213 source:c:\users\first\sic-xe-assembler\src\assemblylisting.cpp
+	<bits/stdc++.h>
+	"AssemblyListing.h"
+	<SourceLine.h>
+	<string>
+	<fstream>
+	<iostream>
+
+1525058010 c:\users\first\sic-xe-assembler\include\assemblylisting.h
+	<SourceLine.h>
+	<bits/stdc++.h>
+
+1525058010 c:\users\first\sic-xe-assembler\include\sourceline.h
+	<bits/stdc++.h>
+
+1525058010 source:c:\users\first\sic-xe-assembler\src\objectprogram.cpp
+	"ObjectProgram.h"
+
+1525058010 c:\users\first\sic-xe-assembler\include\objectprogram.h
+
+1525058010 source:c:\users\first\sic-xe-assembler\src\opcodetable.cpp
+	"OpCodeTable.h"
+	<iostream>
+	<fstream>
+
+1525058010 c:\users\first\sic-xe-assembler\include\opcodetable.h
+	<string>
+	"OpInfo.h"
+	<unordered_map>
+
+1525058010 c:\users\first\sic-xe-assembler\include\opinfo.h
+	<string>
+
+1525058010 source:c:\users\first\sic-xe-assembler\src\opinfo.cpp
+	"OpInfo.h"
+
+1525058010 source:c:\users\first\sic-xe-assembler\src\sourceline.cpp
+	"SourceLine.h"
+
+1525058010 source:c:\users\first\sic-xe-assembler\src\sourceprogram.cpp
+	<bits/stdc++.h>
+	<SourceProgram.h>
+	<SourceLine.h>
+	<OpCodeTable.h>
+	<SyntaxValidator.h>
+	<AssemblyListing.h>
+	<SymbolTable.h>
+	<ValidatorUtilities.h>
+
+1525058010 c:\users\first\sic-xe-assembler\include\sourceprogram.h
+	<bits/stdc++.h>
+	<SourceLine.h>
+	<SymbolTable.h>
+	<AssemblyListing.h>
+
+1525053144 c:\users\first\sic-xe-assembler\include\symboltable.h
+	<string>
+	<map>
+
+1525058010 c:\users\first\sic-xe-assembler\include\syntaxvalidator.h
+	"OpInfo.h"
+	"OpCodeTable.h"
+	"SourceLine.h"
+	<string.h>
+	<vector>
+	<string>
+	"ValidatorUtilities.h"
+
+1525058010 c:\users\first\sic-xe-assembler\include\validatorutilities.h
+	"OpInfo.h"
+	"OpCodeTable.h"
+	"SourceLine.h"
+	<string.h>
+	<vector>
+	<string>
+	<algorithm>
+	<ctype.h>
+	<sstream>
+
+1525053923 source:c:\users\first\sic-xe-assembler\src\symboltable.cpp
+	"SymbolTable.h"
+	<bits/stdc++.h>
+	<string>
+	<fstream>
+	<iostream>
+
+1525058010 source:c:\users\first\sic-xe-assembler\src\syntaxvalidator.cpp
+	"SyntaxValidator.h"
+
+1525058010 source:c:\users\first\sic-xe-assembler\src\validatorutilities.cpp
+	"ValidatorUtilities.h"
+
