@@ -226,7 +226,7 @@ SourceLine SourceProgram::handleByte(SourceLine sourceLine, vector<string> line,
    // cout<<subject;
     int flag = 0, counter = 0;
     for (auto i = std::sregex_iterator(subject.begin(), subject.end(), pattern); i != std::sregex_iterator(); ++i) {
-     cout<<i->str()<<"\n";
+   //  cout<<i->str()<<"\n";
 
      if(flag){
         comment += i->str()+" ";
