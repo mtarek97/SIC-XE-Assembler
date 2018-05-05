@@ -6,7 +6,7 @@
 #include<AssemblyListing.h>
 #include<SymbolTable.h>
 #include<ValidatorUtilities.h>
-
+#include<UpdateLocationCounter.h>
 
 SourceProgram::SourceProgram()
 {
@@ -41,15 +41,9 @@ void SourceProgram::parse(char* fileName)
             updateLocationCounter(sourceLine);
             lineNumber++;
         }
-        else  // Comment Line
+        else
         {
-            string comment = "";
-            int index = 0;
-            while(index != line.size())
-            {
-                comment += line[index++] + " ";
-            }
-            sourceLine.setComment(comment);
+            sourceLine.setComment(getComment(0, line));
             sourceLine.setLable("");
             sourceLine.setOperand("");
             sourceLine.setOperation("");
@@ -74,35 +68,41 @@ SourceLine SourceProgram::identifier(vector<string> line, string parser)
 
     string upperForm =  getUpper(line[index]);
     OpInfo opinfo =opCodeTable->getInfo(upperForm);
-    string s= upperForm;
-    s.erase(s.begin());
-   // cout<<s;
-    if(opinfo.getOpCode() == opinfo.NOT_FOUND && direcive.find(upperForm) == direcive.end() &&opCodeTable->getInfo(s).getOpCode() == opinfo.NOT_FOUND)
+    string withoutSign= upperForm;
+    withoutSign.erase(withoutSign.begin());
+    if(opinfo.getOpCode() == opinfo.NOT_FOUND && direcive.find(upperForm) == direcive.end() &&opCodeTable->getInfo(withoutSign).getOpCode() == opinfo.NOT_FOUND)
     {
-       // cout<<line[index]<<line[index].length()<<"\n";
         sourceLine.setLable(line[index++]);
     }
-    if(index != line.size()){
+    if(index != line.size())
+    {
         sourceLine.setOperation(line[index++]);
-     if(getUpper(sourceLine.getOperation())=="BYTE"){
-        if(index != line.size()) {
-        if(line[index][0]=='C' || line[index][0]=='c')
-          return handleByte(sourceLine, line, index, parser);
-     }
-     }
+        if(getUpper(sourceLine.getOperation())=="BYTE")
+        {
+            if(index != line.size())
+            {
+                if(line[index][0]=='C' || line[index][0]=='c')
+                    return handleByte(sourceLine, line, index, parser);
+            }
+        }
 
     }
     if(index != line.size())
         sourceLine.setOperand(line[index++]);
 
+
+    sourceLine.setComment(getComment(index, line));
+
+    return sourceLine;
+}
+
+string SourceProgram::getComment(int index, vector<string> line) {
     string comment = "";
     while(index != line.size())
     {
         comment += line[index++]+" ";
     }
-    sourceLine.setComment(comment);
-
-    return sourceLine;
+    return comment;
 }
 
 bool SourceProgram::isComment(vector<string>line)
@@ -131,40 +131,25 @@ void SourceProgram::write(SourceLine sourceLine, string error)
     string locationCounterinhex = stream.str();
     assemblyListing.write(sourceLine, locationCounterinhex, error);
 }
-void SourceProgram::detectStart(SourceLine sourceLine)
-{
-
-    SyntaxValidator syntaxValidator;
-     if(syntaxValidator.isValid(sourceLine))
-        {
-            this->locationCounter = std::stoi(sourceLine.getOperand(), nullptr, 2);
-            if(sourceLine.getLable() != "")
-            symbolTable.insert(sourceLine.getLable(), locationCounter);
-            write(sourceLine, "");
-
-        }
-        else
-        {
-            write(sourceLine, syntaxValidator.getErrorMessage());
-        }
-
-}
-
 void SourceProgram::updateLocationCounter(SourceLine sourceLine)
 {
-   string error = "";
+    string error = "";
     SyntaxValidator syntaxValidator;
     if(syntaxValidator.isValid(sourceLine))
     {
         if(getUpper(sourceLine.getOperation()) == "START")
         {
             start++;
-            if(start == 1 && lineNumber == 0){
-                detectStart(sourceLine);
+            if(start == 1 && lineNumber == 0)
+            {
+                locationCounter = UpdateLocationCounter::detectStart(locationCounter, sourceLine);
+                if(sourceLine.getLable() != "")
+                   symbolTable.insert(sourceLine.getLable(), locationCounter);
+                write(sourceLine, "");
                 return;
             }
             else
-            error = "You wirte START operation more than one time";
+                error = "You wirte START operation more than one time";
         }
 
         if(sourceLine.getLable() != "")
@@ -176,71 +161,37 @@ void SourceProgram::updateLocationCounter(SourceLine sourceLine)
             else
                 symbolTable.insert(sourceLine.getLable(), locationCounter);
         }
-        OpCodeTable* opCodeTable = OpCodeTable::getOpTable();
-        OpInfo opinfo = opCodeTable->getInfo(getUpper(sourceLine.getOperation()));
         write(sourceLine, error);
-        if(opinfo.getOpCode() != "11")
-        {
-            locationCounter+=opinfo.getFormateBytes();
-        }
-        else if(sourceLine.getOperation()[0] == '+')
-        {
-        string withOutPlus = sourceLine.getOperation();
-        withOutPlus.erase(withOutPlus.begin());
-        if(opCodeTable->getInfo(getUpper(withOutPlus)).getOpCode() != opinfo.NOT_FOUND){
-                locationCounter+=4;
-        }
-        }
-        else
-        {
-            string operation = getUpper(sourceLine.getOperation());
-            if(operation == "WORD") {
+        locationCounter = UpdateLocationCounter::setLocationCounter(locationCounter, sourceLine);
 
-               int numberOfWords = ValidatorUtilities::split(sourceLine.getOperand(), ',').size();
-                locationCounter=locationCounter + 3 * numberOfWords;
-            }
-            else if(operation == "BYTE") {
-                if(sourceLine.getOperand()[0]=='C' || sourceLine.getOperand()[0]=='c')
-                  locationCounter = locationCounter + (sourceLine.getOperand().length()) - 3;
-                else
-                  locationCounter = locationCounter + ((sourceLine.getOperand().length() - 3 + 1 )/2);
-            }
-            else if(operation == "RESB") {
-             locationCounter = locationCounter + stoi(sourceLine.getOperand());
-
-            }
-            else if(operation == "RESW") {
-             locationCounter = locationCounter + 3 * stoi(sourceLine.getOperand());
-            }
-        }
     }
     else
     {
         write(sourceLine, syntaxValidator.getErrorMessage());
     }
 }
-SourceLine SourceProgram::handleByte(SourceLine sourceLine, vector<string> line, int index, string subject){
+SourceLine SourceProgram::handleByte(SourceLine sourceLine, vector<string> line, int index, string subject)
+{
     string operand = "";
     string comment="";
     std::regex pattern("C'.*'|c'.*'|\\w+");
-   // cout<<subject;
     int flag = 0, counter = 0;
-    for (auto i = std::sregex_iterator(subject.begin(), subject.end(), pattern); i != std::sregex_iterator(); ++i) {
-   //  cout<<i->str()<<"\n";
-
-     if(flag){
-        comment += i->str()+" ";
-        continue;
-     }
-     if((i->str()[0] == 'C' || i->str()[0] == 'c') && counter) {
-        operand = i->str();
-        flag = 1;
-        continue;
-     }
-     counter++;
+    for (auto i = std::sregex_iterator(subject.begin(), subject.end(), pattern); i != std::sregex_iterator(); ++i)
+    {
+        if(flag)
+        {
+            comment += i->str()+" ";
+            continue;
+        }
+        if((i->str()[0] == 'C' || i->str()[0] == 'c') && counter)
+        {
+            operand = i->str();
+            flag = 1;
+            continue;
+        }
+        counter++;
     }
-sourceLine.setOperand(operand);
-sourceLine.setComment(comment);
-//cout<<comment;
-return sourceLine;
+    sourceLine.setOperand(operand);
+    sourceLine.setComment(comment);
+    return sourceLine;
 }

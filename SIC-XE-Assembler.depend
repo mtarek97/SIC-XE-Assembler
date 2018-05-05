@@ -135,7 +135,7 @@
 1524742928 source:f:\projects second year\assembly\src\sourceline.cpp
 	"SourceLine.h"
 
-1525080973 source:f:\projects second year\assembly\src\sourceprogram.cpp
+1525503625 source:f:\projects second year\assembly\src\sourceprogram.cpp
 	<bits/stdc++.h>
 	<SourceProgram.h>
 	<SourceLine.h>
@@ -144,8 +144,9 @@
 	<AssemblyListing.h>
 	<SymbolTable.h>
 	<ValidatorUtilities.h>
+	<UpdateLocationCounter.h>
 
-1525037919 f:\projects second year\assembly\include\sourceprogram.h
+1525503082 f:\projects second year\assembly\include\sourceprogram.h
 	<bits/stdc++.h>
 	<SourceLine.h>
 	<SymbolTable.h>
@@ -302,4 +303,16 @@
 
 1525058010 source:c:\users\first\sic-xe-assembler\src\validatorutilities.cpp
 	"ValidatorUtilities.h"
+
+1525503625 source:f:\projects second year\assembly\src\updatelocationcounter.cpp
+	"UpdateLocationCounter.h"
+	<SourceLine.h>
+	<OpInfo.h>
+	<OpCodeTable.h>
+	<SourceProgram.h>
+	<ValidatorUtilities.h>
+	<SyntaxValidator.h>
+
+1525503322 f:\projects second year\assembly\include\updatelocationcounter.h
+	<SourceLine.h>
 

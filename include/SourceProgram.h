@@ -12,12 +12,14 @@ class SourceProgram
     public:
         SourceProgram();
         void parse(char* fileName);
+        static string getUpper(string word);
+
     private:
+        string getComment(int index, vector<string> line);
         SourceLine identifier(vector<string> sourceLine, string psrser);
         int locationCounter=0;
         bool isComment(vector<string> sourceLine);
         vector<string> getWords(string parser);
-        string getUpper(string word);
         set<string> direcive;
         void write(SourceLine sourceLine, string error);
         SymbolTable symbolTable;

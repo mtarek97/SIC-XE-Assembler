@@ -1,16 +1,36 @@
 Line    Loc            Source statement       
-  0              . copy string s1 to s2 
-  1              . Loop where index = 1 
-  2     00000    xxx                 start               0000                
-  3     00000    bgn                 ldx                 initl               
-  4     00003    loop                ldch                str1,x              
-  5     00006                        stch                str2,x              
-  6     00009                        tix                 test                
-  7     0000c                        jlt                 loop                
-  8     0000f                        j                   *                   
-  9              . 
- 10     00012    str1                byte                c'test string'      
- 11     0001d    str2                resb                11                  
- 12     00028    initl               word                0                   
- 13     0002b    test                word                11                  
- 14     0002e                        end                 bgn                 
+  0              .234567890123456789 
+  1              .234567890123456789.234567890123456789 
+  2              .234567890123456789 
+  3              .234567890123456789 
+  4              .234567890123456789 
+  5     00004    LAB2C               START               0100                
+  6     00004                        LDA                 ALPHA               
+  7     00007                        LDB                 #10                 
+  8     0000a                        LDX                 #0                  ygygyg 3t34t34t egrgergerg grergerg 
+  9     0000d                        ADDR                A,B                 
+ 10     0000f                        STA                 SAVEW,X             
+ 11     00012                        LDX                 #1                  
+ 12     00015                        STA                 SAVEW,X             
+ 13              .Format 4 erg wwww sss 
+ 14     00018                        +SUB                #12                 
+ 15     0001c                        LDX                 #0                  
+ 16     0001f                        LDCH                HEXCHAR             ergerg egrgerg ergerg ergerg zz 
+ 17     00022                        STA                 INPUT               
+ 18     00025                        ADD                 LDCH                STRING,X 
+       ****Error:LDCH is invalid operand
+ 19     00025                        COMP                INPUT               
+ 20     00028                        JEQ                 FOUND               
+ 21     0002b                        STCH                OUTPUT,X            
+ 22     0002e                        TIX                 #5                  
+ 23     00031                        JLT                 ADD                 
+       ****Error:ADD is invalid operand
+ 24     00031    FOUND               J                   OUT                 
+ 25     00034    ALPHA               WORD                2                   
+ 26     00037    SAVEW               RESW                2                   
+ 27     0003d    HEXCHAR             BYTE                X'61'               
+ 28     0003e    INPUT               RESB                1                   
+ 29     0003f    STRING              BYTE                C'String'           
+ 30     00045    OUTPUT              RESB                5                   
+ 31     0004a    OUT                 END                 #4                  
+       ****Error:label must be blank at the END statement

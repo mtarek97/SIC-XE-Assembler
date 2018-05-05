@@ -42,6 +42,7 @@
 		<Unit filename="include/SourceProgram.h" />
 		<Unit filename="include/SymbolTable.h" />
 		<Unit filename="include/SyntaxValidator.h" />
+		<Unit filename="include/UpdateLocationCounter.h" />
 		<Unit filename="include/ValidatorUtilities.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="src/AssemblyListing.cpp" />
@@ -52,6 +53,7 @@
 		<Unit filename="src/SourceProgram.cpp" />
 		<Unit filename="src/SymbolTable.cpp" />
 		<Unit filename="src/SyntaxValidator.cpp" />
+		<Unit filename="src/UpdateLocationCounter.cpp" />
 		<Unit filename="src/ValidatorUtilities.cpp" />
 		<Extensions>
 			<code_completion />
