@@ -14,18 +14,18 @@ SyntaxValidator::SyntaxValidator(){
 bool SyntaxValidator::isValid(SourceLine* srcLine){
     this->sourceLine = ValidatorUtilities::toUpperCase(srcLine);
     if(sourceLine->getOperation()=="END" && sourceLine->getLable()!=""){
-        this->errorMessage = "label must be blank at END statement";
+        this->sourceLine->setErrorMessage("label must be blank at END statement");
         return false;
     }else if(sourceLine->getOperation()=="ORG" && sourceLine->getLable()!=""){
-        this->errorMessage = "label must be blank at ORG statement";
+        this->sourceLine->setErrorMessage("label must be blank at ORG statement");
         return false;
     }else{
         if(ValidatorUtilities::isReservedKeyword(sourceLine->getLable())
             || registers->isARegister(sourceLine->getLable())){
-            this->errorMessage = "label can't be a reserved keyword";
+            this->sourceLine->setErrorMessage("label can't be a reserved keyword");
             return false;
         }else if(!ValidatorUtilities::isSymbol(sourceLine->getLable(),LABEL_MAXLENGTH)){
-            this->errorMessage = sourceLine->getLable() + " is invalid. label must start with a letter and consist of letters, numbers, or '_'";
+            this->sourceLine->setErrorMessage(sourceLine->getLable() + " is invalid. label must start with a letter and consist of letters, numbers, or '_'");
             return false;
         }else{
             int operationType = checkOperation(this->sourceLine->getOperation());
@@ -47,10 +47,6 @@ bool SyntaxValidator::isValid(SourceLine* srcLine){
     return true;
 }
 
-string SyntaxValidator::getErrorMessage(){
-    return this->errorMessage;
-}
-
 int SyntaxValidator::checkOperation(std::string operation){
     // check for format 4 (+op)
     bool prefixedByPlus = false;
@@ -65,7 +61,7 @@ int SyntaxValidator::checkOperation(std::string operation){
     OpInfo info = opCodeTable->getInfo(nonPrefixedOperation);
     if(info.getOpCode() != OpInfo::NOT_FOUND){
         if(info.getFormatBytes() == 2 && prefixedByPlus){
-            this->errorMessage = "can't use format 4 with " + nonPrefixedOperation;
+            this->sourceLine->setErrorMessage("can't use format 4 with " + nonPrefixedOperation);
             return INVALID;
         }
         return INSTRUCTION;
@@ -73,7 +69,7 @@ int SyntaxValidator::checkOperation(std::string operation){
     else if(ValidatorUtilities::isDirective(operation)){
         return DIRECTIVE;
     }else{
-        this->errorMessage = operation + " is invalid operation";
+        this->sourceLine->setErrorMessage(operation + " is invalid operation");
         return INVALID;
     }
 }
@@ -81,7 +77,7 @@ int SyntaxValidator::checkOperation(std::string operation){
 bool SyntaxValidator::checkFormat2Operand(OpInfo info){
     string operand =  sourceLine->getOperand();
     if(operand[0]==',' || operand[operand.size()-1]==','){
-        errorMessage = operand + " is invalid operand";
+        sourceLine->setErrorMessage(operand + " is invalid operand");
             return false;
     }
     vector<std::string> splittedOperands = ValidatorUtilities::split(operand,',');
@@ -89,12 +85,12 @@ bool SyntaxValidator::checkFormat2Operand(OpInfo info){
     if(splittedOperands.size() == noOfOperands){
         for(int i=0;i<noOfOperands;i++){
             if(!registers->isARegister(splittedOperands[i])){
-                errorMessage = splittedOperands[i] + " is invalid register";
+                sourceLine->setErrorMessage(splittedOperands[i] + " is invalid register");
                 return false;
             }
         }
     }else{
-        this->errorMessage = "number of operands must be " + to_string(noOfOperands);
+        this->sourceLine->setErrorMessage("number of operands must be " + to_string(noOfOperands));
         return false;
     }
     return true;
@@ -103,7 +99,7 @@ bool SyntaxValidator::checkFormat2Operand(OpInfo info){
 bool SyntaxValidator::checkFormat3or4Operand(OpInfo info){
     if(sourceLine->getOperation() == "RSUB"){
         if(sourceLine->getOperand() != ""){
-            this->errorMessage = "RSUB can't take any operand";
+            this->sourceLine->setErrorMessage("RSUB can't take any operand");
             return false;
         }else{
             return true;
@@ -111,26 +107,26 @@ bool SyntaxValidator::checkFormat3or4Operand(OpInfo info){
     }
     string operand = sourceLine->getOperand();
     if(operand[0]==',' || operand[operand.size()-1]==','){
-        errorMessage = operand + " is invalid operand";
+        sourceLine->setErrorMessage(operand + " is invalid operand");
             return false;
     }
     vector<std::string> splittedOperands = ValidatorUtilities::split(operand,',');
     if(splittedOperands.size()==2){
         if(!(splittedOperands[1]=="X")){
-            this->errorMessage = "can't use register rather than X to indexed addressing";
+            this->sourceLine->setErrorMessage("can't use register rather than X to indexed addressing");
             return false;
         }
         else if(registers->isARegister(splittedOperands[0])){
-            this->errorMessage = "can't use registers with indexed addressing" ;
+            this->sourceLine->setErrorMessage("can't use registers with indexed addressing") ;
             return false;
         }
         else if(ValidatorUtilities::isReservedKeyword(splittedOperands[0])){
-            this->errorMessage = splittedOperands[0] + " is invalid operand because it's a reserved keyword";
+            this->sourceLine->setErrorMessage(splittedOperands[0] + " is invalid operand because it's a reserved keyword");
             return false;
         }
         else if(!(ValidatorUtilities::isSymbol(splittedOperands[0],LABEL_MAXLENGTH))
                 && !(ValidatorUtilities::isHexAddress(splittedOperands[0],6))){
-            this->errorMessage = splittedOperands[0] + " is invalid operand";
+            this->sourceLine->setErrorMessage(splittedOperands[0] + " is invalid operand");
             return false;
         }
         else{
@@ -142,16 +138,16 @@ bool SyntaxValidator::checkFormat3or4Operand(OpInfo info){
                 nonPrefixedOperand = splittedOperands[0].substr(1);
         }
         if(registers->isARegister(nonPrefixedOperand)){
-            this->errorMessage = nonPrefixedOperand + " is invalid operand because it's a register";
+            this->sourceLine->setErrorMessage(nonPrefixedOperand + " is invalid operand because it's a register");
             return false;
         }
         else if(ValidatorUtilities::isReservedKeyword(nonPrefixedOperand)){
-            this->errorMessage = nonPrefixedOperand + " is invalid operand";
+            this->sourceLine->setErrorMessage(nonPrefixedOperand + " is invalid operand");
             return false;
         }
         if(!ValidatorUtilities::isSymbol(nonPrefixedOperand,LABEL_MAXLENGTH)
            && !ValidatorUtilities::isHexAddress(nonPrefixedOperand,6) && !(nonPrefixedOperand=="*")){
-            this->errorMessage = splittedOperands[0] + " is invalid operand";
+            this->sourceLine->setErrorMessage(splittedOperands[0] + " is invalid operand");
             return false;
         }
         else{
@@ -159,7 +155,7 @@ bool SyntaxValidator::checkFormat3or4Operand(OpInfo info){
         }
 
     }else{
-        this->errorMessage = "number of operands must be 1";
+        this->sourceLine->setErrorMessage("number of operands must be 1");
         return false;
     }
 }
@@ -168,7 +164,7 @@ bool SyntaxValidator::checkDirectiveOperand(){
     string directive = sourceLine->getOperation();
     string operand = sourceLine->getOperand();
     if(operand == "" && directive!="END"){
-        this->errorMessage="you must specify the operand";
+        this->sourceLine->setErrorMessage("you must specify the operand");
         return false;
     }
     if(directive == "BYTE"){
@@ -177,65 +173,65 @@ bool SyntaxValidator::checkDirectiveOperand(){
             string actualOperand = operand.substr(2,operand.size()-3);
             if(operand[0]== 'C'){
                 if(actualOperand.size()>15){
-                    this->errorMessage= actualOperand + " can't exceed 15 characters";
+                    this->sourceLine->setErrorMessage(actualOperand + " can't exceed 15 characters");
                     return false;
                 }
             }
             else if (operand[0]== 'X'){
                 if(!ValidatorUtilities::isHexAddress(actualOperand,14)){
-                   this->errorMessage= actualOperand + " must be a hexadecimal constant with length at most 14 digits";
+                   this->sourceLine->setErrorMessage(actualOperand + " must be a hexadecimal constant with length at most 14 digits");
                     return false;
                 }
 
             }else{
-                this->errorMessage = "operand must be a character string or hexadecimal constant";
+                this->sourceLine->setErrorMessage("operand must be a character string or hexadecimal constant");
                 return false;
             }
         }else{
-            this->errorMessage = "operand must be a character string or hexadecimal constant";
+            this->sourceLine->setErrorMessage("operand must be a character string or hexadecimal constant");
             return false;
         }
     }else if(directive == "WORD"){
         sourceLine->setHasObjCode(true);
         if(operand[0]==',' || operand[operand.size()-1]==','){
-        errorMessage = operand + " is invalid operand";
+        sourceLine->setErrorMessage(operand + " is invalid operand");
             return false;
         }
         vector<std::string> splittedOperands = ValidatorUtilities::split(operand,',');
         for(string str : splittedOperands){
             if(!ValidatorUtilities::isSymbol(str,LABEL_MAXLENGTH)
                && !ValidatorUtilities::isDecimalNumber(str,4,true)){
-                this->errorMessage = "operand must be a label or a decimal value (up to 4 decimal digits)";
+                this->sourceLine->setErrorMessage("operand must be a label or a decimal value (up to 4 decimal digits)");
                 return false;
             }
         }
     }else if(directive == "RESB" || directive == "RESW"){
         if(!ValidatorUtilities::isDecimalNumber(operand,4,false)){
-            this->errorMessage= "operand must be a positive decimal value (up to 4 decimal digits)";
+            this->sourceLine->setErrorMessage("operand must be a positive decimal value (up to 4 decimal digits)");
             return false;
         }
         if(stoi(operand)==0){
-            this->errorMessage="operand must be a POSITIVE (NOT ZERO) decimal value (up to 4 decimal digits)";
+            this->sourceLine->setErrorMessage("operand must be a POSITIVE (NOT ZERO) decimal value (up to 4 decimal digits)");
             return false;
         }
     }else if(directive == "START"){
         if(operand==""){
-            this->errorMessage= "must specify the starting address of the program";
+            this->sourceLine->setErrorMessage("must specify the starting address of the program");
             return false;
         }
         if(!ValidatorUtilities::isHexAddress(operand,4)){
-            this->errorMessage="operand must be a hexadecimal constant (up to 4 digits)";
+            this->sourceLine->setErrorMessage("operand must be a hexadecimal constant (up to 4 digits)");
             return false;
         }
     }else if (directive == "END"){  // "END"
         if(!ValidatorUtilities::isHexAddress(operand,4) && !(ValidatorUtilities::isSymbol(operand,LABEL_MAXLENGTH)) ){
-            this->errorMessage="operand must be a hexadecimal constant (up to 4 digits) or a symbol";
+            this->sourceLine->setErrorMessage("operand must be a hexadecimal constant (up to 4 digits) or a symbol");
             return false;
         }
     } else if(directive == "EQU" || directive == "ORG"){
         if(!ValidatorUtilities::isSymbol(operand,LABEL_MAXLENGTH) &&
            !(ValidatorUtilities::isDecimalNumber(operand,7,false) && stoi(operand)<=2e20)){
-            this->errorMessage="operand must be a symbol or a constant number";
+            this->sourceLine->setErrorMessage("operand must be a symbol or a constant number");
             return false;
         }
     }

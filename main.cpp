@@ -78,7 +78,7 @@ int main( )
     ObjectCodeGenerator* generator = ObjectCodeGenerator::getObjectCodeGenerator();
 
     SourceLine sourceLine ; // symbol Table has been set inside source Program for testing purposes only.
-    sourceLine.setOperation("START");
+    sourceLine.setOperation("STTA");
     sourceLine.setOperand("0000");
     sourceLine.setNextInstruction(4177);
 
@@ -87,7 +87,7 @@ int main( )
         cout << "valid source line" << endl;
     }else{
         sourceLine.setIsValid(false);
-        cout << validator.getErrorMessage() << endl;
+        cout << sourceLine.getErrorMessage() << endl;
     }
     cout << (sourceLine.getIsValid() ? "valid syntax" : "invalid syntax") << endl;
     cout << (sourceLine.getHasObjCode() ? "has obj code" : "has no obj code") << endl;

@@ -63,5 +63,14 @@ bool SourceLine::getIsValid()
 {
     return this->isValid;
 }
+void SourceLine::setErrorMessage(string errMsg)
+{
+    this->errorMessage = errMsg;
+}
+string SourceLine::getErrorMessage()
+{
+    return this->errorMessage;
+}
+
 
 

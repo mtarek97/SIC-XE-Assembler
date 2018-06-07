@@ -16,7 +16,6 @@ class SyntaxValidator
     public:
         SyntaxValidator();
         bool isValid(SourceLine* srcLine);
-        string getErrorMessage();
 
     private:
         static const int INVALID;
@@ -26,7 +25,6 @@ class SyntaxValidator
         OpCodeTable* opCodeTable;
         RegistersTable* registers;
         SourceLine* sourceLine;
-        std::string errorMessage;
         int checkOperation(std::string operation);
         vector<std::string> split(string str, char delimiter);
         bool checkDirectiveOperand();

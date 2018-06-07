@@ -15,7 +15,7 @@ class SourceLine
         int getByteFormat();
         bool getIsValid();
         bool getHasObjCode();
-
+        string getErrorMessage();
 
         int getNextInstruction();
         void setComment(string comment);
@@ -26,12 +26,14 @@ class SourceLine
         void setNextInstruction(int nextInstruction);
         void setIsValid(bool isValid);
         void setHasObjCode(bool hasObjCode);
+        void setErrorMessage(string error);
 
 
     private:
         string lable="", operation="", operand="", comment="";
         int byteFormat = 0,nextInstruction=0;
         bool isValid = true,hasObjCode = true;
+        string errorMessage = "";
 };
 
 #endif // SOURCELINE_H

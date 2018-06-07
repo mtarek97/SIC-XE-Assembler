@@ -171,7 +171,7 @@ void SourceProgram::updateLocationCounter(SourceLine sourceLine)
     }
     else
     {
-        write(sourceLine, syntaxValidator.getErrorMessage());
+        write(sourceLine, sourceLine.getErrorMessage());
     }
 }
 SourceLine SourceProgram::handleSpacesInOperand(SourceLine sourceLine, string subject, string patern, char beginCharacter)
