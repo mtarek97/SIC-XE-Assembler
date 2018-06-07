@@ -46,3 +46,22 @@ int SourceLine::getNextInstruction() {
     return this->nextInstruction;
 }
 
+void SourceLine::setHasObjCode(bool hasObjCode)
+{
+    this->hasObjCode = hasObjCode;
+}
+bool SourceLine::getHasObjCode()
+{
+    return this->hasObjCode;
+}
+
+void SourceLine::setIsValid(bool isValid)
+{
+    this->isValid = isValid;
+}
+bool SourceLine::getIsValid()
+{
+    return this->isValid;
+}
+
+

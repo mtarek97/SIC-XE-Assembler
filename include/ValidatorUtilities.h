@@ -19,15 +19,13 @@ class ValidatorUtilities
         static bool isHexAddress(std::string str, int maxlength);
         static bool isDecimalNumber(std::string str, int maxDigitsCount, bool canBeNegative);
         static bool isReservedKeyword(std::string str);
-        static bool isRegister(std::string str);
         static bool isDirective(std::string str);
         static std::vector<std::string> split(std::string str, char delimiter);
-        static SourceLine toUpperCase(SourceLine srcLine);
+        static SourceLine* toUpperCase(SourceLine* srcLine);
 
     private:
         ValidatorUtilities();
         static OpCodeTable* opCodeTable;
-        static const std::string registers[];
         static const std::string directives[];
 };
 

@@ -13,6 +13,10 @@ class SourceLine
         string getOperation();
         string getOperand();
         int getByteFormat();
+        bool getIsValid();
+        bool getHasObjCode();
+
+
         int getNextInstruction();
         void setComment(string comment);
         void setLable(string lable);
@@ -20,10 +24,14 @@ class SourceLine
         void setOperand(string operand);
         void setByteFormat(int byteFormat);
         void setNextInstruction(int nextInstruction);
+        void setIsValid(bool isValid);
+        void setHasObjCode(bool hasObjCode);
+
 
     private:
         string lable="", operation="", operand="", comment="";
         int byteFormat = 0,nextInstruction=0;
+        bool isValid = true,hasObjCode = true;
 };
 
 #endif // SOURCELINE_H

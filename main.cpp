@@ -63,6 +63,7 @@ int main( )
     SourceProgram sourceProgram;
     string l = "aaaa.txt";
     sourceProgram.parse(&fileName[0]);
+
     /*
         ObjectCodeGenerator Guide :
         ObjectCodeGenerator* generator = ObjectCodeGenerator::getObjectCodeGenerator(); getting instance
@@ -75,11 +76,24 @@ int main( )
         Also EQU should be added may be to symbol table because of the displacement calculations.
     */
     ObjectCodeGenerator* generator = ObjectCodeGenerator::getObjectCodeGenerator();
+
     SourceLine sourceLine ; // symbol Table has been set inside source Program for testing purposes only.
-    sourceLine.setOperation("STCH");
-    sourceLine.setOperand("BUFFER,X");
+    sourceLine.setOperation("START");
+    sourceLine.setOperand("0000");
     sourceLine.setNextInstruction(4177);
+
+    SyntaxValidator validator;
+    if(validator.isValid(&sourceLine)){
+        cout << "valid source line" << endl;
+    }else{
+        sourceLine.setIsValid(false);
+        cout << validator.getErrorMessage() << endl;
+    }
+    cout << (sourceLine.getIsValid() ? "valid syntax" : "invalid syntax") << endl;
+    cout << (sourceLine.getHasObjCode() ? "has obj code" : "has no obj code") << endl;
+
     string result = generator->getObjectCode(sourceLine);
-    cout << result;
+    cout << result << endl;
+
     return 0;
 }

@@ -11,7 +11,7 @@ SyntaxValidator::SyntaxValidator(){
     this->registers = RegistersTable::getARegistersTable();
 }
 
-bool SyntaxValidator::isValid(SourceLine* srcLine){
+bool SyntaxValidator::isValid(SourceLine srcLine){
     this->sourceLine = ValidatorUtilities::toUpperCase(srcLine);
     if(sourceLine->getOperation()=="END" && sourceLine->getLable()!=""){
         this->errorMessage = "label must be blank at END statement";
@@ -24,26 +24,27 @@ bool SyntaxValidator::isValid(SourceLine* srcLine){
             || registers->isARegister(sourceLine->getLable())){
             this->errorMessage = "label can't be a reserved keyword";
             return false;
-        }else if(!ValidatorUtilities::isSymbol(sourceLine->getLable(),LABEL_MAXLENGTH)){
-            this->errorMessage = sourceLine->getLable() + " is invalid. label must start with a letter and consist of letters, numbers, or '_'";
+        }else if(!ValidatorUtilities::isSymbol(sourceLine.getLable(),LABEL_MAXLENGTH)){
+            this->errorMessage = sourceLine.getLable() + " is invalid. label must start with a letter and consist of letters, numbers, or '_'";
             return false;
         }else{
-            int operationType = checkOperation(this->sourceLine->getOperation());
+            int operationType = checkOperation(this->sourceLine.getOperation());
             if(operationType == this->INSTRUCTION){
-                OpInfo info = opCodeTable->getInfo(this->sourceLine->getOperation());
+                OpInfo info = opCodeTable->getInfo(this->sourceLine.getOperation());
                 if(info.getFormatBytes() == 2){
                     return this->checkFormat2Operand(info);
                 }else{  // format 3 or 4
                     return this->checkFormat3or4Operand(info);
                 }
             }else if(operationType == this->DIRECTIVE){
-                    sourceLine->setHasObjCode(false);
+                    sourceLine.setHasObjCode(false);
                     return this->checkDirectiveOperand();
             }else{  // not valid operation
                 return false;
             }
         }
     }
+    sourceLine.setIsValid(true);
     return true;
 }
 
@@ -58,7 +59,7 @@ int SyntaxValidator::checkOperation(std::string operation){
     if(operation[0]=='+'){
         prefixedByPlus = true;
         nonPrefixedOperation = operation.substr(1);
-        this->sourceLine->setOperation(nonPrefixedOperation);
+        this->sourceLine.setOperation(nonPrefixedOperation);
     }else{
         nonPrefixedOperation = operation;
     }
@@ -79,7 +80,7 @@ int SyntaxValidator::checkOperation(std::string operation){
 }
 
 bool SyntaxValidator::checkFormat2Operand(OpInfo info){
-    string operand =  sourceLine->getOperand();
+    string operand =  sourceLine.getOperand();
     if(operand[0]==',' || operand[operand.size()-1]==','){
         errorMessage = operand + " is invalid operand";
             return false;
@@ -101,15 +102,15 @@ bool SyntaxValidator::checkFormat2Operand(OpInfo info){
 }
 
 bool SyntaxValidator::checkFormat3or4Operand(OpInfo info){
-    if(sourceLine->getOperation() == "RSUB"){
-        if(sourceLine->getOperand() != ""){
+    if(sourceLine.getOperation() == "RSUB"){
+        if(sourceLine.getOperand() != ""){
             this->errorMessage = "RSUB can't take any operand";
             return false;
         }else{
             return true;
         }
     }
-    string operand = sourceLine->getOperand();
+    string operand = sourceLine.getOperand();
     if(operand[0]==',' || operand[operand.size()-1]==','){
         errorMessage = operand + " is invalid operand";
             return false;
@@ -165,14 +166,14 @@ bool SyntaxValidator::checkFormat3or4Operand(OpInfo info){
 }
 
 bool SyntaxValidator::checkDirectiveOperand(){
-    string directive = sourceLine->getOperation();
-    string operand = sourceLine->getOperand();
+    string directive = sourceLine.getOperation();
+    string operand = sourceLine.getOperand();
     if(operand == "" && directive!="END"){
         this->errorMessage="you must specify the operand";
         return false;
     }
     if(directive == "BYTE"){
-        sourceLine->setHasObjCode(true);
+        sourceLine.setHasObjCode(true);
         if(operand.size()>=3 && operand[1]== '\'' && operand[operand.size()-1]=='\''){
             string actualOperand = operand.substr(2,operand.size()-3);
             if(operand[0]== 'C'){
@@ -196,7 +197,7 @@ bool SyntaxValidator::checkDirectiveOperand(){
             return false;
         }
     }else if(directive == "WORD"){
-        sourceLine->setHasObjCode(true);
+        sourceLine.setHasObjCode(true);
         if(operand[0]==',' || operand[operand.size()-1]==','){
         errorMessage = operand + " is invalid operand";
             return false;

@@ -138,7 +138,7 @@ void SourceProgram::updateLocationCounter(SourceLine sourceLine)
 {
     string error = "";
     SyntaxValidator syntaxValidator;
-    if(syntaxValidator.isValid(sourceLine))
+    if(syntaxValidator.isValid(&sourceLine))
     {
         if(getUpper(sourceLine.getOperation()) == "START")
         {

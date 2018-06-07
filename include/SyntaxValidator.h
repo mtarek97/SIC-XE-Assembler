@@ -5,6 +5,7 @@
 #include <vector>
 #include <string>
 #include "ValidatorUtilities.h"
+#include "RegistersTable.h"
 
 
 #ifndef SYNTAXVALIDATOR_H_INCLUDED
@@ -14,7 +15,7 @@ class SyntaxValidator
 {
     public:
         SyntaxValidator();
-        bool isValid(SourceLine srcLine);
+        bool isValid(SourceLine* srcLine);
         string getErrorMessage();
 
     private:
@@ -23,7 +24,8 @@ class SyntaxValidator
         static const int DIRECTIVE;
         static const int LABEL_MAXLENGTH;
         OpCodeTable* opCodeTable;
-        SourceLine sourceLine;
+        RegistersTable* registers;
+        SourceLine* sourceLine;
         std::string errorMessage;
         int checkOperation(std::string operation);
         vector<std::string> split(string str, char delimiter);

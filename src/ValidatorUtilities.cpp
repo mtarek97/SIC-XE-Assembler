@@ -2,8 +2,7 @@
 
 using namespace std;
 
-const std::string ValidatorUtilities::registers[] = {"A","X","L","B","S","T","F","PC","SW"};
-const std::string ValidatorUtilities::directives[] = {"BYTE","WORD","RESB","RESW","START","END"};
+const std::string ValidatorUtilities::directives[] = {"BYTE","WORD","RESB","RESW","START","END","EQU","ORG"};
 OpCodeTable* ValidatorUtilities::opCodeTable = OpCodeTable::getOpTable();
 
 // private constructor --static class
@@ -58,21 +57,14 @@ bool ValidatorUtilities::isHexAddress(string str, int maxLength){
     return true;
 }
 
-bool ValidatorUtilities::isRegister(string str){
-    if(find(registers,registers+9,str) == registers+9){
-        return false;
-    }
-    return true;
-}
-
 bool ValidatorUtilities::isDirective(string str){
-    if(find(directives,directives+6,str) == directives+6){
+    if(find(directives,directives+8,str) == directives+8){
         return false;
     }
     return true;
 }
 
-bool ValidatorUtilities::isDecimalNumber(string str, int maxDigitsCount, bool canBeNegative){
+bool ValidatorUtilities::isDecimalNumber(string str, int maxDigitsCount, bool canBeNegative=false){
     string absolute = str;
     bool isNegative = false;
     if(str[0]=='-'){
@@ -93,19 +85,19 @@ bool ValidatorUtilities::isDecimalNumber(string str, int maxDigitsCount, bool ca
     return true;
 }
 
-SourceLine ValidatorUtilities::toUpperCase(SourceLine srcLine){
-    string label = srcLine.getLable();
-    string operand = srcLine.getOperand();
-    string operation = srcLine.getOperation();
-    string comment = srcLine.getComment();
+SourceLine* ValidatorUtilities::toUpperCase(SourceLine* srcLine){
+    string label = srcLine->getLable();
+    string operand = srcLine->getOperand();
+    string operation = srcLine->getOperation();
+    string comment = srcLine->getComment();
     transform(label.begin(), label.end(), label.begin(), ::toupper);
     transform(operand.begin(), operand.end(), operand.begin(), ::toupper);
     transform(operation.begin(), operation.end(), operation.begin(), ::toupper);
     transform(comment.begin(), comment.end(), comment.begin(), ::toupper);
-    srcLine.setLable(label);
-    srcLine.setOperand(operand);
-    srcLine.setOperation(operation);
-    srcLine.setComment(comment);
+    srcLine->setLable(label);
+    srcLine->setOperand(operand);
+    srcLine->setOperation(operation);
+    srcLine->setComment(comment);
     return srcLine;
 }
 
