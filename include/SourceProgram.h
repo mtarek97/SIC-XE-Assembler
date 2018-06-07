@@ -26,7 +26,7 @@ class SourceProgram
         void detectStart(SourceLine sourceLine);
         void updateLocationCounter(SourceLine sourceLine);
         AssemblyListing assemblyListing;
-        SourceLine handleByte(SourceLine sourceLine, vector<string> line, int index, string parser);
+        SourceLine handleSpacesInOperand(SourceLine sourceLine, string parser, string pattern, char beginCharacter);
         int start = 0, lineNumber = 0;
 };
 

@@ -11,5 +11,5 @@ loop     ldch    str1,x
 str1     byte    c'test string'
 str2     resb    11
 initl    word    0
-test     word    11
+test     byte  c'uu     uhu' uuiuhihi hibibibi ihbibib
          end     bgn

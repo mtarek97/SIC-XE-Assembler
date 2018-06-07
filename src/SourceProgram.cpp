@@ -83,9 +83,11 @@ SourceLine SourceProgram::identifier(vector<string> line, string parser)
             if(index != line.size())
             {
                 if(line[index][0]=='C' || line[index][0]=='c')
-                    return handleByte(sourceLine, line, index, parser);
+                    return handleSpacesInOperand(sourceLine, parser, "C'.*'|c'.*'|\\w+", 'C');
             }
         }
+        else if(index != line.size() && line[index][0]=='=' && toupper(line[index][1])=='C')
+            return handleSpacesInOperand(sourceLine, parser, "=C'.*'|=c'.*'|\\w+", '=');
 
     }
     if(index != line.size())
@@ -172,11 +174,11 @@ void SourceProgram::updateLocationCounter(SourceLine sourceLine)
         write(sourceLine, syntaxValidator.getErrorMessage());
     }
 }
-SourceLine SourceProgram::handleByte(SourceLine sourceLine, vector<string> line, int index, string subject)
+SourceLine SourceProgram::handleSpacesInOperand(SourceLine sourceLine, string subject, string patern, char beginCharacter)
 {
     string operand = "";
     string comment="";
-    std::regex pattern("C'.*'|c'.*'|\\w+");
+    std::regex pattern(patern);
     int flag = 0, counter = 0;
     for (auto i = std::sregex_iterator(subject.begin(), subject.end(), pattern); i != std::sregex_iterator(); ++i)
     {
@@ -185,7 +187,7 @@ SourceLine SourceProgram::handleByte(SourceLine sourceLine, vector<string> line,
             comment += i->str()+" ";
             continue;
         }
-        if((i->str()[0] == 'C' || i->str()[0] == 'c') && counter)
+        if((toupper(i->str()[0]) == beginCharacter) && counter)
         {
             operand = i->str();
             flag = 1;

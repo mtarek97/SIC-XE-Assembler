@@ -27,6 +27,6 @@ ALPHA    WORD    2
 SAVEW    RESW    2
 HEXCHAR  BYTE    X'61'
 INPUT    RESB    1
-STRING   BYTE    C'String'
+STRING   BYTE    c'String     gerger'
 OUTPUT   RESB    5
 OUT      END     #4
