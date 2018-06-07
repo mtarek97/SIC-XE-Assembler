@@ -12,6 +12,18 @@ SourceLine.h
 bits/stdc++.h
 -
 
+../include/ObjectCodeGenerator.h
+string
+-
+SourceLine.h
+../include/SourceLine.h
+OpCodeTable.h
+../include/OpCodeTable.h
+SymbolTable.h
+../include/SymbolTable.h
+RegistersTable.h
+../include/RegistersTable.h
+
 ../include/ObjectProgram.h
 
 ../include/OpCodeTable.h
@@ -24,6 +36,10 @@ unordered_map
 
 ../include/OpInfo.h
 string
+-
+
+../include/RegistersTable.h
+map
 -
 
 ../include/SourceLine.h
@@ -62,6 +78,10 @@ string
 ValidatorUtilities.h
 ../include/ValidatorUtilities.h
 
+../include/UpdateLocationCounter.h
+SourceLine.h
+-
+
 ../include/ValidatorUtilities.h
 OpInfo.h
 ../include/OpInfo.h
@@ -82,25 +102,27 @@ ctype.h
 sstream
 -
 
-C:/Users/Mohamed Mashaal/Desktop/SIC Assembler/SIC-XE-Assembler/main.cpp
+C:/Users/Mohamed Mashaal/Desktop/Assembler/SIC-XE-Assembler/main.cpp
 iostream
 -
+ObjectCodeGenerator.h
+-
 SymbolTable.h
-C:/Users/Mohamed Mashaal/Desktop/SIC Assembler/SIC-XE-Assembler/SymbolTable.h
+C:/Users/Mohamed Mashaal/Desktop/Assembler/SIC-XE-Assembler/SymbolTable.h
 OpCodeTable.h
-C:/Users/Mohamed Mashaal/Desktop/SIC Assembler/SIC-XE-Assembler/OpCodeTable.h
+C:/Users/Mohamed Mashaal/Desktop/Assembler/SIC-XE-Assembler/OpCodeTable.h
 SourceLine.h
-C:/Users/Mohamed Mashaal/Desktop/SIC Assembler/SIC-XE-Assembler/SourceLine.h
+C:/Users/Mohamed Mashaal/Desktop/Assembler/SIC-XE-Assembler/SourceLine.h
 SyntaxValidator.h
-C:/Users/Mohamed Mashaal/Desktop/SIC Assembler/SIC-XE-Assembler/SyntaxValidator.h
+C:/Users/Mohamed Mashaal/Desktop/Assembler/SIC-XE-Assembler/SyntaxValidator.h
 SourceProgram.h
-C:/Users/Mohamed Mashaal/Desktop/SIC Assembler/SIC-XE-Assembler/SourceProgram.h
+C:/Users/Mohamed Mashaal/Desktop/Assembler/SIC-XE-Assembler/SourceProgram.h
 
-C:/Users/Mohamed Mashaal/Desktop/SIC Assembler/SIC-XE-Assembler/src/AssemblyListing.cpp
+C:/Users/Mohamed Mashaal/Desktop/Assembler/SIC-XE-Assembler/src/AssemblyListing.cpp
 bits/stdc++.h
 -
 AssemblyListing.h
-C:/Users/Mohamed Mashaal/Desktop/SIC Assembler/SIC-XE-Assembler/src/AssemblyListing.h
+C:/Users/Mohamed Mashaal/Desktop/Assembler/SIC-XE-Assembler/src/AssemblyListing.h
 SourceLine.h
 -
 string
@@ -110,27 +132,37 @@ fstream
 iostream
 -
 
-C:/Users/Mohamed Mashaal/Desktop/SIC Assembler/SIC-XE-Assembler/src/ObjectProgram.cpp
-ObjectProgram.h
-C:/Users/Mohamed Mashaal/Desktop/SIC Assembler/SIC-XE-Assembler/src/ObjectProgram.h
-
-C:/Users/Mohamed Mashaal/Desktop/SIC Assembler/SIC-XE-Assembler/src/OpCodeTable.cpp
+C:/Users/Mohamed Mashaal/Desktop/Assembler/SIC-XE-Assembler/src/ObjectCodeGenerator.cpp
+ObjectCodeGenerator.h
+C:/Users/Mohamed Mashaal/Desktop/Assembler/SIC-XE-Assembler/src/ObjectCodeGenerator.h
 OpCodeTable.h
-C:/Users/Mohamed Mashaal/Desktop/SIC Assembler/SIC-XE-Assembler/src/OpCodeTable.h
+C:/Users/Mohamed Mashaal/Desktop/Assembler/SIC-XE-Assembler/src/OpCodeTable.h
+
+C:/Users/Mohamed Mashaal/Desktop/Assembler/SIC-XE-Assembler/src/ObjectProgram.cpp
+ObjectProgram.h
+C:/Users/Mohamed Mashaal/Desktop/Assembler/SIC-XE-Assembler/src/ObjectProgram.h
+
+C:/Users/Mohamed Mashaal/Desktop/Assembler/SIC-XE-Assembler/src/OpCodeTable.cpp
+OpCodeTable.h
+C:/Users/Mohamed Mashaal/Desktop/Assembler/SIC-XE-Assembler/src/OpCodeTable.h
 iostream
 -
 fstream
 -
 
-C:/Users/Mohamed Mashaal/Desktop/SIC Assembler/SIC-XE-Assembler/src/OpInfo.cpp
+C:/Users/Mohamed Mashaal/Desktop/Assembler/SIC-XE-Assembler/src/OpInfo.cpp
 OpInfo.h
-C:/Users/Mohamed Mashaal/Desktop/SIC Assembler/SIC-XE-Assembler/src/OpInfo.h
+C:/Users/Mohamed Mashaal/Desktop/Assembler/SIC-XE-Assembler/src/OpInfo.h
 
-C:/Users/Mohamed Mashaal/Desktop/SIC Assembler/SIC-XE-Assembler/src/SourceLine.cpp
+C:/Users/Mohamed Mashaal/Desktop/Assembler/SIC-XE-Assembler/src/RegistersTable.cpp
+RegistersTable.h
+C:/Users/Mohamed Mashaal/Desktop/Assembler/SIC-XE-Assembler/src/RegistersTable.h
+
+C:/Users/Mohamed Mashaal/Desktop/Assembler/SIC-XE-Assembler/src/SourceLine.cpp
 SourceLine.h
-C:/Users/Mohamed Mashaal/Desktop/SIC Assembler/SIC-XE-Assembler/src/SourceLine.h
+C:/Users/Mohamed Mashaal/Desktop/Assembler/SIC-XE-Assembler/src/SourceLine.h
 
-C:/Users/Mohamed Mashaal/Desktop/SIC Assembler/SIC-XE-Assembler/src/SourceProgram.cpp
+C:/Users/Mohamed Mashaal/Desktop/Assembler/SIC-XE-Assembler/src/SourceProgram.cpp
 bits/stdc++.h
 -
 SourceProgram.h
@@ -147,16 +179,44 @@ SymbolTable.h
 -
 ValidatorUtilities.h
 -
+UpdateLocationCounter.h
+-
+ObjectCodeGenerator.h
+-
 
-C:/Users/Mohamed Mashaal/Desktop/SIC Assembler/SIC-XE-Assembler/src/SymbolTable.cpp
+C:/Users/Mohamed Mashaal/Desktop/Assembler/SIC-XE-Assembler/src/SymbolTable.cpp
 SymbolTable.h
-C:/Users/Mohamed Mashaal/Desktop/SIC Assembler/SIC-XE-Assembler/src/SymbolTable.h
+C:/Users/Mohamed Mashaal/Desktop/Assembler/SIC-XE-Assembler/src/SymbolTable.h
+bits/stdc++.h
+-
+string
+-
+fstream
+-
+iostream
+-
 
-C:/Users/Mohamed Mashaal/Desktop/SIC Assembler/SIC-XE-Assembler/src/SyntaxValidator.cpp
+C:/Users/Mohamed Mashaal/Desktop/Assembler/SIC-XE-Assembler/src/SyntaxValidator.cpp
 SyntaxValidator.h
-C:/Users/Mohamed Mashaal/Desktop/SIC Assembler/SIC-XE-Assembler/src/SyntaxValidator.h
+C:/Users/Mohamed Mashaal/Desktop/Assembler/SIC-XE-Assembler/src/SyntaxValidator.h
 
-C:/Users/Mohamed Mashaal/Desktop/SIC Assembler/SIC-XE-Assembler/src/ValidatorUtilities.cpp
+C:/Users/Mohamed Mashaal/Desktop/Assembler/SIC-XE-Assembler/src/UpdateLocationCounter.cpp
+UpdateLocationCounter.h
+C:/Users/Mohamed Mashaal/Desktop/Assembler/SIC-XE-Assembler/src/UpdateLocationCounter.h
+SourceLine.h
+-
+OpInfo.h
+-
+OpCodeTable.h
+-
+SourceProgram.h
+-
 ValidatorUtilities.h
-C:/Users/Mohamed Mashaal/Desktop/SIC Assembler/SIC-XE-Assembler/src/ValidatorUtilities.h
+-
+SyntaxValidator.h
+-
+
+C:/Users/Mohamed Mashaal/Desktop/Assembler/SIC-XE-Assembler/src/ValidatorUtilities.cpp
+ValidatorUtilities.h
+C:/Users/Mohamed Mashaal/Desktop/Assembler/SIC-XE-Assembler/src/ValidatorUtilities.h
 

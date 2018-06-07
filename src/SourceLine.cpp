@@ -20,6 +20,11 @@ void SourceLine::setOperand(string operand)
 {
     this->operand = operand;
 }
+
+void SourceLine::setNextInstruction(int nextInstruction) {
+    this->nextInstruction = nextInstruction;
+}
+
 string SourceLine::getComment()
 {
     return this->comment;
@@ -37,4 +42,7 @@ string SourceLine::getOperand()
     return this->operand;
 }
 
+int SourceLine::getNextInstruction() {
+    return this->nextInstruction;
+}
 

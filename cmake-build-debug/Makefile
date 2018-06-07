@@ -47,10 +47,10 @@ RM = "C:\Program Files\JetBrains\CLion 2018.1.1\bin\cmake\bin\cmake.exe" -E remo
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "C:\Users\Mohamed Mashaal\Desktop\SIC Assembler\SIC-XE-Assembler"
+CMAKE_SOURCE_DIR = "C:\Users\Mohamed Mashaal\Desktop\Assembler\SIC-XE-Assembler"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "C:\Users\Mohamed Mashaal\Desktop\SIC Assembler\SIC-XE-Assembler\cmake-build-debug"
+CMAKE_BINARY_DIR = "C:\Users\Mohamed Mashaal\Desktop\Assembler\SIC-XE-Assembler\cmake-build-debug"
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -79,9 +79,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\Mohamed Mashaal\Desktop\SIC Assembler\SIC-XE-Assembler\cmake-build-debug\CMakeFiles" "C:\Users\Mohamed Mashaal\Desktop\SIC Assembler\SIC-XE-Assembler\cmake-build-debug\CMakeFiles\progress.marks"
+	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\Mohamed Mashaal\Desktop\Assembler\SIC-XE-Assembler\cmake-build-debug\CMakeFiles" "C:\Users\Mohamed Mashaal\Desktop\Assembler\SIC-XE-Assembler\cmake-build-debug\CMakeFiles\progress.marks"
 	$(MAKE) -f CMakeFiles\Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\Mohamed Mashaal\Desktop\SIC Assembler\SIC-XE-Assembler\cmake-build-debug\CMakeFiles" 0
+	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\Mohamed Mashaal\Desktop\Assembler\SIC-XE-Assembler\cmake-build-debug\CMakeFiles" 0
 .PHONY : all
 
 # The main clean target
@@ -176,6 +176,33 @@ src/AssemblyListing.cpp.s:
 	$(MAKE) -f CMakeFiles\SIC_XE_Assembler.dir\build.make CMakeFiles/SIC_XE_Assembler.dir/src/AssemblyListing.cpp.s
 .PHONY : src/AssemblyListing.cpp.s
 
+src/ObjectCodeGenerator.obj: src/ObjectCodeGenerator.cpp.obj
+
+.PHONY : src/ObjectCodeGenerator.obj
+
+# target to build an object file
+src/ObjectCodeGenerator.cpp.obj:
+	$(MAKE) -f CMakeFiles\SIC_XE_Assembler.dir\build.make CMakeFiles/SIC_XE_Assembler.dir/src/ObjectCodeGenerator.cpp.obj
+.PHONY : src/ObjectCodeGenerator.cpp.obj
+
+src/ObjectCodeGenerator.i: src/ObjectCodeGenerator.cpp.i
+
+.PHONY : src/ObjectCodeGenerator.i
+
+# target to preprocess a source file
+src/ObjectCodeGenerator.cpp.i:
+	$(MAKE) -f CMakeFiles\SIC_XE_Assembler.dir\build.make CMakeFiles/SIC_XE_Assembler.dir/src/ObjectCodeGenerator.cpp.i
+.PHONY : src/ObjectCodeGenerator.cpp.i
+
+src/ObjectCodeGenerator.s: src/ObjectCodeGenerator.cpp.s
+
+.PHONY : src/ObjectCodeGenerator.s
+
+# target to generate assembly for a file
+src/ObjectCodeGenerator.cpp.s:
+	$(MAKE) -f CMakeFiles\SIC_XE_Assembler.dir\build.make CMakeFiles/SIC_XE_Assembler.dir/src/ObjectCodeGenerator.cpp.s
+.PHONY : src/ObjectCodeGenerator.cpp.s
+
 src/ObjectProgram.obj: src/ObjectProgram.cpp.obj
 
 .PHONY : src/ObjectProgram.obj
@@ -256,6 +283,33 @@ src/OpInfo.s: src/OpInfo.cpp.s
 src/OpInfo.cpp.s:
 	$(MAKE) -f CMakeFiles\SIC_XE_Assembler.dir\build.make CMakeFiles/SIC_XE_Assembler.dir/src/OpInfo.cpp.s
 .PHONY : src/OpInfo.cpp.s
+
+src/RegistersTable.obj: src/RegistersTable.cpp.obj
+
+.PHONY : src/RegistersTable.obj
+
+# target to build an object file
+src/RegistersTable.cpp.obj:
+	$(MAKE) -f CMakeFiles\SIC_XE_Assembler.dir\build.make CMakeFiles/SIC_XE_Assembler.dir/src/RegistersTable.cpp.obj
+.PHONY : src/RegistersTable.cpp.obj
+
+src/RegistersTable.i: src/RegistersTable.cpp.i
+
+.PHONY : src/RegistersTable.i
+
+# target to preprocess a source file
+src/RegistersTable.cpp.i:
+	$(MAKE) -f CMakeFiles\SIC_XE_Assembler.dir\build.make CMakeFiles/SIC_XE_Assembler.dir/src/RegistersTable.cpp.i
+.PHONY : src/RegistersTable.cpp.i
+
+src/RegistersTable.s: src/RegistersTable.cpp.s
+
+.PHONY : src/RegistersTable.s
+
+# target to generate assembly for a file
+src/RegistersTable.cpp.s:
+	$(MAKE) -f CMakeFiles\SIC_XE_Assembler.dir\build.make CMakeFiles/SIC_XE_Assembler.dir/src/RegistersTable.cpp.s
+.PHONY : src/RegistersTable.cpp.s
 
 src/SourceLine.obj: src/SourceLine.cpp.obj
 
@@ -365,6 +419,33 @@ src/SyntaxValidator.cpp.s:
 	$(MAKE) -f CMakeFiles\SIC_XE_Assembler.dir\build.make CMakeFiles/SIC_XE_Assembler.dir/src/SyntaxValidator.cpp.s
 .PHONY : src/SyntaxValidator.cpp.s
 
+src/UpdateLocationCounter.obj: src/UpdateLocationCounter.cpp.obj
+
+.PHONY : src/UpdateLocationCounter.obj
+
+# target to build an object file
+src/UpdateLocationCounter.cpp.obj:
+	$(MAKE) -f CMakeFiles\SIC_XE_Assembler.dir\build.make CMakeFiles/SIC_XE_Assembler.dir/src/UpdateLocationCounter.cpp.obj
+.PHONY : src/UpdateLocationCounter.cpp.obj
+
+src/UpdateLocationCounter.i: src/UpdateLocationCounter.cpp.i
+
+.PHONY : src/UpdateLocationCounter.i
+
+# target to preprocess a source file
+src/UpdateLocationCounter.cpp.i:
+	$(MAKE) -f CMakeFiles\SIC_XE_Assembler.dir\build.make CMakeFiles/SIC_XE_Assembler.dir/src/UpdateLocationCounter.cpp.i
+.PHONY : src/UpdateLocationCounter.cpp.i
+
+src/UpdateLocationCounter.s: src/UpdateLocationCounter.cpp.s
+
+.PHONY : src/UpdateLocationCounter.s
+
+# target to generate assembly for a file
+src/UpdateLocationCounter.cpp.s:
+	$(MAKE) -f CMakeFiles\SIC_XE_Assembler.dir\build.make CMakeFiles/SIC_XE_Assembler.dir/src/UpdateLocationCounter.cpp.s
+.PHONY : src/UpdateLocationCounter.cpp.s
+
 src/ValidatorUtilities.obj: src/ValidatorUtilities.cpp.obj
 
 .PHONY : src/ValidatorUtilities.obj
@@ -407,6 +488,9 @@ help:
 	@echo ... src/AssemblyListing.obj
 	@echo ... src/AssemblyListing.i
 	@echo ... src/AssemblyListing.s
+	@echo ... src/ObjectCodeGenerator.obj
+	@echo ... src/ObjectCodeGenerator.i
+	@echo ... src/ObjectCodeGenerator.s
 	@echo ... src/ObjectProgram.obj
 	@echo ... src/ObjectProgram.i
 	@echo ... src/ObjectProgram.s
@@ -416,6 +500,9 @@ help:
 	@echo ... src/OpInfo.obj
 	@echo ... src/OpInfo.i
 	@echo ... src/OpInfo.s
+	@echo ... src/RegistersTable.obj
+	@echo ... src/RegistersTable.i
+	@echo ... src/RegistersTable.s
 	@echo ... src/SourceLine.obj
 	@echo ... src/SourceLine.i
 	@echo ... src/SourceLine.s
@@ -428,6 +515,9 @@ help:
 	@echo ... src/SyntaxValidator.obj
 	@echo ... src/SyntaxValidator.i
 	@echo ... src/SyntaxValidator.s
+	@echo ... src/UpdateLocationCounter.obj
+	@echo ... src/UpdateLocationCounter.i
+	@echo ... src/UpdateLocationCounter.s
 	@echo ... src/ValidatorUtilities.obj
 	@echo ... src/ValidatorUtilities.i
 	@echo ... src/ValidatorUtilities.s

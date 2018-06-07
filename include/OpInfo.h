@@ -8,8 +8,8 @@
 class OpInfo{
     public:
         std::string getOpCode();
-        int getFormateBytes();
-        OpInfo(std::string opCode, int formateBytes, int operands);
+        int getFormatBytes();
+        OpInfo(std::string opCode, int formatBytes, int operands);
          static const std::string NOT_FOUND;
          int getNumberOfOperands();
     private:

@@ -14,7 +14,7 @@ int UpdateLocationCounter::setLocationCounter(int locationCounter, SourceLine so
         OpInfo opinfo = opCodeTable->getInfo(SourceProgram::getUpper(sourceLine.getOperation()));
         if(opinfo.getOpCode() != opinfo.NOT_FOUND)
         {
-            locationCounter+=opinfo.getFormateBytes();
+            locationCounter+=opinfo.getFormatBytes();
         }
         else if(sourceLine.getOperation()[0] == '+')
         {

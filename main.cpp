@@ -1,4 +1,5 @@
 #include <iostream>
+#include <ObjectCodeGenerator.h>
 
 #include "SymbolTable.h"
 #include "OpCodeTable.h"
@@ -62,5 +63,23 @@ int main( )
     SourceProgram sourceProgram;
     string l = "aaaa.txt";
     sourceProgram.parse(&fileName[0]);
+    /*
+        ObjectCodeGenerator Guide :
+        ObjectCodeGenerator* generator = ObjectCodeGenerator::getObjectCodeGenerator(); getting instance
+        generator->setSymbolTable(symbolTable); you must set the symbol table after finishing pass one so that the generator can calculate displacement
+        string result = generator->getObjectCode(sourceLine); returns the objectCode representing this Instruction. SourceLine Object (NextInstruction member variable)
+        should be filled as it is needed in the calculation of the displacement.
+        Next Instruction is set in int not HEX (same as location counter being kept in code currently).
+        Almost no validation is being done, so don't pass for example RESW, REWSB or EQU those Directives have no objectcode !
+        Literals is missing, since no literal locations is found since there is no literal handling yet!
+        Also EQU should be added may be to symbol table because of the displacement calculations.
+    */
+    ObjectCodeGenerator* generator = ObjectCodeGenerator::getObjectCodeGenerator();
+    SourceLine sourceLine ; // symbol Table has been set inside source Program for testing purposes only.
+    sourceLine.setOperation("STCH");
+    sourceLine.setOperand("BUFFER,X");
+    sourceLine.setNextInstruction(4177);
+    string result = generator->getObjectCode(sourceLine);
+    cout << result;
     return 0;
 }

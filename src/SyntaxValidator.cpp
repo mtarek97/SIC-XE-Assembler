@@ -27,7 +27,7 @@ bool SyntaxValidator::isValid(SourceLine srcLine){
             int operationType = checkOperation(this->sourceLine.getOperation());
             if(operationType == this->INSTRUCTION){
                 OpInfo info = opCodeTable->getInfo(this->sourceLine.getOperation());
-                if(info.getFormateBytes() == 2){
+                if(info.getFormatBytes() == 2){
                     return this->checkFormat2Operand(info);
                 }else{  // format 3 or 4
                     return this->checkFormat3or4Operand(info);
@@ -58,7 +58,7 @@ int SyntaxValidator::checkOperation(std::string operation){
     }
     OpInfo info = opCodeTable->getInfo(nonPrefixedOperation);
     if(info.getOpCode() != OpInfo::NOT_FOUND){
-        if(info.getFormateBytes() == 2 && prefixedByPlus){
+        if(info.getFormatBytes() == 2 && prefixedByPlus){
             this->errorMessage = "can't use format 4 with " + nonPrefixedOperation;
             return INVALID;
         }

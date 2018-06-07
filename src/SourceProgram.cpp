@@ -7,6 +7,7 @@
 #include<SymbolTable.h>
 #include<ValidatorUtilities.h>
 #include<UpdateLocationCounter.h>
+#include <ObjectCodeGenerator.h>
 
 SourceProgram::SourceProgram()
 {
@@ -163,7 +164,8 @@ void SourceProgram::updateLocationCounter(SourceLine sourceLine)
         }
         write(sourceLine, error);
         locationCounter = UpdateLocationCounter::setLocationCounter(locationCounter, sourceLine);
-
+        ObjectCodeGenerator* generator = ObjectCodeGenerator::getObjectCodeGenerator(); // testing purposes !!
+        generator->setSymbolTable(symbolTable);
     }
     else
     {

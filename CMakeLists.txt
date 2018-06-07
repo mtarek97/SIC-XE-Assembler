@@ -15,6 +15,7 @@ add_executable(SIC_XE_Assembler
         include/SyntaxValidator.h
         include/ValidatorUtilities.h
         include/OpInfo.h
+        include/UpdateLocationCounter.h
         src/AssemblyListing.cpp
         src/ObjectProgram.cpp
         src/OpCodeTable.cpp
@@ -24,4 +25,5 @@ add_executable(SIC_XE_Assembler
         src/SyntaxValidator.cpp
         src/ValidatorUtilities.cpp
         src/OpInfo.cpp
-        main.cpp )
+        src/UpdateLocationCounter.cpp
+        main.cpp include/ObjectCodeGenerator.h src/ObjectCodeGenerator.cpp include/RegistersTable.h src/RegistersTable.cpp)

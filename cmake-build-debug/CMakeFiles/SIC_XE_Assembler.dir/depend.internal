@@ -3,54 +3,81 @@
 
 CMakeFiles/SIC_XE_Assembler.dir/main.cpp.obj
  ../include/AssemblyListing.h
+ ../include/ObjectCodeGenerator.h
  ../include/OpCodeTable.h
  ../include/OpInfo.h
+ ../include/RegistersTable.h
  ../include/SourceLine.h
  ../include/SourceProgram.h
  ../include/SymbolTable.h
  ../include/SyntaxValidator.h
  ../include/ValidatorUtilities.h
- C:/Users/Mohamed Mashaal/Desktop/SIC Assembler/SIC-XE-Assembler/main.cpp
+ C:/Users/Mohamed Mashaal/Desktop/Assembler/SIC-XE-Assembler/main.cpp
 CMakeFiles/SIC_XE_Assembler.dir/src/AssemblyListing.cpp.obj
  ../include/AssemblyListing.h
  ../include/SourceLine.h
- C:/Users/Mohamed Mashaal/Desktop/SIC Assembler/SIC-XE-Assembler/src/AssemblyListing.cpp
+ C:/Users/Mohamed Mashaal/Desktop/Assembler/SIC-XE-Assembler/src/AssemblyListing.cpp
+CMakeFiles/SIC_XE_Assembler.dir/src/ObjectCodeGenerator.cpp.obj
+ ../include/ObjectCodeGenerator.h
+ ../include/OpCodeTable.h
+ ../include/OpInfo.h
+ ../include/RegistersTable.h
+ ../include/SourceLine.h
+ ../include/SymbolTable.h
+ C:/Users/Mohamed Mashaal/Desktop/Assembler/SIC-XE-Assembler/src/ObjectCodeGenerator.cpp
 CMakeFiles/SIC_XE_Assembler.dir/src/ObjectProgram.cpp.obj
  ../include/ObjectProgram.h
- C:/Users/Mohamed Mashaal/Desktop/SIC Assembler/SIC-XE-Assembler/src/ObjectProgram.cpp
+ C:/Users/Mohamed Mashaal/Desktop/Assembler/SIC-XE-Assembler/src/ObjectProgram.cpp
 CMakeFiles/SIC_XE_Assembler.dir/src/OpCodeTable.cpp.obj
  ../include/OpCodeTable.h
  ../include/OpInfo.h
- C:/Users/Mohamed Mashaal/Desktop/SIC Assembler/SIC-XE-Assembler/src/OpCodeTable.cpp
+ C:/Users/Mohamed Mashaal/Desktop/Assembler/SIC-XE-Assembler/src/OpCodeTable.cpp
 CMakeFiles/SIC_XE_Assembler.dir/src/OpInfo.cpp.obj
  ../include/OpInfo.h
- C:/Users/Mohamed Mashaal/Desktop/SIC Assembler/SIC-XE-Assembler/src/OpInfo.cpp
+ C:/Users/Mohamed Mashaal/Desktop/Assembler/SIC-XE-Assembler/src/OpInfo.cpp
+CMakeFiles/SIC_XE_Assembler.dir/src/RegistersTable.cpp.obj
+ ../include/RegistersTable.h
+ C:/Users/Mohamed Mashaal/Desktop/Assembler/SIC-XE-Assembler/src/RegistersTable.cpp
 CMakeFiles/SIC_XE_Assembler.dir/src/SourceLine.cpp.obj
  ../include/SourceLine.h
- C:/Users/Mohamed Mashaal/Desktop/SIC Assembler/SIC-XE-Assembler/src/SourceLine.cpp
+ C:/Users/Mohamed Mashaal/Desktop/Assembler/SIC-XE-Assembler/src/SourceLine.cpp
 CMakeFiles/SIC_XE_Assembler.dir/src/SourceProgram.cpp.obj
  ../include/AssemblyListing.h
+ ../include/ObjectCodeGenerator.h
  ../include/OpCodeTable.h
  ../include/OpInfo.h
+ ../include/RegistersTable.h
  ../include/SourceLine.h
  ../include/SourceProgram.h
  ../include/SymbolTable.h
  ../include/SyntaxValidator.h
+ ../include/UpdateLocationCounter.h
  ../include/ValidatorUtilities.h
- C:/Users/Mohamed Mashaal/Desktop/SIC Assembler/SIC-XE-Assembler/src/SourceProgram.cpp
+ C:/Users/Mohamed Mashaal/Desktop/Assembler/SIC-XE-Assembler/src/SourceProgram.cpp
 CMakeFiles/SIC_XE_Assembler.dir/src/SymbolTable.cpp.obj
  ../include/SymbolTable.h
- C:/Users/Mohamed Mashaal/Desktop/SIC Assembler/SIC-XE-Assembler/src/SymbolTable.cpp
+ C:/Users/Mohamed Mashaal/Desktop/Assembler/SIC-XE-Assembler/src/SymbolTable.cpp
 CMakeFiles/SIC_XE_Assembler.dir/src/SyntaxValidator.cpp.obj
  ../include/OpCodeTable.h
  ../include/OpInfo.h
  ../include/SourceLine.h
  ../include/SyntaxValidator.h
  ../include/ValidatorUtilities.h
- C:/Users/Mohamed Mashaal/Desktop/SIC Assembler/SIC-XE-Assembler/src/SyntaxValidator.cpp
+ C:/Users/Mohamed Mashaal/Desktop/Assembler/SIC-XE-Assembler/src/SyntaxValidator.cpp
+CMakeFiles/SIC_XE_Assembler.dir/src/UpdateLocationCounter.cpp.obj
+ ../include/AssemblyListing.h
+ ../include/OpCodeTable.h
+ ../include/OpInfo.h
+ ../include/SourceLine.h
+ ../include/SourceProgram.h
+ ../include/SymbolTable.h
+ ../include/SyntaxValidator.h
+ ../include/UpdateLocationCounter.h
+ ../include/ValidatorUtilities.h
+ C:/Users/Mohamed Mashaal/Desktop/Assembler/SIC-XE-Assembler/src/UpdateLocationCounter.cpp
 CMakeFiles/SIC_XE_Assembler.dir/src/ValidatorUtilities.cpp.obj
  ../include/OpCodeTable.h
  ../include/OpInfo.h
  ../include/SourceLine.h
  ../include/ValidatorUtilities.h
- C:/Users/Mohamed Mashaal/Desktop/SIC Assembler/SIC-XE-Assembler/src/ValidatorUtilities.cpp
+ C:/Users/Mohamed Mashaal/Desktop/Assembler/SIC-XE-Assembler/src/ValidatorUtilities.cpp

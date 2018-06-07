@@ -9,13 +9,13 @@ std::string OpInfo::getOpCode(){
     return this->opCode;
 }
 
-int OpInfo::getFormateBytes() {
+int OpInfo::getFormatBytes() {
     return this->formatBytes;
 }
 
-OpInfo::OpInfo(std::string opCode, int formateBytes , int operands) {
+OpInfo::OpInfo(std::string opCode, int formatBytes , int operands) {
     this->opCode = opCode;
-    this->formatBytes = formateBytes;
+    this->formatBytes = formatBytes;
     this-> operands = operands;
 }
 
