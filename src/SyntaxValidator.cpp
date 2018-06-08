@@ -124,7 +124,7 @@ bool SyntaxValidator::checkFormat3or4Operand(OpInfo info){
             this->sourceLine->setErrorMessage(splittedOperands[0] + " is invalid operand because it's a reserved keyword");
             return false;
         }
-        else if(!(ValidatorUtilities::isSymbol(splittedOperands[0],LABEL_MAXLENGTH))
+        else if(!(ValidatorUtilities::isExpression(splittedOperands[0],true))
                 && !(ValidatorUtilities::isHexAddress(splittedOperands[0],6))){
             this->sourceLine->setErrorMessage(splittedOperands[0] + " is invalid operand");
             return false;
@@ -145,7 +145,7 @@ bool SyntaxValidator::checkFormat3or4Operand(OpInfo info){
             this->sourceLine->setErrorMessage(nonPrefixedOperand + " is invalid operand");
             return false;
         }
-        if(!ValidatorUtilities::isSymbol(nonPrefixedOperand,LABEL_MAXLENGTH)
+        if(!ValidatorUtilities::isExpression(nonPrefixedOperand,true)
            && !ValidatorUtilities::isHexAddress(nonPrefixedOperand,6) && !(nonPrefixedOperand=="*")){
             this->sourceLine->setErrorMessage(splittedOperands[0] + " is invalid operand");
             return false;
@@ -199,7 +199,7 @@ bool SyntaxValidator::checkDirectiveOperand(){
         }
         vector<std::string> splittedOperands = ValidatorUtilities::split(operand,"[,]");
         for(string str : splittedOperands){
-            if(!ValidatorUtilities::isSymbol(str,LABEL_MAXLENGTH)
+            if(!ValidatorUtilities::isExpression(str,true)
                && !ValidatorUtilities::isDecimalNumber(str,4,true)){
                 this->sourceLine->setErrorMessage("operand must be a label or a decimal value (up to 4 decimal digits)");
                 return false;
@@ -229,14 +229,18 @@ bool SyntaxValidator::checkDirectiveOperand(){
             return false;
         }
     } else if(directive == "EQU"){
-        if(!ValidatorUtilities::isExpression(operand,true)){
+        if(!ValidatorUtilities::isExpression(operand,true) && !(operand=="*")){
             this->sourceLine->setErrorMessage("operand must be a symbol or a constant number");
             return false;
         }
     } else if(directive == "ORG"){
-        if(!ValidatorUtilities::isSymbol(operand,LABEL_MAXLENGTH) &&
-           !(ValidatorUtilities::isDecimalNumber(operand,7,false) && ValidatorUtilities::isDecimalNumber(operand,7,false))){
+        if(!ValidatorUtilities::isExpression(operand,true) && !(operand=="*")){
             this->sourceLine->setErrorMessage("operand must be a symbol or a constant number");
+            return false;
+        }
+    } else if(directive == "BASE"){
+        if(!ValidatorUtilities::isExpression(operand,true) && !(operand=="*") && !ValidatorUtilities::isHexAddress(operand,6)){
+            this->sourceLine->setErrorMessage("operand must be a relocatable address");
             return false;
         }
     }

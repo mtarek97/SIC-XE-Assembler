@@ -2,7 +2,7 @@
 
 using namespace std;
 
-const std::string ValidatorUtilities::directives[] = {"BYTE","WORD","RESB","RESW","START","END","EQU","ORG"};
+const std::string ValidatorUtilities::directives[] = {"BYTE","WORD","RESB","RESW","START","END","EQU","ORG","BASE"};
 OpCodeTable* ValidatorUtilities::opCodeTable = OpCodeTable::getOpTable();
 
 // private constructor --static class
@@ -61,7 +61,7 @@ bool ValidatorUtilities::isHexAddress(string str, int maxLength){
 }
 
 bool ValidatorUtilities::isDirective(string str){
-    if(find(directives,directives+8,str) == directives+8){
+    if(find(directives,directives+9,str) == directives+9){
         return false;
     }
     return true;
@@ -88,10 +88,13 @@ bool ValidatorUtilities::isDecimalNumber(string str, int maxDigitsCount, bool ca
     return true;
 }
 
-bool ValidatorUtilities::isExpression(string str, bool canBeGeneralExpression){
+bool ValidatorUtilities::isExpression(string str,bool canBeGeneralExpression){
     vector<string> operands = split(str,"[-/+*]");
     for(string operand : operands){
-        if((!isSymbol(operand,8) && !isDecimalNumber(operand,7,false)) || operand==""){
+        if(isReservedKeyword(operand) || operand==""){
+            return false;
+        }
+        if(!isSymbol(operand,8) && !isDecimalNumber(operand,7,false)){
             return false;
         }
     }
