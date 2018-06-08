@@ -19,6 +19,7 @@ class SyntaxValidator
 
     private:
         static const int LABEL_MAXLENGTH;
+        static const bool GENERAL_EXPRESSION_ALLOWED;
         static const int INVALID;
         static const int INSTRUCTION;
         static const int DIRECTIVE;

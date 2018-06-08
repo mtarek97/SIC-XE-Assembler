@@ -16,8 +16,12 @@ class SourceLine
         bool getIsValid();
         bool getHasObjCode();
         string getErrorMessage();
+<<<<<<< HEAD
         int getLocationCounter();
         int getNextInstruction();
+=======
+        bool getContainsExpression();
+>>>>>>> 8934ac3ac7f275c3e6803d5a96b5922d460a2d07
 
         void setComment(string comment);
         void setLable(string lable);
@@ -28,6 +32,7 @@ class SourceLine
         void setIsValid(bool isValid);
         void setHasObjCode(bool hasObjCode);
         void setErrorMessage(string error);
+<<<<<<< HEAD
         void setLocationCounter(int locationCounter);
 
 
@@ -35,6 +40,14 @@ class SourceLine
         string lable="", operation="", operand="", comment="";
         int byteFormat = 0, nextInstruction=0, locationCounter = 0;
         bool isValid = true, hasObjCode = true;
+=======
+        void setContainsExpression(bool containsExp);
+
+    private:
+        string lable="", operation="", operand="", comment="";
+        int byteFormat = 0,nextInstruction=0;
+        bool isValid = true,hasObjCode = true,containsExpression = false;
+>>>>>>> 8934ac3ac7f275c3e6803d5a96b5922d460a2d07
         string errorMessage = "";
 };
 

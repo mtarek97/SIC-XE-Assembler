@@ -79,6 +79,14 @@ string SourceLine::getErrorMessage()
 {
     return this->errorMessage;
 }
+void SourceLine::setContainsExpression(bool containsExp)
+{
+    this->containsExpression = containsExp;
+}
+bool SourceLine::getContainsExpression()
+{
+    return this->containsExpression;
+}
 
 
 
