@@ -12,8 +12,8 @@ class SymbolTable{
     public:
         SymbolTable();
         void insert(string symbol, int locInMemory);
-        SymbolInfo::SymbolInfo search(string symbol);
-        map<string, SymbolInfo::SymbolInfo> hashtable;
+        SymbolInfo search(string symbol);
+        map<string, SymbolInfo> hashtable;
 
 
     private:
