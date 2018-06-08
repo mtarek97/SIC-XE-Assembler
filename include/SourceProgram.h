@@ -11,23 +11,29 @@ class SourceProgram
 {
     public:
         SourceProgram();
-        void parse(char* fileName);
+        vector<SourceLine> parse(char* fileName);
         static string getUpper(string word);
 
     private:
+
         string getComment(int index, vector<string> line);
         SourceLine identifier(vector<string> sourceLine, string psrser);
-        int locationCounter=0;
         bool isComment(vector<string> sourceLine);
         vector<string> getWords(string parser);
-        set<string> direcive;
+        SourceLine handleSpacesInOperand(SourceLine sourceLine, string parser, string pattern, char beginCharacter);
+        map<string, bool> getLiteralTable();
+
         void write(SourceLine sourceLine, string error);
-        SymbolTable symbolTable;
         void detectStart(SourceLine sourceLine);
         void updateLocationCounter(SourceLine sourceLine);
+        void makeLiteralPool();
+
+        int start = 0, lineNumber = 0, locationCounter = 0;
         AssemblyListing assemblyListing;
-        SourceLine handleByte(SourceLine sourceLine, vector<string> line, int index, string parser);
-        int start = 0, lineNumber = 0;
+        SymbolTable symbolTable;
+        set<string> direcive;
+        vector<SourceLine> sourcelines;
+        map <string, bool> lieralTable;
 };
 
 #endif

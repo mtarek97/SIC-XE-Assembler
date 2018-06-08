@@ -13,17 +13,33 @@ class SourceLine
         string getOperation();
         string getOperand();
         int getByteFormat();
+        bool getIsValid();
+        bool getHasObjCode();
+        string getErrorMessage();
+        int getLocationCounter();
         int getNextInstruction();
+        bool getContainsExpression();
+
         void setComment(string comment);
         void setLable(string lable);
         void setOperation(string operation);
         void setOperand(string operand);
         void setByteFormat(int byteFormat);
         void setNextInstruction(int nextInstruction);
+        void setIsValid(bool isValid);
+        void setHasObjCode(bool hasObjCode);
+        void setErrorMessage(string error);
+        void setLocationCounter(int locationCounter);
+        void setContainsExpression(bool containsExp);
+
 
     private:
         string lable="", operation="", operand="", comment="";
-        int byteFormat = 0,nextInstruction=0;
+        int byteFormat = 0, nextInstruction=0, locationCounter = 0;
+        bool isValid = true,hasObjCode = true,containsExpression = false;
+        string errorMessage = "";
+
+
 };
 
 #endif // SOURCELINE_H

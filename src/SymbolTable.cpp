@@ -3,6 +3,8 @@
 #include <string>
 #include<fstream>
 #include<iostream>
+
+#include "SymbolInfo.h"
 using namespace std;
 
 SymbolTable::SymbolTable(){
@@ -10,17 +12,17 @@ SymbolTable::SymbolTable(){
 }
 
 void SymbolTable::insert(string symbol, int locInMemory){
-    this->hashtable.insert(pair<string, int> (symbol, locInMemory));
+    this->hashtable.insert(pair<string, SymbolInfo> (symbol, SymbolInfo(locInMemory, 'r')));
     this->inserted.insert(pair<string, bool> (symbol, true));
     SymbolTable::writeInFile(symbol,locInMemory);
 }
 
-int SymbolTable::search(string symbol){
+SymbolInfo SymbolTable::search(string symbol){
     if(this->inserted[symbol]){
         return this->hashtable[symbol];
     }
     else{
-        return -1; // symbol not found
+        return SymbolInfo(-1, 'r'); // symbol not found
     }
 }
 

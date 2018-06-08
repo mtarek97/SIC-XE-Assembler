@@ -1,0 +1,11 @@
+Many assemblers use free-format input. Labels must start in Column 1 of the source statement, but other fields (opcode, operands, comments) may begin in any column.
+
+opcode for jsub is 4B not 48
+
+label EQU (label or constant number)
+blank ORG (lbel or constant number)
+Simple Expression
+Literals
+
+has no obj code
+	start
