@@ -11,7 +11,7 @@ SymbolTable::SymbolTable(){
 }
 
 void SymbolTable::insert(string symbol, int locInMemory){
-    this->hashtable.insert(pair<string, SymbolInfo> (symbol, SymbolInfo(locInMemory, 'r')));
+    this->hashtable.insert(pair<string, SymbolInfo::SymbolInfo> (symbol, SymbolInfo::SymbolInfo(locInMemory, 'r')));
     this->inserted.insert(pair<string, bool> (symbol, true));
     SymbolTable::writeInFile(symbol,locInMemory);
 }
