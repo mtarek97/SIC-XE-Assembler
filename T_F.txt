@@ -14,7 +14,10 @@ LAB2C    START   0100
 .Format 4 erg wwww sss
          +SUB    #12
          LDX     #0
-         LDCH    HEXCHAR ergerg egrgerg ergerg ergerg zz
+         lda     =x'3256'
+         lda     =x'3256'
+         lda     =C'3256'
+         lda     =x'325556'
          STA     INPUT
 ADD      LDCH    STRING,X
          COMP    INPUT
@@ -22,6 +25,8 @@ ADD      LDCH    STRING,X
          STCH    OUTPUT,X
          TIX     #5
          JLT     ADD
+LToRG
+         lda     =C'325  6'
 FOUND    J       OUT
 ALPHA    WORD    2
 SAVEW    RESW    2

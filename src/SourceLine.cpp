@@ -20,7 +20,10 @@ void SourceLine::setOperand(string operand)
 {
     this->operand = operand;
 }
-
+void SourceLine::setLocationCounter(int locationCounter)
+{
+    this->locationCounter = locationCounter;
+}
 void SourceLine::setNextInstruction(int nextInstruction) {
     this->nextInstruction = nextInstruction;
 }
@@ -40,6 +43,11 @@ string SourceLine::getOperation()
 string SourceLine::getOperand()
 {
     return this->operand;
+}
+
+int SourceLine::getLocationCounter()
+{
+    return this->locationCounter;
 }
 
 int SourceLine::getNextInstruction() {
