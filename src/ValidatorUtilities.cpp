@@ -88,6 +88,7 @@ bool ValidatorUtilities::isDecimalNumber(string str, int maxDigitsCount, bool ca
     return true;
 }
 
+// returns true if exp string has two or more operands, false otherwise
 bool ValidatorUtilities::isExpression(string str,bool canBeGeneralExpression){
     vector<string> operands = split(str,"[-/+*]");
     for(string operand : operands){
@@ -99,9 +100,9 @@ bool ValidatorUtilities::isExpression(string str,bool canBeGeneralExpression){
         }
     }
     if(!canBeGeneralExpression){
-        return operands.size()<=2;
+        return operands.size()==2;
     }
-    return true;
+    return operands.size()>=2;
 }
 
 SourceLine* ValidatorUtilities::toUpperCase(SourceLine* srcLine){
