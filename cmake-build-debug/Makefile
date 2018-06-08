@@ -176,6 +176,60 @@ src/AssemblyListing.cpp.s:
 	$(MAKE) -f CMakeFiles\SIC_XE_Assembler.dir\build.make CMakeFiles/SIC_XE_Assembler.dir/src/AssemblyListing.cpp.s
 .PHONY : src/AssemblyListing.cpp.s
 
+src/DetectLiterals.obj: src/DetectLiterals.cpp.obj
+
+.PHONY : src/DetectLiterals.obj
+
+# target to build an object file
+src/DetectLiterals.cpp.obj:
+	$(MAKE) -f CMakeFiles\SIC_XE_Assembler.dir\build.make CMakeFiles/SIC_XE_Assembler.dir/src/DetectLiterals.cpp.obj
+.PHONY : src/DetectLiterals.cpp.obj
+
+src/DetectLiterals.i: src/DetectLiterals.cpp.i
+
+.PHONY : src/DetectLiterals.i
+
+# target to preprocess a source file
+src/DetectLiterals.cpp.i:
+	$(MAKE) -f CMakeFiles\SIC_XE_Assembler.dir\build.make CMakeFiles/SIC_XE_Assembler.dir/src/DetectLiterals.cpp.i
+.PHONY : src/DetectLiterals.cpp.i
+
+src/DetectLiterals.s: src/DetectLiterals.cpp.s
+
+.PHONY : src/DetectLiterals.s
+
+# target to generate assembly for a file
+src/DetectLiterals.cpp.s:
+	$(MAKE) -f CMakeFiles\SIC_XE_Assembler.dir\build.make CMakeFiles/SIC_XE_Assembler.dir/src/DetectLiterals.cpp.s
+.PHONY : src/DetectLiterals.cpp.s
+
+src/LiteralTable.obj: src/LiteralTable.cpp.obj
+
+.PHONY : src/LiteralTable.obj
+
+# target to build an object file
+src/LiteralTable.cpp.obj:
+	$(MAKE) -f CMakeFiles\SIC_XE_Assembler.dir\build.make CMakeFiles/SIC_XE_Assembler.dir/src/LiteralTable.cpp.obj
+.PHONY : src/LiteralTable.cpp.obj
+
+src/LiteralTable.i: src/LiteralTable.cpp.i
+
+.PHONY : src/LiteralTable.i
+
+# target to preprocess a source file
+src/LiteralTable.cpp.i:
+	$(MAKE) -f CMakeFiles\SIC_XE_Assembler.dir\build.make CMakeFiles/SIC_XE_Assembler.dir/src/LiteralTable.cpp.i
+.PHONY : src/LiteralTable.cpp.i
+
+src/LiteralTable.s: src/LiteralTable.cpp.s
+
+.PHONY : src/LiteralTable.s
+
+# target to generate assembly for a file
+src/LiteralTable.cpp.s:
+	$(MAKE) -f CMakeFiles\SIC_XE_Assembler.dir\build.make CMakeFiles/SIC_XE_Assembler.dir/src/LiteralTable.cpp.s
+.PHONY : src/LiteralTable.cpp.s
+
 src/ObjectCodeGenerator.obj: src/ObjectCodeGenerator.cpp.obj
 
 .PHONY : src/ObjectCodeGenerator.obj
@@ -365,6 +419,33 @@ src/SourceProgram.cpp.s:
 	$(MAKE) -f CMakeFiles\SIC_XE_Assembler.dir\build.make CMakeFiles/SIC_XE_Assembler.dir/src/SourceProgram.cpp.s
 .PHONY : src/SourceProgram.cpp.s
 
+src/SymbolInfo.obj: src/SymbolInfo.cpp.obj
+
+.PHONY : src/SymbolInfo.obj
+
+# target to build an object file
+src/SymbolInfo.cpp.obj:
+	$(MAKE) -f CMakeFiles\SIC_XE_Assembler.dir\build.make CMakeFiles/SIC_XE_Assembler.dir/src/SymbolInfo.cpp.obj
+.PHONY : src/SymbolInfo.cpp.obj
+
+src/SymbolInfo.i: src/SymbolInfo.cpp.i
+
+.PHONY : src/SymbolInfo.i
+
+# target to preprocess a source file
+src/SymbolInfo.cpp.i:
+	$(MAKE) -f CMakeFiles\SIC_XE_Assembler.dir\build.make CMakeFiles/SIC_XE_Assembler.dir/src/SymbolInfo.cpp.i
+.PHONY : src/SymbolInfo.cpp.i
+
+src/SymbolInfo.s: src/SymbolInfo.cpp.s
+
+.PHONY : src/SymbolInfo.s
+
+# target to generate assembly for a file
+src/SymbolInfo.cpp.s:
+	$(MAKE) -f CMakeFiles\SIC_XE_Assembler.dir\build.make CMakeFiles/SIC_XE_Assembler.dir/src/SymbolInfo.cpp.s
+.PHONY : src/SymbolInfo.cpp.s
+
 src/SymbolTable.obj: src/SymbolTable.cpp.obj
 
 .PHONY : src/SymbolTable.obj
@@ -488,6 +569,12 @@ help:
 	@echo ... src/AssemblyListing.obj
 	@echo ... src/AssemblyListing.i
 	@echo ... src/AssemblyListing.s
+	@echo ... src/DetectLiterals.obj
+	@echo ... src/DetectLiterals.i
+	@echo ... src/DetectLiterals.s
+	@echo ... src/LiteralTable.obj
+	@echo ... src/LiteralTable.i
+	@echo ... src/LiteralTable.s
 	@echo ... src/ObjectCodeGenerator.obj
 	@echo ... src/ObjectCodeGenerator.i
 	@echo ... src/ObjectCodeGenerator.s
@@ -509,6 +596,9 @@ help:
 	@echo ... src/SourceProgram.obj
 	@echo ... src/SourceProgram.i
 	@echo ... src/SourceProgram.s
+	@echo ... src/SymbolInfo.obj
+	@echo ... src/SymbolInfo.i
+	@echo ... src/SymbolInfo.s
 	@echo ... src/SymbolTable.obj
 	@echo ... src/SymbolTable.i
 	@echo ... src/SymbolTable.s

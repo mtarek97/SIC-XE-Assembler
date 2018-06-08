@@ -6,6 +6,8 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_CHECK_CXX
   "C:/Users/Mohamed Mashaal/Desktop/Assembler/SIC-XE-Assembler/main.cpp" "C:/Users/Mohamed Mashaal/Desktop/Assembler/SIC-XE-Assembler/cmake-build-debug/CMakeFiles/SIC_XE_Assembler.dir/main.cpp.obj"
   "C:/Users/Mohamed Mashaal/Desktop/Assembler/SIC-XE-Assembler/src/AssemblyListing.cpp" "C:/Users/Mohamed Mashaal/Desktop/Assembler/SIC-XE-Assembler/cmake-build-debug/CMakeFiles/SIC_XE_Assembler.dir/src/AssemblyListing.cpp.obj"
+  "C:/Users/Mohamed Mashaal/Desktop/Assembler/SIC-XE-Assembler/src/DetectLiterals.cpp" "C:/Users/Mohamed Mashaal/Desktop/Assembler/SIC-XE-Assembler/cmake-build-debug/CMakeFiles/SIC_XE_Assembler.dir/src/DetectLiterals.cpp.obj"
+  "C:/Users/Mohamed Mashaal/Desktop/Assembler/SIC-XE-Assembler/src/LiteralTable.cpp" "C:/Users/Mohamed Mashaal/Desktop/Assembler/SIC-XE-Assembler/cmake-build-debug/CMakeFiles/SIC_XE_Assembler.dir/src/LiteralTable.cpp.obj"
   "C:/Users/Mohamed Mashaal/Desktop/Assembler/SIC-XE-Assembler/src/ObjectCodeGenerator.cpp" "C:/Users/Mohamed Mashaal/Desktop/Assembler/SIC-XE-Assembler/cmake-build-debug/CMakeFiles/SIC_XE_Assembler.dir/src/ObjectCodeGenerator.cpp.obj"
   "C:/Users/Mohamed Mashaal/Desktop/Assembler/SIC-XE-Assembler/src/ObjectProgram.cpp" "C:/Users/Mohamed Mashaal/Desktop/Assembler/SIC-XE-Assembler/cmake-build-debug/CMakeFiles/SIC_XE_Assembler.dir/src/ObjectProgram.cpp.obj"
   "C:/Users/Mohamed Mashaal/Desktop/Assembler/SIC-XE-Assembler/src/OpCodeTable.cpp" "C:/Users/Mohamed Mashaal/Desktop/Assembler/SIC-XE-Assembler/cmake-build-debug/CMakeFiles/SIC_XE_Assembler.dir/src/OpCodeTable.cpp.obj"
@@ -13,6 +15,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "C:/Users/Mohamed Mashaal/Desktop/Assembler/SIC-XE-Assembler/src/RegistersTable.cpp" "C:/Users/Mohamed Mashaal/Desktop/Assembler/SIC-XE-Assembler/cmake-build-debug/CMakeFiles/SIC_XE_Assembler.dir/src/RegistersTable.cpp.obj"
   "C:/Users/Mohamed Mashaal/Desktop/Assembler/SIC-XE-Assembler/src/SourceLine.cpp" "C:/Users/Mohamed Mashaal/Desktop/Assembler/SIC-XE-Assembler/cmake-build-debug/CMakeFiles/SIC_XE_Assembler.dir/src/SourceLine.cpp.obj"
   "C:/Users/Mohamed Mashaal/Desktop/Assembler/SIC-XE-Assembler/src/SourceProgram.cpp" "C:/Users/Mohamed Mashaal/Desktop/Assembler/SIC-XE-Assembler/cmake-build-debug/CMakeFiles/SIC_XE_Assembler.dir/src/SourceProgram.cpp.obj"
+  "C:/Users/Mohamed Mashaal/Desktop/Assembler/SIC-XE-Assembler/src/SymbolInfo.cpp" "C:/Users/Mohamed Mashaal/Desktop/Assembler/SIC-XE-Assembler/cmake-build-debug/CMakeFiles/SIC_XE_Assembler.dir/src/SymbolInfo.cpp.obj"
   "C:/Users/Mohamed Mashaal/Desktop/Assembler/SIC-XE-Assembler/src/SymbolTable.cpp" "C:/Users/Mohamed Mashaal/Desktop/Assembler/SIC-XE-Assembler/cmake-build-debug/CMakeFiles/SIC_XE_Assembler.dir/src/SymbolTable.cpp.obj"
   "C:/Users/Mohamed Mashaal/Desktop/Assembler/SIC-XE-Assembler/src/SyntaxValidator.cpp" "C:/Users/Mohamed Mashaal/Desktop/Assembler/SIC-XE-Assembler/cmake-build-debug/CMakeFiles/SIC_XE_Assembler.dir/src/SyntaxValidator.cpp.obj"
   "C:/Users/Mohamed Mashaal/Desktop/Assembler/SIC-XE-Assembler/src/UpdateLocationCounter.cpp" "C:/Users/Mohamed Mashaal/Desktop/Assembler/SIC-XE-Assembler/cmake-build-debug/CMakeFiles/SIC_XE_Assembler.dir/src/UpdateLocationCounter.cpp.obj"

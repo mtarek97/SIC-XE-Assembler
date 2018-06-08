@@ -73,6 +73,8 @@ string
 -
 map
 -
+SymbolInfo.h
+../include/SymbolInfo.h
 
 ../include/SyntaxValidator.h
 OpInfo.h
@@ -148,6 +150,24 @@ fstream
 iostream
 -
 
+C:/Users/Mohamed Mashaal/Desktop/Assembler/SIC-XE-Assembler/src/DetectLiterals.cpp
+DetectLiterals.h
+C:/Users/Mohamed Mashaal/Desktop/Assembler/SIC-XE-Assembler/src/DetectLiterals.h
+UpdateLocationCounter.h
+C:/Users/Mohamed Mashaal/Desktop/Assembler/SIC-XE-Assembler/src/UpdateLocationCounter.h
+bits/stdc++.h
+-
+AssemblyListing.h
+C:/Users/Mohamed Mashaal/Desktop/Assembler/SIC-XE-Assembler/src/AssemblyListing.h
+SourceLine.h
+C:/Users/Mohamed Mashaal/Desktop/Assembler/SIC-XE-Assembler/src/SourceLine.h
+LiteralTable.h
+C:/Users/Mohamed Mashaal/Desktop/Assembler/SIC-XE-Assembler/src/LiteralTable.h
+
+C:/Users/Mohamed Mashaal/Desktop/Assembler/SIC-XE-Assembler/src/LiteralTable.cpp
+LiteralTable.h
+C:/Users/Mohamed Mashaal/Desktop/Assembler/SIC-XE-Assembler/src/LiteralTable.h
+
 C:/Users/Mohamed Mashaal/Desktop/Assembler/SIC-XE-Assembler/src/ObjectCodeGenerator.cpp
 ObjectCodeGenerator.h
 C:/Users/Mohamed Mashaal/Desktop/Assembler/SIC-XE-Assembler/src/ObjectCodeGenerator.h
@@ -204,6 +224,10 @@ C:/Users/Mohamed Mashaal/Desktop/Assembler/SIC-XE-Assembler/src/DetectLiterals.h
 LiteralTable.h
 C:/Users/Mohamed Mashaal/Desktop/Assembler/SIC-XE-Assembler/src/LiteralTable.h
 
+C:/Users/Mohamed Mashaal/Desktop/Assembler/SIC-XE-Assembler/src/SymbolInfo.cpp
+SymbolInfo.h
+C:/Users/Mohamed Mashaal/Desktop/Assembler/SIC-XE-Assembler/src/SymbolInfo.h
+
 C:/Users/Mohamed Mashaal/Desktop/Assembler/SIC-XE-Assembler/src/SymbolTable.cpp
 SymbolTable.h
 C:/Users/Mohamed Mashaal/Desktop/Assembler/SIC-XE-Assembler/src/SymbolTable.h
@@ -215,8 +239,6 @@ fstream
 -
 iostream
 -
-SymbolInfo.h
-C:/Users/Mohamed Mashaal/Desktop/Assembler/SIC-XE-Assembler/src/SymbolInfo.h
 
 C:/Users/Mohamed Mashaal/Desktop/Assembler/SIC-XE-Assembler/src/SyntaxValidator.cpp
 SyntaxValidator.h
