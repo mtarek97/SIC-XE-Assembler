@@ -12,6 +12,16 @@ SourceLine.h
 bits/stdc++.h
 -
 
+../include/DetectLiterals.h
+SourceLine.h
+../include/SourceLine.h
+bits/stdc++.h
+-
+
+../include/LiteralTable.h
+bits/stdc++.h
+-
+
 ../include/ObjectCodeGenerator.h
 string
 -
@@ -56,6 +66,8 @@ SymbolTable.h
 AssemblyListing.h
 -
 
+../include/SymbolInfo.h
+
 ../include/SymbolTable.h
 string
 -
@@ -77,6 +89,8 @@ string
 -
 ValidatorUtilities.h
 ../include/ValidatorUtilities.h
+RegistersTable.h
+../include/RegistersTable.h
 
 ../include/UpdateLocationCounter.h
 SourceLine.h
@@ -100,6 +114,8 @@ algorithm
 ctype.h
 -
 sstream
+-
+regex
 -
 
 C:/Users/Mohamed Mashaal/Desktop/Assembler/SIC-XE-Assembler/main.cpp
@@ -183,6 +199,10 @@ UpdateLocationCounter.h
 -
 ObjectCodeGenerator.h
 -
+DetectLiterals.h
+C:/Users/Mohamed Mashaal/Desktop/Assembler/SIC-XE-Assembler/src/DetectLiterals.h
+LiteralTable.h
+C:/Users/Mohamed Mashaal/Desktop/Assembler/SIC-XE-Assembler/src/LiteralTable.h
 
 C:/Users/Mohamed Mashaal/Desktop/Assembler/SIC-XE-Assembler/src/SymbolTable.cpp
 SymbolTable.h
@@ -195,6 +215,8 @@ fstream
 -
 iostream
 -
+SymbolInfo.h
+C:/Users/Mohamed Mashaal/Desktop/Assembler/SIC-XE-Assembler/src/SymbolInfo.h
 
 C:/Users/Mohamed Mashaal/Desktop/Assembler/SIC-XE-Assembler/src/SyntaxValidator.cpp
 SyntaxValidator.h
