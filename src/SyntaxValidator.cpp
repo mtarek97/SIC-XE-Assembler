@@ -26,6 +26,11 @@ bool SyntaxValidator::isValid(SourceLine* srcLine)
         this->sourceLine->setErrorMessage("label must be blank at ORG statement");
         return false;
     }
+    else if(sourceLine->getOperation()=="LTORG" && sourceLine->getLable()!="")
+    {
+        this->sourceLine->setErrorMessage("label must be blank at LTORG statement");
+        return false;
+    }
     else
     {
         if(ValidatorUtilities::isReservedKeyword(sourceLine->getLable())
@@ -148,11 +153,11 @@ bool SyntaxValidator::checkFormat3or4Operand(OpInfo info)
         }
     }
     string operand = sourceLine->getOperand();
-    if(operand[0]==',' || operand[operand.size()-1]==',')
+    /*if(operand[0]==',' || operand[operand.size()-1]==',')
     {
         sourceLine->setErrorMessage(operand + " is invalid operand");
         return false;
-    }
+    }*/
     vector<std::string> splittedOperands = ValidatorUtilities::split(operand,"[,]");
     if(splittedOperands.size()==2)
     {
@@ -203,6 +208,13 @@ bool SyntaxValidator::checkFormat3or4Operand(OpInfo info)
             this->sourceLine->setErrorMessage(nonPrefixedOperand + " is invalid operand");
             return false;
         }
+         else if(ValidatorUtilities::isLiteral(splittedOperands[0])){
+            if(sourceLine->getOperation()[0]=='S' && sourceLine->getOperation()[1]=='T'){
+                this->sourceLine->setErrorMessage("can't use literal as source in the instruction");
+                return false;
+            }
+            return true;
+        }
         else if(!sourceLine->getContainsExpression() && !ValidatorUtilities::isSymbol(nonPrefixedOperand,6)
                 && !ValidatorUtilities::isHexAddress(nonPrefixedOperand,6) && !(nonPrefixedOperand=="*"))
         {
@@ -226,7 +238,7 @@ bool SyntaxValidator::checkDirectiveOperand()
 {
     string directive = sourceLine->getOperation();
     string operand = sourceLine->getOperand();
-    if(operand == "" && directive!="END")
+    if((operand == "" && directive!="END") && (operand=="" && directive!="LTORG"))
     {
         this->sourceLine->setErrorMessage("you must specify the operand");
         return false;
@@ -349,6 +361,14 @@ bool SyntaxValidator::checkDirectiveOperand()
            && !ValidatorUtilities::isHexAddress(operand,6) && !sourceLine->getContainsExpression())
         {
             this->sourceLine->setErrorMessage("operand must be a relocatable address");
+            return false;
+        }
+    }
+    else if(directive == "LTORG")
+    {
+        if(operand != "")
+        {
+            this->sourceLine->setErrorMessage("operand must be blank at LTORG statement");
             return false;
         }
     }

@@ -24,6 +24,7 @@ class ValidatorUtilities
         static std::vector<std::string> split(std::string str, string regexString);
         static SourceLine* toUpperCase(SourceLine* srcLine);
         static bool isExpression(std::string str, bool canBeGeneralExpression);
+        static bool isLiteral(std::string str);
 
     private:
         ValidatorUtilities();

@@ -78,8 +78,8 @@ int main( )
     ObjectCodeGenerator* generator = ObjectCodeGenerator::getObjectCodeGenerator();
 
     SourceLine sourceLine ; // symbol Table has been set inside source Program for testing purposes only.
-    sourceLine.setOperation("BASE");
-    sourceLine.setOperand("BUFFER");
+    sourceLine.setOperation("LDA");
+    sourceLine.setOperand("=W'-100'");
     sourceLine.setNextInstruction(4177);
 
     SyntaxValidator validator;
@@ -92,9 +92,9 @@ int main( )
     cout << (sourceLine.getIsValid() ? "valid syntax" : "invalid syntax") << endl;
     cout << (sourceLine.getHasObjCode() ? "has obj code" : "has no obj code") << endl;
     cout << (sourceLine.getContainsExpression() ? "has exp" : "has no exp") << endl;
-
-    string result = generator->getObjectCode(sourceLine);
-    cout << result << endl;
-
+    if(sourceLine.getHasObjCode()){
+        string result = generator->getObjectCode(sourceLine);
+        cout << result << endl;
+    }
     return 0;
 }
