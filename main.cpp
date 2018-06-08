@@ -78,8 +78,8 @@ int main( )
     ObjectCodeGenerator* generator = ObjectCodeGenerator::getObjectCodeGenerator();
 
     SourceLine sourceLine ; // symbol Table has been set inside source Program for testing purposes only.
-    sourceLine.setOperation("EQU");
-    sourceLine.setOperand("BUFFER+10");
+    sourceLine.setOperation("Word");
+    sourceLine.setOperand("BUFFER+5,100,F-20*3");
     sourceLine.setNextInstruction(4177);
 
     SyntaxValidator validator;
