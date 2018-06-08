@@ -80,7 +80,7 @@ bool SyntaxValidator::checkFormat2Operand(OpInfo info){
         sourceLine->setErrorMessage(operand + " is invalid operand");
             return false;
     }
-    vector<std::string> splittedOperands = ValidatorUtilities::split(operand,',');
+    vector<std::string> splittedOperands = ValidatorUtilities::split(operand,"[,]");
     int noOfOperands = info.getNumberOfOperands();
     if(splittedOperands.size() == noOfOperands){
         for(int i=0;i<noOfOperands;i++){
@@ -110,7 +110,7 @@ bool SyntaxValidator::checkFormat3or4Operand(OpInfo info){
         sourceLine->setErrorMessage(operand + " is invalid operand");
             return false;
     }
-    vector<std::string> splittedOperands = ValidatorUtilities::split(operand,',');
+    vector<std::string> splittedOperands = ValidatorUtilities::split(operand,"[,]");
     if(splittedOperands.size()==2){
         if(!(splittedOperands[1]=="X")){
             this->sourceLine->setErrorMessage("can't use register rather than X to indexed addressing");
@@ -197,7 +197,7 @@ bool SyntaxValidator::checkDirectiveOperand(){
         sourceLine->setErrorMessage(operand + " is invalid operand");
             return false;
         }
-        vector<std::string> splittedOperands = ValidatorUtilities::split(operand,',');
+        vector<std::string> splittedOperands = ValidatorUtilities::split(operand,"[,]");
         for(string str : splittedOperands){
             if(!ValidatorUtilities::isSymbol(str,LABEL_MAXLENGTH)
                && !ValidatorUtilities::isDecimalNumber(str,4,true)){
@@ -228,9 +228,14 @@ bool SyntaxValidator::checkDirectiveOperand(){
             this->sourceLine->setErrorMessage("operand must be a hexadecimal constant (up to 4 digits) or a symbol");
             return false;
         }
-    } else if(directive == "EQU" || directive == "ORG"){
+    } else if(directive == "EQU"){
+        if(!ValidatorUtilities::isExpression(operand,true)){
+            this->sourceLine->setErrorMessage("operand must be a symbol or a constant number");
+            return false;
+        }
+    } else if(directive == "ORG"){
         if(!ValidatorUtilities::isSymbol(operand,LABEL_MAXLENGTH) &&
-           !(ValidatorUtilities::isDecimalNumber(operand,7,false) && stoi(operand)<=2e20)){
+           !(ValidatorUtilities::isDecimalNumber(operand,7,false) && ValidatorUtilities::isDecimalNumber(operand,7,false))){
             this->sourceLine->setErrorMessage("operand must be a symbol or a constant number");
             return false;
         }

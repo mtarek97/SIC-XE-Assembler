@@ -28,7 +28,7 @@
 	<fstream>
 	<iostream>
 
-1528414089 source:c:\users\hp\documents\sic-xe-assembler\src\syntaxvalidator.cpp
+1528417332 source:c:\users\hp\documents\sic-xe-assembler\src\syntaxvalidator.cpp
 	"SyntaxValidator.h"
 
 1525029905 source:c:\users\hp\documents\sic-xe-assembler\src\opcodetable.cpp
@@ -54,7 +54,7 @@
 	<UpdateLocationCounter.h>
 	<ObjectCodeGenerator.h>
 
-1528414009 source:c:\users\hp\documents\sic-xe-assembler\main.cpp
+1528417980 source:c:\users\hp\documents\sic-xe-assembler\main.cpp
 	<iostream>
 	<ObjectCodeGenerator.h>
 	"SymbolTable.h"
@@ -63,7 +63,7 @@
 	"SyntaxValidator.h"
 	"SourceProgram.h"
 
-1528411346 source:c:\users\hp\documents\sic-xe-assembler\src\validatorutilities.cpp
+1528419066 source:c:\users\hp\documents\sic-xe-assembler\src\validatorutilities.cpp
 	"ValidatorUtilities.h"
 
 1528358300 source:f:\projects second year\assembly\main.cpp
@@ -201,7 +201,7 @@
 	<string>
 	<map>
 
-1528414055 c:\users\hp\documents\sic-xe-assembler\include\syntaxvalidator.h
+1528416023 c:\users\hp\documents\sic-xe-assembler\include\syntaxvalidator.h
 	"OpInfo.h"
 	"OpCodeTable.h"
 	"SourceLine.h"
@@ -211,7 +211,7 @@
 	"ValidatorUtilities.h"
 	"RegistersTable.h"
 
-1528411282 c:\users\hp\documents\sic-xe-assembler\include\validatorutilities.h
+1528417297 c:\users\hp\documents\sic-xe-assembler\include\validatorutilities.h
 	"OpInfo.h"
 	"OpCodeTable.h"
 	"SourceLine.h"
@@ -221,6 +221,7 @@
 	<algorithm>
 	<ctype.h>
 	<sstream>
+	<regex>
 
 1525058213 source:c:\users\first\sic-xe-assembler\src\assemblylisting.cpp
 	<bits/stdc++.h>
@@ -356,7 +357,7 @@
 1528375647 c:\users\hp\documents\sic-xe-assembler\include\updatelocationcounter.h
 	<SourceLine.h>
 
-1528375647 source:c:\users\hp\documents\sic-xe-assembler\src\updatelocationcounter.cpp
+1528414877 source:c:\users\hp\documents\sic-xe-assembler\src\updatelocationcounter.cpp
 	"UpdateLocationCounter.h"
 	<SourceLine.h>
 	<OpInfo.h>

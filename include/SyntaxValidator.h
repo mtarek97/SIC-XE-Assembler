@@ -18,10 +18,10 @@ class SyntaxValidator
         bool isValid(SourceLine* srcLine);
 
     private:
+        static const int LABEL_MAXLENGTH;
         static const int INVALID;
         static const int INSTRUCTION;
         static const int DIRECTIVE;
-        static const int LABEL_MAXLENGTH;
         OpCodeTable* opCodeTable;
         RegistersTable* registers;
         SourceLine* sourceLine;

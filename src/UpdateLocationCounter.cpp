@@ -29,7 +29,7 @@ int UpdateLocationCounter::setLocationCounter(int locationCounter, SourceLine so
             string operation = SourceProgram::getUpper(sourceLine.getOperation());
             if(operation == "WORD") {
 
-               int numberOfWords = ValidatorUtilities::split(sourceLine.getOperand(), ',').size();
+               int numberOfWords = ValidatorUtilities::split(sourceLine.getOperand(), "[,]").size();
                 locationCounter=locationCounter + 3 * numberOfWords;
             }
             else if(operation == "BYTE") {

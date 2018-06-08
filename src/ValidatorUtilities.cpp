@@ -9,12 +9,15 @@ OpCodeTable* ValidatorUtilities::opCodeTable = OpCodeTable::getOpTable();
 ValidatorUtilities::ValidatorUtilities(){}
 
 
-vector<string> ValidatorUtilities::split(string str, char delimiter) {
-    stringstream strStream(str);
-    string segment;
+vector<string> ValidatorUtilities::split(string str, string regexString) {
     vector<string> tokens;
-    while (getline(strStream, segment, delimiter)) {
-        tokens.push_back(segment);
+    regex rgx(regexString);
+    regex_token_iterator<string::iterator> iter(str.begin(), str.end(), rgx, -1);
+    regex_token_iterator<string::iterator> end;
+
+    while (iter != end)  {
+          tokens.push_back(*iter);
+          iter++;
     }
     return tokens;
 }
@@ -81,6 +84,19 @@ bool ValidatorUtilities::isDecimalNumber(string str, int maxDigitsCount, bool ca
         if(!isdigit(absolute[i])){
             return false;
         }
+    }
+    return true;
+}
+
+bool ValidatorUtilities::isExpression(string str, bool canBeGeneralExpression){
+    vector<string> operands = split(str,"[-/+*]");
+    for(string operand : operands){
+        if((!isSymbol(operand,8) && !isDecimalNumber(operand,7,false)) || operand==""){
+            return false;
+        }
+    }
+    if(!canBeGeneralExpression){
+        return operands.size()<=2;
     }
     return true;
 }
