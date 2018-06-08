@@ -4,7 +4,6 @@
 #include<fstream>
 #include<iostream>
 
-#include "SymbolInfo.h"
 using namespace std;
 
 SymbolTable::SymbolTable(){
