@@ -1,11 +1,14 @@
 #include "LiteralTable.h"
+LiteralTable* LiteralTable::uniqueInstance = 0;
 
 LiteralTable::LiteralTable()
 {
     //ctor
 }
-
-LiteralTable::~LiteralTable()
-{
-    //dtor
+LiteralTable* LiteralTable::getLiteralTable() {
+    if(!uniqueInstance){
+        uniqueInstance = new LiteralTable();
+    }
+    return uniqueInstance;
 }
+

@@ -1,15 +1,6 @@
-.  copy string s1 to s2
-.   Loop  where index = 1
 xxx     start   0000
-bgn      ldx     initl
-loop     ldch    str1,x
-         stch    str2,x
-         tix     test
-         jlt     loop
-         j       *
-.
-str1     byte    c'test string'
-str2     resb    11
-initl    word    0
-test     byte  c'uu     uhu' uuiuhihi hibibibi ihbibib
+         lda     =x'3256'
+          LTORG
+         lda     =C'3256'
+test     byte  c'uu     uhu' ihbibib
          end     bgn

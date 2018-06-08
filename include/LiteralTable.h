@@ -1,16 +1,16 @@
 #ifndef LITERALTABLE_H
 #define LITERALTABLE_H
-
+#include<bits/stdc++.h>
 
 class LiteralTable
 {
     public:
-        LiteralTable();
-        virtual ~LiteralTable();
-
-    protected:
+        static LiteralTable* getLiteralTable();
+        std::map<std::string, bool> table;
 
     private:
+        static LiteralTable* uniqueInstance;
+        LiteralTable();
 };
 
 #endif // LITERALTABLE_H

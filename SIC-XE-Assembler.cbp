@@ -35,6 +35,8 @@
 			<Add option="-fexceptions" />
 		</Compiler>
 		<Unit filename="include/AssemblyListing.h" />
+		<Unit filename="include/DetectLiterals.h" />
+		<Unit filename="include/LiteralTable.h" />
 		<Unit filename="include/ObjectCodeGenerator.h" />
 		<Unit filename="include/ObjectProgram.h" />
 		<Unit filename="include/OpCodeTable.h" />
@@ -48,6 +50,8 @@
 		<Unit filename="include/ValidatorUtilities.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="src/AssemblyListing.cpp" />
+		<Unit filename="src/DetectLiterals.cpp" />
+		<Unit filename="src/LiteralTable.cpp" />
 		<Unit filename="src/ObjectCodeGenerator.cpp" />
 		<Unit filename="src/ObjectProgram.cpp" />
 		<Unit filename="src/OpCodeTable.cpp" />

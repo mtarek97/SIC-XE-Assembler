@@ -16,8 +16,9 @@ class SourceLine
         bool getIsValid();
         bool getHasObjCode();
         string getErrorMessage();
-
+        int getLocationCounter();
         int getNextInstruction();
+
         void setComment(string comment);
         void setLable(string lable);
         void setOperation(string operation);
@@ -27,12 +28,13 @@ class SourceLine
         void setIsValid(bool isValid);
         void setHasObjCode(bool hasObjCode);
         void setErrorMessage(string error);
+        void setLocationCounter(int locationCounter);
 
 
     private:
         string lable="", operation="", operand="", comment="";
-        int byteFormat = 0,nextInstruction=0;
-        bool isValid = true,hasObjCode = true;
+        int byteFormat = 0, nextInstruction=0, locationCounter = 0;
+        bool isValid = true, hasObjCode = true;
         string errorMessage = "";
 };
 

@@ -8,11 +8,12 @@
 #include<ValidatorUtilities.h>
 #include<UpdateLocationCounter.h>
 #include <ObjectCodeGenerator.h>
-
+#include "DetectLiterals.h"
+#include "LiteralTable.h"
 SourceProgram::SourceProgram()
 {
 }
-void SourceProgram::parse(char* fileName)
+vector<SourceLine> SourceProgram::parse(char* fileName)
 {
     freopen(fileName, "r", stdin);
     direcive.insert("START");
@@ -21,6 +22,7 @@ void SourceProgram::parse(char* fileName)
     direcive.insert("RESB");
     direcive.insert("RESW");
     direcive.insert("WORD");
+    direcive.insert("LTORG");
 
     string parser, word;
     bool stop = false;
@@ -36,11 +38,26 @@ void SourceProgram::parse(char* fileName)
 
 
         SourceLine sourceLine;
+
+        sourceLine.setLocationCounter(locationCounter);
+        if(sourcelines.size() != 0)
+            sourcelines[sourcelines.size() - 1].setNextInstruction(locationCounter);
+
+
         if(!isComment(line))
         {
             sourceLine = identifier(line, parser);
             updateLocationCounter(sourceLine);
             lineNumber++;
+        if(sourceLine.getOperand()[0] == '=' )
+        {
+            if(!lieralTable.count(sourceLine.getOperand()))
+             this->lieralTable[sourceLine.getOperand()] = false;
+        }
+        if(getUpper(sourceLine.getOperation()) == "LTORG")
+        {
+            makeLiteralPool();
+        }
         }
         else
         {
@@ -50,7 +67,35 @@ void SourceProgram::parse(char* fileName)
             sourceLine.setOperation("");
             write(sourceLine,"");
         }
+        this->sourcelines.push_back(sourceLine);
+
+
     }
+makeLiteralPool();
+return sourcelines;
+
+}
+map<string, bool> SourceProgram::getLiteralTable(){
+return lieralTable;
+}
+
+void SourceProgram::makeLiteralPool()
+{
+    vector<SourceLine> newLines = DetectLiterals::detect(this->locationCounter, lieralTable);
+
+    for(int i = 0; i < newLines.size(); i++)
+    {
+        sourcelines.push_back(newLines[i]);
+        if(sourcelines.size() != 0)
+        {
+            sourcelines[sourcelines.size() - 1].setNextInstruction(locationCounter);
+        }
+        locationCounter = newLines[i].getLocationCounter();
+        lieralTable[newLines[i].getOperand()] = true;
+        write(newLines[i], "");
+    }
+    if(newLines.size() != 0)
+    locationCounter = UpdateLocationCounter::setLocationCounter(sourcelines[sourcelines.size() - 1].getLocationCounter(), sourcelines[sourcelines.size() - 1]);
 
 }
 string SourceProgram::getUpper(string word)
@@ -99,7 +144,8 @@ SourceLine SourceProgram::identifier(vector<string> line, string parser)
     return sourceLine;
 }
 
-string SourceProgram::getComment(int index, vector<string> line) {
+string SourceProgram::getComment(int index, vector<string> line)
+{
     string comment = "";
     while(index != line.size())
     {
@@ -147,12 +193,15 @@ void SourceProgram::updateLocationCounter(SourceLine sourceLine)
             {
                 locationCounter = UpdateLocationCounter::detectStart(locationCounter, sourceLine);
                 if(sourceLine.getLable() != "")
-                   symbolTable.insert(sourceLine.getLable(), locationCounter);
+                    symbolTable.insert(sourceLine.getLable(), locationCounter);
                 write(sourceLine, "");
                 return;
             }
             else
+            {
                 error = "You wirte START operation more than one time";
+                sourceLine.setIsValid(false);
+            }
         }
 
         if(sourceLine.getLable() != "")
@@ -160,6 +209,7 @@ void SourceProgram::updateLocationCounter(SourceLine sourceLine)
             if(symbolTable.hashtable.count(sourceLine.getLable()) != 0)
             {
                 error = "This lable is used before";
+                sourceLine.setIsValid(false);
             }
             else
                 symbolTable.insert(sourceLine.getLable(), locationCounter);
@@ -172,6 +222,7 @@ void SourceProgram::updateLocationCounter(SourceLine sourceLine)
     else
     {
         write(sourceLine, sourceLine.getErrorMessage());
+        sourceLine.setIsValid(false);
     }
 }
 SourceLine SourceProgram::handleSpacesInOperand(SourceLine sourceLine, string subject, string patern, char beginCharacter)
