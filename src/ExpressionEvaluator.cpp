@@ -23,13 +23,13 @@ SymbolInfo ExpressionEvaluator::evaluateExpression(std::string expression)
     if(firstOperand.getLocation() == -1 && secondOperand.getLocation() == -1){
         switch(operation){
         case '+':
-            return SymbolInfo(toi(operands[0]) + toi(operands[1]), 'a');
+            return SymbolInfo(stoi(operands[0]) + stoi(operands[1]), 'a');
         case '-':
-            return SymbolInfo(toi(operands[0]) - toi(operands[1]), 'a');
+            return SymbolInfo(stoi(operands[0]) - stoi(operands[1]), 'a');
         case '*':
-            return SymbolInfo(toi(operands[0]) * toi(operands[1]), 'a');
+            return SymbolInfo(stoi(operands[0]) * stoi(operands[1]), 'a');
         case '/':
-            return SymbolInfo(toi(operands[0]) / toi(operands[1]), 'a');
+            return SymbolInfo(stoi(operands[0]) / stoi(operands[1]), 'a');
         }
     }
     //absolute expression (pair of relative terms)
@@ -50,9 +50,9 @@ SymbolInfo ExpressionEvaluator::evaluateExpression(std::string expression)
     if(firstOperand.getLocation() != -1 && secondOperand.getLocation() == -1){
         switch(operation){
         case '+':
-            return SymbolInfo(firstOperand.getLocation() + toi(operands[1]), 'r');
+            return SymbolInfo(firstOperand.getLocation() + stoi(operands[1]), 'r');
         case '-':
-            return SymbolInfo(firstOperand.getLocation() - toi(operands[1]), 'r');
+            return SymbolInfo(firstOperand.getLocation() - stoi(operands[1]), 'r');
         case '*':
             return SymbolInfo(-1, 'e');
         case '/':
