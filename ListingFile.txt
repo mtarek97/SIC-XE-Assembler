@@ -1,52 +1,15 @@
 Line    Loc            Source statement       
-  0              .234567890123456789 
-  1              .234567890123456789.234567890123456789 
-  2              .234567890123456789 
-  3              .234567890123456789 
-  4              .234567890123456789 
-  5     00004    LAB2C               START               0100                
-  6     00004                        LDA                 ALPHA               
-  7     00007                        LDB                 #10                 
-  8     0000a                        LDX                 #0                  YGYGYG 3T34T34T EGRGERGERG GRERGERG 
-  9     0000d                        ADDR                A,B                 
- 10     0000f                        STA                 SAVEW,X             
- 11     00012                        LDX                 #1                  
- 12     00015                        STA                 SAVEW,X             
- 13              .Format 4 erg wwww sss 
- 14     00018                        SUB                 #12                 
- 15     0001b                        LDX                 #0                  
- 16     0001e                        LDA                 =X'3256'            
-       ****Error:=X'3256' is invalid operand
- 17     0001e                        LDA                 =X'3256'            
-       ****Error:=X'3256' is invalid operand
- 18     0001e                        LDA                 =C'3256'            
-       ****Error:=C'3256' is invalid operand
- 19     0001e                        LDA                 =X'325556'          
-       ****Error:=X'325556' is invalid operand
- 20     0001e                        STA                 INPUT               
- 21     00021                        ADD                 LDCH                STRING,X 
-       ****Error:LDCH is invalid operand
- 22     00021                        COMP                INPUT               
- 23     00024                        JEQ                 FOUND               
- 24     00027                        STCH                OUTPUT,X            
- 25     0002a                        TIX                 #5                  
- 26     0002d                        JLT                 ADD                 
-       ****Error:ADD is invalid operand
- 27     0002d                        LTORG                                   
-       ****Error:LTORG is invalid operation
- 28     0002d                        *                   =C'3256'            
- 29     00031                        *                   =x'325556'          
- 30     00034                        *                   =x'3256'            
- 31     00036                        LDA                 =C'325  6'          
-       ****Error:=C'325  6' is invalid operand
- 32     00036    FOUND               J                   OUT                 
- 33     00039    ALPHA               WORD                2                   
- 34     0003c    SAVEW               RESW                2                   
- 35     00042    HEXCHAR             BYTE                X'61'               
- 36     00043    INPUT               RESB                1                   
- 37     00044    STRING              BYTE                C'STRING     GERGER'
-       ****Error:STRING     GERGER can't exceed 15 characters
- 38     00044    OUTPUT              RESB                5                   
- 39     00049    OUT                 END                 #4                  
-       ****Error:label must be blank at END statement
- 40     00049                        *                   =C'325  6'          
+  0     00000    XXX                 START               0000                
+  1     00000                        LDA                 =X'3256'            
+  2     00003                        LTORG                                   
+  3     00003    *                   =x'3256'                                
+  4     00005    TEST                BYTE                C'UU     UHU'       IHBIBIB 
+  5     0000f    MOHAMED             BYTE                C'UUU'              IHBIBIB 
+  6     00012                        LDA                 =C'325CSDCSD6'      
+  7     00015                        LDA                 =C'3256'            
+  8     00018    SHAZLY              EQU                 TEST-MOHAMED        
+  9     fffffff6                        ORG                 SHAZLY+5            
+ 10     0001d                        END                 BGN                 
+ 11     0001d    *                   =C'3256'                                
+ 12     0001f    *                   =C'325csdcsd6'                          
+ 13     00024    *                   =x'3256'                                

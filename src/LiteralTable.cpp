@@ -1,14 +1,30 @@
 #include "LiteralTable.h"
+#include<bits/stdc++.h>
 LiteralTable* LiteralTable::uniqueInstance = 0;
 
 LiteralTable::LiteralTable()
 {
-    //ctor
+
 }
-LiteralTable* LiteralTable::getLiteralTable() {
+
+LiteralTable* LiteralTable::getLiteralsTable() {
     if(!uniqueInstance){
         uniqueInstance = new LiteralTable();
     }
     return uniqueInstance;
 }
 
+std::map<std::string,std::pair< bool, std::string> > LiteralTable::getTable() {
+        return table;
+}
+
+void LiteralTable::SetLiteralsTable(std::map<std::string,std::pair< bool, std::string> > newTable) {
+   table.clear();
+   std::map<std::string,std::pair< bool, std::string> >::iterator it = newTable.begin();
+    while (it != newTable.end())
+    {
+    table[it->first] = it->second;
+    it++;
+    }
+
+}
