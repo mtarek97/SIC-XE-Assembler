@@ -87,6 +87,12 @@
 		<Unit filename="C:/Users/Mohamed Mashaal/Desktop/Assembler/SIC-XE-Assembler/include/AssemblyListing.h">
 			<Option target="SIC_XE_Assembler"/>
 		</Unit>
+		<Unit filename="C:/Users/Mohamed Mashaal/Desktop/Assembler/SIC-XE-Assembler/include/DetectLiterals.h">
+			<Option target="SIC_XE_Assembler"/>
+		</Unit>
+		<Unit filename="C:/Users/Mohamed Mashaal/Desktop/Assembler/SIC-XE-Assembler/include/LiteralTable.h">
+			<Option target="SIC_XE_Assembler"/>
+		</Unit>
 		<Unit filename="C:/Users/Mohamed Mashaal/Desktop/Assembler/SIC-XE-Assembler/include/ObjectCodeGenerator.h">
 			<Option target="SIC_XE_Assembler"/>
 		</Unit>
@@ -108,6 +114,9 @@
 		<Unit filename="C:/Users/Mohamed Mashaal/Desktop/Assembler/SIC-XE-Assembler/include/SourceProgram.h">
 			<Option target="SIC_XE_Assembler"/>
 		</Unit>
+		<Unit filename="C:/Users/Mohamed Mashaal/Desktop/Assembler/SIC-XE-Assembler/include/SymbolInfo.h">
+			<Option target="SIC_XE_Assembler"/>
+		</Unit>
 		<Unit filename="C:/Users/Mohamed Mashaal/Desktop/Assembler/SIC-XE-Assembler/include/SymbolTable.h">
 			<Option target="SIC_XE_Assembler"/>
 		</Unit>
@@ -124,6 +133,12 @@
 			<Option target="SIC_XE_Assembler"/>
 		</Unit>
 		<Unit filename="C:/Users/Mohamed Mashaal/Desktop/Assembler/SIC-XE-Assembler/src/AssemblyListing.cpp">
+			<Option target="SIC_XE_Assembler"/>
+		</Unit>
+		<Unit filename="C:/Users/Mohamed Mashaal/Desktop/Assembler/SIC-XE-Assembler/src/DetectLiterals.cpp">
+			<Option target="SIC_XE_Assembler"/>
+		</Unit>
+		<Unit filename="C:/Users/Mohamed Mashaal/Desktop/Assembler/SIC-XE-Assembler/src/LiteralTable.cpp">
 			<Option target="SIC_XE_Assembler"/>
 		</Unit>
 		<Unit filename="C:/Users/Mohamed Mashaal/Desktop/Assembler/SIC-XE-Assembler/src/ObjectCodeGenerator.cpp">
@@ -145,6 +160,9 @@
 			<Option target="SIC_XE_Assembler"/>
 		</Unit>
 		<Unit filename="C:/Users/Mohamed Mashaal/Desktop/Assembler/SIC-XE-Assembler/src/SourceProgram.cpp">
+			<Option target="SIC_XE_Assembler"/>
+		</Unit>
+		<Unit filename="C:/Users/Mohamed Mashaal/Desktop/Assembler/SIC-XE-Assembler/src/SymbolInfo.cpp">
 			<Option target="SIC_XE_Assembler"/>
 		</Unit>
 		<Unit filename="C:/Users/Mohamed Mashaal/Desktop/Assembler/SIC-XE-Assembler/src/SymbolTable.cpp">

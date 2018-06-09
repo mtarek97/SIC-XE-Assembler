@@ -1,11 +1,12 @@
 #include "ExpressionEvaluator.h"
-
+#include<bits/stdc++.h>
+#include <SymbolTable.h>
 ExpressionEvaluator::ExpressionEvaluator()
 {
     //ctor
 }
 
-ExpressionEvaluator::evaluateExpression(string expression)
+void ExpressionEvaluator::evaluateExpression(std::string expression)
 {
     SymbolTable symbolTable;
     // assuming it's a simple expression <operand><operation><operand>

@@ -32,9 +32,10 @@
 	"SyntaxValidator.h"
 	"SourceProgram.h"
 
-1528471029 f:\projects second year\assembly\include\symboltable.h
+1528501836 f:\projects second year\assembly\include\symboltable.h
 	<string>
 	<map>
+	"SymbolInfo.h"
 
 1524852208 f:\projects second year\assembly\include\opcodetable.h
 	<string>
@@ -137,7 +138,7 @@
 	<SymbolTable.h>
 	<AssemblyListing.h>
 
-1525127457 source:f:\projects second year\assembly\src\symboltable.cpp
+1528501836 source:f:\projects second year\assembly\src\symboltable.cpp
 	"SymbolTable.h"
 	<bits/stdc++.h>
 	<string>
@@ -278,7 +279,7 @@
 1525503322 f:\projects second year\assembly\include\updatelocationcounter.h
 	<SourceLine.h>
 
-1528333837 source:f:\projects second year\assembly\src\objectcodegenerator.cpp
+1528501836 source:f:\projects second year\assembly\src\objectcodegenerator.cpp
 	"ObjectCodeGenerator.h"
 	"OpCodeTable.h"
 
@@ -297,4 +298,9 @@
 
 1528333837 source:f:\projects second year\assembly\src\registerstable.cpp
 	"RegistersTable.h"
+
+1528501836 f:\projects second year\assembly\include\symbolinfo.h
+
+1528501836 source:f:\projects second year\assembly\src\symbolinfo.cpp
+	"SymbolInfo.h"
 

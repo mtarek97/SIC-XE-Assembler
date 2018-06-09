@@ -1,14 +1,13 @@
 #ifndef EXPRESSIONEVALUATOR_H
 #define EXPRESSIONEVALUATOR_H
-
-
+#include<bits/stdc++.h>
+#include <string>
 class ExpressionEvaluator
 {
     public:
         ExpressionEvaluator();
-        evaluateExpression(string expression);
+       void evaluateExpression(std::string expression);
 
-    protected:
 
     private:
 };

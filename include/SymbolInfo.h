@@ -5,6 +5,7 @@
 class SymbolInfo
 {
     public:
+        SymbolInfo();
         SymbolInfo(int locInMemory, char type);
         int getLocation();
         char getType();

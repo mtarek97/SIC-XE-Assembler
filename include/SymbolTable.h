@@ -1,5 +1,6 @@
 #include <string>
 #include <map>
+#include "SymbolInfo.h"
 
 #ifndef SYMBOLTABLE_H
 #define SYMBOLTABLE_H
@@ -11,8 +12,8 @@ class SymbolTable{
     public:
         SymbolTable();
         void insert(string symbol, int locInMemory);
-        int search(string symbol);
-        map<string, int> hashtable;
+        SymbolInfo search(string symbol);
+        map<string, SymbolInfo> hashtable;
 
 
     private:

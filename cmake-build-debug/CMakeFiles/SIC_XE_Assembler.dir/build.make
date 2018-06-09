@@ -306,10 +306,85 @@ CMakeFiles/SIC_XE_Assembler.dir/src/UpdateLocationCounter.cpp.obj.provides: CMak
 CMakeFiles/SIC_XE_Assembler.dir/src/UpdateLocationCounter.cpp.obj.provides.build: CMakeFiles/SIC_XE_Assembler.dir/src/UpdateLocationCounter.cpp.obj
 
 
+CMakeFiles/SIC_XE_Assembler.dir/src/SymbolInfo.cpp.obj: CMakeFiles/SIC_XE_Assembler.dir/flags.make
+CMakeFiles/SIC_XE_Assembler.dir/src/SymbolInfo.cpp.obj: CMakeFiles/SIC_XE_Assembler.dir/includes_CXX.rsp
+CMakeFiles/SIC_XE_Assembler.dir/src/SymbolInfo.cpp.obj: ../src/SymbolInfo.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\Mohamed Mashaal\Desktop\Assembler\SIC-XE-Assembler\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/SIC_XE_Assembler.dir/src/SymbolInfo.cpp.obj"
+	C:\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\SIC_XE_Assembler.dir\src\SymbolInfo.cpp.obj -c "C:\Users\Mohamed Mashaal\Desktop\Assembler\SIC-XE-Assembler\src\SymbolInfo.cpp"
+
+CMakeFiles/SIC_XE_Assembler.dir/src/SymbolInfo.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/SIC_XE_Assembler.dir/src/SymbolInfo.cpp.i"
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\Mohamed Mashaal\Desktop\Assembler\SIC-XE-Assembler\src\SymbolInfo.cpp" > CMakeFiles\SIC_XE_Assembler.dir\src\SymbolInfo.cpp.i
+
+CMakeFiles/SIC_XE_Assembler.dir/src/SymbolInfo.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/SIC_XE_Assembler.dir/src/SymbolInfo.cpp.s"
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\Mohamed Mashaal\Desktop\Assembler\SIC-XE-Assembler\src\SymbolInfo.cpp" -o CMakeFiles\SIC_XE_Assembler.dir\src\SymbolInfo.cpp.s
+
+CMakeFiles/SIC_XE_Assembler.dir/src/SymbolInfo.cpp.obj.requires:
+
+.PHONY : CMakeFiles/SIC_XE_Assembler.dir/src/SymbolInfo.cpp.obj.requires
+
+CMakeFiles/SIC_XE_Assembler.dir/src/SymbolInfo.cpp.obj.provides: CMakeFiles/SIC_XE_Assembler.dir/src/SymbolInfo.cpp.obj.requires
+	$(MAKE) -f CMakeFiles\SIC_XE_Assembler.dir\build.make CMakeFiles/SIC_XE_Assembler.dir/src/SymbolInfo.cpp.obj.provides.build
+.PHONY : CMakeFiles/SIC_XE_Assembler.dir/src/SymbolInfo.cpp.obj.provides
+
+CMakeFiles/SIC_XE_Assembler.dir/src/SymbolInfo.cpp.obj.provides.build: CMakeFiles/SIC_XE_Assembler.dir/src/SymbolInfo.cpp.obj
+
+
+CMakeFiles/SIC_XE_Assembler.dir/src/DetectLiterals.cpp.obj: CMakeFiles/SIC_XE_Assembler.dir/flags.make
+CMakeFiles/SIC_XE_Assembler.dir/src/DetectLiterals.cpp.obj: CMakeFiles/SIC_XE_Assembler.dir/includes_CXX.rsp
+CMakeFiles/SIC_XE_Assembler.dir/src/DetectLiterals.cpp.obj: ../src/DetectLiterals.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\Mohamed Mashaal\Desktop\Assembler\SIC-XE-Assembler\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/SIC_XE_Assembler.dir/src/DetectLiterals.cpp.obj"
+	C:\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\SIC_XE_Assembler.dir\src\DetectLiterals.cpp.obj -c "C:\Users\Mohamed Mashaal\Desktop\Assembler\SIC-XE-Assembler\src\DetectLiterals.cpp"
+
+CMakeFiles/SIC_XE_Assembler.dir/src/DetectLiterals.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/SIC_XE_Assembler.dir/src/DetectLiterals.cpp.i"
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\Mohamed Mashaal\Desktop\Assembler\SIC-XE-Assembler\src\DetectLiterals.cpp" > CMakeFiles\SIC_XE_Assembler.dir\src\DetectLiterals.cpp.i
+
+CMakeFiles/SIC_XE_Assembler.dir/src/DetectLiterals.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/SIC_XE_Assembler.dir/src/DetectLiterals.cpp.s"
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\Mohamed Mashaal\Desktop\Assembler\SIC-XE-Assembler\src\DetectLiterals.cpp" -o CMakeFiles\SIC_XE_Assembler.dir\src\DetectLiterals.cpp.s
+
+CMakeFiles/SIC_XE_Assembler.dir/src/DetectLiterals.cpp.obj.requires:
+
+.PHONY : CMakeFiles/SIC_XE_Assembler.dir/src/DetectLiterals.cpp.obj.requires
+
+CMakeFiles/SIC_XE_Assembler.dir/src/DetectLiterals.cpp.obj.provides: CMakeFiles/SIC_XE_Assembler.dir/src/DetectLiterals.cpp.obj.requires
+	$(MAKE) -f CMakeFiles\SIC_XE_Assembler.dir\build.make CMakeFiles/SIC_XE_Assembler.dir/src/DetectLiterals.cpp.obj.provides.build
+.PHONY : CMakeFiles/SIC_XE_Assembler.dir/src/DetectLiterals.cpp.obj.provides
+
+CMakeFiles/SIC_XE_Assembler.dir/src/DetectLiterals.cpp.obj.provides.build: CMakeFiles/SIC_XE_Assembler.dir/src/DetectLiterals.cpp.obj
+
+
+CMakeFiles/SIC_XE_Assembler.dir/src/LiteralTable.cpp.obj: CMakeFiles/SIC_XE_Assembler.dir/flags.make
+CMakeFiles/SIC_XE_Assembler.dir/src/LiteralTable.cpp.obj: CMakeFiles/SIC_XE_Assembler.dir/includes_CXX.rsp
+CMakeFiles/SIC_XE_Assembler.dir/src/LiteralTable.cpp.obj: ../src/LiteralTable.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\Mohamed Mashaal\Desktop\Assembler\SIC-XE-Assembler\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/SIC_XE_Assembler.dir/src/LiteralTable.cpp.obj"
+	C:\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\SIC_XE_Assembler.dir\src\LiteralTable.cpp.obj -c "C:\Users\Mohamed Mashaal\Desktop\Assembler\SIC-XE-Assembler\src\LiteralTable.cpp"
+
+CMakeFiles/SIC_XE_Assembler.dir/src/LiteralTable.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/SIC_XE_Assembler.dir/src/LiteralTable.cpp.i"
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\Mohamed Mashaal\Desktop\Assembler\SIC-XE-Assembler\src\LiteralTable.cpp" > CMakeFiles\SIC_XE_Assembler.dir\src\LiteralTable.cpp.i
+
+CMakeFiles/SIC_XE_Assembler.dir/src/LiteralTable.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/SIC_XE_Assembler.dir/src/LiteralTable.cpp.s"
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\Mohamed Mashaal\Desktop\Assembler\SIC-XE-Assembler\src\LiteralTable.cpp" -o CMakeFiles\SIC_XE_Assembler.dir\src\LiteralTable.cpp.s
+
+CMakeFiles/SIC_XE_Assembler.dir/src/LiteralTable.cpp.obj.requires:
+
+.PHONY : CMakeFiles/SIC_XE_Assembler.dir/src/LiteralTable.cpp.obj.requires
+
+CMakeFiles/SIC_XE_Assembler.dir/src/LiteralTable.cpp.obj.provides: CMakeFiles/SIC_XE_Assembler.dir/src/LiteralTable.cpp.obj.requires
+	$(MAKE) -f CMakeFiles\SIC_XE_Assembler.dir\build.make CMakeFiles/SIC_XE_Assembler.dir/src/LiteralTable.cpp.obj.provides.build
+.PHONY : CMakeFiles/SIC_XE_Assembler.dir/src/LiteralTable.cpp.obj.provides
+
+CMakeFiles/SIC_XE_Assembler.dir/src/LiteralTable.cpp.obj.provides.build: CMakeFiles/SIC_XE_Assembler.dir/src/LiteralTable.cpp.obj
+
+
 CMakeFiles/SIC_XE_Assembler.dir/main.cpp.obj: CMakeFiles/SIC_XE_Assembler.dir/flags.make
 CMakeFiles/SIC_XE_Assembler.dir/main.cpp.obj: CMakeFiles/SIC_XE_Assembler.dir/includes_CXX.rsp
 CMakeFiles/SIC_XE_Assembler.dir/main.cpp.obj: ../main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\Mohamed Mashaal\Desktop\Assembler\SIC-XE-Assembler\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/SIC_XE_Assembler.dir/main.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\Mohamed Mashaal\Desktop\Assembler\SIC-XE-Assembler\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/SIC_XE_Assembler.dir/main.cpp.obj"
 	C:\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\SIC_XE_Assembler.dir\main.cpp.obj -c "C:\Users\Mohamed Mashaal\Desktop\Assembler\SIC-XE-Assembler\main.cpp"
 
 CMakeFiles/SIC_XE_Assembler.dir/main.cpp.i: cmake_force
@@ -334,7 +409,7 @@ CMakeFiles/SIC_XE_Assembler.dir/main.cpp.obj.provides.build: CMakeFiles/SIC_XE_A
 CMakeFiles/SIC_XE_Assembler.dir/src/ObjectCodeGenerator.cpp.obj: CMakeFiles/SIC_XE_Assembler.dir/flags.make
 CMakeFiles/SIC_XE_Assembler.dir/src/ObjectCodeGenerator.cpp.obj: CMakeFiles/SIC_XE_Assembler.dir/includes_CXX.rsp
 CMakeFiles/SIC_XE_Assembler.dir/src/ObjectCodeGenerator.cpp.obj: ../src/ObjectCodeGenerator.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\Mohamed Mashaal\Desktop\Assembler\SIC-XE-Assembler\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/SIC_XE_Assembler.dir/src/ObjectCodeGenerator.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\Mohamed Mashaal\Desktop\Assembler\SIC-XE-Assembler\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/SIC_XE_Assembler.dir/src/ObjectCodeGenerator.cpp.obj"
 	C:\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\SIC_XE_Assembler.dir\src\ObjectCodeGenerator.cpp.obj -c "C:\Users\Mohamed Mashaal\Desktop\Assembler\SIC-XE-Assembler\src\ObjectCodeGenerator.cpp"
 
 CMakeFiles/SIC_XE_Assembler.dir/src/ObjectCodeGenerator.cpp.i: cmake_force
@@ -359,7 +434,7 @@ CMakeFiles/SIC_XE_Assembler.dir/src/ObjectCodeGenerator.cpp.obj.provides.build: 
 CMakeFiles/SIC_XE_Assembler.dir/src/RegistersTable.cpp.obj: CMakeFiles/SIC_XE_Assembler.dir/flags.make
 CMakeFiles/SIC_XE_Assembler.dir/src/RegistersTable.cpp.obj: CMakeFiles/SIC_XE_Assembler.dir/includes_CXX.rsp
 CMakeFiles/SIC_XE_Assembler.dir/src/RegistersTable.cpp.obj: ../src/RegistersTable.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\Mohamed Mashaal\Desktop\Assembler\SIC-XE-Assembler\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/SIC_XE_Assembler.dir/src/RegistersTable.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\Mohamed Mashaal\Desktop\Assembler\SIC-XE-Assembler\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/SIC_XE_Assembler.dir/src/RegistersTable.cpp.obj"
 	C:\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\SIC_XE_Assembler.dir\src\RegistersTable.cpp.obj -c "C:\Users\Mohamed Mashaal\Desktop\Assembler\SIC-XE-Assembler\src\RegistersTable.cpp"
 
 CMakeFiles/SIC_XE_Assembler.dir/src/RegistersTable.cpp.i: cmake_force
@@ -393,6 +468,9 @@ SIC_XE_Assembler_OBJECTS = \
 "CMakeFiles/SIC_XE_Assembler.dir/src/ValidatorUtilities.cpp.obj" \
 "CMakeFiles/SIC_XE_Assembler.dir/src/OpInfo.cpp.obj" \
 "CMakeFiles/SIC_XE_Assembler.dir/src/UpdateLocationCounter.cpp.obj" \
+"CMakeFiles/SIC_XE_Assembler.dir/src/SymbolInfo.cpp.obj" \
+"CMakeFiles/SIC_XE_Assembler.dir/src/DetectLiterals.cpp.obj" \
+"CMakeFiles/SIC_XE_Assembler.dir/src/LiteralTable.cpp.obj" \
 "CMakeFiles/SIC_XE_Assembler.dir/main.cpp.obj" \
 "CMakeFiles/SIC_XE_Assembler.dir/src/ObjectCodeGenerator.cpp.obj" \
 "CMakeFiles/SIC_XE_Assembler.dir/src/RegistersTable.cpp.obj"
@@ -410,6 +488,9 @@ SIC_XE_Assembler.exe: CMakeFiles/SIC_XE_Assembler.dir/src/SyntaxValidator.cpp.ob
 SIC_XE_Assembler.exe: CMakeFiles/SIC_XE_Assembler.dir/src/ValidatorUtilities.cpp.obj
 SIC_XE_Assembler.exe: CMakeFiles/SIC_XE_Assembler.dir/src/OpInfo.cpp.obj
 SIC_XE_Assembler.exe: CMakeFiles/SIC_XE_Assembler.dir/src/UpdateLocationCounter.cpp.obj
+SIC_XE_Assembler.exe: CMakeFiles/SIC_XE_Assembler.dir/src/SymbolInfo.cpp.obj
+SIC_XE_Assembler.exe: CMakeFiles/SIC_XE_Assembler.dir/src/DetectLiterals.cpp.obj
+SIC_XE_Assembler.exe: CMakeFiles/SIC_XE_Assembler.dir/src/LiteralTable.cpp.obj
 SIC_XE_Assembler.exe: CMakeFiles/SIC_XE_Assembler.dir/main.cpp.obj
 SIC_XE_Assembler.exe: CMakeFiles/SIC_XE_Assembler.dir/src/ObjectCodeGenerator.cpp.obj
 SIC_XE_Assembler.exe: CMakeFiles/SIC_XE_Assembler.dir/src/RegistersTable.cpp.obj
@@ -417,7 +498,7 @@ SIC_XE_Assembler.exe: CMakeFiles/SIC_XE_Assembler.dir/build.make
 SIC_XE_Assembler.exe: CMakeFiles/SIC_XE_Assembler.dir/linklibs.rsp
 SIC_XE_Assembler.exe: CMakeFiles/SIC_XE_Assembler.dir/objects1.rsp
 SIC_XE_Assembler.exe: CMakeFiles/SIC_XE_Assembler.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="C:\Users\Mohamed Mashaal\Desktop\Assembler\SIC-XE-Assembler\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_14) "Linking CXX executable SIC_XE_Assembler.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="C:\Users\Mohamed Mashaal\Desktop\Assembler\SIC-XE-Assembler\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_17) "Linking CXX executable SIC_XE_Assembler.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\SIC_XE_Assembler.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -435,6 +516,9 @@ CMakeFiles/SIC_XE_Assembler.dir/requires: CMakeFiles/SIC_XE_Assembler.dir/src/Sy
 CMakeFiles/SIC_XE_Assembler.dir/requires: CMakeFiles/SIC_XE_Assembler.dir/src/ValidatorUtilities.cpp.obj.requires
 CMakeFiles/SIC_XE_Assembler.dir/requires: CMakeFiles/SIC_XE_Assembler.dir/src/OpInfo.cpp.obj.requires
 CMakeFiles/SIC_XE_Assembler.dir/requires: CMakeFiles/SIC_XE_Assembler.dir/src/UpdateLocationCounter.cpp.obj.requires
+CMakeFiles/SIC_XE_Assembler.dir/requires: CMakeFiles/SIC_XE_Assembler.dir/src/SymbolInfo.cpp.obj.requires
+CMakeFiles/SIC_XE_Assembler.dir/requires: CMakeFiles/SIC_XE_Assembler.dir/src/DetectLiterals.cpp.obj.requires
+CMakeFiles/SIC_XE_Assembler.dir/requires: CMakeFiles/SIC_XE_Assembler.dir/src/LiteralTable.cpp.obj.requires
 CMakeFiles/SIC_XE_Assembler.dir/requires: CMakeFiles/SIC_XE_Assembler.dir/main.cpp.obj.requires
 CMakeFiles/SIC_XE_Assembler.dir/requires: CMakeFiles/SIC_XE_Assembler.dir/src/ObjectCodeGenerator.cpp.obj.requires
 CMakeFiles/SIC_XE_Assembler.dir/requires: CMakeFiles/SIC_XE_Assembler.dir/src/RegistersTable.cpp.obj.requires
