@@ -12,6 +12,7 @@
 #include "LiteralTable.h"
 SourceProgram::SourceProgram()
 {
+    this->symbolTable = SymbolTable::getSymbolTable();
 }
 vector<SourceLine> SourceProgram::parse(char* fileName)
 {
@@ -56,7 +57,7 @@ vector<SourceLine> SourceProgram::parse(char* fileName)
         if(sourceLine.getOperand()[0] == '=' )
         {
             if(!lieralTable.count(sourceLine.getOperand()))
-             this->lieralTable[sourceLine.getOperand()] = false;
+             this->lieralTable[sourceLine.getOperand()] = make_pair(false, 0);
         }
         if(getUpper(sourceLine.getOperation()) == "LTORG")
         {
@@ -78,10 +79,11 @@ vector<SourceLine> SourceProgram::parse(char* fileName)
 
 makeLiteralPool();
 (LiteralTable::getLiteralsTable())->SetLiteralsTable(lieralTable);
+sourcelines[sourcelines.size() - 1].setNextInstruction(locationCounter);
 return (sourcelines);
 
 }
-map<string, bool> SourceProgram::getLiteralTable(){
+std::map<std::string,std::pair< bool, std::string> > SourceProgram::getLiteralTable(){
 return lieralTable;
 }
 
@@ -97,11 +99,11 @@ void SourceProgram::makeLiteralPool()
             sourcelines[sourcelines.size() - 1].setNextInstruction(locationCounter);
         }
         locationCounter = newLines[i].getLocationCounter();
-        lieralTable[newLines[i].getOperand()] = true;
+        lieralTable[newLines[i].getOperand()] = make_pair(true, locationCounter);
         write(newLines[i], "");
     }
     if(newLines.size() != 0)
-      locationCounter = UpdateLocationCounter::setLocationCounter(sourcelines[sourcelines.size() - 1].getLocationCounter(), sourcelines[sourcelines.size() - 1], &this->symbolTable).first;
+      locationCounter = UpdateLocationCounter::setLocationCounter(sourcelines[sourcelines.size() - 1].getLocationCounter(), sourcelines[sourcelines.size() - 1]).first;
 
 }
 string SourceProgram::getUpper(string word)
@@ -199,7 +201,7 @@ void SourceProgram::updateLocationCounter(SourceLine sourceLine)
             {
                 locationCounter = UpdateLocationCounter::detectStart(locationCounter, sourceLine);
                 if(sourceLine.getLable() != "")
-                    symbolTable.insert(sourceLine.getLable(), locationCounter);
+                    symbolTable->insert(sourceLine.getLable(), locationCounter);
                 write(sourceLine, "");
                 return;
             }
@@ -212,26 +214,27 @@ void SourceProgram::updateLocationCounter(SourceLine sourceLine)
 
         if(sourceLine.getLable() != "")
         {
-            if(symbolTable.hashtable.count(sourceLine.getLable()) != 0)
+            if(symbolTable->hashtable.count(sourceLine.getLable()) != 0)
             {
                 error = "This lable is used before";
                 sourceLine.setIsValid(false);
             }
             else
-                symbolTable.insert(sourceLine.getLable(), locationCounter);
+                symbolTable->insert(sourceLine.getLable(), locationCounter);
         }
         write(sourceLine, error);
         error = "";
         pair<int,string> result;
-        result = UpdateLocationCounter::setLocationCounter(locationCounter, sourceLine, &this->symbolTable);
+        result = UpdateLocationCounter::setLocationCounter(locationCounter, sourceLine);
         locationCounter = result.first;
         error = result.second;
         if(error != ""){
         SourceLine emptyy;
         write(emptyy, error);
         }
-        ObjectCodeGenerator* generator = ObjectCodeGenerator::getObjectCodeGenerator(); // testing purposes !!
-        generator->setSymbolTable(symbolTable);
+    //    ObjectCodeGenerator* generator = ObjectCodeGenerator::getObjectCodeGenerator(); // testing purposes !!
+  //      generator->setSymbolTable(symbolTable);
+
     }
     else
     {

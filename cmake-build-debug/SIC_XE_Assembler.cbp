@@ -108,6 +108,9 @@
 		<Unit filename="C:/Users/Mohamed Mashaal/Desktop/Assembler/SIC-XE-Assembler/include/OpInfo.h">
 			<Option target="SIC_XE_Assembler"/>
 		</Unit>
+		<Unit filename="C:/Users/Mohamed Mashaal/Desktop/Assembler/SIC-XE-Assembler/include/Pass2.h">
+			<Option target="SIC_XE_Assembler"/>
+		</Unit>
 		<Unit filename="C:/Users/Mohamed Mashaal/Desktop/Assembler/SIC-XE-Assembler/include/RegistersTable.h">
 			<Option target="SIC_XE_Assembler"/>
 		</Unit>
@@ -157,6 +160,9 @@
 			<Option target="SIC_XE_Assembler"/>
 		</Unit>
 		<Unit filename="C:/Users/Mohamed Mashaal/Desktop/Assembler/SIC-XE-Assembler/src/OpInfo.cpp">
+			<Option target="SIC_XE_Assembler"/>
+		</Unit>
+		<Unit filename="C:/Users/Mohamed Mashaal/Desktop/Assembler/SIC-XE-Assembler/src/Pass2.cpp">
 			<Option target="SIC_XE_Assembler"/>
 		</Unit>
 		<Unit filename="C:/Users/Mohamed Mashaal/Desktop/Assembler/SIC-XE-Assembler/src/RegistersTable.cpp">

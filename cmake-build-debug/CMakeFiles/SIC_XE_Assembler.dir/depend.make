@@ -68,6 +68,22 @@ CMakeFiles/SIC_XE_Assembler.dir/src/OpCodeTable.cpp.obj: ../src/OpCodeTable.cpp
 CMakeFiles/SIC_XE_Assembler.dir/src/OpInfo.cpp.obj: ../include/OpInfo.h
 CMakeFiles/SIC_XE_Assembler.dir/src/OpInfo.cpp.obj: ../src/OpInfo.cpp
 
+CMakeFiles/SIC_XE_Assembler.dir/src/Pass2.cpp.obj: ../include/AssemblyListing.h
+CMakeFiles/SIC_XE_Assembler.dir/src/Pass2.cpp.obj: ../include/ObjectCodeGenerator.h
+CMakeFiles/SIC_XE_Assembler.dir/src/Pass2.cpp.obj: ../include/ObjectProgram.h
+CMakeFiles/SIC_XE_Assembler.dir/src/Pass2.cpp.obj: ../include/OpCodeTable.h
+CMakeFiles/SIC_XE_Assembler.dir/src/Pass2.cpp.obj: ../include/OpInfo.h
+CMakeFiles/SIC_XE_Assembler.dir/src/Pass2.cpp.obj: ../include/Pass2.h
+CMakeFiles/SIC_XE_Assembler.dir/src/Pass2.cpp.obj: ../include/RegistersTable.h
+CMakeFiles/SIC_XE_Assembler.dir/src/Pass2.cpp.obj: ../include/SourceLine.h
+CMakeFiles/SIC_XE_Assembler.dir/src/Pass2.cpp.obj: ../include/SourceProgram.h
+CMakeFiles/SIC_XE_Assembler.dir/src/Pass2.cpp.obj: ../include/SymbolInfo.h
+CMakeFiles/SIC_XE_Assembler.dir/src/Pass2.cpp.obj: ../include/SymbolTable.h
+CMakeFiles/SIC_XE_Assembler.dir/src/Pass2.cpp.obj: ../include/SyntaxValidator.h
+CMakeFiles/SIC_XE_Assembler.dir/src/Pass2.cpp.obj: ../include/UpdateLocationCounter.h
+CMakeFiles/SIC_XE_Assembler.dir/src/Pass2.cpp.obj: ../include/ValidatorUtilities.h
+CMakeFiles/SIC_XE_Assembler.dir/src/Pass2.cpp.obj: ../src/Pass2.cpp
+
 CMakeFiles/SIC_XE_Assembler.dir/src/RegistersTable.cpp.obj: ../include/RegistersTable.h
 CMakeFiles/SIC_XE_Assembler.dir/src/RegistersTable.cpp.obj: ../src/RegistersTable.cpp
 

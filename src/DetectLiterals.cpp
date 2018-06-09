@@ -8,25 +8,25 @@ DetectLiterals::DetectLiterals()
 {
 
 }
-vector<SourceLine> DetectLiterals::detect(int locationCounter, map<string, bool> lieralTable)
+vector<SourceLine> DetectLiterals::detect(int locationCounter,  std::map<std::string, std::pair<bool,std::string> > lieralTable)
 {
 
     vector<SourceLine> newLines;
 
-    map<string, bool>::iterator it = lieralTable.begin();
+     std::map<std::string, pair<bool,string> >::iterator it = lieralTable.begin();
     while (it != lieralTable.end())
     {
-        if(it->second == true){
+        if(it->second.first == true){
             it++;
             continue;
         }
         SourceLine newline;
         newline.setLocationCounter(locationCounter);
-        newline.setOperand(it->first);
-        newline.setOperation("*");
+        newline.setOperation(it->first);
+        newline.setLable("*");
         newline.setHasObjCode(true);
         newLines.push_back(newline);
-        locationCounter = UpdateLocationCounter::setLocationCounter(locationCounter, newline, nullptr).first;
+        locationCounter = UpdateLocationCounter::setLocationCounter(locationCounter, newline).first;
         it++;
     }
     return newLines;

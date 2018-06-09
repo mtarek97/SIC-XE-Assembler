@@ -21,7 +21,7 @@ class SourceProgram
         bool isComment(vector<string> sourceLine);
         vector<string> getWords(string parser);
         SourceLine handleSpacesInOperand(SourceLine sourceLine, string parser, string pattern, char beginCharacter);
-        map<string, bool> getLiteralTable();
+        std::map<std::string,std::pair< bool, std::string> > getLiteralTable();
 
         void write(SourceLine sourceLine, string error);
         void detectStart(SourceLine sourceLine);
@@ -30,10 +30,10 @@ class SourceProgram
 
         int start = 0, lineNumber = 0, locationCounter = 0;
         AssemblyListing assemblyListing;
-        SymbolTable symbolTable;
+        SymbolTable* symbolTable;
         set<string> direcive;
         vector<SourceLine> sourcelines;
-        map <string, bool> lieralTable;
+         std::map<std::string, pair<bool,string> > lieralTable;
 };
 
 #endif

@@ -32,6 +32,7 @@ void AssemblyListing::write(SourceLine sourceLine, string locationCounter, strin
         //cout<<sourceLine.getComment()<<endl;
     } else {
         string zeros ="";
+        if(locationCounter.length()<5)
         for(i = 0; i < 5 -locationCounter.length(); i++){
             zeros = zeros + "0";
         }

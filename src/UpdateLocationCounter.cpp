@@ -12,10 +12,10 @@ UpdateLocationCounter::UpdateLocationCounter()
 {
     //ctor
 }
-pair<int,string> UpdateLocationCounter::setLocationCounter(int locationCounter, SourceLine sourceLine, SymbolTable* symbolTable)
+pair<int,string> UpdateLocationCounter::setLocationCounter(int locationCounter, SourceLine sourceLine)
 {
     string error = "";
-
+ SymbolTable* symbolTable = SymbolTable::getSymbolTable();
     OpCodeTable* opCodeTable = OpCodeTable::getOpTable();
     OpInfo opinfo = opCodeTable->getInfo(SourceProgram::getUpper(sourceLine.getOperation()));
     if(opinfo.getOpCode() != opinfo.NOT_FOUND)
@@ -58,12 +58,12 @@ pair<int,string> UpdateLocationCounter::setLocationCounter(int locationCounter, 
         }
         else if(operation == "ORG"){
 
-            if(symbolTable == nullptr)
-              return make_pair(locationCounter, "");
 
             if(sourceLine.getContainsExpression()){
+
                ExpressionEvaluator evaluate;
-               locationCounter = evaluate.evaluateExpression(sourceLine.getOperand()).getLocation();
+               if(evaluate.evaluateExpression(sourceLine.getOperand()).getLocation() != -1)
+                    locationCounter = evaluate.evaluateExpression(sourceLine.getOperand()).getLocation();
             }
             else if(symbolTable->hashtable.count(sourceLine.getOperand()) != 0){
                 locationCounter = symbolTable->hashtable[sourceLine.getOperand()].getLocation();
@@ -80,8 +80,10 @@ pair<int,string> UpdateLocationCounter::setLocationCounter(int locationCounter, 
 
             if(sourceLine.getContainsExpression()){
                ExpressionEvaluator evaluate;
-               locationCounter = evaluate.evaluateExpression(sourceLine.getOperand()).getLocation();
-               symbolTable->insert(sourceLine.getOperand(), locationCounter);
+               if(evaluate.evaluateExpression(sourceLine.getOperand()).getLocation() != -1) {
+                   locationCounter = evaluate.evaluateExpression(sourceLine.getOperand()).getLocation();
+                   symbolTable->insert(sourceLine.getOperand(), locationCounter);
+                }
             }
             else if(symbolTable->hashtable.count(sourceLine.getOperand()) != 0){
                 locationCounter = symbolTable->hashtable[sourceLine.getOperand()].getLocation();
@@ -94,12 +96,12 @@ pair<int,string> UpdateLocationCounter::setLocationCounter(int locationCounter, 
                 error = "This symbol is not exist until now";
 
         }
-        else if(operation == "*" && sourceLine.getOperand()[0] == '=')
+        else if(sourceLine.getLable() == "*" && sourceLine.getOperation()[0] == '=')
         {
             if(toupper(sourceLine.getOperand()[1])=='C')
-                locationCounter = locationCounter + (sourceLine.getOperand().length()) - 4;
+                locationCounter = locationCounter + (sourceLine.getOperation().length()) - 4;
             else
-                locationCounter = locationCounter + ((sourceLine.getOperand().length() - 4 + 1 )/2);
+                locationCounter = locationCounter + ((sourceLine.getOperation().length() - 4 + 1 )/2);
         }
     }
     return make_pair(locationCounter, error);

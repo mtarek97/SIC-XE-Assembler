@@ -365,6 +365,33 @@ src/OpInfo.cpp.s:
 	$(MAKE) -f CMakeFiles\SIC_XE_Assembler.dir\build.make CMakeFiles/SIC_XE_Assembler.dir/src/OpInfo.cpp.s
 .PHONY : src/OpInfo.cpp.s
 
+src/Pass2.obj: src/Pass2.cpp.obj
+
+.PHONY : src/Pass2.obj
+
+# target to build an object file
+src/Pass2.cpp.obj:
+	$(MAKE) -f CMakeFiles\SIC_XE_Assembler.dir\build.make CMakeFiles/SIC_XE_Assembler.dir/src/Pass2.cpp.obj
+.PHONY : src/Pass2.cpp.obj
+
+src/Pass2.i: src/Pass2.cpp.i
+
+.PHONY : src/Pass2.i
+
+# target to preprocess a source file
+src/Pass2.cpp.i:
+	$(MAKE) -f CMakeFiles\SIC_XE_Assembler.dir\build.make CMakeFiles/SIC_XE_Assembler.dir/src/Pass2.cpp.i
+.PHONY : src/Pass2.cpp.i
+
+src/Pass2.s: src/Pass2.cpp.s
+
+.PHONY : src/Pass2.s
+
+# target to generate assembly for a file
+src/Pass2.cpp.s:
+	$(MAKE) -f CMakeFiles\SIC_XE_Assembler.dir\build.make CMakeFiles/SIC_XE_Assembler.dir/src/Pass2.cpp.s
+.PHONY : src/Pass2.cpp.s
+
 src/RegistersTable.obj: src/RegistersTable.cpp.obj
 
 .PHONY : src/RegistersTable.obj
@@ -617,6 +644,9 @@ help:
 	@echo ... src/OpInfo.obj
 	@echo ... src/OpInfo.i
 	@echo ... src/OpInfo.s
+	@echo ... src/Pass2.obj
+	@echo ... src/Pass2.i
+	@echo ... src/Pass2.s
 	@echo ... src/RegistersTable.obj
 	@echo ... src/RegistersTable.i
 	@echo ... src/RegistersTable.s

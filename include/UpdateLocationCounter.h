@@ -6,7 +6,7 @@ class UpdateLocationCounter
 {
     public:
         UpdateLocationCounter();
-        static pair<int,string> setLocationCounter(int locationCounter, SourceLine sourceLine, SymbolTable* symbolTable);
+        static pair<int,string> setLocationCounter(int locationCounter, SourceLine sourceLine);
         static int detectStart(int locationCounter, SourceLine sourceLine);
     protected:
 

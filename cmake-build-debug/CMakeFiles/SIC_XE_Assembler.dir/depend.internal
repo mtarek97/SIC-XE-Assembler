@@ -68,6 +68,22 @@ CMakeFiles/SIC_XE_Assembler.dir/src/OpCodeTable.cpp.obj
 CMakeFiles/SIC_XE_Assembler.dir/src/OpInfo.cpp.obj
  ../include/OpInfo.h
  C:/Users/Mohamed Mashaal/Desktop/Assembler/SIC-XE-Assembler/src/OpInfo.cpp
+CMakeFiles/SIC_XE_Assembler.dir/src/Pass2.cpp.obj
+ ../include/AssemblyListing.h
+ ../include/ObjectCodeGenerator.h
+ ../include/ObjectProgram.h
+ ../include/OpCodeTable.h
+ ../include/OpInfo.h
+ ../include/Pass2.h
+ ../include/RegistersTable.h
+ ../include/SourceLine.h
+ ../include/SourceProgram.h
+ ../include/SymbolInfo.h
+ ../include/SymbolTable.h
+ ../include/SyntaxValidator.h
+ ../include/UpdateLocationCounter.h
+ ../include/ValidatorUtilities.h
+ C:/Users/Mohamed Mashaal/Desktop/Assembler/SIC-XE-Assembler/src/Pass2.cpp
 CMakeFiles/SIC_XE_Assembler.dir/src/RegistersTable.cpp.obj
  ../include/RegistersTable.h
  C:/Users/Mohamed Mashaal/Desktop/Assembler/SIC-XE-Assembler/src/RegistersTable.cpp

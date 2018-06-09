@@ -10,13 +10,15 @@ using namespace std;
 class SymbolTable{
 
     public:
-        SymbolTable();
+        static SymbolTable* getSymbolTable();
         void insert(string symbol, int locInMemory);
         SymbolInfo search(string symbol);
         map<string, SymbolInfo> hashtable;
 
 
     private:
+        SymbolTable();
+        static SymbolTable* uniqueInstance;
         map<string, bool> inserted;
         bool isFirst = true;
         void writeInFile(string symbol, int locInMemory);
