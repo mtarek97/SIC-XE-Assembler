@@ -1,13 +1,20 @@
+#include "SymbolInfo.h"
+#include "ValidatorUtilities.h"
+
+
 #ifndef EXPRESSIONEVALUATOR_H
 #define EXPRESSIONEVALUATOR_H
 #include<bits/stdc++.h>
 #include <string>
+
+using namespace std;
+
+
 class ExpressionEvaluator
 {
     public:
         ExpressionEvaluator();
-       void evaluateExpression(std::string expression);
-
+        SymbolInfo evaluateExpression(std::string expression);
 
     private:
 };

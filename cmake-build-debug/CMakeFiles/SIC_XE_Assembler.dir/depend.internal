@@ -25,6 +25,15 @@ CMakeFiles/SIC_XE_Assembler.dir/src/DetectLiterals.cpp.obj
  ../include/SourceLine.h
  ../include/UpdateLocationCounter.h
  C:/Users/Mohamed Mashaal/Desktop/Assembler/SIC-XE-Assembler/src/DetectLiterals.cpp
+CMakeFiles/SIC_XE_Assembler.dir/src/ExpressionEvaluator.cpp.obj
+ ../include/ExpressionEvaluator.h
+ ../include/OpCodeTable.h
+ ../include/OpInfo.h
+ ../include/SourceLine.h
+ ../include/SymbolInfo.h
+ ../include/SymbolTable.h
+ ../include/ValidatorUtilities.h
+ C:/Users/Mohamed Mashaal/Desktop/Assembler/SIC-XE-Assembler/src/ExpressionEvaluator.cpp
 CMakeFiles/SIC_XE_Assembler.dir/src/LiteralTable.cpp.obj
  ../include/LiteralTable.h
  C:/Users/Mohamed Mashaal/Desktop/Assembler/SIC-XE-Assembler/src/LiteralTable.cpp
@@ -38,7 +47,19 @@ CMakeFiles/SIC_XE_Assembler.dir/src/ObjectCodeGenerator.cpp.obj
  ../include/SymbolTable.h
  C:/Users/Mohamed Mashaal/Desktop/Assembler/SIC-XE-Assembler/src/ObjectCodeGenerator.cpp
 CMakeFiles/SIC_XE_Assembler.dir/src/ObjectProgram.cpp.obj
+ ../include/AssemblyListing.h
+ ../include/ObjectCodeGenerator.h
  ../include/ObjectProgram.h
+ ../include/OpCodeTable.h
+ ../include/OpInfo.h
+ ../include/RegistersTable.h
+ ../include/SourceLine.h
+ ../include/SourceProgram.h
+ ../include/SymbolInfo.h
+ ../include/SymbolTable.h
+ ../include/SyntaxValidator.h
+ ../include/UpdateLocationCounter.h
+ ../include/ValidatorUtilities.h
  C:/Users/Mohamed Mashaal/Desktop/Assembler/SIC-XE-Assembler/src/ObjectProgram.cpp
 CMakeFiles/SIC_XE_Assembler.dir/src/OpCodeTable.cpp.obj
  ../include/OpCodeTable.h
