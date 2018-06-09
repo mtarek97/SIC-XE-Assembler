@@ -1,0 +1,8 @@
+adder START 0000
+st lda x1
+ldx #3
+sub x1,x
+sta z
+x1 word 6,5
+z resw 1
+END st

@@ -43,6 +43,7 @@ void Pass2::generateObjProg(){
 
     vector <string> modificationAddress;
     vector <string> modificationLength;
+    ///what should i do if there isn't end?
     while(currentLine.getOperation() != "END"){
         if(currentLine.getIsValid() && currentLine.getHasObjCode() && currentLine.getOperation() != ""){
            string opCode = objCodeGenerator->getObjectCode(currentLine);
@@ -66,16 +67,23 @@ void Pass2::generateObjProg(){
         }else if(!currentLine.getIsValid()){
             ///write listing file(it will be done!).
             ///write error(it will be done!).
+        }else if(currentLine.getOperation() == "BASE"){
+            objCodeGenerator->setBaseStatus(true);
+            objCodeGenerator->setCurrentBaseAddress(currentLine.getOperand());
+        }else if(currentLine.getOperation() == "NOBASE"){
+            objCodeGenerator->setBaseStatus(false);
         }
         prevLine = currentLine;
         currentLine = sourceLinesArr[++linesCounter];
     }
+    /// loop on literal after end.
     objectProgram.writeText(TextStartAddress,convertToHEX(TextRecord.length()),TextRecord);
-        for(int i = 0; i < modificationAddress.size(); i++){
-            objectProgram.writeModification(modificationAddress[i],modificationLength[i]);
-        }
-        /// end record who calculate
-        ///write listing file(it will be done!).the end directive
+    for(int i = 0; i < modificationAddress.size(); i++){
+        objectProgram.writeModification(modificationAddress[i],modificationLength[i]);
+    }
+    /// end record who calculate
+
+    ///write listing file(it will be done!).the end directive
 }
 string Pass2::convertToHEX(int num){
     std::stringstream stream;
