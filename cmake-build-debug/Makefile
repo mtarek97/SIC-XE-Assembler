@@ -203,6 +203,33 @@ src/DetectLiterals.cpp.s:
 	$(MAKE) -f CMakeFiles\SIC_XE_Assembler.dir\build.make CMakeFiles/SIC_XE_Assembler.dir/src/DetectLiterals.cpp.s
 .PHONY : src/DetectLiterals.cpp.s
 
+src/ExpressionEvaluator.obj: src/ExpressionEvaluator.cpp.obj
+
+.PHONY : src/ExpressionEvaluator.obj
+
+# target to build an object file
+src/ExpressionEvaluator.cpp.obj:
+	$(MAKE) -f CMakeFiles\SIC_XE_Assembler.dir\build.make CMakeFiles/SIC_XE_Assembler.dir/src/ExpressionEvaluator.cpp.obj
+.PHONY : src/ExpressionEvaluator.cpp.obj
+
+src/ExpressionEvaluator.i: src/ExpressionEvaluator.cpp.i
+
+.PHONY : src/ExpressionEvaluator.i
+
+# target to preprocess a source file
+src/ExpressionEvaluator.cpp.i:
+	$(MAKE) -f CMakeFiles\SIC_XE_Assembler.dir\build.make CMakeFiles/SIC_XE_Assembler.dir/src/ExpressionEvaluator.cpp.i
+.PHONY : src/ExpressionEvaluator.cpp.i
+
+src/ExpressionEvaluator.s: src/ExpressionEvaluator.cpp.s
+
+.PHONY : src/ExpressionEvaluator.s
+
+# target to generate assembly for a file
+src/ExpressionEvaluator.cpp.s:
+	$(MAKE) -f CMakeFiles\SIC_XE_Assembler.dir\build.make CMakeFiles/SIC_XE_Assembler.dir/src/ExpressionEvaluator.cpp.s
+.PHONY : src/ExpressionEvaluator.cpp.s
+
 src/LiteralTable.obj: src/LiteralTable.cpp.obj
 
 .PHONY : src/LiteralTable.obj
@@ -572,6 +599,9 @@ help:
 	@echo ... src/DetectLiterals.obj
 	@echo ... src/DetectLiterals.i
 	@echo ... src/DetectLiterals.s
+	@echo ... src/ExpressionEvaluator.obj
+	@echo ... src/ExpressionEvaluator.i
+	@echo ... src/ExpressionEvaluator.s
 	@echo ... src/LiteralTable.obj
 	@echo ... src/LiteralTable.i
 	@echo ... src/LiteralTable.s
