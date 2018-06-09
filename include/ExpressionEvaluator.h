@@ -1,4 +1,6 @@
 #include "SymbolInfo.h"
+#include "ValidatorUtilities.h"
+
 
 #ifndef EXPRESSIONEVALUATOR_H
 #define EXPRESSIONEVALUATOR_H
