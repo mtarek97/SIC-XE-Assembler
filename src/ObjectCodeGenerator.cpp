@@ -38,15 +38,27 @@ ObjectCodeGenerator* ObjectCodeGenerator::getObjectCodeGenerator() {
     return uniqueInstance;
 }
 
+void ObjectCodeGenerator::setBaseStatus(bool baseStatus) {
+    this->baseStatus = baseStatus;
+}
+
+void ObjectCodeGenerator::setCurrentBaseAddress(string currentBaseAddress) {
+    this->currentBaseAddress = currentBaseAddress;
+}
+
 std::string ObjectCodeGenerator::getObjectCode(SourceLine sourceLine) {
     string operation = sourceLine.getOperation();
+    string operand = sourceLine.getOperand();
+    //Detect Literal Pool
+    if(isLiteral(operation)){
+        return getConstantHEX(operation);
+    }
     transform(operation.begin(), operation.end(), operation.begin(), ::toupper);
     if(opCodeTable->getInfo(operation).getFormatBytes() == 1){
         return this->opCodeTable->getInfo(operation).getOpCode();
     }
     else if (opCodeTable->getInfo(operation).getFormatBytes() == 2) {
         if (opCodeTable->getInfo(operation).getNumberOfOperands() == 2) {
-            string operand = sourceLine.getOperand();
             string firstRegister = operand.substr(0, operand.find(','));
             string secondRegister = operand.substr(operand.find(',') + 1, operand.size());
             transform(firstRegister.begin(), firstRegister.end(), firstRegister.begin(), ::toupper);
@@ -56,7 +68,6 @@ std::string ObjectCodeGenerator::getObjectCode(SourceLine sourceLine) {
                    to_string(registersTable->getRegisterNumber(secondRegister));
         }
         else{
-            string operand = sourceLine.getOperand();
             transform(operand.begin(), operand.end(), operand.begin(), ::toupper);
             return opCodeTable->getInfo(operation).getOpCode() +
                    to_string(registersTable->getRegisterNumber(operand)) +
@@ -64,10 +75,10 @@ std::string ObjectCodeGenerator::getObjectCode(SourceLine sourceLine) {
         }
     }
     else{
-        string operand = sourceLine.getOperand();
         if(operation == "RSUB"){
             return calculateObjectCode(opCodeTable->getInfo(operation).getOpCode(),3,0,0,0);
         }
+        // Literal Table Needed..
         else if (!isDirective(operation)) {
             if (!isFormat4Byte(operation) && !isIndexed(operand) && !isImmediate(operand) &&
                      !isIndirect(operand)) {
@@ -123,20 +134,7 @@ std::string ObjectCodeGenerator::getObjectCode(SourceLine sourceLine) {
             }
         }
         else if (operation == "BYTE"){
-            if(operand[0] == 'C' ||  operand[0] == 'c'){
-                string characters = operand.substr(operand.find_first_of('\'')+1,operand.find_last_of('\'')- operand.find_first_of('\'') - 1);
-                string result = "";
-                for(char character : characters){
-                    std::stringstream stream;
-                    stream << std::hex << int(character);
-                    string objectCodeHex = stream.str();
-                    result += objectCodeHex;
-                }
-                return result;
-            }
-            else{
-                return operand.substr(operand.find_first_of('\'')+1,operand.find_last_of('\'')- operand.find_first_of('\'') - 1);
-            }
+            return getConstantHEX(operand);
         }
         else if (operation == "WORD"){
             int theWord = stoi(operand);
@@ -179,7 +177,7 @@ string ObjectCodeGenerator::calculateObjectCode(string operationCode, int ni, in
     bitset<operationBitsCount> operationBits(operation);
     bitset<flagsBitsCount> flags(xbpe);
     string objectCodeHex = "";
-    if (bits == 0) {
+    if (bits == 0) { // format 3
         bitset<address3ByteBits> addressBits(displacement);
         bitset<address3ByteBits + flagsBitsCount> nonOperation(
                 flags.to_ullong() << addressBits.size() | addressBits.to_ullong());
@@ -192,7 +190,7 @@ string ObjectCodeGenerator::calculateObjectCode(string operationCode, int ni, in
             objectCodeHex = "0" + objectCodeHex;
         }
     }
-    else{
+    else{ // format 4
         bitset<address4ByteBits> addressBits(displacement);
         bitset<address4ByteBits + flagsBitsCount> nonOperation(
                 flags.to_ullong() << addressBits.size() | addressBits.to_ullong());
@@ -218,6 +216,29 @@ bool ObjectCodeGenerator::isDirective(string operation) {
     if (operation == "BYTE" || operation == "WORD")
         return true;
     return false;
+}
+
+bool ObjectCodeGenerator::isLiteral(string operand) {
+    if(operand[0] == '=')
+        return true;
+    return false;
+}
+
+string ObjectCodeGenerator::getConstantHEX(string constant) {
+    if(constant[0] == 'C' ||  constant[0] == 'c'){
+        string characters = constant.substr(constant.find_first_of('\'')+1,constant.find_last_of('\'')- constant.find_first_of('\'') - 1);
+        string result = "";
+        for(char character : characters){
+            std::stringstream stream;
+            stream << std::hex << int(character);
+            string objectCodeHex = stream.str();
+            result += objectCodeHex;
+        }
+        return result;
+    }
+    else{
+       return constant.substr(constant.find_first_of('\'')+1,constant.find_last_of('\'')- constant.find_first_of('\'') - 1);
+    };
 }
 
 
