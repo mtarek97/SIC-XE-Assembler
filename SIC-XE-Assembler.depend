@@ -1,1 +1,190 @@
 # depslib dependency file v1.0
+1528508029 source:c:\users\first\sic-xe-assembler\main.cpp
+	<iostream>
+	<ObjectCodeGenerator.h>
+	"SymbolTable.h"
+	"OpCodeTable.h"
+	"SourceLine.h"
+	"SyntaxValidator.h"
+	"SourceProgram.h"
+
+1528508029 c:\users\first\sic-xe-assembler\include\objectcodegenerator.h
+	<string>
+	"SourceLine.h"
+	"OpCodeTable.h"
+	"SymbolTable.h"
+	"RegistersTable.h"
+
+1528508029 c:\users\first\sic-xe-assembler\include\sourceline.h
+	<bits/stdc++.h>
+
+1528508029 c:\users\first\sic-xe-assembler\include\opcodetable.h
+	<string>
+	"OpInfo.h"
+	<unordered_map>
+
+1528508029 c:\users\first\sic-xe-assembler\include\opinfo.h
+	<string>
+
+1528508029 c:\users\first\sic-xe-assembler\include\symboltable.h
+	<string>
+	<map>
+	"SymbolInfo.h"
+
+1528508029 c:\users\first\sic-xe-assembler\include\symbolinfo.h
+
+1528508029 c:\users\first\sic-xe-assembler\include\registerstable.h
+	<map>
+
+1528508029 c:\users\first\sic-xe-assembler\include\syntaxvalidator.h
+	"OpInfo.h"
+	"OpCodeTable.h"
+	"SourceLine.h"
+	<string.h>
+	<vector>
+	<string>
+	"ValidatorUtilities.h"
+	"RegistersTable.h"
+
+1528508029 c:\users\first\sic-xe-assembler\include\validatorutilities.h
+	"OpInfo.h"
+	"OpCodeTable.h"
+	"SourceLine.h"
+	<string.h>
+	<vector>
+	<string>
+	<algorithm>
+	<ctype.h>
+	<sstream>
+	<regex>
+
+1528508029 c:\users\first\sic-xe-assembler\include\sourceprogram.h
+	<bits/stdc++.h>
+	<SourceLine.h>
+	<SymbolTable.h>
+	<AssemblyListing.h>
+
+1528508029 c:\users\first\sic-xe-assembler\include\assemblylisting.h
+	<SourceLine.h>
+	<bits/stdc++.h>
+
+1528508029 source:c:\users\first\sic-xe-assembler\src\assemblylisting.cpp
+	<bits/stdc++.h>
+	"AssemblyListing.h"
+	<SourceLine.h>
+	<string>
+	<fstream>
+	<iostream>
+
+1528508029 source:c:\users\first\sic-xe-assembler\src\detectliterals.cpp
+	"DetectLiterals.h"
+	"UpdateLocationCounter.h"
+	<bits/stdc++.h>
+	"AssemblyListing.h"
+	"SourceLine.h"
+	"LiteralTable.h"
+
+1528508029 c:\users\first\sic-xe-assembler\include\detectliterals.h
+	"SourceLine.h"
+	<bits/stdc++.h>
+
+1528508029 c:\users\first\sic-xe-assembler\include\updatelocationcounter.h
+	<SourceLine.h>
+
+1528508029 c:\users\first\sic-xe-assembler\include\literaltable.h
+	<bits/stdc++.h>
+
+1528508029 source:c:\users\first\sic-xe-assembler\src\expressionevaluator.cpp
+	<SymbolTable.h>
+	"ExpressionEvaluator.h"
+	"SymbolInfo.h"
+
+1528508029 c:\users\first\sic-xe-assembler\include\expressionevaluator.h
+	"SymbolInfo.h"
+	"ValidatorUtilities.h"
+
+1528508029 source:c:\users\first\sic-xe-assembler\src\literaltable.cpp
+	"LiteralTable.h"
+
+1528508029 source:c:\users\first\sic-xe-assembler\src\objectcodegenerator.cpp
+	"ObjectCodeGenerator.h"
+	"OpCodeTable.h"
+
+1528508029 source:c:\users\first\sic-xe-assembler\src\objectprogram.cpp
+	"ObjectProgram.h"
+	<bits/stdc++.h>
+	<SourceProgram.h>
+	<SourceLine.h>
+	<OpCodeTable.h>
+	<SyntaxValidator.h>
+	<AssemblyListing.h>
+	<SymbolTable.h>
+	<ValidatorUtilities.h>
+	<UpdateLocationCounter.h>
+	<ObjectCodeGenerator.h>
+
+1528508029 c:\users\first\sic-xe-assembler\include\objectprogram.h
+	<bits/stdc++.h>
+	<SourceProgram.h>
+	<SourceLine.h>
+	<OpCodeTable.h>
+	<SyntaxValidator.h>
+	<AssemblyListing.h>
+	<SymbolTable.h>
+	<ValidatorUtilities.h>
+	<UpdateLocationCounter.h>
+	<ObjectCodeGenerator.h>
+
+1528508029 source:c:\users\first\sic-xe-assembler\src\opcodetable.cpp
+	"OpCodeTable.h"
+	<iostream>
+	<fstream>
+
+1528508029 source:c:\users\first\sic-xe-assembler\src\opinfo.cpp
+	"OpInfo.h"
+
+1528508029 source:c:\users\first\sic-xe-assembler\src\registerstable.cpp
+	"RegistersTable.h"
+
+1528508029 source:c:\users\first\sic-xe-assembler\src\sourceline.cpp
+	"SourceLine.h"
+
+1528508029 source:c:\users\first\sic-xe-assembler\src\sourceprogram.cpp
+	<bits/stdc++.h>
+	<SourceProgram.h>
+	<SourceLine.h>
+	<OpCodeTable.h>
+	<SyntaxValidator.h>
+	<AssemblyListing.h>
+	<SymbolTable.h>
+	<ValidatorUtilities.h>
+	<UpdateLocationCounter.h>
+	<ObjectCodeGenerator.h>
+	"DetectLiterals.h"
+	"LiteralTable.h"
+
+1528508029 source:c:\users\first\sic-xe-assembler\src\symbolinfo.cpp
+	"SymbolInfo.h"
+
+1528508029 source:c:\users\first\sic-xe-assembler\src\symboltable.cpp
+	"SymbolTable.h"
+	<bits/stdc++.h>
+	<string>
+	<fstream>
+	<iostream>
+
+1528508029 source:c:\users\first\sic-xe-assembler\src\syntaxvalidator.cpp
+	"SyntaxValidator.h"
+
+1528508029 source:c:\users\first\sic-xe-assembler\src\updatelocationcounter.cpp
+	"UpdateLocationCounter.h"
+	<SourceLine.h>
+	<OpInfo.h>
+	<OpCodeTable.h>
+	<SourceProgram.h>
+	<ValidatorUtilities.h>
+	<SyntaxValidator.h>
+
+1528508029 source:c:\users\first\sic-xe-assembler\src\validatorutilities.cpp
+	"ValidatorUtilities.h"
+

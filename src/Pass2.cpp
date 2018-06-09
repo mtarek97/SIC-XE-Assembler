@@ -13,12 +13,14 @@
 /**
 by Mohamed Esmail
 */
-Pass2::Pass2(vector<SourceLine> sourceLinesArr,int lengthOfProg)
+Pass2::Pass2(vector<SourceLine> sourceLinesArr,int lengthOfProg,SymbolTable symbolTable)
 {
    this->sourceLinesArr = sourceLinesArr;
-   this->lengthOfProg =lengthOfProg;
+   this->lengthOfProg = lengthOfProg;
    this->objCodeGenerator = ObjectCodeGenerator::getObjectCodeGenerator();
+   this->symbolTable = symbolTable;
    this->objCodeGenerator ->setSymbolTable(symbolTable);
+   int MAX_TEXT_RECORED_LENGTH = 60;
 }
 
 void Pass2::generateObjProg(){
@@ -38,14 +40,14 @@ void Pass2::generateObjProg(){
 
 
     currentLine = sourceLinesArr[linesCounter];
-    TextStartAddress = convertToHEX(currentLine.getLocationCounter())
+    TextStartAddress = convertToHEX(currentLine.getLocationCounter());
     TextRecord = "";
 
     vector <string> modificationAddress;
     vector <string> modificationLength;
     while(currentLine.getOperation() != "END"){
         if(currentLine.getIsValid() && currentLine.getHasObjCode() && currentLine.getOperation() != ""){
-           string opCode = generator->getObjectCode(sourceLine);
+           string opCode = objCodeGenerator->getObjectCode(currentLine);
            /// if there isn't error in object code.(it will be done!).
            if(prevLine.getNextInstruction() != currentLine.getLocationCounter()){
                 objectProgram.writeText(TextStartAddress,convertToHEX(TextRecord.length()),TextRecord);
