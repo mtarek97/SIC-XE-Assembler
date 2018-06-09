@@ -12,10 +12,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="623732a1-3481-4cdb-a042-1ecdc2818ebc" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/include/ObjectCodeGenerator.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/ObjectCodeGenerator.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ObjectCodeGenerator.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/ObjectCodeGenerator.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ValidatorUtilities.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/ValidatorUtilities.cpp" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -43,7 +41,7 @@
       <file leaf-file-name="SymbolTable.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/SymbolTable.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
+            <state relative-caret-position="-153">
               <caret line="8" column="12" selection-start-line="8" selection-start-column="12" selection-end-line="8" selection-end-column="12" />
               <folding>
                 <element signature="e#0#24#0" expanded="true" />
@@ -55,8 +53,8 @@
       <file leaf-file-name="ObjectCodeGenerator.cpp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/ObjectCodeGenerator.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="45" column="50" selection-start-line="45" selection-start-column="50" selection-end-line="45" selection-end-column="50" />
+            <state relative-caret-position="272">
+              <caret line="158" column="93" selection-start-line="158" selection-start-column="93" selection-end-line="158" selection-end-column="93" />
             </state>
           </provider>
         </entry>
@@ -64,8 +62,8 @@
       <file leaf-file-name="ObjectCodeGenerator.h" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/include/ObjectCodeGenerator.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="19" column="58" selection-start-line="19" selection-start-column="58" selection-end-line="19" selection-end-column="58" />
+            <state relative-caret-position="408">
+              <caret line="30" column="40" selection-start-line="30" selection-start-column="40" selection-end-line="30" selection-end-column="40" />
               <folding>
                 <element signature="e#145#162#0" expanded="true" />
               </folding>
@@ -258,12 +256,12 @@
       <workItem from="1525044674491" duration="3519000" />
       <workItem from="1528071853571" duration="3112000" />
       <workItem from="1528281290203" duration="31848000" />
-      <workItem from="1528498939046" duration="16520000" />
+      <workItem from="1528498939046" duration="19069000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="77942000" />
+    <option name="totallyTimeSpent" value="80491000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
@@ -596,19 +594,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/SymbolTable.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="8" column="12" selection-start-line="8" selection-start-column="12" selection-end-line="8" selection-end-column="12" />
-          <folding>
-            <element signature="e#0#24#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/include/LiteralTable.h">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/include/SourceLine.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="595">
@@ -653,10 +638,23 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/include/LiteralTable.h">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/SymbolTable.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-153">
+          <caret line="8" column="12" selection-start-line="8" selection-start-column="12" selection-end-line="8" selection-end-column="12" />
+          <folding>
+            <element signature="e#0#24#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/include/ObjectCodeGenerator.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="19" column="58" selection-start-line="19" selection-start-column="58" selection-end-line="19" selection-end-column="58" />
+        <state relative-caret-position="408">
+          <caret line="30" column="40" selection-start-line="30" selection-start-column="40" selection-end-line="30" selection-end-column="40" />
           <folding>
             <element signature="e#145#162#0" expanded="true" />
           </folding>
@@ -665,8 +663,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ObjectCodeGenerator.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="45" column="50" selection-start-line="45" selection-start-column="50" selection-end-line="45" selection-end-column="50" />
+        <state relative-caret-position="272">
+          <caret line="158" column="93" selection-start-line="158" selection-start-column="93" selection-end-line="158" selection-end-column="93" />
         </state>
       </provider>
     </entry>
