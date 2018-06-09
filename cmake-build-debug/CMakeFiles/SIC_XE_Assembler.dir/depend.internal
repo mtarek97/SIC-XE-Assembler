@@ -23,6 +23,8 @@ CMakeFiles/SIC_XE_Assembler.dir/src/DetectLiterals.cpp.obj
  ../include/DetectLiterals.h
  ../include/LiteralTable.h
  ../include/SourceLine.h
+ ../include/SymbolInfo.h
+ ../include/SymbolTable.h
  ../include/UpdateLocationCounter.h
  C:/Users/Mohamed Mashaal/Desktop/Assembler/SIC-XE-Assembler/src/DetectLiterals.cpp
 CMakeFiles/SIC_XE_Assembler.dir/src/ExpressionEvaluator.cpp.obj
@@ -123,6 +125,7 @@ CMakeFiles/SIC_XE_Assembler.dir/src/SyntaxValidator.cpp.obj
  C:/Users/Mohamed Mashaal/Desktop/Assembler/SIC-XE-Assembler/src/SyntaxValidator.cpp
 CMakeFiles/SIC_XE_Assembler.dir/src/UpdateLocationCounter.cpp.obj
  ../include/AssemblyListing.h
+ ../include/ExpressionEvaluator.h
  ../include/OpCodeTable.h
  ../include/OpInfo.h
  ../include/RegistersTable.h

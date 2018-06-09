@@ -23,9 +23,15 @@ SymbolInfo.h
 ../include/SymbolInfo.h
 ValidatorUtilities.h
 ../include/ValidatorUtilities.h
+bits/stdc++.h
+-
+string
+-
 
 ../include/LiteralTable.h
 bits/stdc++.h
+-
+map
 -
 
 ../include/ObjectCodeGenerator.h
@@ -147,6 +153,8 @@ RegistersTable.h
 ../include/UpdateLocationCounter.h
 SourceLine.h
 -
+SymbolTable.h
+-
 
 ../include/ValidatorUtilities.h
 OpInfo.h
@@ -219,12 +227,18 @@ SymbolTable.h
 -
 ExpressionEvaluator.h
 C:/Users/Mohamed Mashaal/Desktop/Assembler/SIC-XE-Assembler/src/ExpressionEvaluator.h
+bits/stdc++.h
+-
+SymbolTable.h
+-
 SymbolInfo.h
 C:/Users/Mohamed Mashaal/Desktop/Assembler/SIC-XE-Assembler/src/SymbolInfo.h
 
 C:/Users/Mohamed Mashaal/Desktop/Assembler/SIC-XE-Assembler/src/LiteralTable.cpp
 LiteralTable.h
 C:/Users/Mohamed Mashaal/Desktop/Assembler/SIC-XE-Assembler/src/LiteralTable.h
+bits/stdc++.h
+-
 
 C:/Users/Mohamed Mashaal/Desktop/Assembler/SIC-XE-Assembler/src/ObjectCodeGenerator.cpp
 ObjectCodeGenerator.h
@@ -362,6 +376,12 @@ SourceProgram.h
 ValidatorUtilities.h
 -
 SyntaxValidator.h
+-
+ExpressionEvaluator.h
+-
+SymbolInfo.h
+-
+SymbolTable.h
 -
 
 C:/Users/Mohamed Mashaal/Desktop/Assembler/SIC-XE-Assembler/src/ValidatorUtilities.cpp

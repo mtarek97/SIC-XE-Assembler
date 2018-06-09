@@ -23,7 +23,7 @@ void LiteralTable::SetLiteralsTable(std::map<std::string,std::pair< bool, std::s
    std::map<std::string,std::pair< bool, std::string> >::iterator it = newTable.begin();
     while (it != newTable.end())
     {
-    table[it->first] = it->second;
+    table.insert(std::pair<std::string,std::pair< bool, std::string>>(it->first,it->second));
     it++;
     }
 
