@@ -19,7 +19,11 @@ const int ObjectCodeGenerator::operationBitsCount = 8;
 const int ObjectCodeGenerator::address4ByteBits = 20;
 const int ObjectCodeGenerator::address3ByteBits = 12;
 const int ObjectCodeGenerator::flagsBitsCount = 4;
-
+const int ObjectCodeGenerator::min3Byte = -2048;
+const int ObjectCodeGenerator::max3Byte = 2047;
+const int ObjectCodeGenerator::maxBase = 4095;
+const int ObjectCodeGenerator::format3Flag = 300;
+const int ObjectCodeGenerator::format4Flag = 400;
 
 
 ObjectCodeGenerator* ObjectCodeGenerator::uniqueInstance = 0;
@@ -44,6 +48,10 @@ void ObjectCodeGenerator::setBaseStatus(bool baseStatus) {
 
 void ObjectCodeGenerator::setCurrentBaseAddress(string currentBaseAddress) {
     this->currentBaseAddress = currentBaseAddress;
+}
+
+string ObjectCodeGenerator::getErrorMessage() {
+    return this->errorMessage;
 }
 
 std::string ObjectCodeGenerator::getObjectCode(SourceLine sourceLine) {
@@ -83,54 +91,96 @@ std::string ObjectCodeGenerator::getObjectCode(SourceLine sourceLine) {
             if (!isFormat4Byte(operation) && !isIndexed(operand) && !isImmediate(operand) &&
                      !isIndirect(operand)) {
                 int displacement = symbolTable->search(operand).getLocation() - sourceLine.getNextInstruction();
-                return calculateObjectCode(opCodeTable->getInfo(operation).getOpCode(), 3, 2, displacement, 0);
+                if(displacement >= min3Byte && displacement <= max3Byte){
+                    return calculateObjectCode(opCodeTable->getInfo(operation).getOpCode(), 3, 2, displacement, format3Flag);
+                }
+                else{
+                    int base_disp = symbolTable->search(operand).getLocation() - symbolTable->search(currentBaseAddress).getLocation();
+                    if(baseStatus && base_disp >= 0 && base_disp <= maxBase)
+                        return calculateObjectCode(opCodeTable->getInfo(operation).getOpCode(),3,4,base_disp,format3Flag);
+                    else{
+                        this->errorMessage = "Displacement Error";
+                        return SOME_THING_WRONG;
+                    }
+                }
             } else if (isFormat4Byte(operation) && !isIndexed(operand) && !isImmediate(operand) &&
                        !isIndirect(operand)) {
                 int address = symbolTable->search(operand).getLocation();
                 return calculateObjectCode(opCodeTable->getInfo(operation.substr(1, operation.size())).getOpCode(), 3,
-                                           1, address, 1);
+                                           1, address, format4Flag);
             } else if (!isFormat4Byte(operation) && isIndexed(operand) && !isImmediate(operand) &&
                        !isIndirect(operand)) {
                 int displacement =
                         symbolTable->search(operand.substr(0, operand.find(','))).getLocation() - sourceLine.getNextInstruction();
-                return calculateObjectCode(opCodeTable->getInfo(operation).getOpCode(), 3, 6, displacement, 0);
+                if(displacement >= min3Byte && displacement <= max3Byte){
+                    return calculateObjectCode(opCodeTable->getInfo(operation).getOpCode(), 3, 10, displacement, format3Flag);
+                }
+                else{
+                    int base_disp = symbolTable->search(operand.substr(0, operand.find(','))).getLocation() - symbolTable->search(currentBaseAddress).getLocation();
+                    if(baseStatus && base_disp >= 0 && base_disp <= maxBase)
+                        return calculateObjectCode(opCodeTable->getInfo(operation).getOpCode(),3,12,base_disp,format3Flag);
+                    else{
+                        this->errorMessage = "Displacement Error";
+                        return SOME_THING_WRONG;
+                    }
+                }
             } else if (isFormat4Byte(operation) && isIndexed(operand) && !isImmediate(operand) &&
                        !isIndirect(operand)) {
                 int displacement = symbolTable->search(operand.substr(0, operand.find(','))).getLocation();
                 return calculateObjectCode(opCodeTable->getInfo(operation.substr(1, operation.size())).getOpCode(), 3,
-                                           5, displacement, 1);
+                                           9, displacement, format4Flag);
             } else if (!isFormat4Byte(operation) && !isIndexed(operand) && !isImmediate(operand) &&
                        isIndirect(operand)) {
                 int displacement =
                         symbolTable->search(operand.substr(1, operand.size())).getLocation() - sourceLine.getNextInstruction();
-                return calculateObjectCode(opCodeTable->getInfo(operation).getOpCode(), 2, 2, displacement, 0);
+                if(displacement >= min3Byte && displacement <= max3Byte){
+                    return calculateObjectCode(opCodeTable->getInfo(operation).getOpCode(), 2, 2, displacement, format3Flag);
+                }
+                else{
+                    int base_disp = symbolTable->search(operand.substr(1, operand.size())).getLocation() - symbolTable->search(currentBaseAddress).getLocation();
+                    if(baseStatus && base_disp >= 0 && base_disp <= maxBase)
+                        return calculateObjectCode(opCodeTable->getInfo(operation).getOpCode(),2,4,base_disp,format3Flag);
+                    else{
+                        this->errorMessage = "Displacement Error";
+                        return SOME_THING_WRONG;
+                    }
+                }
             } else if (isFormat4Byte(operation) && !isIndexed(operand) && !isImmediate(operand) &&
                        isIndirect(operand)) {
                 int displacement = symbolTable->search(operand.substr(1, operand.size())).getLocation();
                 return calculateObjectCode(opCodeTable->getInfo(operation.substr(1, operation.size())).getOpCode(), 2,
-                                           1, displacement, 1);
+                                           1, displacement, format4Flag);
             } else if (!isFormat4Byte(operation) && !isIndexed(operand) && isImmediate(operand) &&
                        !isIndirect(operand)) {
                 if (symbolTable->search(operand.substr(1, operand.size())).getLocation() != -1) {
                     int displacement =
                             symbolTable->search(operand.substr(1, operand.size())).getLocation() - sourceLine.getNextInstruction();
-                    return calculateObjectCode(opCodeTable->getInfo(operation).getOpCode(), 1, 2, displacement, 0);
+                    if(displacement >= min3Byte && displacement <= max3Byte){
+                        return calculateObjectCode(opCodeTable->getInfo(operation).getOpCode(), 1, 2, displacement, format3Flag);
+                    }
+                    else{
+                        int base_disp = symbolTable->search(operand.substr(1, operand.size())).getLocation() - symbolTable->search(currentBaseAddress).getLocation();
+                        if(baseStatus && base_disp >= 0 && base_disp <= maxBase)
+                            return calculateObjectCode(opCodeTable->getInfo(operation).getOpCode(),1,4,base_disp,format3Flag);
+                        else{
+                            this->errorMessage = "Displacement Error";
+                            return SOME_THING_WRONG;
+                        }
+                    }
                 } else {
                     int displacement = stoi(operand.substr(1, operand.size()));
-                    return calculateObjectCode(opCodeTable->getInfo(operation).getOpCode(), 1, 0, displacement, 0);
+                    return calculateObjectCode(opCodeTable->getInfo(operation).getOpCode(), 1, 0, displacement, format3Flag);
                 }
-
             } else if (isFormat4Byte(operation) && !isIndexed(operand) && isImmediate(operand) &&
                        !isIndirect(operand)) {
                 if (symbolTable->search(operand.substr(1, operand.size())).getLocation() != -1) {
                     int displacement = symbolTable->search(operand.substr(1, operand.size())).getLocation();
                     return calculateObjectCode(opCodeTable->getInfo(operation.substr(1, operation.size())).getOpCode(), 1,
-                                               1, displacement, 1);
+                                               1, displacement, format4Flag);
                 } else {
                     int displacement = stoi(operand.substr(1, operand.size()));
-                    return calculateObjectCode(opCodeTable->getInfo(operation.substr(1, operation.size())).getOpCode(), 1, 1, displacement, 1);
+                    return calculateObjectCode(opCodeTable->getInfo(operation.substr(1, operation.size())).getOpCode(), 1, 1, displacement, format4Flag);
                 }
-
             }
         }
         else if (operation == "BYTE"){
@@ -144,6 +194,7 @@ std::string ObjectCodeGenerator::getObjectCode(SourceLine sourceLine) {
             return objectCodeHex;
         }
         else{
+            this->errorMessage = "NOT SUPPORTED !!";
             return SOME_THING_WRONG;
         }
         //TODO: literals object code to be added.
@@ -177,7 +228,7 @@ string ObjectCodeGenerator::calculateObjectCode(string operationCode, int ni, in
     bitset<operationBitsCount> operationBits(operation);
     bitset<flagsBitsCount> flags(xbpe);
     string objectCodeHex = "";
-    if (bits == 0) { // format 3
+    if (bits == format3Flag) { // format 3
         bitset<address3ByteBits> addressBits(displacement);
         bitset<address3ByteBits + flagsBitsCount> nonOperation(
                 flags.to_ullong() << addressBits.size() | addressBits.to_ullong());

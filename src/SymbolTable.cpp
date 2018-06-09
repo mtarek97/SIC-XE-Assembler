@@ -26,7 +26,9 @@ void SymbolTable::insert(string symbol, int locInMemory){
 }
 
 SymbolInfo SymbolTable::search(string symbol){
-    if(this->inserted[symbol]){
+  int jj =     (hashtable.count(symbol)  );
+
+    if(hashtable.count(symbol) != 0 ){
         return this->hashtable[symbol];
     }
     else{

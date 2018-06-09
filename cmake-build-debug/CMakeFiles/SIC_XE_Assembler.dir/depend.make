@@ -22,6 +22,8 @@ CMakeFiles/SIC_XE_Assembler.dir/src/DetectLiterals.cpp.obj: ../include/AssemblyL
 CMakeFiles/SIC_XE_Assembler.dir/src/DetectLiterals.cpp.obj: ../include/DetectLiterals.h
 CMakeFiles/SIC_XE_Assembler.dir/src/DetectLiterals.cpp.obj: ../include/LiteralTable.h
 CMakeFiles/SIC_XE_Assembler.dir/src/DetectLiterals.cpp.obj: ../include/SourceLine.h
+CMakeFiles/SIC_XE_Assembler.dir/src/DetectLiterals.cpp.obj: ../include/SymbolInfo.h
+CMakeFiles/SIC_XE_Assembler.dir/src/DetectLiterals.cpp.obj: ../include/SymbolTable.h
 CMakeFiles/SIC_XE_Assembler.dir/src/DetectLiterals.cpp.obj: ../include/UpdateLocationCounter.h
 CMakeFiles/SIC_XE_Assembler.dir/src/DetectLiterals.cpp.obj: ../src/DetectLiterals.cpp
 
@@ -122,6 +124,7 @@ CMakeFiles/SIC_XE_Assembler.dir/src/SyntaxValidator.cpp.obj: ../include/Validato
 CMakeFiles/SIC_XE_Assembler.dir/src/SyntaxValidator.cpp.obj: ../src/SyntaxValidator.cpp
 
 CMakeFiles/SIC_XE_Assembler.dir/src/UpdateLocationCounter.cpp.obj: ../include/AssemblyListing.h
+CMakeFiles/SIC_XE_Assembler.dir/src/UpdateLocationCounter.cpp.obj: ../include/ExpressionEvaluator.h
 CMakeFiles/SIC_XE_Assembler.dir/src/UpdateLocationCounter.cpp.obj: ../include/OpCodeTable.h
 CMakeFiles/SIC_XE_Assembler.dir/src/UpdateLocationCounter.cpp.obj: ../include/OpInfo.h
 CMakeFiles/SIC_XE_Assembler.dir/src/UpdateLocationCounter.cpp.obj: ../include/RegistersTable.h

@@ -1,5 +1,7 @@
 #include <SymbolTable.h>
 #include "ExpressionEvaluator.h"
+#include<bits/stdc++.h>
+#include <SymbolTable.h>
 #include "SymbolInfo.h"
 
 using namespace std;
@@ -14,6 +16,7 @@ SymbolInfo ExpressionEvaluator::evaluateExpression(std::string expression)
     SymbolTable* symbolTable = SymbolTable::getSymbolTable();
     // assuming it's a simple expression <operand><operation><operand>
     vector<std::string> operands = ValidatorUtilities::split(expression,"[-/+*]");
+    int h = operands.size();
     SymbolInfo firstOperand = symbolTable->search(operands[0]);
     SymbolInfo secondOperand = symbolTable->search(operands[1]);
 

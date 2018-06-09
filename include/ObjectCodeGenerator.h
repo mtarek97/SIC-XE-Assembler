@@ -18,6 +18,7 @@ class ObjectCodeGenerator{
     static const std::string SOME_THING_WRONG;
     void setBaseStatus(bool baseStatus);
     void setCurrentBaseAddress(string currentBaseAddress);
+    string getErrorMessage();
     private:
     static ObjectCodeGenerator* uniqueInstance;
     ObjectCodeGenerator();
@@ -25,6 +26,7 @@ class ObjectCodeGenerator{
     RegistersTable* registersTable;
     SymbolTable* symbolTable;
     bool baseStatus;
+    string errorMessage;
     string currentBaseAddress;
     bool isFormat4Byte(string basic_string);
     bool isIndexed(string basic_string);
@@ -33,6 +35,11 @@ class ObjectCodeGenerator{
     static const int address4ByteBits;
     static const int address3ByteBits;
     static const int flagsBitsCount;
+    static const int min3Byte;
+    static const int max3Byte;
+    static const int maxBase;
+    static const int format3Flag;
+    static const int format4Flag;
     string calculateObjectCode(string operationCode, int ni, int xbpe, int displacement, int byteFormat);
 
     bool isIndirect(string basic_string);

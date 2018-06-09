@@ -30,3 +30,8 @@
 *.exe
 *.out
 *.app
+
+#Clion
+.idea/**/workspace.xml
+.idea/**/tasks.xml
+/cmake-build-*/
