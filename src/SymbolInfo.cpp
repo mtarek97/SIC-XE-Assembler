@@ -7,7 +7,7 @@ SymbolInfo::SymbolInfo(int locInMemory, char type)
 }
 
 SymbolInfo::SymbolInfo() {
-    
+
 }
 
 int SymbolInfo::getLocation(){

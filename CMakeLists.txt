@@ -19,6 +19,7 @@ add_executable(SIC_XE_Assembler
         include/SymbolInfo.h
         include/LiteralTable.h
         include/DetectLiterals.h
+        include/ExpressionEvaluator.h
         src/AssemblyListing.cpp
         src/ObjectProgram.cpp
         src/OpCodeTable.cpp
@@ -32,4 +33,5 @@ add_executable(SIC_XE_Assembler
         src/SymbolInfo.cpp
         src/DetectLiterals.cpp
         src/LiteralTable.cpp
+        src/ExpressionEvaluator.cpp
         main.cpp include/ObjectCodeGenerator.h src/ObjectCodeGenerator.cpp include/RegistersTable.h src/RegistersTable.cpp)

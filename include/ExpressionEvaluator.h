@@ -5,12 +5,14 @@
 #ifndef EXPRESSIONEVALUATOR_H
 #define EXPRESSIONEVALUATOR_H
 
+using namespace std;
+
 
 class ExpressionEvaluator
 {
     public:
         ExpressionEvaluator();
-        SymbolInfo evaluateExpression(string expression);
+        SymbolInfo evaluateExpression(std::string expression);
 
     protected:
 
