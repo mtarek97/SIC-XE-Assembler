@@ -27,11 +27,9 @@ ObjectCodeGenerator* ObjectCodeGenerator::uniqueInstance = 0;
 ObjectCodeGenerator::ObjectCodeGenerator() {
     this->opCodeTable = OpCodeTable::getOpTable();
     this->registersTable = RegistersTable::getARegistersTable();
+    this->symbolTable = SymbolTable::getSymbolTable();
 }
 
-void ObjectCodeGenerator::setSymbolTable(SymbolTable symbolTable) {
-    this->symbolTable = symbolTable;
-}
 
 ObjectCodeGenerator* ObjectCodeGenerator::getObjectCodeGenerator() {
     if(!uniqueInstance){
@@ -73,38 +71,38 @@ std::string ObjectCodeGenerator::getObjectCode(SourceLine sourceLine) {
         else if (!isDirective(operation)) {
             if (!isFormat4Byte(operation) && !isIndexed(operand) && !isImmediate(operand) &&
                      !isIndirect(operand)) {
-                int displacement = symbolTable.search(operand).getLocation() - sourceLine.getNextInstruction();
+                int displacement = symbolTable->search(operand).getLocation() - sourceLine.getNextInstruction();
                 return calculateObjectCode(opCodeTable->getInfo(operation).getOpCode(), 3, 2, displacement, 0);
             } else if (isFormat4Byte(operation) && !isIndexed(operand) && !isImmediate(operand) &&
                        !isIndirect(operand)) {
-                int address = symbolTable.search(operand).getLocation();
+                int address = symbolTable->search(operand).getLocation();
                 return calculateObjectCode(opCodeTable->getInfo(operation.substr(1, operation.size())).getOpCode(), 3,
                                            1, address, 1);
             } else if (!isFormat4Byte(operation) && isIndexed(operand) && !isImmediate(operand) &&
                        !isIndirect(operand)) {
                 int displacement =
-                        symbolTable.search(operand.substr(0, operand.find(','))).getLocation() - sourceLine.getNextInstruction();
+                        symbolTable->search(operand.substr(0, operand.find(','))).getLocation() - sourceLine.getNextInstruction();
                 return calculateObjectCode(opCodeTable->getInfo(operation).getOpCode(), 3, 6, displacement, 0);
             } else if (isFormat4Byte(operation) && isIndexed(operand) && !isImmediate(operand) &&
                        !isIndirect(operand)) {
-                int displacement = symbolTable.search(operand.substr(0, operand.find(','))).getLocation();
+                int displacement = symbolTable->search(operand.substr(0, operand.find(','))).getLocation();
                 return calculateObjectCode(opCodeTable->getInfo(operation.substr(1, operation.size())).getOpCode(), 3,
                                            5, displacement, 1);
             } else if (!isFormat4Byte(operation) && !isIndexed(operand) && !isImmediate(operand) &&
                        isIndirect(operand)) {
                 int displacement =
-                        symbolTable.search(operand.substr(1, operand.size())).getLocation() - sourceLine.getNextInstruction();
+                        symbolTable->search(operand.substr(1, operand.size())).getLocation() - sourceLine.getNextInstruction();
                 return calculateObjectCode(opCodeTable->getInfo(operation).getOpCode(), 2, 2, displacement, 0);
             } else if (isFormat4Byte(operation) && !isIndexed(operand) && !isImmediate(operand) &&
                        isIndirect(operand)) {
-                int displacement = symbolTable.search(operand.substr(1, operand.size())).getLocation();
+                int displacement = symbolTable->search(operand.substr(1, operand.size())).getLocation();
                 return calculateObjectCode(opCodeTable->getInfo(operation.substr(1, operation.size())).getOpCode(), 2,
                                            1, displacement, 1);
             } else if (!isFormat4Byte(operation) && !isIndexed(operand) && isImmediate(operand) &&
                        !isIndirect(operand)) {
-                if (symbolTable.search(operand.substr(1, operand.size())).getLocation() != -1) {
+                if (symbolTable->search(operand.substr(1, operand.size())).getLocation() != -1) {
                     int displacement =
-                            symbolTable.search(operand.substr(1, operand.size())).getLocation() - sourceLine.getNextInstruction();
+                            symbolTable->search(operand.substr(1, operand.size())).getLocation() - sourceLine.getNextInstruction();
                     return calculateObjectCode(opCodeTable->getInfo(operation).getOpCode(), 1, 2, displacement, 0);
                 } else {
                     int displacement = stoi(operand.substr(1, operand.size()));
@@ -113,8 +111,8 @@ std::string ObjectCodeGenerator::getObjectCode(SourceLine sourceLine) {
 
             } else if (isFormat4Byte(operation) && !isIndexed(operand) && isImmediate(operand) &&
                        !isIndirect(operand)) {
-                if (symbolTable.search(operand.substr(1, operand.size())).getLocation() != -1) {
-                    int displacement = symbolTable.search(operand.substr(1, operand.size())).getLocation();
+                if (symbolTable->search(operand.substr(1, operand.size())).getLocation() != -1) {
+                    int displacement = symbolTable->search(operand.substr(1, operand.size())).getLocation();
                     return calculateObjectCode(opCodeTable->getInfo(operation.substr(1, operation.size())).getOpCode(), 1,
                                                1, displacement, 1);
                 } else {

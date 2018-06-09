@@ -13,6 +13,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/SIC_XE_Assembler.dir/src/DetectLiterals.cpp.obj"
   "CMakeFiles/SIC_XE_Assembler.dir/src/LiteralTable.cpp.obj"
   "CMakeFiles/SIC_XE_Assembler.dir/src/ExpressionEvaluator.cpp.obj"
+  "CMakeFiles/SIC_XE_Assembler.dir/src/Pass2.cpp.obj"
   "CMakeFiles/SIC_XE_Assembler.dir/main.cpp.obj"
   "CMakeFiles/SIC_XE_Assembler.dir/src/ObjectCodeGenerator.cpp.obj"
   "CMakeFiles/SIC_XE_Assembler.dir/src/RegistersTable.cpp.obj"

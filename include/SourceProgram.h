@@ -30,7 +30,7 @@ class SourceProgram
 
         int start = 0, lineNumber = 0, locationCounter = 0;
         AssemblyListing assemblyListing;
-        SymbolTable symbolTable;
+        SymbolTable* symbolTable;
         set<string> direcive;
         vector<SourceLine> sourcelines;
         map <string, bool> lieralTable;

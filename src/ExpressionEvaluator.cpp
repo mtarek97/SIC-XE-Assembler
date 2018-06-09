@@ -11,11 +11,11 @@ ExpressionEvaluator::ExpressionEvaluator()
 
 SymbolInfo ExpressionEvaluator::evaluateExpression(std::string expression)
 {
-    SymbolTable symbolTable;
+    SymbolTable* symbolTable = SymbolTable::getSymbolTable();
     // assuming it's a simple expression <operand><operation><operand>
     vector<std::string> operands = ValidatorUtilities::split(expression,"[-/+*]");
-    SymbolInfo firstOperand = symbolTable.search(operands[0]);
-    SymbolInfo secondOperand = symbolTable.search(operands[1]);
+    SymbolInfo firstOperand = symbolTable->search(operands[0]);
+    SymbolInfo secondOperand = symbolTable->search(operands[1]);
 
     char operation = (expression.substr(operands[0].size(), 1))[0];
 

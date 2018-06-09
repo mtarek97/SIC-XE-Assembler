@@ -74,6 +74,30 @@ unordered_map
 string
 -
 
+../include/Pass2.h
+bits/stdc++.h
+-
+SourceProgram.h
+-
+SourceLine.h
+-
+OpCodeTable.h
+-
+SyntaxValidator.h
+-
+AssemblyListing.h
+-
+SymbolTable.h
+-
+ValidatorUtilities.h
+-
+UpdateLocationCounter.h
+-
+ObjectCodeGenerator.h
+-
+ObjectProgram.h
+../include/ObjectProgram.h
+
 ../include/RegistersTable.h
 map
 -
@@ -243,6 +267,32 @@ fstream
 C:/Users/Mohamed Mashaal/Desktop/Assembler/SIC-XE-Assembler/src/OpInfo.cpp
 OpInfo.h
 C:/Users/Mohamed Mashaal/Desktop/Assembler/SIC-XE-Assembler/src/OpInfo.h
+
+C:/Users/Mohamed Mashaal/Desktop/Assembler/SIC-XE-Assembler/src/Pass2.cpp
+Pass2.h
+C:/Users/Mohamed Mashaal/Desktop/Assembler/SIC-XE-Assembler/src/Pass2.h
+bits/stdc++.h
+-
+SourceProgram.h
+-
+SourceLine.h
+-
+OpCodeTable.h
+-
+SyntaxValidator.h
+-
+AssemblyListing.h
+-
+SymbolTable.h
+-
+ValidatorUtilities.h
+-
+UpdateLocationCounter.h
+-
+ObjectCodeGenerator.h
+-
+ObjectProgram.h
+C:/Users/Mohamed Mashaal/Desktop/Assembler/SIC-XE-Assembler/src/ObjectProgram.h
 
 C:/Users/Mohamed Mashaal/Desktop/Assembler/SIC-XE-Assembler/src/RegistersTable.cpp
 RegistersTable.h

@@ -17,7 +17,7 @@
 class Pass2
 {
     public:
-        Pass2(vector<SourceLine> sourceLinesArr,int lengthOfProg,SymbolTable symbolTable);
+        Pass2(vector<SourceLine> sourceLinesArr,int lengthOfProg);
         void generateObjProg();
     protected:
 
@@ -30,7 +30,6 @@ class Pass2
         string TextRecord;
         string TextStartAddress;
         int MAX_TEXT_RECORED_LENGTH = 60;
-        SymbolTable symbolTable;
         string convertToHEX(int num);
 };
 

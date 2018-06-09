@@ -13,13 +13,11 @@
 /**
 by Mohamed Esmail
 */
-Pass2::Pass2(vector<SourceLine> sourceLinesArr,int lengthOfProg,SymbolTable symbolTable)
+Pass2::Pass2(vector<SourceLine> sourceLinesArr,int lengthOfProg)
 {
    this->sourceLinesArr = sourceLinesArr;
    this->lengthOfProg = lengthOfProg;
    this->objCodeGenerator = ObjectCodeGenerator::getObjectCodeGenerator();
-   this->symbolTable = symbolTable;
-   this->objCodeGenerator ->setSymbolTable(symbolTable);
    int MAX_TEXT_RECORED_LENGTH = 60;
 }
 

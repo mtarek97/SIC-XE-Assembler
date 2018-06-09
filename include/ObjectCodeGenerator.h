@@ -16,14 +16,13 @@ class ObjectCodeGenerator{
     static ObjectCodeGenerator* getObjectCodeGenerator();
     std::string getObjectCode(SourceLine sourceLine);
     static const std::string SOME_THING_WRONG;
-    void setSymbolTable(SymbolTable symbolTable);
 
     private:
     static ObjectCodeGenerator* uniqueInstance;
     ObjectCodeGenerator();
     OpCodeTable* opCodeTable;
     RegistersTable* registersTable;
-    SymbolTable symbolTable;
+    SymbolTable* symbolTable;
     bool isFormat4Byte(string basic_string);
     bool isIndexed(string basic_string);
     bool isImmediate(string basic_string);

@@ -12,6 +12,7 @@
 #include "LiteralTable.h"
 SourceProgram::SourceProgram()
 {
+    this->symbolTable = SymbolTable::getSymbolTable();
 }
 vector<SourceLine> SourceProgram::parse(char* fileName)
 {
@@ -193,7 +194,7 @@ void SourceProgram::updateLocationCounter(SourceLine sourceLine)
             {
                 locationCounter = UpdateLocationCounter::detectStart(locationCounter, sourceLine);
                 if(sourceLine.getLable() != "")
-                    symbolTable.insert(sourceLine.getLable(), locationCounter);
+                    symbolTable->insert(sourceLine.getLable(), locationCounter);
                 write(sourceLine, "");
                 return;
             }
@@ -206,18 +207,16 @@ void SourceProgram::updateLocationCounter(SourceLine sourceLine)
 
         if(sourceLine.getLable() != "")
         {
-            if(symbolTable.hashtable.count(sourceLine.getLable()) != 0)
+            if(symbolTable->hashtable.count(sourceLine.getLable()) != 0)
             {
                 error = "This lable is used before";
                 sourceLine.setIsValid(false);
             }
             else
-                symbolTable.insert(sourceLine.getLable(), locationCounter);
+                symbolTable->insert(sourceLine.getLable(), locationCounter);
         }
         write(sourceLine, error);
         locationCounter = UpdateLocationCounter::setLocationCounter(locationCounter, sourceLine);
-        ObjectCodeGenerator* generator = ObjectCodeGenerator::getObjectCodeGenerator(); // testing purposes !!
-        generator->setSymbolTable(symbolTable);
     }
     else
     {

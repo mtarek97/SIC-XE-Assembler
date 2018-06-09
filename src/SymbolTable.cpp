@@ -6,8 +6,17 @@
 
 using namespace std;
 
+SymbolTable* SymbolTable::uniqueInstance = 0;
+
 SymbolTable::SymbolTable(){
     //...
+}
+
+SymbolTable* SymbolTable::getSymbolTable() {
+    if(!uniqueInstance){
+        uniqueInstance = new SymbolTable();
+    }
+    return uniqueInstance;
 }
 
 void SymbolTable::insert(string symbol, int locInMemory){

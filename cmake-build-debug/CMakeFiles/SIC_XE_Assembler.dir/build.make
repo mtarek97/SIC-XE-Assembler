@@ -406,10 +406,35 @@ CMakeFiles/SIC_XE_Assembler.dir/src/ExpressionEvaluator.cpp.obj.provides: CMakeF
 CMakeFiles/SIC_XE_Assembler.dir/src/ExpressionEvaluator.cpp.obj.provides.build: CMakeFiles/SIC_XE_Assembler.dir/src/ExpressionEvaluator.cpp.obj
 
 
+CMakeFiles/SIC_XE_Assembler.dir/src/Pass2.cpp.obj: CMakeFiles/SIC_XE_Assembler.dir/flags.make
+CMakeFiles/SIC_XE_Assembler.dir/src/Pass2.cpp.obj: CMakeFiles/SIC_XE_Assembler.dir/includes_CXX.rsp
+CMakeFiles/SIC_XE_Assembler.dir/src/Pass2.cpp.obj: ../src/Pass2.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\Mohamed Mashaal\Desktop\Assembler\SIC-XE-Assembler\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/SIC_XE_Assembler.dir/src/Pass2.cpp.obj"
+	C:\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\SIC_XE_Assembler.dir\src\Pass2.cpp.obj -c "C:\Users\Mohamed Mashaal\Desktop\Assembler\SIC-XE-Assembler\src\Pass2.cpp"
+
+CMakeFiles/SIC_XE_Assembler.dir/src/Pass2.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/SIC_XE_Assembler.dir/src/Pass2.cpp.i"
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\Mohamed Mashaal\Desktop\Assembler\SIC-XE-Assembler\src\Pass2.cpp" > CMakeFiles\SIC_XE_Assembler.dir\src\Pass2.cpp.i
+
+CMakeFiles/SIC_XE_Assembler.dir/src/Pass2.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/SIC_XE_Assembler.dir/src/Pass2.cpp.s"
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\Mohamed Mashaal\Desktop\Assembler\SIC-XE-Assembler\src\Pass2.cpp" -o CMakeFiles\SIC_XE_Assembler.dir\src\Pass2.cpp.s
+
+CMakeFiles/SIC_XE_Assembler.dir/src/Pass2.cpp.obj.requires:
+
+.PHONY : CMakeFiles/SIC_XE_Assembler.dir/src/Pass2.cpp.obj.requires
+
+CMakeFiles/SIC_XE_Assembler.dir/src/Pass2.cpp.obj.provides: CMakeFiles/SIC_XE_Assembler.dir/src/Pass2.cpp.obj.requires
+	$(MAKE) -f CMakeFiles\SIC_XE_Assembler.dir\build.make CMakeFiles/SIC_XE_Assembler.dir/src/Pass2.cpp.obj.provides.build
+.PHONY : CMakeFiles/SIC_XE_Assembler.dir/src/Pass2.cpp.obj.provides
+
+CMakeFiles/SIC_XE_Assembler.dir/src/Pass2.cpp.obj.provides.build: CMakeFiles/SIC_XE_Assembler.dir/src/Pass2.cpp.obj
+
+
 CMakeFiles/SIC_XE_Assembler.dir/main.cpp.obj: CMakeFiles/SIC_XE_Assembler.dir/flags.make
 CMakeFiles/SIC_XE_Assembler.dir/main.cpp.obj: CMakeFiles/SIC_XE_Assembler.dir/includes_CXX.rsp
 CMakeFiles/SIC_XE_Assembler.dir/main.cpp.obj: ../main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\Mohamed Mashaal\Desktop\Assembler\SIC-XE-Assembler\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/SIC_XE_Assembler.dir/main.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\Mohamed Mashaal\Desktop\Assembler\SIC-XE-Assembler\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/SIC_XE_Assembler.dir/main.cpp.obj"
 	C:\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\SIC_XE_Assembler.dir\main.cpp.obj -c "C:\Users\Mohamed Mashaal\Desktop\Assembler\SIC-XE-Assembler\main.cpp"
 
 CMakeFiles/SIC_XE_Assembler.dir/main.cpp.i: cmake_force
@@ -434,7 +459,7 @@ CMakeFiles/SIC_XE_Assembler.dir/main.cpp.obj.provides.build: CMakeFiles/SIC_XE_A
 CMakeFiles/SIC_XE_Assembler.dir/src/ObjectCodeGenerator.cpp.obj: CMakeFiles/SIC_XE_Assembler.dir/flags.make
 CMakeFiles/SIC_XE_Assembler.dir/src/ObjectCodeGenerator.cpp.obj: CMakeFiles/SIC_XE_Assembler.dir/includes_CXX.rsp
 CMakeFiles/SIC_XE_Assembler.dir/src/ObjectCodeGenerator.cpp.obj: ../src/ObjectCodeGenerator.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\Mohamed Mashaal\Desktop\Assembler\SIC-XE-Assembler\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/SIC_XE_Assembler.dir/src/ObjectCodeGenerator.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\Mohamed Mashaal\Desktop\Assembler\SIC-XE-Assembler\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object CMakeFiles/SIC_XE_Assembler.dir/src/ObjectCodeGenerator.cpp.obj"
 	C:\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\SIC_XE_Assembler.dir\src\ObjectCodeGenerator.cpp.obj -c "C:\Users\Mohamed Mashaal\Desktop\Assembler\SIC-XE-Assembler\src\ObjectCodeGenerator.cpp"
 
 CMakeFiles/SIC_XE_Assembler.dir/src/ObjectCodeGenerator.cpp.i: cmake_force
@@ -459,7 +484,7 @@ CMakeFiles/SIC_XE_Assembler.dir/src/ObjectCodeGenerator.cpp.obj.provides.build: 
 CMakeFiles/SIC_XE_Assembler.dir/src/RegistersTable.cpp.obj: CMakeFiles/SIC_XE_Assembler.dir/flags.make
 CMakeFiles/SIC_XE_Assembler.dir/src/RegistersTable.cpp.obj: CMakeFiles/SIC_XE_Assembler.dir/includes_CXX.rsp
 CMakeFiles/SIC_XE_Assembler.dir/src/RegistersTable.cpp.obj: ../src/RegistersTable.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\Mohamed Mashaal\Desktop\Assembler\SIC-XE-Assembler\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object CMakeFiles/SIC_XE_Assembler.dir/src/RegistersTable.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\Mohamed Mashaal\Desktop\Assembler\SIC-XE-Assembler\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_18) "Building CXX object CMakeFiles/SIC_XE_Assembler.dir/src/RegistersTable.cpp.obj"
 	C:\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\SIC_XE_Assembler.dir\src\RegistersTable.cpp.obj -c "C:\Users\Mohamed Mashaal\Desktop\Assembler\SIC-XE-Assembler\src\RegistersTable.cpp"
 
 CMakeFiles/SIC_XE_Assembler.dir/src/RegistersTable.cpp.i: cmake_force
@@ -497,6 +522,7 @@ SIC_XE_Assembler_OBJECTS = \
 "CMakeFiles/SIC_XE_Assembler.dir/src/DetectLiterals.cpp.obj" \
 "CMakeFiles/SIC_XE_Assembler.dir/src/LiteralTable.cpp.obj" \
 "CMakeFiles/SIC_XE_Assembler.dir/src/ExpressionEvaluator.cpp.obj" \
+"CMakeFiles/SIC_XE_Assembler.dir/src/Pass2.cpp.obj" \
 "CMakeFiles/SIC_XE_Assembler.dir/main.cpp.obj" \
 "CMakeFiles/SIC_XE_Assembler.dir/src/ObjectCodeGenerator.cpp.obj" \
 "CMakeFiles/SIC_XE_Assembler.dir/src/RegistersTable.cpp.obj"
@@ -518,6 +544,7 @@ SIC_XE_Assembler.exe: CMakeFiles/SIC_XE_Assembler.dir/src/SymbolInfo.cpp.obj
 SIC_XE_Assembler.exe: CMakeFiles/SIC_XE_Assembler.dir/src/DetectLiterals.cpp.obj
 SIC_XE_Assembler.exe: CMakeFiles/SIC_XE_Assembler.dir/src/LiteralTable.cpp.obj
 SIC_XE_Assembler.exe: CMakeFiles/SIC_XE_Assembler.dir/src/ExpressionEvaluator.cpp.obj
+SIC_XE_Assembler.exe: CMakeFiles/SIC_XE_Assembler.dir/src/Pass2.cpp.obj
 SIC_XE_Assembler.exe: CMakeFiles/SIC_XE_Assembler.dir/main.cpp.obj
 SIC_XE_Assembler.exe: CMakeFiles/SIC_XE_Assembler.dir/src/ObjectCodeGenerator.cpp.obj
 SIC_XE_Assembler.exe: CMakeFiles/SIC_XE_Assembler.dir/src/RegistersTable.cpp.obj
@@ -525,7 +552,7 @@ SIC_XE_Assembler.exe: CMakeFiles/SIC_XE_Assembler.dir/build.make
 SIC_XE_Assembler.exe: CMakeFiles/SIC_XE_Assembler.dir/linklibs.rsp
 SIC_XE_Assembler.exe: CMakeFiles/SIC_XE_Assembler.dir/objects1.rsp
 SIC_XE_Assembler.exe: CMakeFiles/SIC_XE_Assembler.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="C:\Users\Mohamed Mashaal\Desktop\Assembler\SIC-XE-Assembler\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_18) "Linking CXX executable SIC_XE_Assembler.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="C:\Users\Mohamed Mashaal\Desktop\Assembler\SIC-XE-Assembler\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_19) "Linking CXX executable SIC_XE_Assembler.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\SIC_XE_Assembler.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -547,6 +574,7 @@ CMakeFiles/SIC_XE_Assembler.dir/requires: CMakeFiles/SIC_XE_Assembler.dir/src/Sy
 CMakeFiles/SIC_XE_Assembler.dir/requires: CMakeFiles/SIC_XE_Assembler.dir/src/DetectLiterals.cpp.obj.requires
 CMakeFiles/SIC_XE_Assembler.dir/requires: CMakeFiles/SIC_XE_Assembler.dir/src/LiteralTable.cpp.obj.requires
 CMakeFiles/SIC_XE_Assembler.dir/requires: CMakeFiles/SIC_XE_Assembler.dir/src/ExpressionEvaluator.cpp.obj.requires
+CMakeFiles/SIC_XE_Assembler.dir/requires: CMakeFiles/SIC_XE_Assembler.dir/src/Pass2.cpp.obj.requires
 CMakeFiles/SIC_XE_Assembler.dir/requires: CMakeFiles/SIC_XE_Assembler.dir/main.cpp.obj.requires
 CMakeFiles/SIC_XE_Assembler.dir/requires: CMakeFiles/SIC_XE_Assembler.dir/src/ObjectCodeGenerator.cpp.obj.requires
 CMakeFiles/SIC_XE_Assembler.dir/requires: CMakeFiles/SIC_XE_Assembler.dir/src/RegistersTable.cpp.obj.requires
