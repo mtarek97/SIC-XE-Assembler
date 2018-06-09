@@ -5,11 +5,11 @@ ExpressionEvaluator::ExpressionEvaluator()
     //ctor
 }
 
-ExpressionEvaluator::evaluateExpression(string expression)
+SymbolInfo ExpressionEvaluator::evaluateExpression(string expression)
 {
     SymbolTable symbolTable;
     // assuming it's a simple expression <operand><operation><operand>
-    vector<string> operands = split(str,"[-/+*]");
+    vector<std::string> operands = ValidatorUtilities::split(str,"[-/+*]");
     SymbolInfo firstOperand = symbolTable->search(operands[0]);
     SymbolInfo secondOperand = symbolTable->search(operands[1]);
 
@@ -45,7 +45,8 @@ ExpressionEvaluator::evaluateExpression(string expression)
     //relative expression (an absolute term and a relative term respectively)
     if(firstOperand->getLocation() != -1 && secondOperand->getLocation() == -1){
         switch(operation){
-        case '+':
+     #include "SymbolInfo.h"
+   case '+':
             return SymbolInfo(firstOperand + secondOperand, 'a');
         case '-':
             return SymbolInfo(firstOperand - secondOperand, 'a');
