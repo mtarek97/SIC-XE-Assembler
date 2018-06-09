@@ -51,6 +51,10 @@ void ObjectCodeGenerator::setCurrentBaseAddress(string currentBaseAddress) {
     this->currentBaseAddress = currentBaseAddress;
 }
 
+string ObjectCodeGenerator::getErrorMessage() {
+    return this->errorMessage;
+}
+
 std::string ObjectCodeGenerator::getObjectCode(SourceLine sourceLine) {
     string operation = sourceLine.getOperation();
     string operand = sourceLine.getOperand();
@@ -191,6 +195,7 @@ std::string ObjectCodeGenerator::getObjectCode(SourceLine sourceLine) {
             return objectCodeHex;
         }
         else{
+            this->errorMessage = "NOT SUPPORTED !!";
             return SOME_THING_WRONG;
         }
         //TODO: literals object code to be added.

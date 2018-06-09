@@ -19,6 +19,7 @@ class ObjectCodeGenerator{
     static const std::string DISP_ERROR;
     void setBaseStatus(bool baseStatus);
     void setCurrentBaseAddress(string currentBaseAddress);
+    string getErrorMessage();
     private:
     static ObjectCodeGenerator* uniqueInstance;
     ObjectCodeGenerator();
