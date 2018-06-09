@@ -15,7 +15,6 @@
 #include "ObjectCodeGenerator.h"
 #include "OpCodeTable.h"
 const std::string ObjectCodeGenerator::SOME_THING_WRONG = "WRONG";
-const std::string ObjectCodeGenerator::DISP_ERROR = "Displacement_ERROR";
 const int ObjectCodeGenerator::operationBitsCount = 8;
 const int ObjectCodeGenerator::address4ByteBits = 20;
 const int ObjectCodeGenerator::address3ByteBits = 12;
@@ -101,7 +100,7 @@ std::string ObjectCodeGenerator::getObjectCode(SourceLine sourceLine) {
                         return calculateObjectCode(opCodeTable->getInfo(operation).getOpCode(),3,4,base_disp,format3Flag);
                     else{
                         this->errorMessage = "Displacement Error";
-                        return DISP_ERROR;
+                        return SOME_THING_WRONG;
                     }
                 }
             } else if (isFormat4Byte(operation) && !isIndexed(operand) && !isImmediate(operand) &&
@@ -122,7 +121,7 @@ std::string ObjectCodeGenerator::getObjectCode(SourceLine sourceLine) {
                         return calculateObjectCode(opCodeTable->getInfo(operation).getOpCode(),3,12,base_disp,format3Flag);
                     else{
                         this->errorMessage = "Displacement Error";
-                        return DISP_ERROR;
+                        return SOME_THING_WRONG;
                     }
                 }
             } else if (isFormat4Byte(operation) && isIndexed(operand) && !isImmediate(operand) &&
@@ -143,7 +142,7 @@ std::string ObjectCodeGenerator::getObjectCode(SourceLine sourceLine) {
                         return calculateObjectCode(opCodeTable->getInfo(operation).getOpCode(),2,4,base_disp,format3Flag);
                     else{
                         this->errorMessage = "Displacement Error";
-                        return DISP_ERROR;
+                        return SOME_THING_WRONG;
                     }
                 }
             } else if (isFormat4Byte(operation) && !isIndexed(operand) && !isImmediate(operand) &&
@@ -165,7 +164,7 @@ std::string ObjectCodeGenerator::getObjectCode(SourceLine sourceLine) {
                             return calculateObjectCode(opCodeTable->getInfo(operation).getOpCode(),1,4,base_disp,format3Flag);
                         else{
                             this->errorMessage = "Displacement Error";
-                            return DISP_ERROR;
+                            return SOME_THING_WRONG;
                         }
                     }
                 } else {

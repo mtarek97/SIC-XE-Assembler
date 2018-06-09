@@ -1,4 +1,14 @@
 Line    Loc            Source statement       
+<<<<<<< HEAD
+  0     00000    ADDER               START               0000                
+  1     00000    ST                  LDA                 X1                  
+  2     00003                        LDX                 #3                  
+  3     00006                        SUB                 X1,X                
+  4     00009                        STA                 Z                   
+  5     0000c    X1                  WORD                6,5                 
+  6     00012    Z                   RESW                1                   
+  7     00015                        END                 ST                  
+=======
   0     00000    XXX                 START               0000                
   1     00000                        LDA                 =X'3256'            
   2     00003                        LTORG                                   
@@ -13,3 +23,4 @@ Line    Loc            Source statement
  11     0001d    *                   =C'3256'                                
  12     0001f    *                   =C'325csdcsd6'                          
  13     00024    *                   =x'3256'                                
+>>>>>>> e4ad02b2f52e1ac43112685f343dc2e7e6395dbf

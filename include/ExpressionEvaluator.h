@@ -17,6 +17,7 @@ class ExpressionEvaluator
         SymbolInfo evaluateExpression(std::string expression);
 
     private:
+        bool isInt(std::string operand);
 };
 
 #endif // EXPRESSIONEVALUATOR_H

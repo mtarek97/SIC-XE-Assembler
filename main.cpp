@@ -6,6 +6,7 @@
 #include "SourceLine.h"
 #include "SyntaxValidator.h"
 #include "SourceProgram.h"
+#include "Pass2.h"
 using namespace std;
 
 /*int main( int argc, char *argv[] ){
@@ -62,7 +63,10 @@ int main( )
     cin>>fileName;
     SourceProgram sourceProgram;
     string l = "aaaa.txt";
-    sourceProgram.parse(&fileName[0]);
+
+    Pass2 pass2 = Pass2(sourceProgram.parse(&fileName[0]),1+2*16);
+    pass2.generateObjProg();
+
 
     /*
         ObjectCodeGenerator Guide :
