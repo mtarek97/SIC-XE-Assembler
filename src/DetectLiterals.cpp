@@ -26,7 +26,7 @@ vector<SourceLine> DetectLiterals::detect(int locationCounter, map<string, bool>
         newline.setOperation("*");
         newline.setHasObjCode(true);
         newLines.push_back(newline);
-        locationCounter = UpdateLocationCounter::setLocationCounter(locationCounter, newline);
+        locationCounter = UpdateLocationCounter::setLocationCounter(locationCounter, newline, nullptr).first;
         it++;
     }
     return newLines;

@@ -1,6 +1,11 @@
 xxx     start   0000
          lda     =x'3256'
           LTORG
-         lda     =C'3256'
+
 test     byte  c'uu     uhu' ihbibib
+         lda     =C'325csdcsd6' 
+        lda     =C'3256'
+shazly equ  test
+org   shazly+test
+
          end     bgn

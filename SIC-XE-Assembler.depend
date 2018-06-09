@@ -149,7 +149,7 @@
 	<UpdateLocationCounter.h>
 	<ObjectCodeGenerator.h>
 
-1528501836 source:f:\projects second year\assembly\src\symboltable.cpp
+1528568979 source:f:\projects second year\assembly\src\symboltable.cpp
 	"SymbolTable.h"
 	<bits/stdc++.h>
 	<string>
@@ -304,7 +304,7 @@
 	<sstream>
 	<regex>
 
-1528493269 f:\projects second year\assembly\include\sourceprogram.h
+1528563056 f:\projects second year\assembly\include\sourceprogram.h
 	<bits/stdc++.h>
 	<SourceLine.h>
 	<SymbolTable.h>
@@ -322,7 +322,7 @@
 	<fstream>
 	<iostream>
 
-1528497483 source:f:\projects second year\assembly\src\detectliterals.cpp
+1528562496 source:f:\projects second year\assembly\src\detectliterals.cpp
 	"DetectLiterals.h"
 	"UpdateLocationCounter.h"
 	<bits/stdc++.h>
@@ -334,14 +334,17 @@
 	"SourceLine.h"
 	<bits/stdc++.h>
 
-1525503322 f:\projects second year\assembly\include\updatelocationcounter.h
+1528562486 f:\projects second year\assembly\include\updatelocationcounter.h
 	<SourceLine.h>
+	<SymbolTable.h>
 
-1528481872 f:\projects second year\assembly\include\literaltable.h
+1528555973 f:\projects second year\assembly\include\literaltable.h
 	<bits/stdc++.h>
+	<map>
 
-1528481904 source:f:\projects second year\assembly\src\literaltable.cpp
+1528556015 source:f:\projects second year\assembly\src\literaltable.cpp
 	"LiteralTable.h"
+	<bits/stdc++.h>
 
 1525042738 source:f:\projects second year\assembly\src\opcodetable.cpp
 	"OpCodeTable.h"
@@ -354,7 +357,7 @@
 1528497580 source:f:\projects second year\assembly\src\sourceline.cpp
 	"SourceLine.h"
 
-1528497427 source:f:\projects second year\assembly\src\sourceprogram.cpp
+1528567793 source:f:\projects second year\assembly\src\sourceprogram.cpp
 	<bits/stdc++.h>
 	<SourceProgram.h>
 	<SourceLine.h>
@@ -368,7 +371,7 @@
 	"DetectLiterals.h"
 	"LiteralTable.h"
 
-1528488828 source:f:\projects second year\assembly\src\updatelocationcounter.cpp
+1528567883 source:f:\projects second year\assembly\src\updatelocationcounter.cpp
 	"UpdateLocationCounter.h"
 	<SourceLine.h>
 	<OpInfo.h>
@@ -376,6 +379,9 @@
 	<SourceProgram.h>
 	<ValidatorUtilities.h>
 	<SyntaxValidator.h>
+	<ExpressionEvaluator.h>
+	<SymbolInfo.h>
+	<SymbolTable.h>
 
 1528554626 source:f:\projects second year\assembly\src\objectprogram.cpp
 	"ObjectProgram.h"
@@ -428,4 +434,17 @@
 	<UpdateLocationCounter.h>
 	<ObjectCodeGenerator.h>
 	"ObjectProgram.h"
+
+1528568267 source:f:\projects second year\assembly\src\expressionevaluator.cpp
+	<SymbolTable.h>
+	"ExpressionEvaluator.h"
+	<bits/stdc++.h>
+	<SymbolTable.h>
+	"SymbolInfo.h"
+
+1528557874 f:\projects second year\assembly\include\expressionevaluator.h
+	"SymbolInfo.h"
+	"ValidatorUtilities.h"
+	<bits/stdc++.h>
+	<string>
 
