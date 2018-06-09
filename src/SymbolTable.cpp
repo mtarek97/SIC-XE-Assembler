@@ -32,7 +32,7 @@ SymbolInfo SymbolTable::search(string symbol){
         return this->hashtable[symbol];
     }
     else{
-        return SymbolInfo(-1, 'r'); // symbol not found
+        return SymbolInfo(-1, 'e'); // symbol not found
     }
 }
 
