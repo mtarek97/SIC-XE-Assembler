@@ -1,3 +1,5 @@
+#include "SymbolInfo.h"
+
 #ifndef EXPRESSIONEVALUATOR_H
 #define EXPRESSIONEVALUATOR_H
 
@@ -6,7 +8,7 @@ class ExpressionEvaluator
 {
     public:
         ExpressionEvaluator();
-        evaluateExpression(string expression);
+        SymbolInfo evaluateExpression(string expression);
 
     protected:
 
