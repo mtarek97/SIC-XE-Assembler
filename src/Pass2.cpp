@@ -38,7 +38,7 @@ void Pass2::generateObjProg(){
 
 
     currentLine = sourceLinesArr[linesCounter];
-    TextStartAddress = std::to_string(currentLine.getLocationCounter())
+    TextStartAddress = convertToHEX(currentLine.getLocationCounter())
     TextRecord = "";
 
     vector <string> modificationAddress;
@@ -46,31 +46,36 @@ void Pass2::generateObjProg(){
     while(currentLine.getOperation() != "END"){
         if(currentLine.getIsValid() && currentLine.getHasObjCode() && currentLine.getOperation() != ""){
            string opCode = generator->getObjectCode(sourceLine);
-           if(prevLine.getNextInstruction() != currentLine.getLOC()){
+           /// if there isn't error in object code.(it will be done!).
+           if(prevLine.getNextInstruction() != currentLine.getLocationCounter()){
                 objectProgram.writeText(TextStartAddress,convertToHEX(TextRecord.length()),TextRecord);
                 TextRecord = opCode;
-                TextStartAddress = std::to_string(currentLine.getLOC());
+                TextStartAddress = convertToHEX(currentLine.getLocationCounter());
            }else if(TextRecord.length() + opCode.length() <= MAX_TEXT_RECORED_LENGTH){
                 TextRecord = TextRecord + opCode;
            }else{
               objectProgram.writeText(TextStartAddress,convertToHEX(TextRecord.length()),TextRecord);
               TextRecord = opCode;
-              TextStartAddress = std::to_string(currentLine.getLOC());
+              TextStartAddress = convertToHEX(currentLine.getLocationCounter());
            }
-           if(currentLine.getOperation()[0] =='+'){
-                modificationAddress.push_back(currentLine.getLOC());
+           if(currentLine.getOperation()[0] == '+'){
+                modificationAddress.push_back(convertToHEX(currentLine.getLocationCounter()));
                 modificationLength.push_back(std::to_string(5));
            }
+           ///write listing file(it will be done!).
         }else if(!currentLine.getIsValid()){
-
+            ///write listing file(it will be done!).
+            ///write error(it will be done!).
         }
-        ///write listing file(it will be done!).
         prevLine = currentLine;
         currentLine = sourceLinesArr[++linesCounter];
     }
     objectProgram.writeText(TextStartAddress,convertToHEX(TextRecord.length()),TextRecord);
-        ///modification records and end record
-        ///write listing file(it will be done!).
+        for(int i = 0; i < modificationAddress.size(); i++){
+            objectProgram.writeModification(modificationAddress[i],modificationLength[i]);
+        }
+        /// end record who calculate
+        ///write listing file(it will be done!).the end directive
 }
 string Pass2::convertToHEX(int num){
     std::stringstream stream;
