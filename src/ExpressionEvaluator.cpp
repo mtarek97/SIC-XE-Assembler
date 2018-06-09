@@ -9,7 +9,7 @@ SymbolInfo ExpressionEvaluator::evaluateExpression(string expression)
 {
     SymbolTable symbolTable;
     // assuming it's a simple expression <operand><operation><operand>
-    vector<string> operands = ValidatorUtilities::split(str,"[-/+*]");
+    vector<std::string> operands = ValidatorUtilities::split(str,"[-/+*]");
     SymbolInfo firstOperand = symbolTable->search(operands[0]);
     SymbolInfo secondOperand = symbolTable->search(operands[1]);
 
