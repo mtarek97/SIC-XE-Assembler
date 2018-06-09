@@ -132,7 +132,7 @@ bool ValidatorUtilities::isExpression(string str,bool canBeGeneralExpression)
     return operands.size()>=2;
 }
 
-// Literals are constants preceded by = (e.g., =W'-1234' , =C’The result’ , and =X’FF5A9EBD’
+// Literals are constants preceded by = (e.g., =W'-1234' , =C'The result' , and =X'FF5A9EBD"
 bool ValidatorUtilities::isLiteral(string str)
 {
     if(str[0]=='=' && str.size()>=4 && str[2]== '\'' && str[str.size()-1]=='\'')
