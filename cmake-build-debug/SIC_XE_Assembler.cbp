@@ -90,6 +90,9 @@
 		<Unit filename="C:/Users/Mohamed Mashaal/Desktop/Assembler/SIC-XE-Assembler/include/DetectLiterals.h">
 			<Option target="SIC_XE_Assembler"/>
 		</Unit>
+		<Unit filename="C:/Users/Mohamed Mashaal/Desktop/Assembler/SIC-XE-Assembler/include/ExpressionEvaluator.h">
+			<Option target="SIC_XE_Assembler"/>
+		</Unit>
 		<Unit filename="C:/Users/Mohamed Mashaal/Desktop/Assembler/SIC-XE-Assembler/include/LiteralTable.h">
 			<Option target="SIC_XE_Assembler"/>
 		</Unit>
@@ -136,6 +139,9 @@
 			<Option target="SIC_XE_Assembler"/>
 		</Unit>
 		<Unit filename="C:/Users/Mohamed Mashaal/Desktop/Assembler/SIC-XE-Assembler/src/DetectLiterals.cpp">
+			<Option target="SIC_XE_Assembler"/>
+		</Unit>
+		<Unit filename="C:/Users/Mohamed Mashaal/Desktop/Assembler/SIC-XE-Assembler/src/ExpressionEvaluator.cpp">
 			<Option target="SIC_XE_Assembler"/>
 		</Unit>
 		<Unit filename="C:/Users/Mohamed Mashaal/Desktop/Assembler/SIC-XE-Assembler/src/LiteralTable.cpp">

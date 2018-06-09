@@ -1,3 +1,4 @@
+#include <SymbolTable.h>
 #include "ExpressionEvaluator.h"
 #include "SymbolInfo.h"
 
