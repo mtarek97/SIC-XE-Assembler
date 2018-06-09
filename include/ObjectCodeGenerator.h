@@ -16,7 +16,6 @@ class ObjectCodeGenerator{
     static ObjectCodeGenerator* getObjectCodeGenerator();
     std::string getObjectCode(SourceLine sourceLine);
     static const std::string SOME_THING_WRONG;
-    static const std::string DISP_ERROR;
     void setBaseStatus(bool baseStatus);
     void setCurrentBaseAddress(string currentBaseAddress);
     string getErrorMessage();
