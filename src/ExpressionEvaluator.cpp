@@ -23,7 +23,7 @@ SymbolInfo ExpressionEvaluator::evaluateExpression(std::string expression)
     char operation = (expression.substr(operands[0].size(), 1))[0];
 
     //absolute expression (only absolute terms)
-    if(firstOperand.getLocation() == -1 && secondOperand.getLocation() == -1){
+    if(firstOperand.getLocation() == -1 && secondOperand.getLocation() == -1 && isInt(operands[0]) && isInt(operands[1])){
         switch(operation){
         case '+':
             return SymbolInfo(stoi(operands[0]) + stoi(operands[1]), 'a');
@@ -50,7 +50,7 @@ SymbolInfo ExpressionEvaluator::evaluateExpression(std::string expression)
     }
 
     //relative expression (an absolute term and a relative term respectively)
-    if(firstOperand.getLocation() != -1 && secondOperand.getLocation() == -1){
+    if(firstOperand.getLocation() != -1 && secondOperand.getLocation() == -1 && isInt(operands[1])){
         switch(operation){
         case '+':
             return SymbolInfo(firstOperand.getLocation() + stoi(operands[1]), 'r');
@@ -64,4 +64,15 @@ SymbolInfo ExpressionEvaluator::evaluateExpression(std::string expression)
     }
     //anything else
     return SymbolInfo(-1, 'e');
+}
+
+
+bool isInt(std::string operand){
+    int i;
+    for(i=0; i<operand.size(); i++){
+        if(operand[i] >= '0' && operand[i] <= '9'){
+            continue;
+        }
+        return false;
+    }
 }
