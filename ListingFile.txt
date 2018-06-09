@@ -4,11 +4,11 @@ Line    Loc            Source statement
   2     00003                        LTORG                                   
   3     00003    *                   =x'3256'                                
   4     00005    TEST                BYTE                C'UU     UHU'       IHBIBIB 
-  5     0000f    MOHAMED             BYTE                C'UUU'              IHBIBIB 
-  6     00012                        LDA                 =C'325CSDCSD6'      
-  7     00015                        LDA                 =C'3256'            
-  8     00018    SHAZLY              EQU                 TEST-MOHAMED        
-  9     fffffff6                        ORG                 SHAZLY+5            
+  5     0000f                        LDA                 =C'325CSDCSD6'      
+  6     00012                        LDA                 =C'3256'            
+  7     00015    SHAZLY              EQU                 TEST-5              
+  8     00000                        ORG                 SHAZLY+5            
+  9     0001a    MOHAMED             BYTE                C'UUU'              IHBIBIB 
  10     0001d                        END                 BGN                 
  11     0001d    *                   =C'3256'                                
  12     0001f    *                   =C'325csdcsd6'                          

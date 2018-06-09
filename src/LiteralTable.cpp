@@ -14,13 +14,13 @@ LiteralTable* LiteralTable::getLiteralsTable() {
     return uniqueInstance;
 }
 
-std::map<std::string,std::pair< bool, std::string> > LiteralTable::getTable() {
+std::map<std::string,std::pair< bool, int> > LiteralTable::getTable() {
         return table;
 }
 
-void LiteralTable::SetLiteralsTable(std::map<std::string,std::pair< bool, std::string> > newTable) {
+void LiteralTable::SetLiteralsTable(std::map<std::string,std::pair< bool, int> > newTable) {
    table.clear();
-   std::map<std::string,std::pair< bool, std::string> >::iterator it = newTable.begin();
+   std::map<std::string,std::pair< bool, int> >::iterator it = newTable.begin();
     while (it != newTable.end())
     {
     table[it->first] = it->second;

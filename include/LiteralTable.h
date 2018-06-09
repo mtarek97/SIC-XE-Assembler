@@ -5,13 +5,13 @@
 class LiteralTable
 {
     public:
-        void SetLiteralsTable(std::map<std::string,std::pair< bool, std::string> > newTable);
+        void SetLiteralsTable(std::map<std::string,std::pair< bool, int> > newTable);
         static LiteralTable* getLiteralsTable();
-         std::map<std::string,std::pair< bool, std::string> > getTable();
+         std::map<std::string,std::pair< bool, int> > getTable();
 
 
     private:
-        std::map<std::string,std::pair< bool, std::string> > table;
+        std::map<std::string,std::pair< bool, int> > table;
         static LiteralTable* uniqueInstance;
         LiteralTable();
 

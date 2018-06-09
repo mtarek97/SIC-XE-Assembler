@@ -6,7 +6,7 @@ class DetectLiterals
 {
     public:
         DetectLiterals();
-        static vector<SourceLine> detect(int locationCounter, std::map<std::string,std::pair< bool, std::string> >lieralTable);
+        static vector<SourceLine> detect(int locationCounter, std::map<std::string,std::pair< bool, int> >lieralTable);
     private:
 };
 
