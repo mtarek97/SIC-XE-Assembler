@@ -48,7 +48,7 @@ SymbolInfo ExpressionEvaluator::evaluateExpression(std::string expression)
     //relative expression (an absolute term and a relative term respectively)
     if(firstOperand.getLocation() != -1 && secondOperand.getLocation() == -1){
         switch(operation){
-   case '+':
+        case '+':
             return SymbolInfo(firstOperand.getLocation() + toi(operands[1]), 'r');
         case '-':
             return SymbolInfo(firstOperand.getLocation() - toi(operands[1]), 'r');
