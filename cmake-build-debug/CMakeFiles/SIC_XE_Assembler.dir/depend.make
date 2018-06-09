@@ -8,6 +8,7 @@ CMakeFiles/SIC_XE_Assembler.dir/main.cpp.obj: ../include/OpInfo.h
 CMakeFiles/SIC_XE_Assembler.dir/main.cpp.obj: ../include/RegistersTable.h
 CMakeFiles/SIC_XE_Assembler.dir/main.cpp.obj: ../include/SourceLine.h
 CMakeFiles/SIC_XE_Assembler.dir/main.cpp.obj: ../include/SourceProgram.h
+CMakeFiles/SIC_XE_Assembler.dir/main.cpp.obj: ../include/SymbolInfo.h
 CMakeFiles/SIC_XE_Assembler.dir/main.cpp.obj: ../include/SymbolTable.h
 CMakeFiles/SIC_XE_Assembler.dir/main.cpp.obj: ../include/SyntaxValidator.h
 CMakeFiles/SIC_XE_Assembler.dir/main.cpp.obj: ../include/ValidatorUtilities.h
@@ -17,11 +18,22 @@ CMakeFiles/SIC_XE_Assembler.dir/src/AssemblyListing.cpp.obj: ../include/Assembly
 CMakeFiles/SIC_XE_Assembler.dir/src/AssemblyListing.cpp.obj: ../include/SourceLine.h
 CMakeFiles/SIC_XE_Assembler.dir/src/AssemblyListing.cpp.obj: ../src/AssemblyListing.cpp
 
+CMakeFiles/SIC_XE_Assembler.dir/src/DetectLiterals.cpp.obj: ../include/AssemblyListing.h
+CMakeFiles/SIC_XE_Assembler.dir/src/DetectLiterals.cpp.obj: ../include/DetectLiterals.h
+CMakeFiles/SIC_XE_Assembler.dir/src/DetectLiterals.cpp.obj: ../include/LiteralTable.h
+CMakeFiles/SIC_XE_Assembler.dir/src/DetectLiterals.cpp.obj: ../include/SourceLine.h
+CMakeFiles/SIC_XE_Assembler.dir/src/DetectLiterals.cpp.obj: ../include/UpdateLocationCounter.h
+CMakeFiles/SIC_XE_Assembler.dir/src/DetectLiterals.cpp.obj: ../src/DetectLiterals.cpp
+
+CMakeFiles/SIC_XE_Assembler.dir/src/LiteralTable.cpp.obj: ../include/LiteralTable.h
+CMakeFiles/SIC_XE_Assembler.dir/src/LiteralTable.cpp.obj: ../src/LiteralTable.cpp
+
 CMakeFiles/SIC_XE_Assembler.dir/src/ObjectCodeGenerator.cpp.obj: ../include/ObjectCodeGenerator.h
 CMakeFiles/SIC_XE_Assembler.dir/src/ObjectCodeGenerator.cpp.obj: ../include/OpCodeTable.h
 CMakeFiles/SIC_XE_Assembler.dir/src/ObjectCodeGenerator.cpp.obj: ../include/OpInfo.h
 CMakeFiles/SIC_XE_Assembler.dir/src/ObjectCodeGenerator.cpp.obj: ../include/RegistersTable.h
 CMakeFiles/SIC_XE_Assembler.dir/src/ObjectCodeGenerator.cpp.obj: ../include/SourceLine.h
+CMakeFiles/SIC_XE_Assembler.dir/src/ObjectCodeGenerator.cpp.obj: ../include/SymbolInfo.h
 CMakeFiles/SIC_XE_Assembler.dir/src/ObjectCodeGenerator.cpp.obj: ../include/SymbolTable.h
 CMakeFiles/SIC_XE_Assembler.dir/src/ObjectCodeGenerator.cpp.obj: ../src/ObjectCodeGenerator.cpp
 
@@ -42,23 +54,31 @@ CMakeFiles/SIC_XE_Assembler.dir/src/SourceLine.cpp.obj: ../include/SourceLine.h
 CMakeFiles/SIC_XE_Assembler.dir/src/SourceLine.cpp.obj: ../src/SourceLine.cpp
 
 CMakeFiles/SIC_XE_Assembler.dir/src/SourceProgram.cpp.obj: ../include/AssemblyListing.h
+CMakeFiles/SIC_XE_Assembler.dir/src/SourceProgram.cpp.obj: ../include/DetectLiterals.h
+CMakeFiles/SIC_XE_Assembler.dir/src/SourceProgram.cpp.obj: ../include/LiteralTable.h
 CMakeFiles/SIC_XE_Assembler.dir/src/SourceProgram.cpp.obj: ../include/ObjectCodeGenerator.h
 CMakeFiles/SIC_XE_Assembler.dir/src/SourceProgram.cpp.obj: ../include/OpCodeTable.h
 CMakeFiles/SIC_XE_Assembler.dir/src/SourceProgram.cpp.obj: ../include/OpInfo.h
 CMakeFiles/SIC_XE_Assembler.dir/src/SourceProgram.cpp.obj: ../include/RegistersTable.h
 CMakeFiles/SIC_XE_Assembler.dir/src/SourceProgram.cpp.obj: ../include/SourceLine.h
 CMakeFiles/SIC_XE_Assembler.dir/src/SourceProgram.cpp.obj: ../include/SourceProgram.h
+CMakeFiles/SIC_XE_Assembler.dir/src/SourceProgram.cpp.obj: ../include/SymbolInfo.h
 CMakeFiles/SIC_XE_Assembler.dir/src/SourceProgram.cpp.obj: ../include/SymbolTable.h
 CMakeFiles/SIC_XE_Assembler.dir/src/SourceProgram.cpp.obj: ../include/SyntaxValidator.h
 CMakeFiles/SIC_XE_Assembler.dir/src/SourceProgram.cpp.obj: ../include/UpdateLocationCounter.h
 CMakeFiles/SIC_XE_Assembler.dir/src/SourceProgram.cpp.obj: ../include/ValidatorUtilities.h
 CMakeFiles/SIC_XE_Assembler.dir/src/SourceProgram.cpp.obj: ../src/SourceProgram.cpp
 
+CMakeFiles/SIC_XE_Assembler.dir/src/SymbolInfo.cpp.obj: ../include/SymbolInfo.h
+CMakeFiles/SIC_XE_Assembler.dir/src/SymbolInfo.cpp.obj: ../src/SymbolInfo.cpp
+
+CMakeFiles/SIC_XE_Assembler.dir/src/SymbolTable.cpp.obj: ../include/SymbolInfo.h
 CMakeFiles/SIC_XE_Assembler.dir/src/SymbolTable.cpp.obj: ../include/SymbolTable.h
 CMakeFiles/SIC_XE_Assembler.dir/src/SymbolTable.cpp.obj: ../src/SymbolTable.cpp
 
 CMakeFiles/SIC_XE_Assembler.dir/src/SyntaxValidator.cpp.obj: ../include/OpCodeTable.h
 CMakeFiles/SIC_XE_Assembler.dir/src/SyntaxValidator.cpp.obj: ../include/OpInfo.h
+CMakeFiles/SIC_XE_Assembler.dir/src/SyntaxValidator.cpp.obj: ../include/RegistersTable.h
 CMakeFiles/SIC_XE_Assembler.dir/src/SyntaxValidator.cpp.obj: ../include/SourceLine.h
 CMakeFiles/SIC_XE_Assembler.dir/src/SyntaxValidator.cpp.obj: ../include/SyntaxValidator.h
 CMakeFiles/SIC_XE_Assembler.dir/src/SyntaxValidator.cpp.obj: ../include/ValidatorUtilities.h
@@ -67,8 +87,10 @@ CMakeFiles/SIC_XE_Assembler.dir/src/SyntaxValidator.cpp.obj: ../src/SyntaxValida
 CMakeFiles/SIC_XE_Assembler.dir/src/UpdateLocationCounter.cpp.obj: ../include/AssemblyListing.h
 CMakeFiles/SIC_XE_Assembler.dir/src/UpdateLocationCounter.cpp.obj: ../include/OpCodeTable.h
 CMakeFiles/SIC_XE_Assembler.dir/src/UpdateLocationCounter.cpp.obj: ../include/OpInfo.h
+CMakeFiles/SIC_XE_Assembler.dir/src/UpdateLocationCounter.cpp.obj: ../include/RegistersTable.h
 CMakeFiles/SIC_XE_Assembler.dir/src/UpdateLocationCounter.cpp.obj: ../include/SourceLine.h
 CMakeFiles/SIC_XE_Assembler.dir/src/UpdateLocationCounter.cpp.obj: ../include/SourceProgram.h
+CMakeFiles/SIC_XE_Assembler.dir/src/UpdateLocationCounter.cpp.obj: ../include/SymbolInfo.h
 CMakeFiles/SIC_XE_Assembler.dir/src/UpdateLocationCounter.cpp.obj: ../include/SymbolTable.h
 CMakeFiles/SIC_XE_Assembler.dir/src/UpdateLocationCounter.cpp.obj: ../include/SyntaxValidator.h
 CMakeFiles/SIC_XE_Assembler.dir/src/UpdateLocationCounter.cpp.obj: ../include/UpdateLocationCounter.h

@@ -12,6 +12,16 @@ SourceLine.h
 bits/stdc++.h
 -
 
+../include/DetectLiterals.h
+SourceLine.h
+../include/SourceLine.h
+bits/stdc++.h
+-
+
+../include/LiteralTable.h
+bits/stdc++.h
+-
+
 ../include/ObjectCodeGenerator.h
 string
 -
@@ -56,11 +66,15 @@ SymbolTable.h
 AssemblyListing.h
 -
 
+../include/SymbolInfo.h
+
 ../include/SymbolTable.h
 string
 -
 map
 -
+SymbolInfo.h
+../include/SymbolInfo.h
 
 ../include/SyntaxValidator.h
 OpInfo.h
@@ -77,6 +91,8 @@ string
 -
 ValidatorUtilities.h
 ../include/ValidatorUtilities.h
+RegistersTable.h
+../include/RegistersTable.h
 
 ../include/UpdateLocationCounter.h
 SourceLine.h
@@ -100,6 +116,8 @@ algorithm
 ctype.h
 -
 sstream
+-
+regex
 -
 
 C:/Users/Mohamed Mashaal/Desktop/Assembler/SIC-XE-Assembler/main.cpp
@@ -131,6 +149,24 @@ fstream
 -
 iostream
 -
+
+C:/Users/Mohamed Mashaal/Desktop/Assembler/SIC-XE-Assembler/src/DetectLiterals.cpp
+DetectLiterals.h
+C:/Users/Mohamed Mashaal/Desktop/Assembler/SIC-XE-Assembler/src/DetectLiterals.h
+UpdateLocationCounter.h
+C:/Users/Mohamed Mashaal/Desktop/Assembler/SIC-XE-Assembler/src/UpdateLocationCounter.h
+bits/stdc++.h
+-
+AssemblyListing.h
+C:/Users/Mohamed Mashaal/Desktop/Assembler/SIC-XE-Assembler/src/AssemblyListing.h
+SourceLine.h
+C:/Users/Mohamed Mashaal/Desktop/Assembler/SIC-XE-Assembler/src/SourceLine.h
+LiteralTable.h
+C:/Users/Mohamed Mashaal/Desktop/Assembler/SIC-XE-Assembler/src/LiteralTable.h
+
+C:/Users/Mohamed Mashaal/Desktop/Assembler/SIC-XE-Assembler/src/LiteralTable.cpp
+LiteralTable.h
+C:/Users/Mohamed Mashaal/Desktop/Assembler/SIC-XE-Assembler/src/LiteralTable.h
 
 C:/Users/Mohamed Mashaal/Desktop/Assembler/SIC-XE-Assembler/src/ObjectCodeGenerator.cpp
 ObjectCodeGenerator.h
@@ -183,6 +219,14 @@ UpdateLocationCounter.h
 -
 ObjectCodeGenerator.h
 -
+DetectLiterals.h
+C:/Users/Mohamed Mashaal/Desktop/Assembler/SIC-XE-Assembler/src/DetectLiterals.h
+LiteralTable.h
+C:/Users/Mohamed Mashaal/Desktop/Assembler/SIC-XE-Assembler/src/LiteralTable.h
+
+C:/Users/Mohamed Mashaal/Desktop/Assembler/SIC-XE-Assembler/src/SymbolInfo.cpp
+SymbolInfo.h
+C:/Users/Mohamed Mashaal/Desktop/Assembler/SIC-XE-Assembler/src/SymbolInfo.h
 
 C:/Users/Mohamed Mashaal/Desktop/Assembler/SIC-XE-Assembler/src/SymbolTable.cpp
 SymbolTable.h

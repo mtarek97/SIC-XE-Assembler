@@ -6,6 +6,10 @@ SymbolInfo::SymbolInfo(int locInMemory, char type)
     this->symbolType = type;
 }
 
+SymbolInfo::SymbolInfo() {
+    
+}
+
 int SymbolInfo::getLocation(){
     return this->location;
 }
