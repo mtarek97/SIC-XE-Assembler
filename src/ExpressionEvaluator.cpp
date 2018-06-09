@@ -1,40 +1,42 @@
 #include "ExpressionEvaluator.h"
 
+using namespace std;
+
 ExpressionEvaluator::ExpressionEvaluator()
 {
     //ctor
 }
 
-SymbolInfo ExpressionEvaluator::evaluateExpression(string expression)
+SymbolInfo ExpressionEvaluator::evaluateExpression(std::string expression)
 {
     SymbolTable symbolTable;
     // assuming it's a simple expression <operand><operation><operand>
-    vector<std::string> operands = ValidatorUtilities::split(str,"[-/+*]");
-    SymbolInfo firstOperand = symbolTable->search(operands[0]);
-    SymbolInfo secondOperand = symbolTable->search(operands[1]);
+    vector<std::string> operands = ValidatorUtilities::split(expression,"[-/+*]");
+    SymbolInfo firstOperand = symbolTable.search(operands[0]);
+    SymbolInfo secondOperand = symbolTable.search(operands[1]);
 
     char operation = (expression.substr(operands[0].size(), 1))[0];
 
     //absolute expression (only absolute terms)
-    if(firstOperand->getLocation() == -1 && secondOperand->getLocation() == -1){
+    if(firstOperand.getLocation() == -1 && secondOperand.getLocation() == -1){
         switch(operation){
         case '+':
-            return SymbolInfo(firstOperand + secondOperand, 'a');
+            return SymbolInfo(firstOperand.getLocation() + secondOperand.getLocation(), 'a');
         case '-':
-            return SymbolInfo(firstOperand - secondOperand, 'a');
+            return SymbolInfo(firstOperand.getLocation() - secondOperand.getLocation(), 'a');
         case '*':
-            return SymbolInfo(firstOperand * secondOperand, 'a');
+            return SymbolInfo(firstOperand.getLocation() * secondOperand.getLocation(), 'a');
         case '/':
-            return SymbolInfo(firstOperand / secondOperand, 'a');
+            return SymbolInfo(firstOperand.getLocation() / secondOperand.getLocation(), 'a');
         }
     }
     //absolute expression (pair of relative terms)
-    if(firstOperand->getLocation() != -1 && secondOperand->getLocation() != -1){
+    if(firstOperand.getLocation() != -1 && secondOperand.getLocation() != -1){
         switch(operation){
         case '+':
             return SymbolInfo(-1, 'e');
         case '-':
-            return SymbolInfo(firstOperand - secondOperand, 'a');
+            return SymbolInfo(firstOperand.getLocation() - secondOperand.getLocation(), 'a');
         case '*':
             return SymbolInfo(-1, 'e');
         case '/':
@@ -43,13 +45,13 @@ SymbolInfo ExpressionEvaluator::evaluateExpression(string expression)
     }
 
     //relative expression (an absolute term and a relative term respectively)
-    if(firstOperand->getLocation() != -1 && secondOperand->getLocation() == -1){
+    if(firstOperand.getLocation() != -1 && secondOperand.getLocation() == -1){
         switch(operation){
      #include "SymbolInfo.h"
    case '+':
-            return SymbolInfo(firstOperand + secondOperand, 'a');
+            return SymbolInfo(firstOperand.getLocation() + secondOperand.getLocation(), 'a');
         case '-':
-            return SymbolInfo(firstOperand - secondOperand, 'a');
+            return SymbolInfo(firstOperand.getLocation() - secondOperand.getLocation(), 'a');
         case '*':
             return SymbolInfo(-1, 'e');
         case '/':
