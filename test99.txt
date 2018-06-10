@@ -5,4 +5,4 @@ sub x1,x
 sta z
 x1 word 6,5
 z resw 1
-END st
+END 

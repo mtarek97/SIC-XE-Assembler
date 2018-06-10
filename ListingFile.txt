@@ -34,8 +34,8 @@ Line    Loc            Source statement
        ****Error:ADD is invalid operand
  32     0002f                        LTORG                                   
  33     0002f    *                   =C'3256'                                
- 34     00033    *                   =x'325556'                              
- 35     00036    *                   =x'3256'                                
+ 34     00033    *                   =X'325556'                              
+ 35     00036    *                   =X'3256'                                
  36     00038                        LDA                 =C'325  6'          
  37     0003b    FOUND               J                   OUT                 
  38     0003e    ALPHA               WORD                2                   
@@ -49,5 +49,5 @@ Line    Loc            Source statement
        ****Error:label must be blank at END statement
  45     0004e    *                   =C'325  6'                              
  46     00054    *                   =C'3256'                                
- 47     00058    *                   =x'325556'                              
- 48     0005b    *                   =x'3256'                                
+ 47     00058    *                   =X'325556'                              
+ 48     0005b    *                   =X'3256'                                

@@ -64,7 +64,7 @@ int main( )
     SourceProgram sourceProgram;
     string l = "aaaa.txt";
 
-    Pass2 pass2 = Pass2(sourceProgram.parse(&fileName[0]),1+2*16);
+    Pass2 pass2 = Pass2(sourceProgram.parse(&fileName[0]));
     pass2.generateObjProg();
 
 
