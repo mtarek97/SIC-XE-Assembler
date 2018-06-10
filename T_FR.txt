@@ -18,11 +18,11 @@ LOOP     LDCH    STRING,X
          STCH    OUTPUT,X
          TIX     #5
          JLT     LOOP
-     FOUND    J       OUT
+FOUND    J       OUT
 ALPHA    WORD    2
 SAVEW    RESW    2
 HEXCHAR  BYTE        X'61'
 INPUT     RESB    1
 STRING   BYTE    C'String'
 OUTPUT   RESB    5
-OUT      END
+O*T      END

@@ -1,12 +1,29 @@
 Line    Loc            Source statement            Object Code   
-  0     00000    ADDER     START     0000           
-  1     00000    ST        LDZ       X1             
-       ****Error1:LDZ is invalid operation
-  2     00000    ST2       LDX       #3             050003
-  3     00003    SUB       X2,X                     
-       ****Error1:label can't be a reserved keyword
-  4     00003    STA       Z                        
-       ****Error1:label can't be a reserved keyword
-  5     00003    X         WORD      6,5            
-       ****Error1:label can't be a reserved keyword
-  6     00003    Z         RESW      1              
+  0              .234567890123456789 
+  1     00000    LAB2C     START     1000           
+  2     00008              LDA       ALPHA          032033
+  3     0000b              LDB       #10            69000a
+  4     0000e              LDX       #0             050000
+  5     00011              ADDR      A,B            9003
+  6     00013              STA       SAVEW,X        0fa02b
+  7     00016              LDX       #1             050001
+  8     00019              STA       SAVEW,X        0fa025
+  9              .Format 4 
+ 10     0001c              +SUB      #12            1d10000c
+ 11     00020              LDX       #0             050000
+ 12     00023              LDCH      HEXCHAR        532021
+ 13     00026              STA       INPUT          0f201f
+ 14     00029    LOOP      LDCH      STRING,X       53a01d
+ 15     0002c              COMP      INPUT          2b2019
+ 16     0002f              JEQ       FOUND          332009
+ 17     00032              STCH      OUTPUT,X       57a01a
+ 18     00035              TIX       #5             2d0005
+ 19     00038              JLT       LOOP           3b2fee
+ 20     0003b    FOUND     J         OUT            3f2fc1
+ 21     0003e    ALPHA     WORD      2              000002
+ 22     00041    SAVEW     RESW      2              
+ 23     00047    HEXCHAR   BYTE      X'61'          61
+ 24     00048    INPUT     RESB      1              
+ 25     00049    STRING    BYTE      C'STRING'      535452494e47
+ 26     0004f    OUTPUT    RESB      5              
+ 27     00054    O*T       END                      
