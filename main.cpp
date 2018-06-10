@@ -97,7 +97,7 @@ int main( )
     cout << (sourceLine.getHasObjCode() ? "has obj code" : "has no obj code") << endl;
     cout << (sourceLine.getContainsExpression() ? "has exp" : "has no exp") << endl;
     if(sourceLine.getHasObjCode()){
-        string result = generator->getObjectCode(sourceLine);
+        string result = generator->getObjectCode(&sourceLine);
         cout << result << endl;
     }
     // debug

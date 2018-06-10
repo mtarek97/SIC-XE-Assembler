@@ -69,7 +69,7 @@ void Pass2::generateObjProg(){
     ///what should i do if there isn't end?
     while(currentLine.getOperation() != "END" && linesCounter < sourceLinesArr.size()-1){
         if(currentLine.getIsValid() && currentLine.getHasObjCode() && currentLine.getOperation() != ""){
-           string opCode = objCodeGenerator->getObjectCode(currentLine);
+           string opCode = objCodeGenerator->getObjectCode(&currentLine);
            if(opCode != ObjectCodeGenerator::SOME_THING_WRONG){
                if(prevLine.getNextInstruction() != currentLine.getLocationCounter()){
                     objectProgram.writeText(TextStartAddress,convertToHEX(TextRecord.length()/2),TextRecord);
@@ -130,7 +130,7 @@ void Pass2::generateObjProg(){
     while(linesCounter < sourceLinesArr.size()){
         prevLine = currentLine;
         currentLine = sourceLinesArr[linesCounter++];
-        string opCode = objCodeGenerator->getObjectCode(currentLine);
+        string opCode = objCodeGenerator->getObjectCode(&currentLine);
         if(opCode != ObjectCodeGenerator::SOME_THING_WRONG){
            if(TextRecord.length() + opCode.length() <= MAX_TEXT_RECORED_LENGTH){
                 TextRecord = TextRecord + opCode;
