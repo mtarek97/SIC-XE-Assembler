@@ -83,9 +83,6 @@ vector<SourceLine> SourceProgram::parse(char* fileName)
 makeLiteralPool();
 (LiteralTable::getLiteralsTable())->SetLiteralsTable(lieralTable);
 sourcelines[sourcelines.size() - 1].setNextInstruction(locationCounter);
-cout<<"---------------";
-for(int i=0;i<sourcelines.size();i++)
-    cout<<sourcelines[i].getNextInstruction()<<"\n";
 return (sourcelines);
 
 }
@@ -227,7 +224,7 @@ void SourceProgram::updateLocationCounter(SourceLine sourceLine)
                 error = "This lable is used before";
                 sourceLine.setIsValid(false);
             }
-            else
+            else if(getUpper(sourceLine.getOperation()) != "EQU")
                 symbolTable->insert(sourceLine.getLable(), locationCounter);
         }
 

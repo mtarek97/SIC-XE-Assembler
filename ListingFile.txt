@@ -1,15 +1,50 @@
 Line    Loc            Source statement       
-  0     00000    XXX                 START               0000                
-  1     00000                        LDA                 =X'3256'            
-  2     00003                        LTORG                                   
-  3     00003    *                   =x'3256'                                
-  4     00005    TEST                BYTE                C'UU     UHU'       IHBIBIB 
-  5     0000f    MOHAMED             BYTE                C'UUU'              IHBIBIB 
-  6     00012                        LDA                 =C'325CSDCSD6'      
-  7     00015                        LDA                 =C'3256'            
-  8     00018    SHAZLY              EQU                 3+5                 
-  9     00018                        ORG                 SHAZLY+5            
- 10     00018                        END                 BGN                 
- 11     00018    *                   =C'3256'                                
- 12     0001a    *                   =C'325csdcsd6'                          
- 13     0001f    *                   =x'3256'                                
+  0              .234567890123456789 
+  1              .234567890123456789.234567890123456789 
+  2              .234567890123456789 
+  3              .234567890123456789 
+  4              .234567890123456789 
+  5     00004    LAB2C               START               0100                
+  6     00004                        LDA                 ALPHA               
+  7     00007                        LDB                 #10                 
+  8     0000a                        LDX                 #0                  YGYGYG 3T34T34T EGRGERGERG GRERGERG 
+  9     0000d                        ADDR                A,B                 
+ 10     0000f                        STA                 SAVEW,X             
+ 11     00012                        LDX                 #1                  
+ 12     00015                        STA                 SAVEW,X             
+ 13              .Format 4 erg wwww sss 
+ 14     00018                        SUB                 #12                 
+ 15     0001b                        LDX                 #0                  
+ 16     0001e                        LDA                 =X'3256'            
+ 17     00021                        LDA                 =X'3256'            
+ 18     00024                        LDA                 =C'3256'            
+ 19     00027                        LDA                 =X'325556'          
+ 20     0002a                        STA                 INPUT               
+ 21     0002d    ADDLL               LDCH                STRING,X            
+ 22     00030                        COMP                INPUT               
+ 23     00033                        JEQ                 FOUND               
+ 24     00036    UU                  EQU                 ADDLL-9             
+ 25     00036                        ORG                 UU+5                
+ 26     00029                        STCH                OUTPUT,X            
+ 27     0002c                        TIX                 #5                  
+ 28     0002f                        JLT                 ADD                 
+       ****Error:ADD is invalid operand
+ 29     0002f                        LTORG                                   
+ 30     0002f    *                   =C'3256'                                
+ 31     00033    *                   =x'325556'                              
+ 32     00036    *                   =x'3256'                                
+ 33     00038                        LDA                 =C'325  6'          
+ 34     0003b    FOUND               J                   OUT                 
+ 35     0003e    ALPHA               WORD                2                   
+ 36     00041    SAVEW               RESW                2                   
+ 37     00047    HEXCHAR             BYTE                X'61'               
+ 38     00048    INPUT               RESB                1                   
+ 39     00049    STRING              BYTE                C'STRING     GERGER'
+       ****Error:STRING     GERGER can't exceed 15 characters
+ 40     00049    OUTPUT              RESB                5                   
+ 41     0004e    OUT                 END                 #4                  
+       ****Error:label must be blank at END statement
+ 42     0004e    *                   =C'325  6'                              
+ 43     00054    *                   =C'3256'                                
+ 44     00058    *                   =x'325556'                              
+ 45     0005b    *                   =x'3256'                                

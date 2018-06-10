@@ -15,7 +15,7 @@ UpdateLocationCounter::UpdateLocationCounter()
 pair<int,string> UpdateLocationCounter::setLocationCounter(int locationCounter, SourceLine sourceLine)
 {
     string error = "";
- SymbolTable* symbolTable = SymbolTable::getSymbolTable();
+    SymbolTable* symbolTable = SymbolTable::getSymbolTable();
     OpCodeTable* opCodeTable = OpCodeTable::getOpTable();
     OpInfo opinfo = opCodeTable->getInfo(SourceProgram::getUpper(sourceLine.getOperation()));
     if(opinfo.getOpCode() != opinfo.NOT_FOUND)
@@ -85,14 +85,15 @@ pair<int,string> UpdateLocationCounter::setLocationCounter(int locationCounter, 
             if(sourceLine.getContainsExpression()){
                ExpressionEvaluator evaluate;
                if(evaluate.evaluateExpression(sourceLine.getOperand()).getLocation() != -1) {
-                   symbolTable->insert(sourceLine.getOperand(), evaluate.evaluateExpression(sourceLine.getOperand()).getLocation());
+                    cout<<"here"<<evaluate.evaluateExpression(sourceLine.getOperand()).getLocation();
+                   symbolTable->insert(sourceLine.getLable(), evaluate.evaluateExpression(sourceLine.getOperand()).getLocation());
                 }
             }
             else if(symbolTable->hashtable.count(sourceLine.getOperand()) != 0){
-                symbolTable->insert(sourceLine.getOperand(), symbolTable->hashtable[sourceLine.getOperand()].getLocation());
+                symbolTable->insert(sourceLine.getLable(), symbolTable->hashtable[sourceLine.getOperand()].getLocation());
             }
             else if(sourceLine.getOperand() == "*"){
-                symbolTable->insert(sourceLine.getOperand(), locationCounter);
+                symbolTable->insert(sourceLine.getLable(), locationCounter);
             }
             else
                 error = "This symbol is not exist until now";
@@ -100,7 +101,7 @@ pair<int,string> UpdateLocationCounter::setLocationCounter(int locationCounter, 
         }
         else if(sourceLine.getLable() == "*" && sourceLine.getOperation()[0] == '=')
         {
-            if(toupper(sourceLine.getOperand()[1])=='C')
+            if(toupper(sourceLine.getOperation()[1])=='C')
                 locationCounter = locationCounter + (sourceLine.getOperation().length()) - 4;
             else
                 locationCounter = locationCounter + ((sourceLine.getOperation().length() - 4 + 1 )/2);
