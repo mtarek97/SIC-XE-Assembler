@@ -47,7 +47,7 @@ void Pass2::generateObjProg(){
     while(currentLine.getOperation() != "END" && linesCounter < sourceLinesArr.size()){
         if(currentLine.getIsValid() && currentLine.getHasObjCode() && currentLine.getOperation() != ""){
            string opCode = objCodeGenerator->getObjectCode(currentLine);
-           if(opCode != ObjectCodeGenerator.SOME_THING_WRONG){
+           if(opCode != ObjectCodeGenerator::SOME_THING_WRONG){
                if(prevLine.getNextInstruction() != currentLine.getLocationCounter()){
                     objectProgram.writeText(TextStartAddress,convertToHEX(TextRecord.length()),TextRecord);
                     TextRecord = opCode;
