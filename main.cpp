@@ -82,8 +82,8 @@ int main( )
     ObjectCodeGenerator* generator = ObjectCodeGenerator::getObjectCodeGenerator();
 
     SourceLine sourceLine ; // symbol Table has been set inside source Program for testing purposes only.
-    sourceLine.setOperation("+LDA");
-    sourceLine.setOperand("@Buffer");
+    sourceLine.setOperation("LDCH");
+    sourceLine.setOperand("HEXCHAR");
     sourceLine.setNextInstruction(4177);
 
     SyntaxValidator validator;

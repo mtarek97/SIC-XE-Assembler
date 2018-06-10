@@ -182,7 +182,7 @@ bool SyntaxValidator::checkFormat3or4Operand(OpInfo info)
             return false;
         }
         else if(!(ValidatorUtilities::isHexAddress(splittedOperands[0],6))
-                && !ValidatorUtilities::isSymbol(splittedOperands[0],6) && !sourceLine->getContainsExpression())
+                && !ValidatorUtilities::isSymbol(splittedOperands[0],LABEL_MAXLENGTH) && !sourceLine->getContainsExpression())
         {
             this->sourceLine->setErrorMessage(splittedOperands[0] + " is invalid operand");
             return false;
@@ -218,7 +218,7 @@ bool SyntaxValidator::checkFormat3or4Operand(OpInfo info)
             }
             return true;
         }
-        else if(!sourceLine->getContainsExpression() && !ValidatorUtilities::isSymbol(nonPrefixedOperand,6)
+        else if(!sourceLine->getContainsExpression() && !ValidatorUtilities::isSymbol(nonPrefixedOperand,LABEL_MAXLENGTH)
                 && !ValidatorUtilities::isHexAddress(nonPrefixedOperand,6) && !(nonPrefixedOperand=="*"))
         {
             this->sourceLine->setErrorMessage(splittedOperands[0] + " is invalid operand");
