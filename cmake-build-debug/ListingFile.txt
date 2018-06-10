@@ -1,53 +1,13 @@
 Line    Loc            Source statement       
-  0              ..2345678901234567890 
-  1     00000                        START               0                   
-  2     00000    FIRST               STL                 RETADR              
-  3     00003                        LDB                 #LENGTH             
-  4     00006    CLOOP               JSUB                RDREC               
-  5     00009                        LDA                 LENGTH              
-  6     0000c                        COMP                #0                  
-  7     0000f                        JEQ                 ENDFIL              
-  8     00012                        JSUB                WRREC               
-  9     00015                        J                   CLOOP               
- 10     00018    ENDFIL              LDA                 EOF                 
- 11     0001b                        STA                 BUFFER              
- 12     0001e                        LDA                 #3                  
- 13     00021                        STA                 LENGTH              
- 14     00024                        JSUB                WRREC               
- 15     00027                        J                   @RETADR             
- 16     0002a    EOF                 BYTE                C'EOF'              
- 17     0002d    RETADR              RESW                1                   
- 18     00030    LENGTH              RESW                1                   
- 19     00033    BUFFER              RESB                4096                
- 20              . 
- 21              . SUBROUTINE TO READ RECORD INTO BUFFER 
- 22              . 
- 23     01033    RDREC               CLEAR               X                   
- 24     01035                        CLEAR               A                   
- 25     01037                        CLEAR               S                   
- 26     01039                        LDT                 #4096               
- 27     0103c    RLOOP               TD                  INPUT               
- 28     0103f                        JEQ                 RLOOP               
- 29     01042                        RD                  INPUT               
- 30     01045                        COMPR               A,S                 
- 31     01047                        JEQ                 EXIT                
- 32     0104a                        STCH                BUFFER,X            
- 33     0104d                        TIXR                T                   
- 34     0104f                        JLT                 RLOOP               
- 35     01052    EXIT                STX                 LENGTH              
- 36     01055                        RSUB                                    
- 37     01058    INPUT               BYTE                X'F1'               
- 38              . 
- 39              . SUBROUTINE TO WRITE RECORD FROM BUFFER 
- 40              . 
- 41     01059    WRREC               CLEAR               X                   
- 42     0105b                        LDT                 LENGTH              
- 43     0105e    WLOOP               TD                  OUTPUT              
- 44     01061                        JEQ                 WLOOP               
- 45     01064                        LDCH                BUFFER,X            
- 46     01067                        WD                  OUTPUT              
- 47     0106a                        TIXR                T                   
- 48     0106c                        JLT                 WLOOP               
- 49     0106f                        RSUB                                    
- 50     01072    OUTPUT              BYTE                X'05'               
- 51     01073                        END                 FIRST               
+  0              .23456789012345678901234567890123456 
+  1              . ALT & Enter to toggle full screen 
+  2              .Label. Opcode The O p e r a n d 
+  3              . 
+  4     00000    TEST1               START               0000                
+  5     00000    ST                  LDA                 X1                  
+  6     00003                        LDX                 #3                  
+  7     00006                        SUB                 X1,X                
+  8     00009                        STA                 Z                   
+  9     0000c    X1                  WORD                6                   
+ 10     0000f    Z                   RESW                1                   
+ 11     00012                        END                                     
