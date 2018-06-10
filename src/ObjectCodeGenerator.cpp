@@ -249,7 +249,7 @@ std::string ObjectCodeGenerator::getObjectCode(SourceLine sourceLine) {
             }else if(currentCase == "CASE29"){ // Format 3 - Literal - PC
                 string opCode = opCodeTable->getInfo(operation).getOpCode();
                 int displacement = literalTable->getTable()[operand].second - sourceLine.getNextInstruction();
-                return calculateObjectCode(opCode,3,2,displacement,format4Flag);
+                return calculateObjectCode(opCode,3,2,displacement,format3Flag);
             }else if(currentCase == "CASE30"){ // Format 3 - Literal - BASE
                 string opCode = opCodeTable->getInfo(operation).getOpCode();
                 int displacement = literalTable->getTable()[operand].second - symbolTable->search(currentBaseAddress).getLocation();
