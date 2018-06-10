@@ -4,40 +4,40 @@ Line    Loc            Source statement            Object Code
   2              .234567890123456789 
   3              .234567890123456789 
   4              .234567890123456789 
-  5     00000    LAB2C     START     0100           
-  6     00004    LDA       LDA       ALPHA          
+  5     00000    LAB2C     START     1000           
+  6     01000    LDA       LDA       ALPHA          
        ****Error1:label can't be a reserved keyword
-  7     00004              LDB       #10            69000a
-  8     00007              LDX       #0             050000YGYGYG 3T34T34T EGRGERGERG GRERGERG 
-  9     0000a              ADDR      A,B            9003
- 10     0000c              STA       SAVEW,X        0fa033
- 11     0000f              LDX       #1             050001
- 12     00012              STA       SAVEW,X        0fa02d
+  7     01000              LDB       #10            69000a
+  8     01003              LDX       #0             050000YGYGYG 3T34T34T EGRGERGERG GRERGERG 
+  9     01006              ADDR      A,B            9003
+ 10     01008              STA       SAVEW,X        0fa033
+ 11     0100b              LDX       #1             050001
+ 12     0100e              STA       SAVEW,X        0fa02d
  13              .Format 4 erg wwww sss 
- 14     00015              SUB       #12            1d000c
- 15     00018              LDX       #0             050000
- 16     0001b              LDA       =X'4256'       03200031
- 17     0001e              LDA       =X'6256'       03200030
- 18     00021              LDA       =C'3256'       0320002f
- 19     00024              LDA       =X'325556'     03200030
- 20     00027              STA       INPUT          0f201f
- 21     0002a    ADDLL     LDCH      STRING,X       53afd2
- 22     0002d              COMP      INPUT          2b2019
- 23     00030              JEQ       FOUND          33203d
+ 14     01011              SUB       #12            1d000c
+ 15     01014              LDX       #0             050000
+ 16     01017              LDA       =X'4256'       03200031
+ 17     0101a              LDA       =X'6256'       03200030
+ 18     0101d              LDA       =C'3256'       0320002f
+ 19     01020              LDA       =X'325556'     03200030
+ 20     01023              STA       INPUT          0f201f
+ 21     01026    ADDLL     LDCH      STRING,X       53c000
+ 22     01029              COMP      INPUT          2b2019
+ 23     0102c              JEQ       FOUND          332039
  24     ffffffff    UU        EQU       ADDLLKKK       
- 25     00027    UUB       EQU       ADDLL-3        
- 26     00028    UUC       EQU       ADDLL-2        
- 27     00029    UUD       EQU       ADDLL-1        
- 28     00033    ORG       UU+5                     
+ 25     01023    UUB       EQU       ADDLL-3        
+ 26     01024    UUC       EQU       ADDLL-2        
+ 27     01025    UUD       EQU       ADDLL-1        
+ 28     0102f    ORG       UU+5                     
        ****Error1:label can't be a reserved keyword
- 29     00033              STCH      OUTPUT,X       57a014
- 30     00036              TIX       #5             2d0005
- 31     00039              JLT       ADD            
+ 29     0102f              STCH      OUTPUT,X       57a014
+ 30     01032              TIX       #5             2d0005
+ 31     01035              JLT       ADD            
        ****Error1:ADD is invalid operand
  32              
- 33     00039              LDA       =C'325  6'     0320001e
- 34     0003c    FOUND     J         OUT            3f2fc0
- 35     0003f    ALPHA     WORD      2              000002
- 36     00042    SAVEW     RESW      2              
- 37     00048    HEXCHAR   BYTE      X'61'          61
- 38     00049    INPUT     RESB      1              
+ 33     01035              LDA       =C'325  6'     0320001e
+ 34     01038    FOUND     J         OUT            3f4000
+ 35     0103b    ALPHA     WORD      2              000002
+ 36     0103e    SAVEW     RESW      2              
+ 37     01044    HEXCHAR   BYTE      X'61'          61
+ 38     01045    INPUT     RESB      1              
