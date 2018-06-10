@@ -9,7 +9,7 @@ using namespace std;
 SymbolTable* SymbolTable::uniqueInstance = 0;
 
 SymbolTable::SymbolTable(){
-    //...
+    this->isFirst = true;
 }
 
 SymbolTable* SymbolTable::getSymbolTable() {
