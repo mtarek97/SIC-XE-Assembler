@@ -83,7 +83,7 @@ sourcelines[sourcelines.size() - 1].setNextInstruction(locationCounter);
 return (sourcelines);
 
 }
-std::map<std::string,std::pair< bool, std::string> > SourceProgram::getLiteralTable(){
+std::map<std::string,std::pair< bool, int> > SourceProgram::getLiteralTable(){
 return lieralTable;
 }
 
@@ -100,6 +100,7 @@ void SourceProgram::makeLiteralPool()
         }
         locationCounter = newLines[i].getLocationCounter();
         lieralTable[newLines[i].getOperand()] = make_pair(true, locationCounter);
+        cout<<lieralTable[newLines[i].getOperand()].first<<" "<< lieralTable[newLines[i].getOperand()].second<<"\n";
         write(newLines[i], "");
     }
     if(newLines.size() != 0)
@@ -222,6 +223,7 @@ void SourceProgram::updateLocationCounter(SourceLine sourceLine)
             else
                 symbolTable->insert(sourceLine.getLable(), locationCounter);
         }
+
         write(sourceLine, error);
         error = "";
         pair<int,string> result;
