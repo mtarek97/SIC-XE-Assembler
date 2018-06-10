@@ -20,8 +20,8 @@ class SymbolTable{
         SymbolTable();
         static SymbolTable* uniqueInstance;
         map<string, bool> inserted;
-        bool isFirst = true;
-        void writeInFile(string symbol, int locInMemory);
+        bool isFirst;
+        void writeInFile(string symbol, string locInMemory);
 };
 
 #endif // SYMBOLTABLE_H

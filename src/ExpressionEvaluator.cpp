@@ -19,6 +19,7 @@ SymbolInfo ExpressionEvaluator::evaluateExpression(std::string expression)
     int h = operands.size();
     SymbolInfo firstOperand = symbolTable->search(operands[0]);
     SymbolInfo secondOperand = symbolTable->search(operands[1]);
+   // cout<<"-----"<<firstOperand.getLocation();
 
     char operation = (expression.substr(operands[0].size(), 1))[0];
 
@@ -126,7 +127,7 @@ SymbolInfo ExpressionEvaluator::evaluateExpression(std::string expression)
 }
 
 
-bool isInt(std::string operand){
+bool ExpressionEvaluator::isInt(std::string operand){
     int i;
     for(i=0; i<operand.size(); i++){
         if(operand[i] >= '0' && operand[i] <= '9'){
@@ -134,4 +135,5 @@ bool isInt(std::string operand){
         }
         return false;
     }
+    return true;
 }
