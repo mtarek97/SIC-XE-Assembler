@@ -134,4 +134,5 @@ bool ExpressionEvaluator::isInt(std::string operand){
         }
         return false;
     }
+    return true;
 }
