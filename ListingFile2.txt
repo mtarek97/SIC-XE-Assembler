@@ -1,0 +1,9 @@
+Line    Loc            Source statement              Object Code   
+  0     00000    adder     START     0000           
+  1     00000    st        lda       x1             032ffc
+  2     00003              ldx       #3             050003
+  3     00006              sub       x1,x           1faff6
+  4     00009              sta       z              0f2ff3
+  5     0000c    x1        word      6,5            6
+  6     00012    z         resw      1              142fea
+  7     00015              END                      
