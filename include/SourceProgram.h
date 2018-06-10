@@ -25,7 +25,7 @@ class SourceProgram
 
         void write(SourceLine sourceLine, string error);
         void detectStart(SourceLine sourceLine);
-        void updateLocationCounter(SourceLine sourceLine);
+        void updateLocationCounter(SourceLine* sourceLine);
         void makeLiteralPool();
 
         int start = 0, lineNumber = 0, locationCounter = 0;

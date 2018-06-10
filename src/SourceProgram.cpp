@@ -48,7 +48,7 @@ vector<SourceLine> SourceProgram::parse(char* fileName)
         {
             sourceLine = identifier(line, parser);
             sourceLine.setLocationCounter(locationCounter);
-            updateLocationCounter(sourceLine);
+            updateLocationCounter(&sourceLine);
             lineNumber++;
             if(getUpper(sourceLine.getOperation()) == "EQU"){
                 sourceLine.setLocationCounter(symbolTable->search(getUpper(sourceLine.getLable())).getLocation());
@@ -89,7 +89,7 @@ makeLiteralPool();
 sourcelines[sourcelines.size() - 1].setNextInstruction(locationCounter);
 for(int i=0;i<sourcelines.size();i++)
   //  if(getUpper(sourcelines[i].getOperation()) == "EQU")
-    cout<<"here "<<sourcelines[i].getNextInstruction()<<"    "<<sourcelines[i].getLocationCounter()<<" \n   ";
+    cout<<"here "<<sourcelines[i].getOperation()<<"    "<<sourcelines[i].getLocationCounter()<<" \n   ";
 //<<sourcelines[i-1].getNextInstruction();
 return (sourcelines);
 
@@ -200,49 +200,49 @@ void SourceProgram::write(SourceLine sourceLine, string error)
     string locationCounterinhex = stream.str();
     assemblyListing.write(sourceLine, locationCounterinhex, error);
 }
-void SourceProgram::updateLocationCounter(SourceLine sourceLine)
+void SourceProgram::updateLocationCounter(SourceLine* sourceLine)
 {
     string error = "";
     SyntaxValidator syntaxValidator;
-    if(syntaxValidator.isValid(&sourceLine))
+    if(syntaxValidator.isValid(sourceLine))
     {
-        if(getUpper(sourceLine.getOperation()) == "START")
+        if(getUpper(sourceLine->getOperation()) == "START")
         {
             start++;
             if(start == 1 && lineNumber == 0)
             {
-                locationCounter = UpdateLocationCounter::detectStart(locationCounter, sourceLine);
-                if(sourceLine.getLable() != "")
-                    symbolTable->insert(sourceLine.getLable(), locationCounter);
-                write(sourceLine, "");
+                locationCounter = UpdateLocationCounter::detectStart(locationCounter, *sourceLine);
+                if(sourceLine->getLable() != "")
+                    symbolTable->insert(sourceLine->getLable(), locationCounter);
+                write(*sourceLine, "");
                 return;
             }
             else
             {
                 error = "You wirte START operation more than one time";
-                sourceLine.setIsValid(false);
+                sourceLine->setIsValid(false);
             }
         }
 
-        if(sourceLine.getLable() != "")
+        if(sourceLine->getLable() != "")
         {
-            if(symbolTable->hashtable.count(sourceLine.getLable()) != 0)
+            if(symbolTable->hashtable.count(sourceLine->getLable()) != 0)
             {
                 error = "This lable is used before";
-                sourceLine.setIsValid(false);
+                sourceLine->setIsValid(false);
             }
-            else if(getUpper(sourceLine.getOperation()) != "EQU")
-                symbolTable->insert(sourceLine.getLable(), locationCounter);
+            else if(getUpper(sourceLine->getOperation()) != "EQU")
+                symbolTable->insert(sourceLine->getLable(), locationCounter);
         }
         error = "";
         pair<int,string> result;
-        result = UpdateLocationCounter::setLocationCounter(locationCounter, sourceLine);
+        result = UpdateLocationCounter::setLocationCounter(locationCounter, *sourceLine);
         locationCounter = result.first;
         error = result.second;
-        if(getUpper(sourceLine.getOperation()) == "EQU"){
-            sourceLine.setLocationCounter(symbolTable->search(sourceLine.getLable()).getLocation());
+        if(getUpper(sourceLine->getOperation()) == "EQU"){
+            sourceLine->setLocationCounter(symbolTable->search(sourceLine->getLable()).getLocation());
         }
-        write(sourceLine, error);
+        write(*sourceLine, error);
         if(error != ""){
         SourceLine emptyy;
         write(emptyy, error);
@@ -253,8 +253,8 @@ void SourceProgram::updateLocationCounter(SourceLine sourceLine)
     }
     else
     {
-        write(sourceLine, sourceLine.getErrorMessage());
-        sourceLine.setIsValid(false);
+        write(*sourceLine, sourceLine->getErrorMessage());
+        sourceLine->setIsValid(false);
     }
 }
 SourceLine SourceProgram::handleSpacesInOperand(SourceLine sourceLine, string subject, string patern, char beginCharacter)
