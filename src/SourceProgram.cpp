@@ -139,7 +139,8 @@ SourceLine SourceProgram::identifier(vector<string> line, string parser)
     OpInfo opinfo =opCodeTable->getInfo(upperForm);
     string withoutSign= upperForm;
     withoutSign.erase(withoutSign.begin());
-    if(opinfo.getOpCode() == opinfo.NOT_FOUND && direcive.find(upperForm) == direcive.end() &&opCodeTable->getInfo(withoutSign).getOpCode() == opinfo.NOT_FOUND)
+    //if(opinfo.getOpCode() == opinfo.NOT_FOUND && direcive.find(upperForm) == direcive.end() &&opCodeTable->getInfo(withoutSign).getOpCode() == opinfo.NOT_FOUND)
+    if(parser[0] != ' ')
     {
         sourceLine.setLable(line[index++]);
     }
