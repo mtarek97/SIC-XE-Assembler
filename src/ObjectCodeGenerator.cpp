@@ -90,7 +90,7 @@ std::string ObjectCodeGenerator::getObjectCode(SourceLine sourceLine) {
     }
     else{
         if(operation == "RSUB"){
-            return calculateObjectCode(opCodeTable->getInfo(operation).getOpCode(),3,0,0,0);
+            return calculateObjectCode(opCodeTable->getInfo(operation).getOpCode(),3,0,0,format3Flag);
         }
         // Literal Table Needed..
         else if (!isDirective(operation)) {
