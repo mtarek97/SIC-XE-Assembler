@@ -166,7 +166,7 @@ string Pass2::convertToHEX(int num){
 }
 void Pass2::writeInFileHeaders(){
     ofstream out("ListingFile2.txt",ios::out);
-    std:: string line("Line    Loc            Source statement            Object Code   \n");
+    std:: string line("Line    Loc            Source statement                      Object Code   \n");
     out << line;
     out.close();
 }
@@ -203,7 +203,7 @@ void Pass2::writeInFile(SourceLine sourceLine, string opCode, int error){
             line = line +" ";
         }
         line = line + sourceLine.getOperand();
-        for(i = 0; i < 10-sourceLine.getOperand().length();i++){
+        for(i = 0; i < 20-sourceLine.getOperand().length();i++){
             line = line +" ";
         }
         line = line+ "     "+ opCode;

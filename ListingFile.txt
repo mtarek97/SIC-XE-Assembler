@@ -1,22 +1,6 @@
 Line    Loc            Source statement       
-<<<<<<< HEAD
-  0     00000    ADDER               START               0000                
-  1     00000    ST                  LDZ                 X1                  
-       ****Error:LDZ is invalid operation
-  2     00000    ST2                 LDX                 #3                  
-  3     00003    SUB                 X2,X                                    
-       ****Error:label can't be a reserved keyword
-  4     00003    STA                 Z                                       
-       ****Error:label can't be a reserved keyword
-  5     00003    X                   WORD                6,5                 
-       ****Error:label can't be a reserved keyword
-  6     00003    Z                   RESW                1                   
-  7     00006    END                 ST2                                     
-       ****Error:label can't be a reserved keyword
-=======
-<<<<<<< HEAD
-  0              ..2345678901234567890 
-  1     00000                        START               0                   
+  0              .234567890123456789 
+  1     00000    COPY                START               0                   
   2     00000    FIRST               STL                 RETADR              
   3     00003                        LDB                 #LENGTH             
   4     00006                        BASE                LENGTH              
@@ -26,133 +10,48 @@ Line    Loc            Source statement
   8     00010                        JEQ                 ENDFIL              
   9     00013                        +JSUB               WRREC               
  10     00017                        J                   CLOOP               
- 11     0001a    ENDFIL              LDA                 EOF                 
+ 11     0001a    ENDFIL              LDA                 =C'EOF'             
  12     0001d                        STA                 BUFFER              
  13     00020                        LDA                 #3                  
  14     00023                        STA                 LENGTH              
  15     00026                        +JSUB               WRREC               
  16     0002a                        J                   @RETADR             
- 17     0002d    EOF                 BYTE                C'EOF'              
- 18     00030    RETADR              RESW                1                   
- 19     00033    LENGTH              RESW                1                   
- 20     00036    BUFFER              RESB                4096                
- 21              . 
- 22              . SUBROUTINE TO READ RECORD INTO BUFFER 
- 23              . 
- 24     01036    RDREC               CLEAR               X                   
- 25     01038                        CLEAR               A                   
- 26     0103a                        CLEAR               S                   
- 27     0103c                        +LDT                #4096               
- 28     01040    RLOOP               TD                  INPUT               
- 29     01043                        JEQ                 RLOOP               
- 30     01046                        RD                  INPUT               
- 31     01049                        COMPR               A,S                 
- 32     0104b                        JEQ                 EXIT                
- 33     0104e                        STCH                BUFFER,X            
- 34     01051                        TIXR                T                   
- 35     01053                        JLT                 RLOOP               
- 36     01056    EXIT                STX                 LENGTH              
- 37     01059                        RSUB                                    
- 38     0105c    INPUT               BYTE                X'F1'               
- 39              . 
- 40              . SUBROUTINE TO WRITE RECORD FROM BUFFER 
- 41              . 
- 42     0105d    WRREC               CLEAR               X                   
- 43     0105f                        LDT                 LENGTH              
- 44     01062    WLOOP               TD                  OUTPUT              
- 45     01065                        JEQ                 WLOOP               
- 46     01068                        LDCH                BUFFER,X            
- 47     0106b                        WD                  OUTPUT              
- 48     0106e                        TIXR                T                   
- 49     01070                        JLT                 WLOOP               
- 50     01073                        RSUB                                    
- 51     01076    OUTPUT              BYTE                X'05'               
- 52     01077                        END                 FIRST               
-=======
-  0              .234567890123456789 
-<<<<<<< HEAD
-  1              .234567890123456789.234567890123456789 
-  2              .234567890123456789 
-  3              .234567890123456789 
-  4              .234567890123456789 
-  5     00000    LAB2C               START               1000                
-  6     01000    LDA                 LDA                 ALPHA               
-       ****Error:label can't be a reserved keyword
-  7     01000                        LDB                 #10                 
-  8     01003                        LDX                 #0                  YGYGYG 3T34T34T EGRGERGERG GRERGERG 
-  9     01006                        ADDR                A,B                 
- 10     01008                        STA                 SAVEW,X             
- 11     0100b                        LDX                 #1                  
- 12     0100e                        STA                 SAVEW,X             
- 13              .Format 4 erg wwww sss 
- 14     01011                        SUB                 #12                 
- 15     01014                        LDX                 #0                  
- 16     01017                        LDA                 =X'4256'            
- 17     0101a                        LDA                 =X'6256'            
- 18     0101d                        LDA                 =C'3256'            
- 19     01020                        LDA                 =X'325556'          
- 20     01023                        STA                 INPUT               
- 21     01026    ADDLL               LDCH                STRING,X            
- 22     01029                        COMP                INPUT               
- 23     0102c                        JEQ                 FOUND               
- 24     ffffffff    UU                  EQU                 ADDLLKKK            
-       ****Error:This symbol is not exist until now
- 25              
- 26     01023    UUB                 EQU                 ADDLL-3             
- 27     01024    UUC                 EQU                 ADDLL-2             
- 28     01025    UUD                 EQU                 ADDLL-1             
- 29     0102f    ORG                 UU+5                                    
-       ****Error:label can't be a reserved keyword
- 30     0102f                        STCH                OUTPUT,X            
- 31     01032                        TIX                 #5                  
- 32     01035                        JLT                 ADD                 
-       ****Error:ADD is invalid operand
- 33              
- 34     01035                        LDA                 =C'325  6'          
- 35     01038    FOUND               J                   OUT                 
- 36     0103b    ALPHA               WORD                2                   
- 37     0103e    SAVEW               RESW                2                   
- 38     01044    HEXCHAR             BYTE                X'61'               
- 39     01045    INPUT               RESB                1                   
- 40     01046    STRING              BYTE                C'STRING     GERGER'
-       ****Error:STRING     GERGER can't exceed 15 characters
- 41     01046    OUTPUT              RESB                5                   
- 42     0104b    OUT                 END                 #4                  
-       ****Error:label must be blank at END statement
- 43     0104b    *                   =X'4256'                                
- 44     0104d    *                   =X'6256'                                
- 45     0104f    *                   =C'3256'                                
- 46     01053    *                   =X'325556'                              
- 47     01056    *                   =C'325  6'                              
-=======
-  1     00000    LAB2C               START               1000                
-  2     00008                        LDA                 ALPHA               
-  3     0000b                        LDB                 #10                 
-  4     0000e                        LDX                 #0                  
-  5     00011                        ADDR                A,B                 
-  6     00013                        STA                 SAVEW,X             
-  7     00016                        LDX                 #1                  
-  8     00019                        STA                 SAVEW,X             
-  9              .Format 4 
- 10     0001c                        +SUB                #12                 
- 11     00020                        LDX                 #0                  
- 12     00023                        LDCH                HEXCHAR             
- 13     00026                        STA                 INPUT               
- 14     00029    LOOP                LDCH                STRING,X            
- 15     0002c                        COMP                INPUT               
- 16     0002f                        JEQ                 FOUND               
- 17     00032                        STCH                OUTPUT,X            
- 18     00035                        TIX                 #5                  
- 19     00038                        JLT                 LOOP                
- 20     0003b    FOUND               J                   OUT                 
- 21     0003e    ALPHA               WORD                2                   
- 22     00041    SAVEW               RESW                2                   
- 23     00047    HEXCHAR             BYTE                X'61'               
- 24     00048    INPUT               RESB                1                   
- 25     00049    STRING              BYTE                C'STRING'           
- 26     0004f    OUTPUT              RESB                5                   
- 27     00054    O*T                 END                                     
-       ****Error:label must be blank at END statement
->>>>>>> d4eb0b3323f69fed63ae0e5f5c0ea3a9685066bf
->>>>>>> a14f29488fa02e88d98f39f1f26c0c08058a9d09
->>>>>>> 815ce7e22c90f61ddc9b77cfe2b3923144ebe8f4
+ 17     0002d                        LTORG                                   
+ 18     0002d    *                   =C'EOF'                                 
+ 19     00030    RETADR              RESW                1                   
+ 20     00033    LENGTH              RESW                1                   
+ 21     00036    BUFFER              RESB                4096                
+ 22     01036    BUFEND              EQU                 *                   
+ 23     01000    MAXLEN              EQU                 BUFEND-BUFFER       
+ 24              . 
+ 25              . 
+ 26              . 
+ 27     01036    RDREC               CLEAR               X                   
+ 28     01038                        CLEAR               A                   
+ 29     0103a                        CLEAR               S                   
+ 30     0103c                        +LDT                #MAXLEN             
+ 31     01040    RLOOP               TD                  INPUT               
+ 32     01043                        JEQ                 RLOOP               
+ 33     01046                        RD                  INPUT               
+ 34     01049                        COMPR               A,S                 
+ 35     0104b                        JEQ                 EXIT                
+ 36     0104e                        STCH                BUFFER,X            
+ 37     01051                        TIXR                T                   
+ 38     01053                        JLT                 RLOOP               
+ 39     01056    EXIT                STX                 LENGTH              
+ 40     01059                        RSUB                                    
+ 41     0105c    INPUT               BYTE                X'F1'               
+ 42              . 
+ 43              . 
+ 44              . 
+ 45     0105d    WRREC               CLEAR               X                   
+ 46     0105f                        LDT                 LENGTH              
+ 47     01062    WLOOP               TD                  =X'05'              
+ 48     01065                        JEQ                 WLOOP               
+ 49     01068                        LDCH                BUFFER,X            
+ 50     0106b                        WD                  =X'05'              
+ 51     0106e                        TIXR                T                   
+ 52     01070                        JLT                 WLOOP               
+ 53     01073                        RSUB                                    
+ 54     01076                        END                 FIRST               
+ 55     01076    *                   =X'05'                                  
