@@ -1,45 +1,11 @@
 Line    Loc            Source statement            Object Code   
-  0              .234567890123456789 
-  1              .234567890123456789.234567890123456789 
-  2              .234567890123456789 
-  3              .234567890123456789 
-  4              .234567890123456789 
-  5     00000    LAB2C     START     0100           
-  6     00004              LDA       ALPHA          032037
-  7     00007              LDB       #10            69000a
-  8     0000a              LDX       #0             050000YGYGYG 3T34T34T EGRGERGERG GRERGERG 
-  9     0000d              ADDR      A,B            9003
- 10     0000f              STA       SAVEW,X        0fa02f
- 11     00012              LDX       #1             050001
- 12     00015              STA       SAVEW,X        0fa029
- 13              .Format 4 erg wwww sss 
- 14     00018              SUB       #12            1d000c
- 15     0001b              LDX       #0             050000
- 16     0001e              LDA       =X'3256'       032fffdf
- 17     00021              LDA       =X'3256'       032fffdc
- 18     00024              LDA       =C'3256'       032fffd9
- 19     00027              LDA       =X'325556'     032fffd6
- 20     0002a              STA       INPUT          0f201b
- 21     0002d    ADDLL     LDCH      STRING,X       53afcf
- 22     00030              COMP      INPUT          2b2015
- 23     00033              JEQ       FOUND          332017
- 24     00024    UU        EQU       ADDLL-9        
- 25     0002a    UUB       EQU       ADDLL-3        
- 26     0002b    UUC       EQU       ADDLL-2        
- 27     0002c    UUD       EQU       ADDLL-1        
- 28     00036              ORG       UU+5           
- 29     00029              STCH      OUTPUT,X       57a01d
- 30     0002c              TIX       #5             2d0005
- 31     0002f              JLT       ADD            
-       ****Error1:ADD is invalid operand
- 31     0002f              JLT       ADD            
- 32     0002f              LTORG                    
- 33     0002f    *         =C'3256'                 3256
- 34     00033    *         =X'325556'               325556
- 35     00036    *         =X'3256'                 3256
- 36     00038              LDA       =C'325  6'     032fffc5
- 37     0003b    FOUND     J         OUT            3f2fc1
- 38     0003e    ALPHA     WORD      2              2
- 39     00041    SAVEW     RESW      2              
- 40     00047    HEXCHAR   BYTE      X'61'          61
- 41     00048    INPUT     RESB      1              
+  0     00000    ADDER     START     0000           
+  1     00000    ST        LDZ       X1             
+       ****Error1:LDZ is invalid operation
+  2     00000    ST2       LDX       #3             050003
+  3     00003              SUB       X2,X           1faff9
+  4     00006              STA       Z              0f2000
+  5     00009    X         WORD      6,5            
+       ****Error1:label can't be a reserved keyword
+  6     00009    Z         RESW      1              
+  7     0000c              END       ST2            
