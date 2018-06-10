@@ -26,6 +26,7 @@ vector<SourceLine> SourceProgram::parse(char* fileName)
     direcive.insert("LTORG");
     direcive.insert("ORG");
     direcive.insert("EQU");
+    direcive.insert("BASE");
 
     string parser, word;
     bool stop = false;
