@@ -44,16 +44,15 @@ vector<SourceLine> SourceProgram::parse(char* fileName)
 
         SourceLine sourceLine;
 
-        sourceLine.setLocationCounter(locationCounter);
-        if(sourcelines.size() != 0)
-            sourcelines[sourcelines.size() - 1].setNextInstruction(locationCounter);
-
-
         if(!isComment(line))
         {
             sourceLine = identifier(line, parser);
+            sourceLine.setLocationCounter(locationCounter);
+            if(sourcelines.size() != 0)
+               sourcelines[sourcelines.size() - 1].setNextInstruction(locationCounter);
             updateLocationCounter(sourceLine);
             lineNumber++;
+            this->sourcelines.push_back(sourceLine);
         if(sourceLine.getOperand()[0] == '=' )
         {
             if(!lieralTable.count(sourceLine.getOperand()))
@@ -66,13 +65,17 @@ vector<SourceLine> SourceProgram::parse(char* fileName)
         }
         else
         {
+        if(sourcelines.size() != 0)
+            sourcelines[sourcelines.size() - 1].setNextInstruction(locationCounter);
             sourceLine.setComment(getComment(0, line));
             sourceLine.setLable("");
             sourceLine.setOperand("");
             sourceLine.setOperation("");
+            sourceLine.setLocationCounter(locationCounter);
             write(sourceLine,"");
+            this->sourcelines.push_back(sourceLine);
         }
-        this->sourcelines.push_back(sourceLine);
+
 
 
     }
@@ -80,6 +83,9 @@ vector<SourceLine> SourceProgram::parse(char* fileName)
 makeLiteralPool();
 (LiteralTable::getLiteralsTable())->SetLiteralsTable(lieralTable);
 sourcelines[sourcelines.size() - 1].setNextInstruction(locationCounter);
+cout<<"---------------";
+for(int i=0;i<sourcelines.size();i++)
+    cout<<sourcelines[i].getNextInstruction()<<"\n";
 return (sourcelines);
 
 }
@@ -93,11 +99,12 @@ void SourceProgram::makeLiteralPool()
 
     for(int i = 0; i < newLines.size(); i++)
     {
-        sourcelines.push_back(newLines[i]);
         if(sourcelines.size() != 0)
         {
             sourcelines[sourcelines.size() - 1].setNextInstruction(locationCounter);
         }
+                sourcelines.push_back(newLines[i]);
+
         locationCounter = newLines[i].getLocationCounter();
         lieralTable[newLines[i].getOperand()] = make_pair(true, locationCounter);
         cout<<lieralTable[newLines[i].getOperand()].first<<" "<< lieralTable[newLines[i].getOperand()].second<<"\n";

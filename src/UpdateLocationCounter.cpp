@@ -68,6 +68,10 @@ pair<int,string> UpdateLocationCounter::setLocationCounter(int locationCounter, 
             else if(symbolTable->hashtable.count(sourceLine.getOperand()) != 0){
                 locationCounter = symbolTable->hashtable[sourceLine.getOperand()].getLocation();
             }
+
+            else if(sourceLine.getOperand() == "*"){
+                    // ha ha ha ha
+            }
             else if(sourceLine.getOperand() != "*")
                 error = "This symbol is not exist until now";
 
@@ -81,13 +85,11 @@ pair<int,string> UpdateLocationCounter::setLocationCounter(int locationCounter, 
             if(sourceLine.getContainsExpression()){
                ExpressionEvaluator evaluate;
                if(evaluate.evaluateExpression(sourceLine.getOperand()).getLocation() != -1) {
-                   locationCounter = evaluate.evaluateExpression(sourceLine.getOperand()).getLocation();
-                   symbolTable->insert(sourceLine.getOperand(), locationCounter);
+                   symbolTable->insert(sourceLine.getOperand(), evaluate.evaluateExpression(sourceLine.getOperand()).getLocation());
                 }
             }
             else if(symbolTable->hashtable.count(sourceLine.getOperand()) != 0){
-                locationCounter = symbolTable->hashtable[sourceLine.getOperand()].getLocation();
-                symbolTable->insert(sourceLine.getOperand(), locationCounter);
+                symbolTable->insert(sourceLine.getOperand(), symbolTable->hashtable[sourceLine.getOperand()].getLocation());
             }
             else if(sourceLine.getOperand() == "*"){
                 symbolTable->insert(sourceLine.getOperand(), locationCounter);
