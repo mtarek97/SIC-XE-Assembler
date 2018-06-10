@@ -21,7 +21,12 @@ const int Pass2::MAX_TEXT_RECORED_LENGTH = 60;
 Pass2::Pass2(vector<SourceLine> sourceLinesArr)
 {
    this->sourceLinesArr = sourceLinesArr;
-   int startAdd = sourceLinesArr[0].getLocationCounter();
+   ///loop until start
+   int i = 0;
+   while(sourceLinesArr[i].getOperation() != "START"){
+        i++;
+   }
+   int startAdd = sourceLinesArr[i].getLocationCounter();
    SourceLine last = sourceLinesArr[sourceLinesArr.size()-1];
    if(last.getOperation() == "END"){
        this->lengthOfProg = last.getLocationCounter() - startAdd;
@@ -36,6 +41,12 @@ void Pass2::generateObjProg(){
     linesCounter = 0;
     SourceLine currentLine = sourceLinesArr[linesCounter];
     SourceLine prevLine = sourceLinesArr[linesCounter];
+    ///loop until reach start
+    while(currentLine.getOperation() !="START"){
+        writeInFile(currentLine,"",Pass2::NO_ERROR);
+        prevLine = currentLine;
+        currentLine = sourceLinesArr[++linesCounter];
+    }
     if(currentLine.getOperation() == "START" && currentLine.getIsValid()){
 
         writeInFile(currentLine, "", Pass2::NO_ERROR);
@@ -71,11 +82,12 @@ void Pass2::generateObjProg(){
                   TextRecord = opCode;
                   TextStartAddress = convertToHEX(currentLine.getLocationCounter());
                }
-               if(currentLine.getOperation()[0] == '+'){
-                    modificationAddress.push_back(convertToHEX(currentLine.getLocationCounter()));
+               if(currentLine.getOperation()[0] == '+' && currentLine.getOperand()[0] != '#'){
+                    modificationAddress.push_back(convertToHEX(currentLine.getLocationCounter()+1));
                     modificationLength.push_back(std::to_string(5));
                }
                writeInFile(currentLine, opCode, Pass2::NO_ERROR);
+               prevLine = currentLine;
            }else{
                writeInFile(currentLine, "", Pass2::PASS2_ERROR);
            }
@@ -93,8 +105,6 @@ void Pass2::generateObjProg(){
                 writeInFile(currentLine, "", Pass2::NO_ERROR);
             }
         }
-
-        prevLine = currentLine;
         currentLine = sourceLinesArr[++linesCounter];
     }
     /// loop on literal after end.
