@@ -3,7 +3,7 @@
 .234567890123456789
 .234567890123456789
 .234567890123456789
-LAB2C    START   0100
+LAb2C    START   0100
          LDA     ALPHA
          LDB     #10
          LDX     #0 ygygyg 3t34t34t egrgergerg grergerg

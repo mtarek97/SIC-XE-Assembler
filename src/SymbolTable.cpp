@@ -22,7 +22,7 @@ SymbolTable* SymbolTable::getSymbolTable() {
 void SymbolTable::insert(string symbol, int locInMemory){
     this->hashtable.insert(pair<string, SymbolInfo> (symbol, SymbolInfo(locInMemory, 'r')));
     this->inserted.insert(pair<string, bool> (symbol, true));
-   // cout<<"size:"<<hashtable.size()<<"sym"<<symbol<<"loc"<<locInMemory<<"\n";
+    cout<<"size:"<<hashtable.size()<<"sym"<<symbol<<"loc"<<locInMemory<<"\n";
     std::stringstream stream;
     stream << std::hex << locInMemory;
     string locationCounterinhex = stream.str();

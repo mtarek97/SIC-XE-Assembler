@@ -86,7 +86,7 @@ void Pass2::generateObjProg(){
         endSourceLine  = currentLine;
         prevLine = currentLine;
         prevLine.setNextInstruction(prevLine.getLocationCounter());
-        currentLine[++linesCounter];
+//        currentLine[++linesCounter];
     }
     while(linesCounter < sourceLinesArr.size()){
         if(currentLine.getIsValid() && currentLine.getHasObjCode() && currentLine.getOperation() != ""){

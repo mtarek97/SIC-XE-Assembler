@@ -4,7 +4,7 @@ Line    Loc            Source statement
   2              .234567890123456789 
   3              .234567890123456789 
   4              .234567890123456789 
-  5     00004    LAB2C               START               0100                
+  5     00000    LAB2C               START               0100                
   6     00004                        LDA                 ALPHA               
   7     00007                        LDB                 #10                 
   8     0000a                        LDX                 #0                  YGYGYG 3T34T34T EGRGERGERG GRERGERG 
@@ -23,7 +23,7 @@ Line    Loc            Source statement
  21     0002d    ADDLL               LDCH                STRING,X            
  22     00030                        COMP                INPUT               
  23     00033                        JEQ                 FOUND               
- 24     00036    UU                  EQU                 ADDLL-9             
+ 24     00024    UU                  EQU                 ADDLL-9             
  25     00036                        ORG                 UU+5                
  26     00029                        STCH                OUTPUT,X            
  27     0002c                        TIX                 #5                  

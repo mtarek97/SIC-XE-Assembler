@@ -48,10 +48,14 @@ vector<SourceLine> SourceProgram::parse(char* fileName)
         {
             sourceLine = identifier(line, parser);
             sourceLine.setLocationCounter(locationCounter);
-            if(sourcelines.size() != 0)
-               sourcelines[sourcelines.size() - 1].setNextInstruction(locationCounter);
             updateLocationCounter(sourceLine);
             lineNumber++;
+            if(getUpper(sourceLine.getOperation()) == "EQU"){
+                sourceLine.setLocationCounter(symbolTable->search(getUpper(sourceLine.getLable())).getLocation());
+            }
+            if(sourcelines.size() != 0)
+               sourcelines[sourcelines.size() - 1].setNextInstruction(sourceLine.getLocationCounter());
+
             this->sourcelines.push_back(sourceLine);
         if(sourceLine.getOperand()[0] == '=' )
         {
@@ -83,6 +87,10 @@ vector<SourceLine> SourceProgram::parse(char* fileName)
 makeLiteralPool();
 (LiteralTable::getLiteralsTable())->SetLiteralsTable(lieralTable);
 sourcelines[sourcelines.size() - 1].setNextInstruction(locationCounter);
+for(int i=0;i<sourcelines.size();i++)
+  //  if(getUpper(sourcelines[i].getOperation()) == "EQU")
+    cout<<"here "<<sourcelines[i].getNextInstruction()<<"    "<<sourcelines[i].getLocationCounter()<<" \n   ";
+//<<sourcelines[i-1].getNextInstruction();
 return (sourcelines);
 
 }
@@ -98,10 +106,9 @@ void SourceProgram::makeLiteralPool()
     {
         if(sourcelines.size() != 0)
         {
-            sourcelines[sourcelines.size() - 1].setNextInstruction(locationCounter);
+            sourcelines[sourcelines.size() - 1].setNextInstruction(newLines[i].getLocationCounter());
         }
-                sourcelines.push_back(newLines[i]);
-
+        sourcelines.push_back(newLines[i]);
         locationCounter = newLines[i].getLocationCounter();
         lieralTable[newLines[i].getOperand()] = make_pair(true, locationCounter);
         cout<<lieralTable[newLines[i].getOperand()].first<<" "<< lieralTable[newLines[i].getOperand()].second<<"\n";
@@ -189,7 +196,7 @@ vector<string> SourceProgram::getWords(string parser)
 void SourceProgram::write(SourceLine sourceLine, string error)
 {
     std::stringstream stream;
-    stream << std::hex << locationCounter;
+    stream << std::hex << sourceLine.getLocationCounter();
     string locationCounterinhex = stream.str();
     assemblyListing.write(sourceLine, locationCounterinhex, error);
 }
@@ -227,13 +234,15 @@ void SourceProgram::updateLocationCounter(SourceLine sourceLine)
             else if(getUpper(sourceLine.getOperation()) != "EQU")
                 symbolTable->insert(sourceLine.getLable(), locationCounter);
         }
-
-        write(sourceLine, error);
         error = "";
         pair<int,string> result;
         result = UpdateLocationCounter::setLocationCounter(locationCounter, sourceLine);
         locationCounter = result.first;
         error = result.second;
+        if(getUpper(sourceLine.getOperation()) == "EQU"){
+            sourceLine.setLocationCounter(symbolTable->search(sourceLine.getLable()).getLocation());
+        }
+        write(sourceLine, error);
         if(error != ""){
         SourceLine emptyy;
         write(emptyy, error);
