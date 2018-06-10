@@ -3,15 +3,20 @@
 
 CMakeFiles/SIC_XE_Assembler.dir/main.cpp.obj
  ../include/AssemblyListing.h
+ ../include/ExpressionEvaluator.h
+ ../include/LiteralTable.h
  ../include/ObjectCodeGenerator.h
+ ../include/ObjectProgram.h
  ../include/OpCodeTable.h
  ../include/OpInfo.h
+ ../include/Pass2.h
  ../include/RegistersTable.h
  ../include/SourceLine.h
  ../include/SourceProgram.h
  ../include/SymbolInfo.h
  ../include/SymbolTable.h
  ../include/SyntaxValidator.h
+ ../include/UpdateLocationCounter.h
  ../include/ValidatorUtilities.h
  C:/Users/Mohamed Mashaal/Desktop/Assembler/SIC-XE-Assembler/main.cpp
 CMakeFiles/SIC_XE_Assembler.dir/src/AssemblyListing.cpp.obj
@@ -40,6 +45,8 @@ CMakeFiles/SIC_XE_Assembler.dir/src/LiteralTable.cpp.obj
  ../include/LiteralTable.h
  C:/Users/Mohamed Mashaal/Desktop/Assembler/SIC-XE-Assembler/src/LiteralTable.cpp
 CMakeFiles/SIC_XE_Assembler.dir/src/ObjectCodeGenerator.cpp.obj
+ ../include/ExpressionEvaluator.h
+ ../include/LiteralTable.h
  ../include/ObjectCodeGenerator.h
  ../include/OpCodeTable.h
  ../include/OpInfo.h
@@ -47,9 +54,12 @@ CMakeFiles/SIC_XE_Assembler.dir/src/ObjectCodeGenerator.cpp.obj
  ../include/SourceLine.h
  ../include/SymbolInfo.h
  ../include/SymbolTable.h
+ ../include/ValidatorUtilities.h
  C:/Users/Mohamed Mashaal/Desktop/Assembler/SIC-XE-Assembler/src/ObjectCodeGenerator.cpp
 CMakeFiles/SIC_XE_Assembler.dir/src/ObjectProgram.cpp.obj
  ../include/AssemblyListing.h
+ ../include/ExpressionEvaluator.h
+ ../include/LiteralTable.h
  ../include/ObjectCodeGenerator.h
  ../include/ObjectProgram.h
  ../include/OpCodeTable.h
@@ -72,6 +82,8 @@ CMakeFiles/SIC_XE_Assembler.dir/src/OpInfo.cpp.obj
  C:/Users/Mohamed Mashaal/Desktop/Assembler/SIC-XE-Assembler/src/OpInfo.cpp
 CMakeFiles/SIC_XE_Assembler.dir/src/Pass2.cpp.obj
  ../include/AssemblyListing.h
+ ../include/ExpressionEvaluator.h
+ ../include/LiteralTable.h
  ../include/ObjectCodeGenerator.h
  ../include/ObjectProgram.h
  ../include/OpCodeTable.h
@@ -95,6 +107,7 @@ CMakeFiles/SIC_XE_Assembler.dir/src/SourceLine.cpp.obj
 CMakeFiles/SIC_XE_Assembler.dir/src/SourceProgram.cpp.obj
  ../include/AssemblyListing.h
  ../include/DetectLiterals.h
+ ../include/ExpressionEvaluator.h
  ../include/LiteralTable.h
  ../include/ObjectCodeGenerator.h
  ../include/OpCodeTable.h

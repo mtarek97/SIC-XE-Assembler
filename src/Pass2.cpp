@@ -61,13 +61,13 @@ void Pass2::generateObjProg(){
            string opCode = objCodeGenerator->getObjectCode(currentLine);
            if(opCode != ObjectCodeGenerator::SOME_THING_WRONG){
                if(prevLine.getNextInstruction() != currentLine.getLocationCounter()){
-                    objectProgram.writeText(TextStartAddress,convertToHEX(TextRecord.length()),TextRecord);
+                    objectProgram.writeText(TextStartAddress,convertToHEX(TextRecord.length()/2),TextRecord);
                     TextRecord = opCode;
                     TextStartAddress = convertToHEX(currentLine.getLocationCounter());
                }else if(TextRecord.length() + opCode.length() <= MAX_TEXT_RECORED_LENGTH){
                     TextRecord = TextRecord + opCode;
                }else{
-                  objectProgram.writeText(TextStartAddress,convertToHEX(TextRecord.length()),TextRecord);
+                  objectProgram.writeText(TextStartAddress,convertToHEX(TextRecord.length()/2),TextRecord);
                   TextRecord = opCode;
                   TextStartAddress = convertToHEX(currentLine.getLocationCounter());
                }
@@ -89,8 +89,9 @@ void Pass2::generateObjProg(){
         }else{
             if(!currentLine.getIsValid()){
                 writeInFile(currentLine, "", Pass2::PASS1_ERROR);
+            }else{
+                writeInFile(currentLine, "", Pass2::NO_ERROR);
             }
-            writeInFile(currentLine, "", Pass2::NO_ERROR);
         }
 
         prevLine = currentLine;
@@ -124,7 +125,7 @@ void Pass2::generateObjProg(){
            if(TextRecord.length() + opCode.length() <= MAX_TEXT_RECORED_LENGTH){
                 TextRecord = TextRecord + opCode;
            }else{
-              objectProgram.writeText(TextStartAddress,convertToHEX(TextRecord.length()),TextRecord);
+              objectProgram.writeText(TextStartAddress,convertToHEX(TextRecord.length()/2),TextRecord);
               TextRecord = opCode;
               TextStartAddress = convertToHEX(currentLine.getLocationCounter());
            }
@@ -134,7 +135,7 @@ void Pass2::generateObjProg(){
        }
     }
     /// write last record
-    objectProgram.writeText(TextStartAddress,convertToHEX(TextRecord.length()),TextRecord);
+    objectProgram.writeText(TextStartAddress,convertToHEX(TextRecord.length()/2),TextRecord);
     for(int i = 0; i < modificationAddress.size(); i++){
         objectProgram.writeModification(modificationAddress[i],modificationLength[i]);
     }

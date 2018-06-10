@@ -1,4 +1,5 @@
 Line    Loc            Source statement            Object Code   
+<<<<<<< HEAD
   0              .234567890123456789 
   1              .234567890123456789.234567890123456789 
   2              .234567890123456789 
@@ -44,3 +45,15 @@ Line    Loc            Source statement            Object Code
  40     00050    SAVEW     RESW      2              
  41     00056    HEXCHAR   BYTE      X'61'          61
  42     00057    INPUT     RESB      1              
+=======
+  0     00000    ADDER     START     0000           
+  1     00000    ST        LDZ       X1             
+       ****Error1:LDZ is invalid operation
+  2     00000    ST2       LDX       #3             050003
+  3     00003              SUB       X2,X           1faff9
+  4     00006              STA       Z              0f2000
+  5     00009    X         WORD      6,5            
+       ****Error1:label can't be a reserved keyword
+  6     00009    Z         RESW      1              
+  7     0000c              END       ST2            
+>>>>>>> 1c603b43d354dd6e0d0da066884be3adaef63c18
