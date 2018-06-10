@@ -45,6 +45,10 @@ SymbolTable.h
 ../include/SymbolTable.h
 RegistersTable.h
 ../include/RegistersTable.h
+ExpressionEvaluator.h
+../include/ExpressionEvaluator.h
+LiteralTable.h
+../include/LiteralTable.h
 
 ../include/ObjectProgram.h
 bits/stdc++.h
@@ -193,6 +197,8 @@ SyntaxValidator.h
 C:/Users/Mohamed Mashaal/Desktop/Assembler/SIC-XE-Assembler/SyntaxValidator.h
 SourceProgram.h
 C:/Users/Mohamed Mashaal/Desktop/Assembler/SIC-XE-Assembler/SourceProgram.h
+Pass2.h
+C:/Users/Mohamed Mashaal/Desktop/Assembler/SIC-XE-Assembler/Pass2.h
 
 C:/Users/Mohamed Mashaal/Desktop/Assembler/SIC-XE-Assembler/src/AssemblyListing.cpp
 bits/stdc++.h
@@ -241,6 +247,8 @@ bits/stdc++.h
 -
 
 C:/Users/Mohamed Mashaal/Desktop/Assembler/SIC-XE-Assembler/src/ObjectCodeGenerator.cpp
+ValidatorUtilities.h
+-
 ObjectCodeGenerator.h
 C:/Users/Mohamed Mashaal/Desktop/Assembler/SIC-XE-Assembler/src/ObjectCodeGenerator.h
 OpCodeTable.h

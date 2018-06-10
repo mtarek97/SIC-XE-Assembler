@@ -263,10 +263,10 @@ std::string ObjectCodeGenerator::getObjectCode(SourceLine sourceLine) {
                 int displacement =symbolTable->search(operand).getLocation() - symbolTable->search(currentBaseAddress).getLocation();
                 return calculateObjectCode(opCode,3,4,displacement,format3Flag);
             }else if(currentCase == "CASE_EXPRESSION_ERROR"){ // Expression Evaluator Returned Error !
-                this->errorMessage = "Error in Expression!";
+                sourceLine.setErrorMessage("Error in Expression!");
                 return SOME_THING_WRONG;
             }else if(currentCase == "CASE_DISP_ERROR"){ // Displacement is > 2047 || < -2048 in case PC , or < 0 || > 4095 in case BASE !
-                this->errorMessage = "Error in Displacement!";
+                sourceLine.setErrorMessage("Displacement Error!");
                 return SOME_THING_WRONG;
             }
         }
@@ -278,10 +278,21 @@ std::string ObjectCodeGenerator::getObjectCode(SourceLine sourceLine) {
             std::stringstream stream;
             stream << std::hex << theWord;
             string objectCodeHex = stream.str();
+            if (objectCodeHex.size() == 6)
             return objectCodeHex;
+            else if (objectCodeHex.size() > 6){
+                sourceLine.setErrorMessage("Error in WORD!");
+                return SOME_THING_WRONG;
+            }
+            else{
+                while(objectCodeHex.size() < 6){
+                    objectCodeHex = "0" + objectCodeHex;
+                }
+                return objectCodeHex;
+            }
         }
         else{
-            this->errorMessage = "NOT SUPPORTED !!";
+            sourceLine.setErrorMessage("NOT SUPPORTED !!");
             return SOME_THING_WRONG;
         }
     }
@@ -394,6 +405,8 @@ string ObjectCodeGenerator::getCase(SourceLine sourceLine){
             if(ValidatorUtilities::isExpression(parsed_operand,false)){
                 SymbolInfo info = expressionEvaluator.evaluateExpression(parsed_operand);
                 if(info.getType() == 'a'){
+                    if(info.getLocation() > max3Byte || info.getLocation() < min3Byte)
+                        return "CASE_DISP_ERROR";
                     return "CASE2";
                 }
                 else if(info.getType() == 'r'){
@@ -450,6 +463,8 @@ string ObjectCodeGenerator::getCase(SourceLine sourceLine){
             if(ValidatorUtilities::isExpression(parsed_operand,false)){
                 SymbolInfo info = expressionEvaluator.evaluateExpression(parsed_operand);
                 if(info.getType() == 'a'){
+                    if(info.getLocation() > max3Byte || info.getLocation() < min3Byte)
+                        return "CASE_DISP_ERROR";
                     return "CASE10";
                 }
                 else if(info.getType() == 'r'){
@@ -506,6 +521,8 @@ string ObjectCodeGenerator::getCase(SourceLine sourceLine){
             if(ValidatorUtilities::isExpression(parsed_operand,false)){
                 SymbolInfo info = expressionEvaluator.evaluateExpression(parsed_operand);
                 if(info.getType() == 'a'){
+                    if(info.getLocation() > max3Byte || info.getLocation() < min3Byte)
+                        return "CASE_DISP_ERROR";
                     return "CASE18";
                 }
                 else if(info.getType() == 'r'){
@@ -562,6 +579,8 @@ string ObjectCodeGenerator::getCase(SourceLine sourceLine){
             if(ValidatorUtilities::isExpression(operand,false)){
                 SymbolInfo info = expressionEvaluator.evaluateExpression(operand);
                 if(info.getType() == 'a'){
+                    if(info.getLocation() > max3Byte || info.getLocation() < min3Byte)
+                        return "CASE_DISP_ERROR";
                     return "CASE26";
                 }
                 else if(info.getType() == 'r'){
