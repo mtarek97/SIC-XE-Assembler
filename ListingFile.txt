@@ -1,55 +1,14 @@
 Line    Loc            Source statement       
-  0              .234567890123456789 
-  1              .234567890123456789.234567890123456789 
-  2              .234567890123456789 
-  3              .234567890123456789 
-  4              .234567890123456789 
-  5     00000    LAB2C               START               0100                
-  6     00004    LDA                 LDA                 ALPHA               
+  0     00000    ADDER               START               0000                
+  1     00000    ST                  LDZ                 X1                  
+       ****Error:LDZ is invalid operation
+  2     00000    ST2                 LDX                 #3                  
+  3     00003    SUB                 X2,X                                    
        ****Error:label can't be a reserved keyword
-  7     00004                        LDB                 #10                 
-  8     00007                        LDX                 #0                  YGYGYG 3T34T34T EGRGERGERG GRERGERG 
-  9     0000a                        ADDR                A,B                 
- 10     0000c                        STA                 SAVEW,X             
- 11     0000f                        LDX                 #1                  
- 12     00012                        STA                 SAVEW,X             
- 13              .Format 4 erg wwww sss 
- 14     00015                        SUB                 #12                 
- 15     00018                        LDX                 #0                  
- 16     0001b                        LDA                 =X'4256'            
- 17     0001e                        LDA                 =X'6256'            
- 18     00021                        LDA                 =C'3256'            
- 19     00024                        LDA                 =X'325556'          
- 20     00027                        STA                 INPUT               
- 21     0002a    ADDLL               LDCH                STRING,X            
- 22     0002d                        COMP                INPUT               
- 23     00030                        JEQ                 FOUND               
- 24     ffffffff    UU                  EQU                 ADDLLKKK            
-       ****Error:This symbol is not exist until now
- 25              
- 26     00027    UUB                 EQU                 ADDLL-3             
- 27     00028    UUC                 EQU                 ADDLL-2             
- 28     00029    UUD                 EQU                 ADDLL-1             
- 29     00033    ORG                 UU+5                                    
+  4     00003    STA                 Z                                       
        ****Error:label can't be a reserved keyword
- 30     00033                        STCH                OUTPUT,X            
- 31     00036                        TIX                 #5                  
- 32     00039                        JLT                 ADD                 
-       ****Error:ADD is invalid operand
- 33              
- 34     00039                        LDA                 =C'325  6'          
- 35     0003c    FOUND               J                   OUT                 
- 36     0003f    ALPHA               WORD                2                   
- 37     00042    SAVEW               RESW                2                   
- 38     00048    HEXCHAR             BYTE                X'61'               
- 39     00049    INPUT               RESB                1                   
- 40     0004a    STRING              BYTE                C'STRING     GERGER'
-       ****Error:STRING     GERGER can't exceed 15 characters
- 41     0004a    OUTPUT              RESB                5                   
- 42     0004f    OUT                 END                 #4                  
-       ****Error:label must be blank at END statement
- 43     0004f    *                   =X'4256'                                
- 44     00051    *                   =X'6256'                                
- 45     00053    *                   =C'3256'                                
- 46     00057    *                   =X'325556'                              
- 47     0005a    *                   =C'325  6'                              
+  5     00003    X                   WORD                6,5                 
+       ****Error:label can't be a reserved keyword
+  6     00003    Z                   RESW                1                   
+  7     00006    END                 ST2                                     
+       ****Error:label can't be a reserved keyword
