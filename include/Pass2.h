@@ -30,6 +30,9 @@ class Pass2
         string TextRecord;
         string TextStartAddress;
         int MAX_TEXT_RECORED_LENGTH = 60;
+
+        void writeInFile(SourceLine sourceLine, int error);
+        void writeInFileHeaders();
         string convertToHEX(int num);
 };
 
