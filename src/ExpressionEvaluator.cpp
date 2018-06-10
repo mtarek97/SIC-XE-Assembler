@@ -126,7 +126,7 @@ SymbolInfo ExpressionEvaluator::evaluateExpression(std::string expression)
 }
 
 
-bool isInt(std::string operand){
+bool ExpressionEvaluator::isInt(std::string operand){
     int i;
     for(i=0; i<operand.size(); i++){
         if(operand[i] >= '0' && operand[i] <= '9'){
