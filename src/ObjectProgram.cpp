@@ -18,7 +18,6 @@ ObjectProgram::ObjectProgram()
 }
 void ObjectProgram::writeHeader(string progName, string startingAddress, string lengthOfProg)
 {
-    ofstream out("ObjectProgram.txt",ios::out);
     std:: string line("H"+progName);
     for(int i = 0; i < 6-progName.length();i++){
         line = line +" ";
@@ -37,6 +36,7 @@ void ObjectProgram::writeHeader(string progName, string startingAddress, string 
     lengthOfProg = zeros + lengthOfProg;
     line = line + lengthOfProg +"\n";
 
+    ofstream out("ObjectProgram.txt",ios::out);
     out << line;
     out.close();
 }

@@ -82,8 +82,8 @@ int main( )
     ObjectCodeGenerator* generator = ObjectCodeGenerator::getObjectCodeGenerator();
 
     SourceLine sourceLine ; // symbol Table has been set inside source Program for testing purposes only.
-    sourceLine.setOperation("LDA");
-    sourceLine.setOperand("=W'-100'");
+    sourceLine.setOperation("LDCH");
+    sourceLine.setOperand("HEXCHAR");
     sourceLine.setNextInstruction(4177);
 
     SyntaxValidator validator;
@@ -100,5 +100,8 @@ int main( )
         string result = generator->getObjectCode(sourceLine);
         cout << result << endl;
     }
+    // debug
+    cout << sourceLine.getOperation() << endl;
+    cout << sourceLine.getOperand() << endl;
     return 0;
 }
