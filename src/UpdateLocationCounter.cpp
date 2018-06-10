@@ -113,6 +113,10 @@ pair<int,string> UpdateLocationCounter::setLocationCounter(int locationCounter, 
 
 int UpdateLocationCounter::detectStart(int locationCounter,SourceLine sourceLine)
 {
-    locationCounter = std::stoi(sourceLine.getOperand(), nullptr, 2);
+    locationCounter = std::stoi(sourceLine.getOperand());
+    std::stringstream stream;
+    stream << locationCounter;
+    stream >> std::hex >> locationCounter;
+
     return locationCounter;
 }
