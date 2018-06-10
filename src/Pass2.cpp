@@ -105,6 +105,7 @@ void Pass2::generateObjProg(){
         prevLine.setNextInstruction(prevLine.getLocationCounter());
         writeInFile(endSourceLine,"",Pass2::NO_ERROR);
     }else{
+        ///what if there is an error in end?
         if(currentLine.getOperation() == "END"){
             endSourceLine = currentLine;
             prevLine = currentLine;
