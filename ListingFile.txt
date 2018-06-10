@@ -24,27 +24,30 @@ Line    Loc            Source statement
  22     00030                        COMP                INPUT               
  23     00033                        JEQ                 FOUND               
  24     00024    UU                  EQU                 ADDLL-9             
- 25     00036                        ORG                 UU+5                
- 26     00029                        STCH                OUTPUT,X            
- 27     0002c                        TIX                 #5                  
- 28     0002f                        JLT                 ADD                 
+ 25     0002a    UUB                 EQU                 ADDLL-3             
+ 26     0002b    UUC                 EQU                 ADDLL-2             
+ 27     0002c    UUD                 EQU                 ADDLL-1             
+ 28     00036                        ORG                 UU+5                
+ 29     00029                        STCH                OUTPUT,X            
+ 30     0002c                        TIX                 #5                  
+ 31     0002f                        JLT                 ADD                 
        ****Error:ADD is invalid operand
- 29     0002f                        LTORG                                   
- 30     0002f    *                   =C'3256'                                
- 31     00033    *                   =x'325556'                              
- 32     00036    *                   =x'3256'                                
- 33     00038                        LDA                 =C'325  6'          
- 34     0003b    FOUND               J                   OUT                 
- 35     0003e    ALPHA               WORD                2                   
- 36     00041    SAVEW               RESW                2                   
- 37     00047    HEXCHAR             BYTE                X'61'               
- 38     00048    INPUT               RESB                1                   
- 39     00049    STRING              BYTE                C'STRING     GERGER'
+ 32     0002f                        LTORG                                   
+ 33     0002f    *                   =C'3256'                                
+ 34     00033    *                   =x'325556'                              
+ 35     00036    *                   =x'3256'                                
+ 36     00038                        LDA                 =C'325  6'          
+ 37     0003b    FOUND               J                   OUT                 
+ 38     0003e    ALPHA               WORD                2                   
+ 39     00041    SAVEW               RESW                2                   
+ 40     00047    HEXCHAR             BYTE                X'61'               
+ 41     00048    INPUT               RESB                1                   
+ 42     00049    STRING              BYTE                C'STRING     GERGER'
        ****Error:STRING     GERGER can't exceed 15 characters
- 40     00049    OUTPUT              RESB                5                   
- 41     0004e    OUT                 END                 #4                  
+ 43     00049    OUTPUT              RESB                5                   
+ 44     0004e    OUT                 END                 #4                  
        ****Error:label must be blank at END statement
- 42     0004e    *                   =C'325  6'                              
- 43     00054    *                   =C'3256'                                
- 44     00058    *                   =x'325556'                              
- 45     0005b    *                   =x'3256'                                
+ 45     0004e    *                   =C'325  6'                              
+ 46     00054    *                   =C'3256'                                
+ 47     00058    *                   =x'325556'                              
+ 48     0005b    *                   =x'3256'                                

@@ -23,6 +23,9 @@ ADDll      LDCH    STRING,X
          COMP    INPUT
          JEQ     FOUND
 uu equ ADDll-9
+uub equ ADDll-3
+uuc equ ADDll-2
+uud equ ADDll-1
 org   uu+5
          STCH    OUTPUT,X
          TIX     #5
