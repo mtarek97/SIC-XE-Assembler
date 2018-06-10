@@ -14,15 +14,15 @@ LAb2C    START   0100
 .Format 4 erg wwww sss
          +SUB    #12
          LDX     #0
-         lda     =x'3256'
-         lda     =x'3256'
+         lda     =x'4256'
+         lda     =x'6256'
          lda     =C'3256'
          lda     =x'325556'
          STA     INPUT
 ADDll      LDCH    STRING,X
          COMP    INPUT
          JEQ     FOUND
-uu equ ADDll-9
+uu equ ADDllkkk
 uub equ ADDll-3
 uuc equ ADDll-2
 uud equ ADDll-1

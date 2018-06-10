@@ -5,7 +5,7 @@
 class LiteralTable
 {
     public:
-        void SetLiteralsTable(std::map<std::string,std::pair< bool, int> > newTable);
+        void SetLiteralsTable(std::unordered_map<std::string,std::pair< bool, int> > newTable);
         static LiteralTable* getLiteralsTable();
          std::map<std::string,std::pair< bool, int> > getTable();
 

@@ -15,39 +15,39 @@ Line    Loc            Source statement
  13              .Format 4 erg wwww sss 
  14     00018                        SUB                 #12                 
  15     0001b                        LDX                 #0                  
- 16     0001e                        LDA                 =X'3256'            
- 17     00021                        LDA                 =X'3256'            
+ 16     0001e                        LDA                 =X'4256'            
+ 17     00021                        LDA                 =X'6256'            
  18     00024                        LDA                 =C'3256'            
  19     00027                        LDA                 =X'325556'          
  20     0002a                        STA                 INPUT               
  21     0002d    ADDLL               LDCH                STRING,X            
  22     00030                        COMP                INPUT               
  23     00033                        JEQ                 FOUND               
- 24     00024    UU                  EQU                 ADDLL-9             
- 25     0002a    UUB                 EQU                 ADDLL-3             
- 26     0002b    UUC                 EQU                 ADDLL-2             
- 27     0002c    UUD                 EQU                 ADDLL-1             
- 28     00036                        ORG                 UU+5                
- 29     00029                        STCH                OUTPUT,X            
- 30     0002c                        TIX                 #5                  
- 31     0002f                        JLT                 ADD                 
+ 24     ffffffff    UU                  EQU                 ADDLLKKK            
+       ****Error:This symbol is not exist until now
+ 25              
+ 26     0002a    UUB                 EQU                 ADDLL-3             
+ 27     0002b    UUC                 EQU                 ADDLL-2             
+ 28     0002c    UUD                 EQU                 ADDLL-1             
+ 29     00036                        ORG                 UU+5                
+ 30     00036                        STCH                OUTPUT,X            
+ 31     00039                        TIX                 #5                  
+ 32     0003c                        JLT                 ADD                 
        ****Error:ADD is invalid operand
- 32     0002f                        LTORG                                   
- 33     0002f    *                   =C'3256'                                
- 34     00033    *                   =X'325556'                              
- 35     00036    *                   =X'3256'                                
- 36     00038                        LDA                 =C'325  6'          
- 37     0003b    FOUND               J                   OUT                 
- 38     0003e    ALPHA               WORD                2                   
- 39     00041    SAVEW               RESW                2                   
- 40     00047    HEXCHAR             BYTE                X'61'               
- 41     00048    INPUT               RESB                1                   
- 42     00049    STRING              BYTE                C'STRING     GERGER'
+ 33     0003c                        LTORG                                   
+ 34     0003c    *                   =X'4256'                                
+ 35     0003e    *                   =X'6256'                                
+ 36     00040    *                   =C'3256'                                
+ 37     00044    *                   =X'325556'                              
+ 38     00047                        LDA                 =C'325  6'          
+ 39     0004a    FOUND               J                   OUT                 
+ 40     0004d    ALPHA               WORD                2                   
+ 41     00050    SAVEW               RESW                2                   
+ 42     00056    HEXCHAR             BYTE                X'61'               
+ 43     00057    INPUT               RESB                1                   
+ 44     00058    STRING              BYTE                C'STRING     GERGER'
        ****Error:STRING     GERGER can't exceed 15 characters
- 43     00049    OUTPUT              RESB                5                   
- 44     0004e    OUT                 END                 #4                  
+ 45     00058    OUTPUT              RESB                5                   
+ 46     0005d    OUT                 END                 #4                  
        ****Error:label must be blank at END statement
- 45     0004e    *                   =C'325  6'                              
- 46     00054    *                   =C'3256'                                
- 47     00058    *                   =X'325556'                              
- 48     0005b    *                   =X'3256'                                
+ 47     0005d    *                   =C'325  6'                              

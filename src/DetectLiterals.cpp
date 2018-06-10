@@ -8,26 +8,23 @@ DetectLiterals::DetectLiterals()
 {
 
 }
-vector<SourceLine> DetectLiterals::detect(int locationCounter,  std::map<std::string, std::pair<bool, int> > lieralTable)
+vector<SourceLine> DetectLiterals::detect(int locationCounter,  std::unordered_map<std::string, std::pair<bool, int> > lieralTable, std::vector<string> literalVector)
 {
 
     vector<SourceLine> newLines;
-
-     std::map<std::string, pair<bool,int> >::iterator it = lieralTable.begin();
-    while (it != lieralTable.end())
+for(int i = 0; i < literalVector.size(); i++)
     {
-        if(it->second.first == true){
-            it++;
+        cout<<literalVector[i]<<"\n";
+        if(lieralTable[literalVector[i]].first == true){
             continue;
         }
         SourceLine newline;
         newline.setLocationCounter(locationCounter);
-        newline.setOperation(it->first);
+        newline.setOperation(literalVector[i]);
         newline.setLable("*");
         newline.setHasObjCode(true);
         newLines.push_back(newline);
         locationCounter = UpdateLocationCounter::setLocationCounter(locationCounter, newline).first;
-        it++;
     }
     return newLines;
 }

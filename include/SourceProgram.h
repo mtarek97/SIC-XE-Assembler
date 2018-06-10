@@ -21,7 +21,7 @@ class SourceProgram
         bool isComment(vector<string> sourceLine);
         vector<string> getWords(string parser);
         SourceLine handleSpacesInOperand(SourceLine sourceLine, string parser, string pattern, char beginCharacter);
-        std::map<std::string,std::pair< bool, int> > getLiteralTable();
+        std::unordered_map<std::string,std::pair< bool, int> > getLiteralTable();
 
         void write(SourceLine sourceLine, string error);
         void detectStart(SourceLine sourceLine);
@@ -33,7 +33,9 @@ class SourceProgram
         SymbolTable* symbolTable;
         set<string> direcive;
         vector<SourceLine> sourcelines;
-         std::map<std::string, pair<bool,int> > lieralTable;
+        std::unordered_map<std::string, pair<bool,int> > lieralTable;
+        std::vector<string> literalVector;
+
 };
 
 #endif

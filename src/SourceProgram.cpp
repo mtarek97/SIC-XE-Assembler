@@ -59,8 +59,10 @@ vector<SourceLine> SourceProgram::parse(char* fileName)
             this->sourcelines.push_back(sourceLine);
         if(sourceLine.getOperand()[0] == '=' )
         {
-            if(!lieralTable.count(sourceLine.getOperand()))
-             this->lieralTable[sourceLine.getOperand()] = make_pair(false, 0);
+            if(!lieralTable.count(sourceLine.getOperand())) {
+            this->lieralTable[sourceLine.getOperand()] = make_pair(false, 0);
+            this->literalVector.push_back(sourceLine.getOperand());
+            }
         }
         if(getUpper(sourceLine.getOperation()) == "LTORG")
         {
@@ -94,13 +96,13 @@ for(int i=0;i<sourcelines.size();i++)
 return (sourcelines);
 
 }
-std::map<std::string,std::pair< bool, int> > SourceProgram::getLiteralTable(){
+std::unordered_map<std::string,std::pair< bool, int> > SourceProgram::getLiteralTable(){
 return lieralTable;
 }
 
 void SourceProgram::makeLiteralPool()
 {
-    vector<SourceLine> newLines = DetectLiterals::detect(this->locationCounter, lieralTable);
+    vector<SourceLine> newLines = DetectLiterals::detect(this->locationCounter, lieralTable, literalVector);
 
     for(int i = 0; i < newLines.size(); i++)
     {
@@ -110,8 +112,8 @@ void SourceProgram::makeLiteralPool()
         }
         sourcelines.push_back(newLines[i]);
         locationCounter = newLines[i].getLocationCounter();
-        lieralTable[newLines[i].getOperand()] = make_pair(true, locationCounter);
-        cout<<lieralTable[newLines[i].getOperand()].first<<" "<< lieralTable[newLines[i].getOperand()].second<<"\n";
+        lieralTable[newLines[i].getOperation()] = make_pair(true, locationCounter);
+        cout<<newLines[i].getOperation()<<" "<<lieralTable[newLines[i].getOperation()].first<<" "<< lieralTable[newLines[i].getOperation()].second<<"\n";
         write(newLines[i], "");
     }
     if(newLines.size() != 0)
@@ -247,9 +249,6 @@ void SourceProgram::updateLocationCounter(SourceLine* sourceLine)
         SourceLine emptyy;
         write(emptyy, error);
         }
-    //    ObjectCodeGenerator* generator = ObjectCodeGenerator::getObjectCodeGenerator(); // testing purposes !!
-  //      generator->setSymbolTable(symbolTable);
-
     }
     else
     {
