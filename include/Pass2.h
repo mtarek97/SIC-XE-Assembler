@@ -17,7 +17,7 @@
 class Pass2
 {
     public:
-        Pass2(vector<SourceLine> sourceLinesArr,int lengthOfProg);
+        Pass2(vector<SourceLine> sourceLinesArr);
         void generateObjProg();
     protected:
 
@@ -29,9 +29,12 @@ class Pass2
         ObjectCodeGenerator* objCodeGenerator;
         string TextRecord;
         string TextStartAddress;
-        int MAX_TEXT_RECORED_LENGTH = 60;
+        static const int MAX_TEXT_RECORED_LENGTH;
+        static const int NO_ERROR;
+        static const int PASS1_ERROR;
+        static const int PASS2_ERROR;
 
-        void writeInFile(SourceLine sourceLine, int error);
+        void writeInFile(SourceLine sourceLine, string opCode, int error);
         void writeInFileHeaders();
         string convertToHEX(int num);
 };
