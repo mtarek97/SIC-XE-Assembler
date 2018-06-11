@@ -1,0 +1,16 @@
+.program to set ALPHA = 4*BETA + 3*GAMMA ==> register S
+.23456789012345678901234567890123456
+.Label.  Opcode  The  O p e r a n d 
+PROB1    START   0000
+         LDA     BETA
+         MUL     #4
+         LDS     GAMMA
+         LDT     #3
+         MULR    T,S                (T) * (S) ==> (S)
+         ADDR    A,S                (A) + (S) ==> (S)
+ALPHA    RESW    1
+BETA     WORD    3
+GAMMA    WORD    1
+         END     PROB1
+
+

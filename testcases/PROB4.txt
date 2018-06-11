@@ -1,0 +1,31 @@
+.program to sort characters in a string using bubble sort
+.23456789012345678901234567890123456
+.Label.  Opcode  The  O p e r a n d 
+PROB4    START   0000
+         LDX     #0
+         LDA     #0
+         LDS     #0
+         LDT     #0
+         LDB     #1
+LOOP1    ADDR    B,S
+LOOP2    LDCH    STR,X
+         RMO     A,T
+         TIX     #0
+         LDCH    STR,X
+         SUBR    B,X
+         COMPR   T,A
+         JLT     CONT
+         STCH    STR,X
+         ADDR    B,X
+         RMO     T,A
+         STCH    STR,X
+         SUBR    B,X
+CONT     TIX     #4
+         JLT     LOOP2
+         RMO     S,A
+         COMP    #5
+         LDA     #0
+         LDX     #0
+         JLT     LOOP1
+STR      BYTE    C'ADECB'
+         END     PROB4

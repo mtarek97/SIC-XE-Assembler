@@ -4,7 +4,7 @@ const int SyntaxValidator::INVALID = 0;
 const int SyntaxValidator::INSTRUCTION = 1;
 const int SyntaxValidator::DIRECTIVE = 2;
 const int SyntaxValidator::LABEL_MAXLENGTH = 8;
-const bool SyntaxValidator::GENERAL_EXPRESSION_ALLOWED = true;
+const bool SyntaxValidator::GENERAL_EXPRESSION_ALLOWED = false;
 
 // constructor
 SyntaxValidator::SyntaxValidator()

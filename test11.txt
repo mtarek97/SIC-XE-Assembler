@@ -1,8 +1,0 @@
-.234567890123456789
-TEST11   START   1000
-         LDA     #3
-         LDA     #THREE
-         LDA     THREE
-         LDA     THREE-1
-THREE    WORD    3
-         END
