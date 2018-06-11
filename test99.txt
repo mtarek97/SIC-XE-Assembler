@@ -5,4 +5,4 @@ st2 ldx #3
  sta z
 x1 word 6,5
 z resw 1
-w END st2
+ END st5

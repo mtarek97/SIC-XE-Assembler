@@ -122,10 +122,15 @@ void Pass2::generateObjProg(){
         endSourceLine = currentLine;
         prevLine = currentLine;
         prevLine.setNextInstruction(prevLine.getLocationCounter());
-        if(currentLine.getIsValid()){
+        SymbolTable* symTable = SymbolTable::getSymbolTable();
+        SymbolInfo symInfo = symTable->search(endSourceLine.getOperand());
+        if(currentLine.getIsValid() && symInfo.getLocation() != -1){
             writeInFile(endSourceLine,"",Pass2::NO_ERROR);
-        }else{
+        }else if(!currentLine.getIsValid()){
             writeInFile(endSourceLine,"",Pass2::PASS1_ERROR);
+        }else{
+            endSourceLine.setErrorMessage("The symbol in the operand is not found");
+            writeInFile(endSourceLine,"",Pass2::PASS2_ERROR);
         }
     }else{
         ///what if there is an error in end?
@@ -133,10 +138,16 @@ void Pass2::generateObjProg(){
             endSourceLine = currentLine;
             prevLine = currentLine;
             prevLine.setNextInstruction(prevLine.getLocationCounter());
-           if(currentLine.getIsValid()){
+
+            SymbolTable* symTable = SymbolTable::getSymbolTable();
+            SymbolInfo symInfo = symTable->search(endSourceLine.getOperand());
+            if(currentLine.getIsValid() && symInfo.getLocation() != -1){
                 writeInFile(endSourceLine,"",Pass2::NO_ERROR);
-            }else{
+            }else if(!currentLine.getIsValid()){
                 writeInFile(endSourceLine,"",Pass2::PASS1_ERROR);
+            }else{
+                endSourceLine.setErrorMessage("The symbol in the operand is not found");
+                writeInFile(endSourceLine,"",Pass2::PASS2_ERROR);
             }
             ///what if pass2 error in operand?
         }else{
@@ -173,7 +184,12 @@ void Pass2::generateObjProg(){
         SymbolTable* symTable = SymbolTable::getSymbolTable();
         SymbolInfo symInfo = symTable->search(endSourceLine.getOperand());
         ///should I check if it is a relative or if it is expression?
-        objectProgram.writeEnd(convertToHEX(symInfo.getLocation()));
+        if(symInfo.getLocation() != -1){
+            objectProgram.writeEnd(convertToHEX(symInfo.getLocation()));
+        }else{
+            objectProgram.writeEnd(convertToHEX(FirstInsAdd));
+        }
+
     }
 }
 string Pass2::convertToHEX(int num){
