@@ -359,6 +359,37 @@ std::string ObjectCodeGenerator::getObjectCode(SourceLine* sourceLine) {
                     sourceLine->setErrorMessage("Symbol Error!");
                     return SOME_THING_WRONG;
                 }
+            }else if(currentCase == "CASE33") { // Format 3 - Constant.
+                string opCode = opCodeTable->getInfo(operation).getOpCode();
+                int displacement = stoi(operand);
+                return calculateObjectCode(opCode,3,0,displacement,format3Flag);
+            }else if(currentCase == "CASE34") { // Format 3 - Indexed - Constant.
+                string opCode = opCodeTable->getInfo(operation).getOpCode();
+                string parsed_operand = operand.substr(0, operand.find(','));
+                int displacement = stoi(parsed_operand);
+                return calculateObjectCode(opCode,3,8,displacement,format3Flag);
+            }else if(currentCase == "CASE35") { // Format 3 - Indirect - Constant.
+                string opCode = opCodeTable->getInfo(operation).getOpCode();
+                string parsed_operand = operand.substr(1,operand.size());
+                int displacement = stoi(parsed_operand);
+                return calculateObjectCode(opCode,2,0,displacement,format3Flag);
+            }else if (currentCase == "CASE36"){ // Format 4 - Indirect - Constant
+                string parsed_operation = operation.substr(1,operation.size());
+                string parsed_operand = operand.substr(1,operand.size());
+                string opCode = opCodeTable->getInfo(parsed_operation).getOpCode();
+                int displacement = stoi(parsed_operand);
+                return calculateObjectCode(opCode,2,1,displacement,format4Flag);
+            }else if (currentCase == "CASE37"){ // Format 4 - Indexed - Constant
+                string parsed_operation = operation.substr(1,operation.size());
+                string parsed_operand = operand.substr(0, operand.find(','));
+                string opCode = opCodeTable->getInfo(parsed_operation).getOpCode();
+                int displacement = stoi(parsed_operand);
+                return calculateObjectCode(opCode,3,9,displacement,format4Flag);
+            }else if (currentCase == "CASE38"){ // Format 4 - Constant
+                string parsed_operation = operation.substr(1,operation.size());
+                string opCode = opCodeTable->getInfo(parsed_operation).getOpCode();
+                int displacement = stoi(operand);
+                return calculateObjectCode(opCode,3,1,displacement,format4Flag);
             }else if(currentCase == "CASE_EXPRESSION_ERROR"){ // Expression Evaluator Returned Error !
                 sourceLine->setErrorMessage("Error in Expression!");
                 return SOME_THING_WRONG;
@@ -551,8 +582,14 @@ string ObjectCodeGenerator::getCase(SourceLine* sourceLine){
                     return "CASE0";
                 return "CASE_EXPRESSION_ERROR";
             }
-            else{
+            else if (symbolTable->search(parsed_operand).getLocation() != -1){
                 return "CASE1";
+            }
+            else if (ValidatorUtilities::isSymbol(parsed_operand,8)){
+                return "CASE_SYMBOL_ERROR";
+            }
+            else{
+                return "CASE36";
             }
         }
         else{ // Format 3
@@ -597,8 +634,11 @@ string ObjectCodeGenerator::getCase(SourceLine* sourceLine){
                         }
                     }
                 }
-                else{
+                else if (ValidatorUtilities::isSymbol(parsed_operand,8)){
                     return "CASE_SYMBOL_ERROR";
+                }
+                else{
+                    return "CASE35";
                 }
             }
         }
@@ -676,8 +716,14 @@ string ObjectCodeGenerator::getCase(SourceLine* sourceLine){
                     return "CASE16";
                 return "CASE_EXPRESSION_ERROR";
             }
-            else{
+            else if(symbolTable->search(parsed_operand).getLocation() != -1){
                 return "CASE17";
+            }
+            else if (ValidatorUtilities::isSymbol(parsed_operand,8)){
+                return "CASE_SYMBOL_ERROR";
+            }
+            else{
+                return "CASE37";
             }
         }
         else{ // Format 3
@@ -722,8 +768,11 @@ string ObjectCodeGenerator::getCase(SourceLine* sourceLine){
                         }
                     }
                 }
-                else{
+                else if(ValidatorUtilities::isSymbol(parsed_operand,8)){
                     return "CASE_SYMBOL_ERROR";
+                }
+                else{
+                    return "CASE34";
                 }
             }
         }
@@ -738,8 +787,14 @@ string ObjectCodeGenerator::getCase(SourceLine* sourceLine){
             else if (isLiteral(operand)){
                 return "CASE24";
             }
-            else{
+            else if (symbolTable->search(operand).getLocation() != -1){
                 return "CASE25";
+            }
+            else if (ValidatorUtilities::isSymbol(operand,8)){
+                return "CASE_SYMBOL_ERROR";
+            }
+            else{
+                return "CASE38";
             }
         }
         else{ // Format 3
@@ -799,8 +854,11 @@ string ObjectCodeGenerator::getCase(SourceLine* sourceLine){
                         }
                     }
                 }
-                else{
+                else if (ValidatorUtilities::isSymbol(operand,8)){
                     return "CASE_SYMBOL_ERROR";
+                }
+                else{
+                    return "CASE33";
                 }
             }
         }

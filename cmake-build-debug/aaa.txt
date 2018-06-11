@@ -1,16 +1,35 @@
-.234567890123456789
-STRCP2   START   1000
-FIRST    STL     RETADDR
-         LDT     *
-         LDX     =W'-11'
-         LTORG
-MOVECH   LDCH    STR1,X
-         STCH    STR2,X
-         ORG     2000
-         TIXR    T
-         JLT     MOVECH
-         J       @RETADDR
-STR1     WORD    -11
-Str2     RESB    11
-RETADDR  RESW    1
-         END
+prog     start   0000
+         lda     #0
+         ldx     #0
+.reads input array from device f3 and stores it into arr
+read     td      input
+         jeq     read
+         rd      input
+         comp    #4
+         jeq     search
+         stch    400,x
+         tix     0
+         j       read
+         lds     #read-prog
+.search array starts here
+.first we move length to register s for faster program
+search   rmo     x,s
+         ldx     #0
+         lda     #0
+         ldt     #0
+         ldt     target
+loop     ldch    400,x
+         compr   a,t
+         jeq     found
+         tixr    s
+         jlt     loop
+         jeq     fail
+found    lda     #400
+         addr    x,a
+         j       done
+fail     lda     #255
+         j       done
+input    byte    x'f3'
+target   word    72
+done     equ     *
+         end
