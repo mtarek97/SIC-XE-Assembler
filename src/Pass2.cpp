@@ -124,13 +124,15 @@ void Pass2::generateObjProg(){
         prevLine.setNextInstruction(prevLine.getLocationCounter());
         SymbolTable* symTable = SymbolTable::getSymbolTable();
         SymbolInfo symInfo = symTable->search(endSourceLine.getOperand());
-        if(currentLine.getIsValid() && symInfo.getLocation() != -1){
+        if(currentLine.getIsValid() && symInfo.getLocation() != -1 && endSourceLine.getOperand() != ""){
             writeInFile(endSourceLine,"",Pass2::NO_ERROR);
         }else if(!currentLine.getIsValid()){
             writeInFile(endSourceLine,"",Pass2::PASS1_ERROR);
-        }else{
+        }else if(symInfo.getLocation() != -1 && endSourceLine.getOperand() != ""){
             endSourceLine.setErrorMessage("The symbol in the operand is not found");
             writeInFile(endSourceLine,"",Pass2::PASS2_ERROR);
+        }else if(endSourceLine.getOperand() == ""){
+            writeInFile(endSourceLine,"",Pass2::NO_ERROR);
         }
     }else{
         ///what if there is an error in end?
@@ -141,13 +143,15 @@ void Pass2::generateObjProg(){
 
             SymbolTable* symTable = SymbolTable::getSymbolTable();
             SymbolInfo symInfo = symTable->search(endSourceLine.getOperand());
-            if(currentLine.getIsValid() && symInfo.getLocation() != -1){
+            if(currentLine.getIsValid() && symInfo.getLocation() != -1 && endSourceLine.getOperand() != ""){
                 writeInFile(endSourceLine,"",Pass2::NO_ERROR);
             }else if(!currentLine.getIsValid()){
                 writeInFile(endSourceLine,"",Pass2::PASS1_ERROR);
-            }else{
+            }else if(symInfo.getLocation() != -1 && endSourceLine.getOperand() != ""){
                 endSourceLine.setErrorMessage("The symbol in the operand is not found");
                 writeInFile(endSourceLine,"",Pass2::PASS2_ERROR);
+            }else if(endSourceLine.getOperand() == ""){
+                writeInFile(endSourceLine,"",Pass2::NO_ERROR);
             }
             ///what if pass2 error in operand?
         }else{

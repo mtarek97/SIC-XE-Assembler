@@ -1,31 +1,15 @@
 Line    Loc            Source statement       
-<<<<<<< HEAD
   0     00000                        START               0000                
   1     00000    ST                  LDZ                 X1                  
        ****Error:LDZ is invalid operation
   2     00000    ST2                 LDX                 #3                  
   3     00003                        SUB                 X2,X                T98093WEDEDEDEDED 
   4     00006    ST2                 STA                 Z                   
+       ****Error:This lable is used before
   5     ffffffff    XR                  EQU                 Z-ST                
        ****Error:This symbol is not exist until now
   6     ffffffff    YR                  EQU                 50*ST2              
        ****Error:Not Absolute and Not Relative
   7     00009    Z                   RESW                1                   
-  8     0000c    P                   END                 ST2                 
+  8     0000c    P                   END                 ST2                 SHADGJAGDAK 
        ****Error:label must be blank at END statement
-  9     0000c                        GGHYHYXJXGNRX                           
-       ****Error:GGHYHYXJXGNRX is invalid operation
-=======
-  0     00000    ADDER               START               0000                
-  1     00000    ST2                 LDA                 X1                  
-  2     00003    ST2                 LDX                 #3                  
-       ****Error:This lable is used before
-  3     00006    KK                  START               0000                
-       ****Error:You wirte START operation more than one time
-  4     00006                        SUB                 X2,X                
-  5     00009                        STA                 Z                   
-  6     0000c                        ORG                 2000                
-  7     00000    YR                  EQU                 ST2                 
-  8     02000    Z                   RESW                1                   
-  9     02003                        END                 ST2                 KGIUG IUGIUG IGIUG 
->>>>>>> da3ab2a29e5b09cec3459e428960a998427bb7e1
