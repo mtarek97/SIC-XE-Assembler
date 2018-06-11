@@ -26,6 +26,7 @@ vector<SourceLine> SourceProgram::parse(char* fileName)
     direcive.insert("LTORG");
     direcive.insert("ORG");
     direcive.insert("EQU");
+    direcive.insert("BASE");
 
     string parser, word;
     bool stop = false;
@@ -44,20 +45,25 @@ vector<SourceLine> SourceProgram::parse(char* fileName)
 
         SourceLine sourceLine;
 
-        sourceLine.setLocationCounter(locationCounter);
-        if(sourcelines.size() != 0)
-            sourcelines[sourcelines.size() - 1].setNextInstruction(locationCounter);
-
-
         if(!isComment(line))
         {
             sourceLine = identifier(line, parser);
-            updateLocationCounter(sourceLine);
+            sourceLine.setLocationCounter(locationCounter);
+            updateLocationCounter(&sourceLine);
             lineNumber++;
+            if(getUpper(sourceLine.getOperation()) == "EQU"){
+                sourceLine.setLocationCounter(symbolTable->search(getUpper(sourceLine.getLable())).getLocation());
+            }
+            if(sourcelines.size() != 0)
+               sourcelines[sourcelines.size() - 1].setNextInstruction(sourceLine.getLocationCounter());
+
+            this->sourcelines.push_back(sourceLine);
         if(sourceLine.getOperand()[0] == '=' )
         {
-            if(!lieralTable.count(sourceLine.getOperand()))
-             this->lieralTable[sourceLine.getOperand()] = make_pair(false, 0);
+            if(!lieralTable.count(sourceLine.getOperand())) {
+            this->lieralTable[sourceLine.getOperand()] = make_pair(false, 0);
+            this->literalVector.push_back(sourceLine.getOperand());
+            }
         }
         if(getUpper(sourceLine.getOperation()) == "LTORG")
         {
@@ -66,13 +72,17 @@ vector<SourceLine> SourceProgram::parse(char* fileName)
         }
         else
         {
+        if(sourcelines.size() != 0)
+            sourcelines[sourcelines.size() - 1].setNextInstruction(locationCounter);
             sourceLine.setComment(getComment(0, line));
             sourceLine.setLable("");
             sourceLine.setOperand("");
             sourceLine.setOperation("");
+            sourceLine.setLocationCounter(locationCounter);
             write(sourceLine,"");
+            this->sourcelines.push_back(sourceLine);
         }
-        this->sourcelines.push_back(sourceLine);
+
 
 
     }
@@ -80,27 +90,31 @@ vector<SourceLine> SourceProgram::parse(char* fileName)
 makeLiteralPool();
 (LiteralTable::getLiteralsTable())->SetLiteralsTable(lieralTable);
 sourcelines[sourcelines.size() - 1].setNextInstruction(locationCounter);
+for(int i=0;i<sourcelines.size();i++)
+  //  if(getUpper(sourcelines[i].getOperation()) == "EQU")
+    cout<<"here "<<sourcelines[i].getOperation()<<"    "<<sourcelines[i].getLocationCounter()<<" \n   ";
+//<<sourcelines[i-1].getNextInstruction();
 return (sourcelines);
 
 }
-std::map<std::string,std::pair< bool, int> > SourceProgram::getLiteralTable(){
+std::unordered_map<std::string,std::pair< bool, int> > SourceProgram::getLiteralTable(){
 return lieralTable;
 }
 
 void SourceProgram::makeLiteralPool()
 {
-    vector<SourceLine> newLines = DetectLiterals::detect(this->locationCounter, lieralTable);
+    vector<SourceLine> newLines = DetectLiterals::detect(this->locationCounter, lieralTable, literalVector);
 
     for(int i = 0; i < newLines.size(); i++)
     {
-        sourcelines.push_back(newLines[i]);
         if(sourcelines.size() != 0)
         {
-            sourcelines[sourcelines.size() - 1].setNextInstruction(locationCounter);
+            sourcelines[sourcelines.size() - 1].setNextInstruction(newLines[i].getLocationCounter());
         }
+        sourcelines.push_back(newLines[i]);
         locationCounter = newLines[i].getLocationCounter();
-        lieralTable[newLines[i].getOperand()] = make_pair(true, locationCounter);
-        cout<<lieralTable[newLines[i].getOperand()].first<<" "<< lieralTable[newLines[i].getOperand()].second<<"\n";
+        lieralTable[newLines[i].getOperation()] = make_pair(true, locationCounter);
+        cout<<newLines[i].getOperation()<<" "<<lieralTable[newLines[i].getOperation()].first<<" "<< lieralTable[newLines[i].getOperation()].second<<"\n";
         write(newLines[i], "");
     }
     if(newLines.size() != 0)
@@ -125,7 +139,8 @@ SourceLine SourceProgram::identifier(vector<string> line, string parser)
     OpInfo opinfo =opCodeTable->getInfo(upperForm);
     string withoutSign= upperForm;
     withoutSign.erase(withoutSign.begin());
-    if(opinfo.getOpCode() == opinfo.NOT_FOUND && direcive.find(upperForm) == direcive.end() &&opCodeTable->getInfo(withoutSign).getOpCode() == opinfo.NOT_FOUND)
+    //if(opinfo.getOpCode() == opinfo.NOT_FOUND && direcive.find(upperForm) == direcive.end() &&opCodeTable->getInfo(withoutSign).getOpCode() == opinfo.NOT_FOUND)
+    if(parser[0] != ' ')
     {
         sourceLine.setLable(line[index++]);
     }
@@ -185,63 +200,62 @@ vector<string> SourceProgram::getWords(string parser)
 void SourceProgram::write(SourceLine sourceLine, string error)
 {
     std::stringstream stream;
-    stream << std::hex << locationCounter;
+    stream << std::hex << sourceLine.getLocationCounter();
     string locationCounterinhex = stream.str();
     assemblyListing.write(sourceLine, locationCounterinhex, error);
 }
-void SourceProgram::updateLocationCounter(SourceLine sourceLine)
+void SourceProgram::updateLocationCounter(SourceLine* sourceLine)
 {
     string error = "";
     SyntaxValidator syntaxValidator;
-    if(syntaxValidator.isValid(&sourceLine))
+    if(syntaxValidator.isValid(sourceLine))
     {
-        if(getUpper(sourceLine.getOperation()) == "START")
+        if(getUpper(sourceLine->getOperation()) == "START")
         {
             start++;
             if(start == 1 && lineNumber == 0)
             {
-                locationCounter = UpdateLocationCounter::detectStart(locationCounter, sourceLine);
-                if(sourceLine.getLable() != "")
-                    symbolTable->insert(sourceLine.getLable(), locationCounter);
-                write(sourceLine, "");
+                locationCounter = UpdateLocationCounter::detectStart(locationCounter, *sourceLine);
+                if(sourceLine->getLable() != "")
+                    symbolTable->insert(sourceLine->getLable(), locationCounter);
+                write(*sourceLine, "");
                 return;
             }
             else
             {
                 error = "You wirte START operation more than one time";
-                sourceLine.setIsValid(false);
+                sourceLine->setIsValid(false);
             }
         }
 
-        if(sourceLine.getLable() != "")
+        if(sourceLine->getLable() != "")
         {
-            if(symbolTable->hashtable.count(sourceLine.getLable()) != 0)
+            if(symbolTable->hashtable.count(sourceLine->getLable()) != 0)
             {
                 error = "This lable is used before";
-                sourceLine.setIsValid(false);
+                sourceLine->setIsValid(false);
             }
-            else
-                symbolTable->insert(sourceLine.getLable(), locationCounter);
+            else if(getUpper(sourceLine->getOperation()) != "EQU")
+                symbolTable->insert(sourceLine->getLable(), locationCounter);
         }
-
-        write(sourceLine, error);
         error = "";
         pair<int,string> result;
-        result = UpdateLocationCounter::setLocationCounter(locationCounter, sourceLine);
+        result = UpdateLocationCounter::setLocationCounter(locationCounter, *sourceLine);
         locationCounter = result.first;
         error = result.second;
+        if(getUpper(sourceLine->getOperation()) == "EQU"){
+            sourceLine->setLocationCounter(symbolTable->search(sourceLine->getLable()).getLocation());
+        }
+        write(*sourceLine, error);
         if(error != ""){
         SourceLine emptyy;
         write(emptyy, error);
         }
-    //    ObjectCodeGenerator* generator = ObjectCodeGenerator::getObjectCodeGenerator(); // testing purposes !!
-  //      generator->setSymbolTable(symbolTable);
-
     }
     else
     {
-        write(sourceLine, sourceLine.getErrorMessage());
-        sourceLine.setIsValid(false);
+        write(*sourceLine, sourceLine->getErrorMessage());
+        sourceLine->setIsValid(false);
     }
 }
 SourceLine SourceProgram::handleSpacesInOperand(SourceLine sourceLine, string subject, string patern, char beginCharacter)

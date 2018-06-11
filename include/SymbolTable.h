@@ -21,7 +21,7 @@ class SymbolTable{
         static SymbolTable* uniqueInstance;
         map<string, bool> inserted;
         bool isFirst;
-        void writeInFile(string symbol, int locInMemory);
+        void writeInFile(string symbol, string locInMemory);
 };
 
 #endif // SYMBOLTABLE_H

@@ -1,26 +1,11 @@
 Line    Loc            Source statement       
-<<<<<<< HEAD
   0     00000    ADDER               START               0000                
-  1     00000    ST                  LDA                 X1                  
-  2     00003                        LDX                 #3                  
-  3     00006                        SUB                 X1,X                
-  4     00009                        STA                 Z                   
-  5     0000c    X1                  WORD                6,5                 
-  6     00012    Z                   RESW                1                   
-  7     00015                        END                 ST                  
-=======
-  0     00000    XXX                 START               0000                
-  1     00000                        LDA                 =X'3256'            
-  2     00003                        LTORG                                   
-  3     00003    *                   =x'3256'                                
-  4     00005    TEST                BYTE                C'UU     UHU'       IHBIBIB 
-  5     0000f                        LDA                 =C'325CSDCSD6'      
-  6     00012                        LDA                 =C'3256'            
-  7     00015    SHAZLY              EQU                 TEST-5              
-  8     00000                        ORG                 SHAZLY+5            
-  9     0001a    MOHAMED             BYTE                C'UUU'              IHBIBIB 
- 10     0001d                        END                 BGN                 
- 11     0001d    *                   =C'3256'                                
- 12     0001f    *                   =C'325csdcsd6'                          
- 13     00024    *                   =x'3256'                                
->>>>>>> e4ad02b2f52e1ac43112685f343dc2e7e6395dbf
+  1     00000    ST                  LDZ                 X1                  
+       ****Error:LDZ is invalid operation
+  2     00000    ST2                 LDX                 #3                  
+  3     00003                        SUB                 X2,X                
+  4     00006                        STA                 Z                   
+  5     00009    X                   WORD                6,5                 
+       ****Error:label can't be a reserved keyword
+  6     00009    Z                   RESW                1                   
+  7     0000c                        END                 ST2                 

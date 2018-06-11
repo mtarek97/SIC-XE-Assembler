@@ -1,53 +1,53 @@
 Line    Loc            Source statement       
-  0              ..2345678901234567890 
-  1     00000                        START               0                   
-  2     00000    FIRST               STL                 RETADR              
-  3     00003                        LDB                 #LENGTH             
-  4     00006    CLOOP               JSUB                RDREC               
-  5     00009                        LDA                 LENGTH              
-  6     0000c                        COMP                #0                  
-  7     0000f                        JEQ                 ENDFIL              
-  8     00012                        JSUB                WRREC               
-  9     00015                        J                   CLOOP               
- 10     00018    ENDFIL              LDA                 EOF                 
- 11     0001b                        STA                 BUFFER              
- 12     0001e                        LDA                 #3                  
- 13     00021                        STA                 LENGTH              
- 14     00024                        JSUB                WRREC               
- 15     00027                        J                   @RETADR             
- 16     0002a    EOF                 BYTE                C'EOF'              
- 17     0002d    RETADR              RESW                1                   
- 18     00030    LENGTH              RESW                1                   
- 19     00033    BUFFER              RESB                4096                
- 20              . 
- 21              . SUBROUTINE TO READ RECORD INTO BUFFER 
+  0              .234567890123456789 
+  1     00000    COPY                START               1000                
+  2     01000    FIRST               STL                 RETADR              
+  3     01003    CLOOP               JSUB                RDREC               
+  4     01006                        LDA                 LENGTH              
+  5     01009                        COMP                ZERO                
+  6     0100c                        JEQ                 ENDFIL              
+  7     0100f                        JSUB                WRREC               
+  8     01012                        J                   CLOOP               
+  9     01015    ENDFIL              LDA                 EOF                 
+ 10     01018                        STA                 BUFFER              
+ 11     0101b                        LDA                 THREE               
+ 12     0101e                        STA                 LENGTH              
+ 13     01021                        JSUB                WRREC               
+ 14     01024                        LDL                 RETADR              
+ 15     01027                        RSUB                                    
+ 16     0102a    EOF                 BYTE                C'EOF'              
+ 17     0102d    THREE               WORD                3                   
+ 18     01030    ZERO                WORD                0                   
+ 19     01033    RETADR              RESW                1                   
+ 20     01036    LENGTH              RESW                1                   
+ 21     01039    BUFFER              RESB                4096                
  22              . 
- 23     01033    RDREC               CLEAR               X                   
- 24     01035                        CLEAR               A                   
- 25     01037                        CLEAR               S                   
- 26     01039                        LDT                 #4096               
- 27     0103c    RLOOP               TD                  INPUT               
- 28     0103f                        JEQ                 RLOOP               
- 29     01042                        RD                  INPUT               
- 30     01045                        COMPR               A,S                 
- 31     01047                        JEQ                 EXIT                
- 32     0104a                        STCH                BUFFER,X            
- 33     0104d                        TIXR                T                   
- 34     0104f                        JLT                 RLOOP               
- 35     01052    EXIT                STX                 LENGTH              
- 36     01055                        RSUB                                    
- 37     01058    INPUT               BYTE                X'F1'               
- 38              . 
- 39              . SUBROUTINE TO WRITE RECORD FROM BUFFER 
+ 23              . 
+ 24              . 
+ 25     02039    RDREC               LDX                 ZERO                
+ 26     0203c                        LDA                 ZERO                
+ 27     0203f    RLOOP               TD                  INPUT               
+ 28     02042                        JEQ                 RLOOP               
+ 29     02045                        RD                  INPUT               
+ 30     02048                        COMP                ZERO                
+ 31     0204b                        JEQ                 EXIT                
+ 32     0204e                        STCH                BUFFER,X            
+ 33     02051                        TIX                 MAXLEN              
+ 34     02054                        JLT                 RLOOP               
+ 35     02057    EXIT                STX                 LENGTH              
+ 36     0205a                        RSUB                                    
+ 37     0205d    INPUT               BYTE                X'F1'               
+ 38     0205e    MAXLEN              WORD                4096                
+ 39              . 
  40              . 
- 41     01059    WRREC               CLEAR               X                   
- 42     0105b                        LDT                 LENGTH              
- 43     0105e    WLOOP               TD                  OUTPUT              
- 44     01061                        JEQ                 WLOOP               
- 45     01064                        LDCH                BUFFER,X            
- 46     01067                        WD                  OUTPUT              
- 47     0106a                        TIXR                T                   
- 48     0106c                        JLT                 WLOOP               
- 49     0106f                        RSUB                                    
- 50     01072    OUTPUT              BYTE                X'05'               
- 51     01073                        END                 FIRST               
+ 41              . 
+ 42     02061    WRREC               LDX                 ZERO                
+ 43     02064    WLOOP               TD                  OUTPUT              
+ 44     02067                        JEQ                 WLOOP               
+ 45     0206a                        LDCH                BUFFER,X            
+ 46     0206d                        WD                  OUTPUT              
+ 47     02070                        TIX                 LENGTH              
+ 48     02073                        JLT                 WLOOP               
+ 49     02076                        RSUB                                    
+ 50     02079    OUTPUT              BYTE                X'05'               
+ 51     0207a                        END                 FIRST               

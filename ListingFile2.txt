@@ -1,0 +1,12 @@
+Line    Loc            Source statement                      Object Code   
+  0     00000    ADDER     START     0000                     
+  1     00000    ST        LDZ       X1                       
+       ****Error1:LDZ is invalid operation
+  2     00000    ST2       LDX       #3                       050003
+  3     00003              SUB       X2,X                     
+       ****Error2:Symbol Error!
+  4     00006              STA       Z                        0f2000
+  5     00009    X         WORD      6,5                      
+       ****Error1:label can't be a reserved keyword
+  6     00009    Z         RESW      1                        
+  7     0000c              END       ST2                      

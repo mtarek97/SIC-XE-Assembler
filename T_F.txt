@@ -3,8 +3,8 @@
 .234567890123456789
 .234567890123456789
 .234567890123456789
-LAB2C    START   0100
-         LDA     ALPHA
+LAb2C    START   1000
+lda      lda     ALPHA
          LDB     #10
          LDX     #0 ygygyg 3t34t34t egrgergerg grergerg
          ADDR    A,B
@@ -14,14 +14,19 @@ LAB2C    START   0100
 .Format 4 erg wwww sss
          +SUB    #12
          LDX     #0
-         lda     =x'3256'
-         lda     =x'3256'
+         lda     =x'4256'
+         lda     =x'6256'
          lda     =C'3256'
          lda     =x'325556'
          STA     INPUT
-ADD      LDCH    STRING,X
+ADDll      LDCH    STRING,X
          COMP    INPUT
          JEQ     FOUND
+uu equ ADDllkkk
+uub equ ADDll-3
+uuc equ ADDll-2
+uud equ ADDll-1
+org   uu+5
          STCH    OUTPUT,X
          TIX     #5
          JLT     ADD

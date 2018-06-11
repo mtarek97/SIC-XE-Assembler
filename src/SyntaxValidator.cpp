@@ -47,9 +47,13 @@ bool SyntaxValidator::isValid(SourceLine* srcLine)
         else
         {
             int operationType = checkOperation(this->sourceLine->getOperation());
+            string operation = this->sourceLine->getOperation();
+            if(operation[0] =='+'){
+                operation = operation.substr(1);
+            }
             if(operationType == this->INSTRUCTION)
             {
-                OpInfo info = opCodeTable->getInfo(this->sourceLine->getOperation());
+                OpInfo info = opCodeTable->getInfo(operation);
                 if(info.getFormatBytes() == 2)
                 {
                     return this->checkFormat2Operand(info);
@@ -82,7 +86,6 @@ int SyntaxValidator::checkOperation(std::string operation)
     {
         prefixedByPlus = true;
         nonPrefixedOperation = operation.substr(1);
-        this->sourceLine->setOperation(nonPrefixedOperation);
     }
     else
     {
@@ -179,7 +182,7 @@ bool SyntaxValidator::checkFormat3or4Operand(OpInfo info)
             return false;
         }
         else if(!(ValidatorUtilities::isHexAddress(splittedOperands[0],6))
-                && !ValidatorUtilities::isSymbol(splittedOperands[0],6) && !sourceLine->getContainsExpression())
+                && !ValidatorUtilities::isSymbol(splittedOperands[0],LABEL_MAXLENGTH) && !sourceLine->getContainsExpression())
         {
             this->sourceLine->setErrorMessage(splittedOperands[0] + " is invalid operand");
             return false;
@@ -215,7 +218,7 @@ bool SyntaxValidator::checkFormat3or4Operand(OpInfo info)
             }
             return true;
         }
-        else if(!sourceLine->getContainsExpression() && !ValidatorUtilities::isSymbol(nonPrefixedOperand,6)
+        else if(!sourceLine->getContainsExpression() && !ValidatorUtilities::isSymbol(nonPrefixedOperand,LABEL_MAXLENGTH)
                 && !ValidatorUtilities::isHexAddress(nonPrefixedOperand,6) && !(nonPrefixedOperand=="*"))
         {
             this->sourceLine->setErrorMessage(splittedOperands[0] + " is invalid operand");

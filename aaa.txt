@@ -3,11 +3,11 @@ xxx     start   0000
           LTORG
 
 test     byte  c'uu     uhu' ihbibib
-
+mohamed     byte  c'uuu' ihbibib
 
          lda     =C'325csdcsd6' 
         lda     =C'3256'
-shazly equ  test-5
+shazly equ  3+5
 org   shazly+5
-mohamed     byte  c'uuu' ihbibib
+
          end     bgn

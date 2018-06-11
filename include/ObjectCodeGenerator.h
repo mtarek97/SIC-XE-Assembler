@@ -10,11 +10,13 @@
 #include "OpCodeTable.h"
 #include "SymbolTable.h"
 #include "RegistersTable.h"
+#include "ExpressionEvaluator.h"
+#include "LiteralTable.h"
 
 class ObjectCodeGenerator{
     public:
     static ObjectCodeGenerator* getObjectCodeGenerator();
-    std::string getObjectCode(SourceLine sourceLine);
+    std::string getObjectCode(SourceLine* sourceLine);
     static const std::string SOME_THING_WRONG;
     void setBaseStatus(bool baseStatus);
     void setCurrentBaseAddress(string currentBaseAddress);
@@ -25,6 +27,8 @@ class ObjectCodeGenerator{
     OpCodeTable* opCodeTable;
     RegistersTable* registersTable;
     SymbolTable* symbolTable;
+    ExpressionEvaluator expressionEvaluator;
+    LiteralTable* literalTable;
     bool baseStatus;
     string errorMessage;
     string currentBaseAddress;
@@ -41,7 +45,7 @@ class ObjectCodeGenerator{
     static const int format3Flag;
     static const int format4Flag;
     string calculateObjectCode(string operationCode, int ni, int xbpe, int displacement, int byteFormat);
-
+    string getCase(SourceLine* sourceLine);
     bool isIndirect(string basic_string);
 
     bool isDirective(string basic_string);

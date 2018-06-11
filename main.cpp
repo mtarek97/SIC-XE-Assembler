@@ -64,7 +64,7 @@ int main( )
     SourceProgram sourceProgram;
     string l = "aaaa.txt";
 
-    Pass2 pass2 = Pass2(sourceProgram.parse(&fileName[0]),1+2*16);
+    Pass2 pass2 = Pass2(sourceProgram.parse(&fileName[0]));
     pass2.generateObjProg();
 
 
@@ -82,8 +82,8 @@ int main( )
     ObjectCodeGenerator* generator = ObjectCodeGenerator::getObjectCodeGenerator();
 
     SourceLine sourceLine ; // symbol Table has been set inside source Program for testing purposes only.
-    sourceLine.setOperation("LDA");
-    sourceLine.setOperand("=W'-100'");
+    sourceLine.setOperation("LDCH");
+    sourceLine.setOperand("HEXCHAR");
     sourceLine.setNextInstruction(4177);
 
     SyntaxValidator validator;
@@ -97,8 +97,11 @@ int main( )
     cout << (sourceLine.getHasObjCode() ? "has obj code" : "has no obj code") << endl;
     cout << (sourceLine.getContainsExpression() ? "has exp" : "has no exp") << endl;
     if(sourceLine.getHasObjCode()){
-        string result = generator->getObjectCode(sourceLine);
+        string result = generator->getObjectCode(&sourceLine);
         cout << result << endl;
     }
+    // debug
+    cout << sourceLine.getOperation() << endl;
+    cout << sourceLine.getOperand() << endl;
     return 0;
 }
