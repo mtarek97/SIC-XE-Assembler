@@ -1,12 +1,16 @@
 Line    Loc            Source statement       
-  0     00000    ADDER               START               0000                
-  1     00000    ST                  LDA                 X1                  
-  2     00003    ST2                 LDX                 #3                  
-  3     00006                        SUB                 X2,X                
-  4     00009                        STA                 Z                   
-  5     0000c                        ORG                 2000                
-  6     ffffffff    YR                  EQU                 50-ST               
+  0     00000                        START               0000                
+  1     00000    ST                  LDZ                 X1                  
+       ****Error:LDZ is invalid operation
+  2     00000    ST2                 LDX                 #3                  
+  3     00003                        SUB                 X2,X                T98093WEDEDEDEDED 
+  4     00006    ST2                 STA                 Z                   
+  5     ffffffff    XR                  EQU                 Z-ST                
+       ****Error:This symbol is not exist until now
+  6     ffffffff    YR                  EQU                 50*ST2              
        ****Error:Not Absolute and Not Relative
-  7     02000    Z                   RESW                1                   
-  8     02003    P                   END                 ST2                 
+  7     00009    Z                   RESW                1                   
+  8     0000c    P                   END                 ST2                 
        ****Error:label must be blank at END statement
+  9     0000c                        GGHYHYXJXGNRX                           
+       ****Error:GGHYHYXJXGNRX is invalid operation

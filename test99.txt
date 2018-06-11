@@ -1,20 +1,10 @@
-<<<<<<< HEAD
-adder START 0000
+ START 0000
 st ldz x1
 st2 ldx #3
- sub x2,x
- sta z
-x1 word 6,5
-z resw 1
- END st5
-=======
-adder START 0000
-st ldz x1
-st2 ldx #3
- sub x2,x
- sta z
+ sub x2,x  t98093wededededed
+st2 sta z
 xr equ z-st
-yr equ 50-st
+yr equ 50*st2
 z resw 1
 p END st2
->>>>>>> 62cabf641fd57ed8c081db4e9dca58ff42117c88
+ gghyhyxjxgnrx

@@ -158,7 +158,44 @@ void Pass2::generateObjProg(){
     while(linesCounter < sourceLinesArr.size()){
         prevLine = currentLine;
         currentLine = sourceLinesArr[linesCounter++];
-        string opCode = objCodeGenerator->getObjectCode(&currentLine);
+        if(currentLine.getIsValid() && currentLine.getHasObjCode() && currentLine.getOperation() != ""){
+           string opCode = objCodeGenerator->getObjectCode(&currentLine);
+           if(opCode != ObjectCodeGenerator::SOME_THING_WRONG){
+               if(prevLine.getNextInstruction() != currentLine.getLocationCounter()){
+                    objectProgram.writeText(TextStartAddress,convertToHEX(TextRecord.length()/2),TextRecord);
+                    TextRecord = opCode;
+                    TextStartAddress = convertToHEX(currentLine.getLocationCounter());
+               }else if(TextRecord.length() + opCode.length() <= MAX_TEXT_RECORED_LENGTH){
+                    TextRecord = TextRecord + opCode;
+               }else{
+                  objectProgram.writeText(TextStartAddress,convertToHEX(TextRecord.length()/2),TextRecord);
+                  TextRecord = opCode;
+                  TextStartAddress = convertToHEX(currentLine.getLocationCounter());
+               }
+               if(currentLine.getOperation()[0] == '+' && currentLine.getOperand()[0] != '#'){
+                    modificationAddress.push_back(convertToHEX(currentLine.getLocationCounter()+1));
+                    modificationLength.push_back(std::to_string(5));
+               }
+               writeInFile(currentLine, opCode, Pass2::NO_ERROR);
+               prevLine = currentLine;
+           }else{
+               writeInFile(currentLine, "", Pass2::PASS2_ERROR);
+           }
+        }else if(currentLine.getOperation() == "BASE" && currentLine.getIsValid()){
+            objCodeGenerator->setBaseStatus(true);
+            objCodeGenerator->setCurrentBaseAddress(currentLine.getOperand());
+            writeInFile(currentLine, "", Pass2::NO_ERROR);
+        }else if(currentLine.getOperation() == "NOBASE" && currentLine.getIsValid()){
+            objCodeGenerator->setBaseStatus(false);
+            writeInFile(currentLine, "", Pass2::NO_ERROR);
+        }else{
+            if(!currentLine.getIsValid()){
+                writeInFile(currentLine, "", Pass2::PASS1_ERROR);
+            }else{
+                writeInFile(currentLine, "", Pass2::NO_ERROR);
+            }
+        }
+       /* string opCode = objCodeGenerator->getObjectCode(&currentLine);
         if(opCode != ObjectCodeGenerator::SOME_THING_WRONG){
            if(TextRecord.length() + opCode.length() <= MAX_TEXT_RECORED_LENGTH){
                 TextRecord = TextRecord + opCode;
@@ -170,7 +207,7 @@ void Pass2::generateObjProg(){
            writeInFile(currentLine, opCode, Pass2::NO_ERROR);
        }else{
            writeInFile(currentLine, "", Pass2::PASS2_ERROR);
-       }
+       }*/
     }
     /// write last record
     objectProgram.writeText(TextStartAddress,convertToHEX(TextRecord.length()/2),TextRecord);
@@ -227,20 +264,25 @@ void Pass2::writeInFile(SourceLine sourceLine, string opCode, int error){
         }
         locationCounter = zeros + locationCounter;
         line = line +locationCounter + "    "+sourceLine.getLable();
-        for(i = 0; i < 10-sourceLine.getLable().length();i++){
+        for(i = 0; i < 10-sourceLine.getLable().length() && sourceLine.getLable().length() < 10;i++){
             line = line +" ";
         }
 
         line = line + sourceLine.getOperation();
-        for(i = 0; i < 10-sourceLine.getOperation().length();i++){
+        for(i = 0; i < 10-sourceLine.getOperation().length() && sourceLine.getOperation().length() < 10;i++){
             line = line +" ";
         }
         line = line + sourceLine.getOperand();
-        for(i = 0; i < 20-sourceLine.getOperand().length();i++){
+        for(i = 0; i < 20-sourceLine.getOperand().length() && sourceLine.getOperand().length() < 20;i++){
             line = line +" ";
         }
-        line = line+ "     "+ opCode;
-        line = line + sourceLine.getComment()+"\n";
+        line = line+ "     ";
+
+        for(i = 0; i < 20 - opCode.length() && opCode.length() < 20; i++){
+            opCode =opCode+" ";
+        }
+
+        line = line +opCode +sourceLine.getComment()+"\n";
 
 
 

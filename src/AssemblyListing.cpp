@@ -38,16 +38,16 @@ void AssemblyListing::write(SourceLine sourceLine, string locationCounter, strin
         }
         locationCounter = zeros + locationCounter;
         line = line +locationCounter + "    "+sourceLine.getLable();
-        for(i = 0; i < 20-sourceLine.getLable().length();i++){
+        for(i = 0; i < 20-sourceLine.getLable().length() && sourceLine.getLable().length() < 20;i++){
             line = line +" ";
         }
 
         line = line + sourceLine.getOperation();
-        for(i = 0; i < 20-sourceLine.getOperation().length();i++){
+        for(i = 0; i < 20-sourceLine.getOperation().length() && sourceLine.getOperation().length() < 20;i++){
             line = line +" ";
         }
         line = line + sourceLine.getOperand();
-        for(i = 0; i < 20-sourceLine.getOperand().length();i++){
+        for(i = 0; i < 20-sourceLine.getOperand().length() && sourceLine.getOperand().length() < 20;i++){
             line = line +" ";
         }
         line = line + sourceLine.getComment()+"\n";
