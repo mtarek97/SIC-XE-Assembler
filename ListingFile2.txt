@@ -25,8 +25,11 @@ Line    Loc            Source statement                      Object Code
  22     0102d              COMP      INPUT                    2b2019
  23     01030              JEQ       FOUND                    33203d
  24     ffffffff    UU        EQU       ADDLLKKK                 
+       ****Error1:This symbol is not exist until now
  25     ffffffff    UUB       EQU       UU                       
+       ****Error1:This symbol is not exist until now
  26     ffffffff    UUC       EQU       ADDLL+AB                 
+       ****Error1:Not Absolute and Not Relative
  27     01029    UUD       EQU       ADDLL-1                  
  28     01033    ORG       UU+5                               
        ****Error1:label can't be a reserved keyword

@@ -25,34 +25,31 @@ Line    Loc            Source statement
  23     01030                        JEQ                 FOUND               
  24     ffffffff    UU                  EQU                 ADDLLKKK            
        ****Error:This symbol is not exist until now
- 25              
- 26     ffffffff    UUB                 EQU                 UU                  
+ 25     ffffffff    UUB                 EQU                 UU                  
        ****Error:This symbol is not exist until now
- 27              
- 28     ffffffff    UUC                 EQU                 ADDLL+AB            
+ 26     ffffffff    UUC                 EQU                 ADDLL+AB            
        ****Error:Not Absolute and Not Relative
- 29              
- 30     01029    UUD                 EQU                 ADDLL-1             
- 31     01033    ORG                 UU+5                                    
+ 27     01029    UUD                 EQU                 ADDLL-1             
+ 28     01033    ORG                 UU+5                                    
        ****Error:label can't be a reserved keyword
- 32     01033                        STCH                OUTPUT,X            
- 33     01036                        TIX                 #5                  
- 34     01039                        JLT                 ADD                 
+ 29     01033                        STCH                OUTPUT,X            
+ 30     01036                        TIX                 #5                  
+ 31     01039                        JLT                 ADD                 
        ****Error:ADD is invalid operand
- 35              
- 36     01039                        LDA                 =C'325  6'          
- 37     0103c    FOUND               J                   OUT                 
- 38     0103f    ALPHA               WORD                2                   
- 39     01042    SAVEW               RESW                2                   
- 40     01048    HEXCHAR             BYTE                X'61'               
- 41     01049    INPUT               RESB                1                   
- 42     0104a    STRING              BYTE                C'STRING     GERGER'
+ 32              
+ 33     01039                        LDA                 =C'325  6'          
+ 34     0103c    FOUND               J                   OUT                 
+ 35     0103f    ALPHA               WORD                2                   
+ 36     01042    SAVEW               RESW                2                   
+ 37     01048    HEXCHAR             BYTE                X'61'               
+ 38     01049    INPUT               RESB                1                   
+ 39     0104a    STRING              BYTE                C'STRING     GERGER'
        ****Error:STRING     GERGER can't exceed 15 characters
- 43     0104a    OUTPUT              RESB                5                   
- 44     0104f    OUT                 END                 #4                  
+ 40     0104a    OUTPUT              RESB                5                   
+ 41     0104f    OUT                 END                 #4                  
        ****Error:label must be blank at END statement
- 45     0104f    *                   =X'4256'                                
- 46     01051    *                   =X'6256'                                
- 47     01053    *                   =C'3256'                                
- 48     01057    *                   =X'325556'                              
- 49     0105a    *                   =C'325  6'                              
+ 42     0104f    *                   =X'4256'                                
+ 43     01051    *                   =X'6256'                                
+ 44     01053    *                   =C'3256'                                
+ 45     01057    *                   =X'325556'                              
+ 46     0105a    *                   =C'325  6'                              
