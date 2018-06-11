@@ -262,6 +262,10 @@ bool SyntaxValidator::checkDirectiveOperand()
             }
             else if (operand[0]== 'X')
             {
+                if(actualOperand.size()%2!=0){
+                    this->sourceLine->setErrorMessage("hexadecimal constant must have even length");
+                    return false;
+                }
                 if(!ValidatorUtilities::isHexAddress(actualOperand,14))
                 {
                     this->sourceLine->setErrorMessage(actualOperand + " must be a hexadecimal constant with length at most 14 digits");

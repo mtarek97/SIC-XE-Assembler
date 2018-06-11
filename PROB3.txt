@@ -6,13 +6,14 @@ PROB3    START   0000
          LDA     #0
          LDT     #7                    LENGTH
 LOOP     LDCH    INSTR,X
-         COMP    #91                   Z in ASCII
+         COMP    =X'12345'                   Z in ASCII
          JLT     CONT
          SUB     CONV
 CONT     STCH    OUTSTR,X
          TIX     #7                   
          JLT     LOOP
 OUTSTR   RESB    7
-INSTR    BYTE    c'maHmOud'
+INSTR    BYTE    C'maHmOud'
+INT      BYTE    X'123'
 CONV     WORD    32
          END     PROB3

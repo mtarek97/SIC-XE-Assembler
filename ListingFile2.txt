@@ -6,14 +6,18 @@ Line    Loc            Source statement                      Object Code
   4     00000              LDX       #0                       050000       
   5     00003              LDA       #0                       010000       
   6     00006              LDT       #7                       750007       LENGTH 
-  7     00009    LOOP      LDCH      INSTR,X                  53a019       
-  8     0000c              COMP      #91                      29005b       Z IN ASCII 
-  9     0000f              JLT       CONT                     3b2003       
- 10     00012              SUB       CONV                     1f2017       
- 11     00015    CONT      STCH      OUTSTR,X                 57a006       
- 12     00018              TIX       #7                       2d0007       
- 13     0001b              JLT       LOOP                     3b2feb       
- 14     0001e    OUTSTR    RESB      7                                  
- 15     00025    INSTR     BYTE      C'maHmOud'               6d61486d4f7564   
- 16     0002c    CONV      WORD      32                       000020       
- 17     0002f              END       PROB3                              
+  7     00009    LOOP      LDCH      INSTR,X                  53a016       
+  8     0000c              COMP      =X'12345'                          Z IN ASCII 
+       ****Error1:=X'12345' is invalid operand
+  9     0000c              JLT       CONT                     3b2003       
+ 10     0000f              SUB       CONV                     1f2017       
+ 11     00012    CONT      STCH      OUTSTR,X                 57a006       
+ 12     00015              TIX       #7                       2d0007       
+ 13     00018              JLT       LOOP                     3b2fee       
+ 14     0001b    OUTSTR    RESB      7                                  
+ 15     00022    INSTR     BYTE      C'maHmOud'               6d61486d4f7564   
+ 16     00029    INT       BYTE      X'123'                             
+       ****Error1:hexadecimal constant must have even length
+ 17     00029    CONV      WORD      32                       000020       
+ 18     0002c              END       PROB3                              
+ 20     0002c    *         =X'12345'                          12345        

@@ -142,7 +142,7 @@ bool ValidatorUtilities::isLiteral(string str)
         bool validLiteral = false;
         switch(literalType){
         case 'X' :
-            validLiteral = isHexAddress(value,100);
+            validLiteral = isHexAddress(value,100) && (value.size()%2==0);
             break;
          case 'C' :
             validLiteral = true;

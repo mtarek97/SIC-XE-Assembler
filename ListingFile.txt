@@ -7,13 +7,17 @@ Line    Loc            Source statement
   5     00003                        LDA                 #0                  
   6     00006                        LDT                 #7                  LENGTH 
   7     00009    LOOP                LDCH                INSTR,X             
-  8     0000c                        COMP                #91                 Z IN ASCII 
-  9     0000f                        JLT                 CONT                
- 10     00012                        SUB                 CONV                
- 11     00015    CONT                STCH                OUTSTR,X            
- 12     00018                        TIX                 #7                  
- 13     0001b                        JLT                 LOOP                
- 14     0001e    OUTSTR              RESB                7                   
- 15     00025    INSTR               BYTE                C'maHmOud'          
- 16     0002c    CONV                WORD                32                  
- 17     0002f                        END                 PROB3               
+  8     0000c                        COMP                =X'12345'           Z IN ASCII 
+       ****Error:=X'12345' is invalid operand
+  9     0000c                        JLT                 CONT                
+ 10     0000f                        SUB                 CONV                
+ 11     00012    CONT                STCH                OUTSTR,X            
+ 12     00015                        TIX                 #7                  
+ 13     00018                        JLT                 LOOP                
+ 14     0001b    OUTSTR              RESB                7                   
+ 15     00022    INSTR               BYTE                C'maHmOud'          
+ 16     00029    INT                 BYTE                X'123'              
+       ****Error:hexadecimal constant must have even length
+ 17     00029    CONV                WORD                32                  
+ 18     0002c                        END                 PROB3               
+ 19     0002c    *                   =X'12345'                               
