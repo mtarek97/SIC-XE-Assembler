@@ -83,6 +83,14 @@ pair<int,string> UpdateLocationCounter::setLocationCounter(int locationCounter, 
             {
                 // ha ha ha ha
             }
+            else if(isInt(sourceLine.getOperand()))
+            {
+                locationCounter = std::stoi(sourceLine.getOperand());
+                std::stringstream stream;
+                stream << locationCounter;
+                stream >> std::hex >> locationCounter;
+
+            }
             else if(sourceLine.getOperand() != "*")
                 error = "This symbol is not exist until now";
 
@@ -115,6 +123,14 @@ pair<int,string> UpdateLocationCounter::setLocationCounter(int locationCounter, 
             {
                 symbolTable->insert(sourceLine.getLable(), locationCounter);
             }
+            else if(isInt(sourceLine.getOperand()))
+            {
+                int x = std::stoi(sourceLine.getOperand());
+                std::stringstream stream;
+                stream << x;
+                stream >> std::hex >> x;
+                symbolTable->insert(sourceLine.getLable(), x);
+            }
             else
                 error = "This symbol is not exist until now";
 
@@ -140,3 +156,17 @@ int UpdateLocationCounter::detectStart(int locationCounter,SourceLine sourceLine
 
     return locationCounter;
 }
+bool UpdateLocationCounter::isInt(std::string operand)
+{
+    int i;
+    for(i=0; i<operand.size(); i++)
+    {
+        if(operand[i] >= '0' && operand[i] <= '9')
+        {
+            continue;
+        }
+        return false;
+    }
+    return true;
+}
+
