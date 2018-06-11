@@ -53,6 +53,8 @@ class ObjectCodeGenerator{
     bool isLiteral(string basic_string);
 
     string getConstantHEX(string constant);
+
+    string getConstantHEXLiteral(SourceLine* sourceLine, basic_string<char, char_traits<char>, allocator<char>> basic_string);
 };
 
 

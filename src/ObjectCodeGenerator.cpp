@@ -68,7 +68,7 @@ std::string ObjectCodeGenerator::getObjectCode(SourceLine* sourceLine) {
     string operand = sourceLine->getOperand();
     //Detect Literal Pool
     if(isLiteral(operation)){
-        return getConstantHEX(operation.substr(1,operation.size()));
+        return getConstantHEXLiteral(sourceLine ,operation.substr(1,operation.size()));
     }
     transform(operation.begin(), operation.end(), operation.begin(), ::toupper);
     if(opCodeTable->getInfo(operation).getFormatBytes() == 1){
@@ -379,17 +379,25 @@ std::string ObjectCodeGenerator::getObjectCode(SourceLine* sourceLine) {
             std::stringstream stream;
             stream << std::hex << theWord;
             string objectCodeHex = stream.str();
-            if (objectCodeHex.size() == 6)
-            return objectCodeHex;
-            else if (objectCodeHex.size() > 6){
-                sourceLine->setErrorMessage("Error in WORD!");
-                return SOME_THING_WRONG;
+            if(theWord >= 0) {
+                if (objectCodeHex.size() == 6)
+                    return objectCodeHex;
+                else if (objectCodeHex.size() > 6) {
+                    sourceLine->setErrorMessage("Error in WORD!");
+                    return SOME_THING_WRONG;
+                } else {
+                    while (objectCodeHex.size() < 6) {
+                        objectCodeHex = "0" + objectCodeHex;
+                    }
+                    return objectCodeHex;
+                }
             }
             else{
-                while(objectCodeHex.size() < 6){
-                    objectCodeHex = "0" + objectCodeHex;
+                string result = "";
+                for(int i = 0 ; i < 6 ; i ++){
+                    result = objectCodeHex.at(objectCodeHex.size()-1-i) + result;
                 }
-                return objectCodeHex;
+                return result;
             }
         }
         else{
@@ -486,6 +494,51 @@ string ObjectCodeGenerator::getConstantHEX(string constant) {
     else{
        return constant.substr(constant.find_first_of('\'')+1,constant.find_last_of('\'')- constant.find_first_of('\'') - 1);
     };
+}
+
+string ObjectCodeGenerator::getConstantHEXLiteral(SourceLine* sourceLine, basic_string<char, char_traits<char>, allocator<char>> literal) {
+    if(literal[0] == 'C' ||  literal[0] == 'c'){
+        string characters = literal.substr(literal.find_first_of('\'')+1,literal.find_last_of('\'')- literal.find_first_of('\'') - 1);
+        string result = "";
+        for(char character : characters){
+            std::stringstream stream;
+            stream << std::hex << int(character);
+            string objectCodeHex = stream.str();
+            result += objectCodeHex;
+        }
+        return result;
+    }
+    else if (literal[0] == 'X' || literal [0] =='x'){
+        return literal.substr(literal.find_first_of('\'')+1,literal.find_last_of('\'')- literal.find_first_of('\'') - 1);
+    }
+    else{ // =W
+        string operand = literal.substr(literal.find_first_of('\'')+1,literal.find_last_of('\'')- literal.find_first_of('\'') - 1);
+        int theWord = stoi(operand);
+        std::stringstream stream;
+        stream << std::hex << theWord;
+        string objectCodeHex = stream.str();
+        if(theWord >= 0){
+            if (objectCodeHex.size() == 6)
+                return objectCodeHex;
+            else if (objectCodeHex.size() > 6){
+                sourceLine->setErrorMessage("Error in =W !");
+                return SOME_THING_WRONG;
+            }
+            else{
+                while(objectCodeHex.size() < 6){
+                    objectCodeHex = "0" + objectCodeHex;
+                }
+                return objectCodeHex;
+            }
+        }
+        else{
+            string result = "";
+            for(int i = 0 ; i < 6 ; i ++){
+                result = objectCodeHex.at(objectCodeHex.size()-1-i) + result;
+            }
+            return result;
+        }
+    }
 }
 string ObjectCodeGenerator::getCase(SourceLine* sourceLine){
     string operation = sourceLine->getOperation();
@@ -753,6 +806,8 @@ string ObjectCodeGenerator::getCase(SourceLine* sourceLine){
         }
     }
 }
+
+
 
 
 
