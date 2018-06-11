@@ -1,57 +1,36 @@
 Line    Loc            Source statement       
-  0              .234567890123456789 
-  1     00000    COPY                START               0                   
-  2     00000    FIRST               STL                 RETADR              
-  3     00003                        LDB                 #LENGTH             
-  4     00006                        BASE                LENGTH              
-  5     00006    CLOOP               +JSUB               RDREC               
-  6     0000a                        LDA                 LENGTH              
-  7     0000d                        COMP                #0                  
-  8     00010                        JEQ                 ENDFIL              
-  9     00013                        +JSUB               WRREC               
- 10     00017                        J                   CLOOP               
- 11     0001a    ENDFIL              LDA                 =C'EOF'             
- 12     0001d                        STA                 BUFFER              
- 13     00020                        LDA                 #3                  
- 14     00023                        STA                 LENGTH              
- 15     00026                        +JSUB               WRREC               
- 16     0002a                        J                   @RETADR             
- 17     0002d                        LTORG                                   
- 18     0002d    *                   =C'EOF'                                 
- 19     00030    RETADR              RESW                1                   
- 20     00033    LENGTH              RESW                1                   
- 21     00036    BUFFER              RESB                4096                
- 22     01036    BUFEND              EQU                 *                   
- 23     01000    MAXLEN              EQU                 BUFEND-BUFFER       
- 24              . 
- 25              . 
- 26              . 
- 27     01036    RDREC               CLEAR               X                   
- 28     01038                        CLEAR               A                   
- 29     0103a                        CLEAR               S                   
- 30     0103c                        +LDT                #MAXLEN             
- 31     01040    RLOOP               TD                  INPUT               
- 32     01043                        JEQ                 RLOOP               
- 33     01046                        RD                  INPUT               
- 34     01049                        COMPR               A,S                 
- 35     0104b                        JEQ                 EXIT                
- 36     0104e                        STCH                BUFFER,X            
- 37     01051                        TIXR                T                   
- 38     01053                        JLT                 RLOOP               
- 39     01056    EXIT                STX                 LENGTH              
- 40     01059                        RSUB                                    
- 41     0105c    INPUT               BYTE                X'F1'               
- 42              . 
- 43              . 
- 44              . 
- 45     0105d    WRREC               CLEAR               X                   
- 46     0105f                        LDT                 LENGTH              
- 47     01062    WLOOP               TD                  =X'05'              
- 48     01065                        JEQ                 WLOOP               
- 49     01068                        LDCH                BUFFER,X            
- 50     0106b                        WD                  =X'05'              
- 51     0106e                        TIXR                T                   
- 52     01070                        JLT                 WLOOP               
- 53     01073                        RSUB                                    
- 54     01076                        END                 FIRST               
- 55     01076    *                   =X'05'                                  
+  0     00000    PROG                START               0000                
+  1     00000                        LDA                 #0                  
+  2     00003                        LDX                 #0                  
+  3              .reads input array from device f3 and stores it into arr 
+  4     00006    READ                TD                  INPUT               
+  5     00009                        JEQ                 READ                
+  6     0000c                        RD                  INPUT               
+  7     0000f                        COMP                #4                  
+  8     00012                        JEQ                 SEARCH              
+  9     00015                        STCH                400,X               
+ 10     00018                        TIX                 0                   
+ 11     0001b                        J                   READ                
+ 12     0001e                        LDS                 #READ               
+ 13              .search array starts here 
+ 14              .first we move length to register s for faster program 
+ 15     00021    SEARCH              RMO                 X,S                 
+ 16     00023                        LDX                 #0                  
+ 17     00026                        LDA                 #0                  
+ 18     00029                        LDT                 #0                  
+ 19     0002c                        LDT                 TARGET              
+ 20     0002f    LOOP                LDCH                400,X               
+ 21     00032                        COMPR               A,T                 
+ 22     00034                        JEQ                 FOUND               
+ 23     00037                        TIXR                S                   
+ 24     00039                        JLT                 LOOP                
+ 25     0003c                        JEQ                 FAIL                
+ 26     0003f    FOUND               LDA                 #400                
+ 27     00042                        ADDR                X,A                 
+ 28     00044                        J                   DONE                
+ 29     00047    FAIL                LDA                 #255                
+ 30     0004a                        J                   DONE                
+ 31     0004d    INPUT               BYTE                X'f3'               
+ 32     0004e    TARGET              WORD                72                  
+ 33     0003f    DONE                EQU                 FOUND               
+ 34     00051                        END                 READ                
