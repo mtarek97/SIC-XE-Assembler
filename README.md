@@ -1,6 +1,6 @@
 # SIC/XE Assembler
 
-> An implementaion of a SIC/XE two-pass assembler, written in C++, producing object code for the absolute loader.
+> An implementation of a SIC/XE two-pass assembler, written in C++, producing object code for the absolute loader.
 
 ## Getting Started
 
