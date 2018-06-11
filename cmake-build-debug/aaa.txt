@@ -50,4 +50,3 @@ WLOOP    TD      OUTPUT
          RSUB
 OUTPUT   BYTE    X'05'
          END     FIRST
-

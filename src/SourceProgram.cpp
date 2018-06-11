@@ -51,6 +51,9 @@ vector<SourceLine> SourceProgram::parse(char* fileName)
             sourceLine.setLocationCounter(locationCounter);
             updateLocationCounter(&sourceLine);
             lineNumber++;
+            if(getUpper(sourceLine.getOperation()) == "START"){
+                sourceLine.setLocationCounter(locationCounter);
+            }
             if(getUpper(sourceLine.getOperation()) == "EQU"){
                 sourceLine.setLocationCounter(symbolTable->search(getUpper(sourceLine.getLable())).getLocation());
             }
@@ -225,6 +228,7 @@ void SourceProgram::updateLocationCounter(SourceLine* sourceLine)
             {
                 error = "You wirte START operation more than one time";
                 sourceLine->setIsValid(false);
+                sourceLine->setErrorMessage(error);
             }
         }
 
@@ -234,6 +238,7 @@ void SourceProgram::updateLocationCounter(SourceLine* sourceLine)
             {
                 error = "This lable is used before";
                 sourceLine->setIsValid(false);
+                sourceLine->setErrorMessage(error);
             }
             else if(getUpper(sourceLine->getOperation()) != "EQU")
                 symbolTable->insert(sourceLine->getLable(), locationCounter);
@@ -248,9 +253,10 @@ void SourceProgram::updateLocationCounter(SourceLine* sourceLine)
         }
         write(*sourceLine, error);
         if(error != ""){
-        SourceLine emptyy;
-        write(emptyy, error);
+            sourceLine->setIsValid(false);
+            sourceLine->setErrorMessage(error);
         }
+
     }
     else
     {
