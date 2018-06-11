@@ -230,7 +230,6 @@ void Pass2::generateObjProg(){
         }else{
             objectProgram.writeEnd(convertToHEX(FirstInsAdd));
         }
-
     }
 }
 string Pass2::convertToHEX(int num){
