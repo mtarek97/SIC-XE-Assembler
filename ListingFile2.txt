@@ -1,36 +1,19 @@
 Line    Loc            Source statement                      Object Code   
-<<<<<<< HEAD
-  0     00000              START     0000                               
-  1     00000    ST        LDZ       X1                                 
-       ****Error1:LDZ is invalid operation
-  2     00000    ST2       LDX       #3                       050003       
-  3     00003              SUB       X2,X                               T98093WEDEDEDEDED 
-       ****Error2:Symbol Error!
-  4     00006    ST2       STA       Z                                  
-       ****Error1:This lable is used before
-  5     ffffffff    XR        EQU       Z-ST                               
-       ****Error1:This symbol is not exist until now
-  6     ffffffff    YR        EQU       50*ST2                             
-       ****Error1:Not Absolute and Not Relative
-  7     00009    Z         RESW      1                                  
-  8     0000c    P         END       ST2                                
-       ****Error1:label must be blank at END statement
- 10     0000c              GGHYHYXJXGNRX                                   
-       ****Error1:GGHYHYXJXGNRX is invalid operation
-=======
-  0     00000    ADDER     START     0000                     
-  1     00000    ST2       LDA       X1                       
-       ****Error2:Symbol Error!
-  2     00003    ST2       LDX       #3                       
-       ****Error1:This lable is used before
-  3     00006    KK        START     0000                     
-       ****Error1:You wirte START operation more than one time
-  4     00006              SUB       X2,X                     
-       ****Error2:Symbol Error!
-  5     00009              STA       Z                        
-       ****Error2:Displacement Error!
-  6     0000c              ORG       2000                     
-  7     00000    YR        EQU       ST2                      
-  8     02000    Z         RESW      1                        
-  9     02003              END       ST2                      KGIUG IUGIUG IGIUG 
->>>>>>> da3ab2a29e5b09cec3459e428960a998427bb7e1
+  0              .program to convert a string to UPPER case 
+  1              .23456789012345678901234567890123456 
+  2              .Label. Opcode The O p e r a n d 
+  3     00000    PROB3     START     0000                               
+  4     00000              LDX       #0                       050000       
+  5     00003              LDA       #0                       010000       
+  6     00006              LDT       #7                       750007       LENGTH 
+  7     00009    LOOP      LDCH      INSTR,X                  53a019       
+  8     0000c              COMP      #91                      29005b       Z IN ASCII 
+  9     0000f              JLT       CONT                     3b2003       
+ 10     00012              SUB       CONV                     1f2017       
+ 11     00015    CONT      STCH      OUTSTR,X                 57a006       
+ 12     00018              TIX       #7                       2d0007       
+ 13     0001b              JLT       LOOP                     3b2feb       
+ 14     0001e    OUTSTR    RESB      7                                  
+ 15     00025    INSTR     BYTE      C'maHmOud'               6d61486d4f7564   
+ 16     0002c    CONV      WORD      32                       000020       
+ 17     0002f              END       PROB3                              
