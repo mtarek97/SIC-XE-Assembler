@@ -5,53 +5,54 @@ Line    Loc            Source statement
   3              .234567890123456789 
   4              .234567890123456789 
   5     00000    LAB2C               START               1000                
-  6     01000    LDA                 LDA                 ALPHA               
-       ****Error:label can't be a reserved keyword
-  7     01000                        LDB                 #10                 
-  8     01003                        LDX                 #0                  YGYGYG 3T34T34T EGRGERGERG GRERGERG 
-  9     01006                        ADDR                A,B                 
- 10     01008                        STA                 SAVEW,X             
- 11     0100b                        LDX                 #1                  
- 12     0100e                        STA                 SAVEW,X             
+  6     01000    AB                  LDA                 ALPHA               
+  7     01003                        LDB                 #10                 
+  8     01006                        LDX                 #0                  YGYGYG 3T34T34T EGRGERGERG GRERGERG 
+  9     01009                        ADDR                A,B                 
+ 10     0100b                        STA                 SAVEW,X             
+ 11     0100e                        LDX                 #1                  
+ 12     01011                        STA                 SAVEW,X             
  13              .Format 4 erg wwww sss 
- 14     01011                        +SUB                #12                 
- 15     01015                        LDX                 #0                  
- 16     01018                        LDA                 =X'4256'            
- 17     0101b                        LDA                 =X'6256'            
- 18     0101e                        LDA                 =C'3256'            
- 19     01021                        LDA                 =X'325556'          
- 20     01024                        STA                 INPUT               
- 21     01027    ADDLL               LDCH                STRING,X            
- 22     0102a                        COMP                INPUT               
- 23     0102d                        JEQ                 FOUND               
+ 14     01014                        +SUB                #12                 
+ 15     01018                        LDX                 #0                  
+ 16     0101b                        LDA                 =X'4256'            
+ 17     0101e                        LDA                 =X'6256'            
+ 18     01021                        LDA                 =C'3256'            
+ 19     01024                        LDA                 =X'325556'          
+ 20     01027                        STA                 INPUT               
+ 21     0102a    ADDLL               LDCH                STRING,X            
+ 22     0102d                        COMP                INPUT               
+ 23     01030                        JEQ                 FOUND               
  24     ffffffff    UU                  EQU                 ADDLLKKK            
        ****Error:This symbol is not exist until now
  25              
  26     ffffffff    UUB                 EQU                 UU                  
        ****Error:This symbol is not exist until now
  27              
- 28     01025    UUC                 EQU                 ADDLL-2             
- 29     01026    UUD                 EQU                 ADDLL-1             
- 30     01030    ORG                 UU+5                                    
+ 28     ffffffff    UUC                 EQU                 ADDLL+AB            
+       ****Error:Not Absolute and Not Relative
+ 29              
+ 30     01029    UUD                 EQU                 ADDLL-1             
+ 31     01033    ORG                 UU+5                                    
        ****Error:label can't be a reserved keyword
- 31     01030                        STCH                OUTPUT,X            
- 32     01033                        TIX                 #5                  
- 33     01036                        JLT                 ADD                 
+ 32     01033                        STCH                OUTPUT,X            
+ 33     01036                        TIX                 #5                  
+ 34     01039                        JLT                 ADD                 
        ****Error:ADD is invalid operand
- 34              
- 35     01036                        LDA                 =C'325  6'          
- 36     01039    FOUND               J                   OUT                 
- 37     0103c    ALPHA               WORD                2                   
- 38     0103f    SAVEW               RESW                2                   
- 39     01045    HEXCHAR             BYTE                X'61'               
- 40     01046    INPUT               RESB                1                   
- 41     01047    STRING              BYTE                C'STRING     GERGER'
+ 35              
+ 36     01039                        LDA                 =C'325  6'          
+ 37     0103c    FOUND               J                   OUT                 
+ 38     0103f    ALPHA               WORD                2                   
+ 39     01042    SAVEW               RESW                2                   
+ 40     01048    HEXCHAR             BYTE                X'61'               
+ 41     01049    INPUT               RESB                1                   
+ 42     0104a    STRING              BYTE                C'STRING     GERGER'
        ****Error:STRING     GERGER can't exceed 15 characters
- 42     01047    OUTPUT              RESB                5                   
- 43     0104c    OUT                 END                 #4                  
+ 43     0104a    OUTPUT              RESB                5                   
+ 44     0104f    OUT                 END                 #4                  
        ****Error:label must be blank at END statement
- 44     0104c    *                   =X'4256'                                
- 45     0104e    *                   =X'6256'                                
- 46     01050    *                   =C'3256'                                
- 47     01054    *                   =X'325556'                              
- 48     01057    *                   =C'325  6'                              
+ 45     0104f    *                   =X'4256'                                
+ 46     01051    *                   =X'6256'                                
+ 47     01053    *                   =C'3256'                                
+ 48     01057    *                   =X'325556'                              
+ 49     0105a    *                   =C'325  6'                              

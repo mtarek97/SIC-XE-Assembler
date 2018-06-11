@@ -64,12 +64,13 @@ pair<int,string> UpdateLocationCounter::setLocationCounter(int locationCounter, 
             {
 
                 ExpressionEvaluator evaluate;
-                int result = evaluate.evaluateExpression(sourceLine.getOperand()).getLocation();
-                if(result != -1 && result != -2)
-                    locationCounter = result;
-                else if(result == -1)
+                SymbolInfo result = evaluate.evaluateExpression(sourceLine.getOperand());
+                if(result.getLocation() != -1)
+                    locationCounter = result.getLocation();
+
+                else if(result.getType() == 'e')
                     error = "Not Absolute and Not Relative";
-                else if(result == -2)
+                else if(result.getType() == 'u')
                     error = "This symbol is not exist until now";
 
             }
@@ -90,21 +91,19 @@ pair<int,string> UpdateLocationCounter::setLocationCounter(int locationCounter, 
         else if(operation == "EQU")
         {
 
-            if(symbolTable == nullptr)
-                return make_pair(locationCounter, "");
-
             if(sourceLine.getContainsExpression())
             {
                 ExpressionEvaluator evaluate;
-                int result = evaluate.evaluateExpression(sourceLine.getOperand()).getLocation();
-                if(result != -1 && result != -2)
+
+                SymbolInfo result = evaluate.evaluateExpression(sourceLine.getOperand());
+                if(result.getLocation() != -1)
                 {
                     //   cout<<"here"<<evaluate.evaluateExpression(sourceLine.getOperand()).getLocation();
-                    symbolTable->insert(sourceLine.getLable(), result);
+                    symbolTable->insert(sourceLine.getLable(), result.getLocation());
                 }
-                else if(result == -1)
+                else if(result.getType() == 'e')
                     error = "Not Absolute and Not Relative";
-                else if(result == -2)
+                else if(result.getType() == 'u')
                     error = "This symbol is not exist until now";
 
             }
