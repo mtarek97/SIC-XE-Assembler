@@ -35,6 +35,7 @@ const int indirect3 = 1000100;
 ObjectCodeGenerator* ObjectCodeGenerator::uniqueInstance = 0;
 
 ObjectCodeGenerator::ObjectCodeGenerator() {
+    this->baseStatus = false;
     this->opCodeTable = OpCodeTable::getOpTable();
     this->registersTable = RegistersTable::getARegistersTable();
     this->symbolTable = SymbolTable::getSymbolTable();
@@ -67,7 +68,7 @@ std::string ObjectCodeGenerator::getObjectCode(SourceLine* sourceLine) {
     string operand = sourceLine->getOperand();
     //Detect Literal Pool
     if(isLiteral(operation)){
-        return getConstantHEX(operation);
+        return getConstantHEX(operation.substr(1,operation.size()));
     }
     transform(operation.begin(), operation.end(), operation.begin(), ::toupper);
     if(opCodeTable->getInfo(operation).getFormatBytes() == 1){
@@ -365,6 +366,10 @@ std::string ObjectCodeGenerator::getObjectCode(SourceLine* sourceLine) {
                 sourceLine->setErrorMessage("Displacement Error!");
                 return SOME_THING_WRONG;
             }
+            else if(currentCase == "CASE_SYMBOL_ERROR"){
+                sourceLine->setErrorMessage("Symbol Error!");
+                return SOME_THING_WRONG;
+            }
         }
         else if (operation == "BYTE"){
             return getConstantHEX(operand);
@@ -525,18 +530,22 @@ string ObjectCodeGenerator::getCase(SourceLine* sourceLine){
                 }
             }
             else{
-                int displacement = symbolTable->search(parsed_operand).getLocation() - sourceLine->getNextInstruction();
-                if(displacement >= min3Byte && displacement <= max3Byte){ // PC
-                    return "CASE5";
+                if(symbolTable->search(parsed_operand).getLocation() != -1) {
+                    int displacement = symbolTable->search(parsed_operand).getLocation() - sourceLine->getNextInstruction();
+                    if (displacement >= min3Byte && displacement <= max3Byte) { // PC
+                        return "CASE5";
+                    } else {
+                        if (baseStatus) {
+                            int base_disp = symbolTable->search(parsed_operand).getLocation() - symbolTable->search(currentBaseAddress).getLocation();
+                            if (base_disp >= 0 && base_disp <= maxBase)
+                                return "CASE6";
+                        } else {
+                            return "CASE_DISP_ERROR";
+                        }
+                    }
                 }
                 else{
-                    if(baseStatus) {
-                        int base_disp = symbolTable->search(parsed_operand).getLocation() - symbolTable->search(currentBaseAddress).getLocation();
-                        if ( base_disp >= 0 && base_disp <= maxBase)
-                            return "CASE6";
-                    }else{
-                        return "CASE_DISP_ERROR";
-                    }
+                    return "CASE_SYMBOL_ERROR";
                 }
             }
         }
@@ -552,6 +561,8 @@ string ObjectCodeGenerator::getCase(SourceLine* sourceLine){
             else if(symbolTable->search(parsed_operand).getLocation() != -1)
                 return "CASE8";
             else{
+                if(ValidatorUtilities::isSymbol(parsed_operand,8))
+                    return "CASE_SYMBOL_ERROR";
                 return "CASE9";
             }
         }
@@ -596,7 +607,10 @@ string ObjectCodeGenerator::getCase(SourceLine* sourceLine){
                     }
                 }
             }
-            else{
+            else if (ValidatorUtilities::isSymbol(parsed_operand,8)){
+                return "CASE_SYMBOL_ERROR";
+            }
+            else {
                 return "CASE15";
             }
         }
@@ -641,18 +655,22 @@ string ObjectCodeGenerator::getCase(SourceLine* sourceLine){
                 }
             }
             else{
-                int displacement = symbolTable->search(parsed_operand).getLocation() - sourceLine->getNextInstruction();
-                if(displacement >= min3Byte && displacement <= max3Byte){ // PC
-                    return "CASE21";
+                if(symbolTable->search(parsed_operand).getLocation() != -1) {
+                    int displacement = symbolTable->search(parsed_operand).getLocation() - sourceLine->getNextInstruction();
+                    if (displacement >= min3Byte && displacement <= max3Byte) { // PC
+                        return "CASE21";
+                    } else {
+                        if (baseStatus) {
+                            int base_disp = symbolTable->search(parsed_operand).getLocation() - symbolTable->search(currentBaseAddress).getLocation();
+                            if (base_disp >= 0 && base_disp <= maxBase)
+                                return "CASE22";
+                        } else {
+                            return "CASE_DISP_ERROR";
+                        }
+                    }
                 }
                 else{
-                    if(baseStatus) {
-                        int base_disp = symbolTable->search(parsed_operand).getLocation() - symbolTable->search(currentBaseAddress).getLocation();
-                        if ( base_disp >= 0 && base_disp <= maxBase)
-                            return "CASE22";
-                    }else{
-                        return "CASE_DISP_ERROR";
-                    }
+                    return "CASE_SYMBOL_ERROR";
                 }
             }
         }
@@ -714,18 +732,22 @@ string ObjectCodeGenerator::getCase(SourceLine* sourceLine){
                 }
             }
             else{
-                int displacement = symbolTable->search(operand).getLocation() - sourceLine->getNextInstruction();
-                if(displacement >= min3Byte && displacement <= max3Byte){ // PC
-                    return "CASE31";
+                if(symbolTable->search(operand).getLocation() != -1) {
+                    int displacement = symbolTable->search(operand).getLocation() - sourceLine->getNextInstruction();
+                    if (displacement >= min3Byte && displacement <= max3Byte) { // PC
+                        return "CASE31";
+                    } else {
+                        if (baseStatus) {
+                            int base_disp = symbolTable->search(operand).getLocation() - symbolTable->search(currentBaseAddress).getLocation();
+                            if (base_disp >= 0 && base_disp <= maxBase)
+                                return "CASE32";
+                        } else {
+                            return "CASE_DISP_ERROR";
+                        }
+                    }
                 }
                 else{
-                    if(baseStatus) {
-                        int base_disp = symbolTable->search(operand).getLocation() - symbolTable->search(currentBaseAddress).getLocation();
-                        if ( base_disp >= 0 && base_disp <= maxBase)
-                            return "CASE32";
-                    }else{
-                        return "CASE_DISP_ERROR";
-                    }
+                    return "CASE_SYMBOL_ERROR";
                 }
             }
         }
