@@ -122,7 +122,7 @@ SymbolInfo ExpressionEvaluator::evaluateExpression(std::string expression)
         }
     }
     //anything else
-    return SymbolInfo(-1, 'e');
+    return SymbolInfo(-1, 'u');
 }
 
 
