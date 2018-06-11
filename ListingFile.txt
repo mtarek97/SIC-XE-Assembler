@@ -1,12 +1,13 @@
 Line    Loc            Source statement       
   0     00000    ADDER               START               0000                
-  1     00000    ST                  LDA                 X1                  
+  1     00000    ST2                 LDA                 X1                  
   2     00003    ST2                 LDX                 #3                  
-  3     00006                        SUB                 X2,X                
-  4     00009                        STA                 Z                   
-  5     0000c                        ORG                 2000                
-  6     ffffffff    YR                  EQU                 50-ST               
-       ****Error:Not Absolute and Not Relative
-  7     02000    Z                   RESW                1                   
-  8     02003    P                   END                 ST2                 
-       ****Error:label must be blank at END statement
+       ****Error:This lable is used before
+  3     00006    KK                  START               0000                
+       ****Error:You wirte START operation more than one time
+  4     00006                        SUB                 X2,X                
+  5     00009                        STA                 Z                   
+  6     0000c                        ORG                 2000                
+  7     00000    YR                  EQU                 ST2                 
+  8     02000    Z                   RESW                1                   
+  9     02003                        END                 ST2                 KGIUG IUGIUG IGIUG 
