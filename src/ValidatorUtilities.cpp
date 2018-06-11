@@ -142,7 +142,7 @@ bool ValidatorUtilities::isLiteral(string str)
         bool validLiteral = false;
         switch(literalType){
         case 'X' :
-            validLiteral = isHexAddress(value,100);
+            validLiteral = isHexAddress(value,100) && (value.size()%2==0);
             break;
          case 'C' :
             validLiteral = true;
@@ -168,10 +168,14 @@ SourceLine* ValidatorUtilities::toUpperCase(SourceLine* srcLine)
     string operand = srcLine->getOperand();
     string operation = srcLine->getOperation();
     string comment = srcLine->getComment();
-    transform(label.begin(), label.end(), label.begin(), ::toupper);
-    transform(operand.begin(), operand.end(), operand.begin(), ::toupper);
     transform(operation.begin(), operation.end(), operation.begin(), ::toupper);
     transform(comment.begin(), comment.end(), comment.begin(), ::toupper);
+    transform(label.begin(), label.end(), label.begin(), ::toupper);
+    if(operation=="BYTE")   operand[0] = toupper(operand[0]);
+    if(operand[0]=='=') operand[1] = toupper(operand[1]);
+    if(operation!="BYTE" && !isLiteral(operand)){
+        transform(operand.begin(), operand.end(), operand.begin(), ::toupper);
+    }
     srcLine->setLable(label);
     srcLine->setOperand(operand);
     srcLine->setOperation(operation);

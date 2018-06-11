@@ -1,4 +1,5 @@
 Line    Loc            Source statement                      Object Code   
+<<<<<<< HEAD
   0     00000              START     0000                               
   1     00000    ST        LDZ       X1                                 
        ****Error1:LDZ is invalid operation
@@ -14,3 +15,27 @@ Line    Loc            Source statement                      Object Code
   7     00009    Z         RESW      1                                  
   8     0000c    P         END       ST2                                SHADGJAGDAK 
        ****Error1:label must be blank at END statement
+=======
+  0              .program to convert a string to UPPER case 
+  1              .23456789012345678901234567890123456 
+  2              .Label. Opcode The O p e r a n d 
+  3     00000    PROB3     START     0000                               
+  4     00000              LDX       #0                       050000       
+  5     00003              LDA       #0                       010000       
+  6     00006              LDT       #7                       750007       LENGTH 
+  7     00009    LOOP      LDCH      INSTR,X                  53a016       
+  8     0000c              COMP      =X'12345'                          Z IN ASCII 
+       ****Error1:=X'12345' is invalid operand
+  9     0000c              JLT       CONT                     3b2003       
+ 10     0000f              SUB       CONV                     1f2017       
+ 11     00012    CONT      STCH      OUTSTR,X                 57a006       
+ 12     00015              TIX       #7                       2d0007       
+ 13     00018              JLT       LOOP                     3b2fee       
+ 14     0001b    OUTSTR    RESB      7                                  
+ 15     00022    INSTR     BYTE      C'maHmOud'               6d61486d4f7564   
+ 16     00029    INT       BYTE      X'123'                             
+       ****Error1:hexadecimal constant must have even length
+ 17     00029    CONV      WORD      32                       000020       
+ 18     0002c              END       PROB3                              
+ 20     0002c    *         =X'12345'                          12345        
+>>>>>>> c64daaff5372234e496ba220fc30bb5a2997707e
