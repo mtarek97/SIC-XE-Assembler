@@ -68,7 +68,7 @@ int main( )
     pass2.generateObjProg();
 
 
-    /*
+    /**
         ObjectCodeGenerator Guide :
         ObjectCodeGenerator* generator = ObjectCodeGenerator::getObjectCodeGenerator(); getting instance
         generator->setSymbolTable(symbolTable); you must set the symbol table after finishing pass one so that the generator can calculate displacement
@@ -79,7 +79,8 @@ int main( )
         Literals is missing, since no literal locations is found since there is no literal handling yet!
         Also EQU should be added may be to symbol table because of the displacement calculations.
     */
-    ObjectCodeGenerator* generator = ObjectCodeGenerator::getObjectCodeGenerator();
+
+    /*ObjectCodeGenerator* generator = ObjectCodeGenerator::getObjectCodeGenerator();
 
     SourceLine sourceLine ; // symbol Table has been set inside source Program for testing purposes only.
     sourceLine.setOperation("LDCH");
@@ -102,6 +103,6 @@ int main( )
     }
     // debug
     cout << sourceLine.getOperation() << endl;
-    cout << sourceLine.getOperand() << endl;
+    cout << sourceLine.getOperand() << endl; */
     return 0;
 }

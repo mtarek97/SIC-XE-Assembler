@@ -26,7 +26,12 @@ Pass2::Pass2(vector<SourceLine> sourceLinesArr)
    while(sourceLinesArr[i].getOperation() != "START"){
         i++;
    }
-   int startAdd = sourceLinesArr[i].getLocationCounter();
+   int startAdd ;
+   if(i < sourceLinesArr.size()){
+        startAdd = sourceLinesArr[i].getLocationCounter();
+   }else{
+        startAdd = 0;
+   }
    SourceLine last = sourceLinesArr[sourceLinesArr.size()-1];
    if(last.getOperation() == "END"){
        this->lengthOfProg = last.getLocationCounter() - startAdd;
@@ -42,20 +47,23 @@ void Pass2::generateObjProg(){
     SourceLine currentLine = sourceLinesArr[linesCounter];
     SourceLine prevLine = sourceLinesArr[linesCounter];
     ///loop until reach start
-    while(currentLine.getOperation() !="START"){
+    while(currentLine.getOperation() !="START" && currentLine.getOperation() == ""){
         writeInFile(currentLine,"",Pass2::NO_ERROR);
         prevLine = currentLine;
         currentLine = sourceLinesArr[++linesCounter];
     }
-    if(currentLine.getOperation() == "START" && currentLine.getIsValid()){
+    if(currentLine.getOperation() == "START"){
 
         writeInFile(currentLine, "", Pass2::NO_ERROR);
         string lengthOfProgHex = convertToHEX(lengthOfProg);
-        string startAdd = std::to_string(currentLine.getLocationCounter());
+        string startAdd;
+        if(currentLine.getIsValid()){
+            startAdd = convertToHEX(currentLine.getLocationCounter());
+        } else {
+            startAdd = convertToHEX(0);
+        }
         objectProgram.writeHeader(currentLine.getLable(),startAdd,lengthOfProgHex);
         linesCounter++;
-    }else{
-        ///what I should do when there is not start or with error?
     }
 
 
@@ -114,14 +122,23 @@ void Pass2::generateObjProg(){
         endSourceLine = currentLine;
         prevLine = currentLine;
         prevLine.setNextInstruction(prevLine.getLocationCounter());
-        writeInFile(endSourceLine,"",Pass2::NO_ERROR);
+        if(currentLine.getIsValid()){
+            writeInFile(endSourceLine,"",Pass2::NO_ERROR);
+        }else{
+            writeInFile(endSourceLine,"",Pass2::PASS1_ERROR);
+        }
     }else{
         ///what if there is an error in end?
         if(currentLine.getOperation() == "END"){
             endSourceLine = currentLine;
             prevLine = currentLine;
             prevLine.setNextInstruction(prevLine.getLocationCounter());
-            writeInFile(endSourceLine,"",Pass2::NO_ERROR);
+           if(currentLine.getIsValid()){
+                writeInFile(endSourceLine,"",Pass2::NO_ERROR);
+            }else{
+                writeInFile(endSourceLine,"",Pass2::PASS1_ERROR);
+            }
+            ///what if pass2 error in operand?
         }else{
             /// what should I do if there isn't end?
         }
@@ -150,7 +167,7 @@ void Pass2::generateObjProg(){
         objectProgram.writeModification(modificationAddress[i],modificationLength[i]);
     }
     /// what will happen when no END?
-    if(endSourceLine.getOperand() == ""){
+    if(endSourceLine.getOperand() == "" || !endSourceLine.getIsValid()){
         objectProgram.writeEnd(convertToHEX(FirstInsAdd));
     }else{
         SymbolTable* symTable = SymbolTable::getSymbolTable();
