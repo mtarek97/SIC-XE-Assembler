@@ -1,5 +1,6 @@
 Line    Loc            Source statement                      Object Code   
   0              .234567890123456789 
+<<<<<<< HEAD
   1     00000    COPY      START     0                        
   2     00000    FIRST     STL       RETADR                   17202d
   3     00003              LDB       #LENGTH                  69202d
@@ -52,3 +53,25 @@ Line    Loc            Source statement                      Object Code
  50     01073              RSUB                               4f0000
  51     01076    OUTPUT    BYTE      X'05'                    05
  52     01077              END       FIRST                    
+=======
+  1     01000    STRCP2    START     1000                     
+  2     01000    FIRST     STL       RETADDR                  17202b
+  3     01003              LDT       *                        
+       ****Error2:Symbol Error!
+  4     01006              LDX       =W'11'                   072000
+  5     01009              LTORG                              
+  6     01009    *         =W'11'                             11
+  7     0100a    MOVECH    LDCH      STR1,X                   53a00b
+  8     0100d              STCH      STR2,X                   57a013
+  9     01010              ORG       2000                     
+       ****Error1:This symbol is not exist until now
+ 10     01010              TIXR      T                        B850
+ 11     ffffffff    TEMP      EQU       2500                     
+       ****Error1:This symbol is not exist until now
+ 12     01012              JLT       MOVECH                   3b2ff5
+ 13     01015              J         @RETADDR                 3e2016
+ 14     01018    STR1      BYTE      C'TEST STRING'           5445535420535452494e47
+ 15     01023    STR2      RESB      11                       
+ 16     0102e    RETADDR   RESW      1                        
+ 17     01031              END                                
+>>>>>>> 62cabf641fd57ed8c081db4e9dca58ff42117c88

@@ -1,4 +1,5 @@
 Line    Loc            Source statement       
+<<<<<<< HEAD
   0     00000    <<<<<<<             HEAD                                    
        ****Error:<<<<<<< is invalid. label must start with a letter and consist of letters, numbers, or '_'
   1              .234567890123456789 
@@ -112,3 +113,25 @@ Line    Loc            Source statement
 109     020e4                        JLT                 WLOOP               
 110     020e7                        RSUB                                    
 111     020ea                        END                 FIRST               
+=======
+  0              .234567890123456789 
+  1     00000    STRCP2              START               1000                
+  2     01000    FIRST               STL                 RETADDR             
+  3     01003                        LDT                 *                   
+  4     01006                        LDX                 =W'11'              
+  5     01009                        LTORG                                   
+  6     01009    *                   =W'11'                                  
+  7     0100a    MOVECH              LDCH                STR1,X              
+  8     0100d                        STCH                STR2,X              
+  9     01010                        ORG                 2000                
+       ****Error:This symbol is not exist until now
+ 10     01010                        TIXR                T                   
+ 11     ffffffff    TEMP                EQU                 2500                
+       ****Error:This symbol is not exist until now
+ 12     01012                        JLT                 MOVECH              
+ 13     01015                        J                   @RETADDR            
+ 14     01018    STR1                BYTE                C'TEST STRING'      
+ 15     01023    STR2                RESB                11                  
+ 16     0102e    RETADDR             RESW                1                   
+ 17     01031                        END                                     
+>>>>>>> 62cabf641fd57ed8c081db4e9dca58ff42117c88
