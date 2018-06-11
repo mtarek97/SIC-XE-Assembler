@@ -35,6 +35,7 @@ const int indirect3 = 1000100;
 ObjectCodeGenerator* ObjectCodeGenerator::uniqueInstance = 0;
 
 ObjectCodeGenerator::ObjectCodeGenerator() {
+    this->baseStatus = false;
     this->opCodeTable = OpCodeTable::getOpTable();
     this->registersTable = RegistersTable::getARegistersTable();
     this->symbolTable = SymbolTable::getSymbolTable();
