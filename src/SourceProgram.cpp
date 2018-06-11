@@ -243,10 +243,10 @@ void SourceProgram::updateLocationCounter(SourceLine* sourceLine)
             else if(getUpper(sourceLine->getOperation()) != "EQU")
                 symbolTable->insert(sourceLine->getLable(), locationCounter);
         }
-        error = "";
         pair<int,string> result;
         result = UpdateLocationCounter::setLocationCounter(locationCounter, *sourceLine);
         locationCounter = result.first;
+        if(result.second != "")
         error = result.second;
         if(getUpper(sourceLine->getOperation()) == "EQU"){
             sourceLine->setLocationCounter(symbolTable->search(sourceLine->getLable()).getLocation());

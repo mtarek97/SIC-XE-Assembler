@@ -1,42 +1,28 @@
 .234567890123456789
-.234567890123456789.234567890123456789
-.234567890123456789
-.234567890123456789
-.234567890123456789
-LAb2C    START   1000
-ab      lda     ALPHA
+LAB2C    START
+         LDA     ALPHA
          LDB     #10
-         LDX     #0 ygygyg 3t34t34t egrgergerg grergerg
+         LDX     #0
          ADDR    A,B
          STA     SAVEW,X
          LDX     #1
          STA     SAVEW,X
-.Format 4 erg wwww sss
+.Format 4
          +SUB    #12
          LDX     #0
-         lda     =x'4256'
-         lda     =x'6256'
-         lda     =C'3256'
-         lda     =x'325556'
+         LDCH    HEXCHAR
          STA     INPUT
-ADDll      LDCH    STRING,X
+ADD      LDCH    STRING,X
          COMP    INPUT
          JEQ     FOUND
-uu equ ADDllkkk
-uub equ uu
-uuc equ Addll+ab
-uud equ ADDll-1
-org   uu+5
          STCH    OUTPUT,X
          TIX     #5
          JLT     ADD
-LToRG
-         lda     =C'325  6'
 FOUND    J       OUT
 ALPHA    WORD    2
 SAVEW    RESW    2
 HEXCHAR  BYTE    X'61'
 INPUT    RESB    1
-STRING   BYTE    c'String     gerger'
+STRING   BYTE    C'String'
 OUTPUT   RESB    5
 OUT      END     #4

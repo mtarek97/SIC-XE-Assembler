@@ -1,9 +1,10 @@
 adder START 0000
-st lda x1
+st2 lda x1
 st2 ldx #3
+kk START 0000
  sub x2,x
  sta z
  org 2000
-yr equ 50-st
+yr equ st2
 z resw 1
-p END st2
+  END st2 kgiug iugiug igiug
