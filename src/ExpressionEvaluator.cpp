@@ -123,7 +123,11 @@ SymbolInfo ExpressionEvaluator::evaluateExpression(std::string expression)
         }
     }
     //anything else
-    return SymbolInfo(-1, 'u');
+    if((firstOperand.getType() == 'e' && !isInt(operands[0]))
+       || (secondOperand.getType() == 'e' && !isInt(operands[1]))){
+        return SymbolInfo(-1, 'u');
+       }
+    return SymbolInfo(-1, 'e');
 }
 
 
