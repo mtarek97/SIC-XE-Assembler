@@ -23,7 +23,7 @@ ADDll      LDCH    STRING,X
          COMP    INPUT
          JEQ     FOUND
 uu equ ADDllkkk
-uub equ ADDll-3
+uub equ uu
 uuc equ ADDll-2
 uud equ ADDll-1
 org   uu+5

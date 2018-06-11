@@ -1,12 +1,54 @@
 Line    Loc            Source statement                      Object Code   
-  0     00000    ADDER     START     0000                     
-  1     00000    ST        LDZ       X1                       
-       ****Error1:LDZ is invalid operation
-  2     00000    ST2       LDX       #3                       050003
-  3     00003              SUB       X2,X                     
-       ****Error2:Symbol Error!
-  4     00006              STA       Z                        0f2000
-  5     00009    X         WORD      6,5                      
+  0              .234567890123456789 
+  1              .234567890123456789.234567890123456789 
+  2              .234567890123456789 
+  3              .234567890123456789 
+  4              .234567890123456789 
+  5     01000    LAB2C     START     1000                     
+  6     01000    LDA       LDA       ALPHA                    
        ****Error1:label can't be a reserved keyword
-  6     00009    Z         RESW      1                        
-  7     0000c              END       ST2                      
+  7     01000              LDB       #10                      69000a
+  8     01003              LDX       #0                       050000YGYGYG 3T34T34T EGRGERGERG GRERGERG 
+  9     01006              ADDR      A,B                      9003
+ 10     01008              STA       SAVEW,X                  0fa034
+ 11     0100b              LDX       #1                       050001
+ 12     0100e              STA       SAVEW,X                  0fa02e
+ 13              .Format 4 erg wwww sss 
+ 14     01011              +SUB      #12                      1d10000c
+ 15     01015              LDX       #0                       050000
+ 16     01018              LDA       =X'4256'                 032031
+ 17     0101b              LDA       =X'6256'                 032030
+ 18     0101e              LDA       =C'3256'                 03202f
+ 19     01021              LDA       =X'325556'               032030
+ 20     01024              STA       INPUT                    0f201f
+ 21     01027    ADDLL     LDCH      STRING,X                 
+       ****Error2:Symbol Error!
+ 22     0102a              COMP      INPUT                    2b2019
+ 23     0102d              JEQ       FOUND                    33203a
+ 24     ffffffff    UU        EQU       ADDLLKKK                 
+ 25     ffffffff    UUB       EQU       UU                       
+ 26     01025    UUC       EQU       ADDLL-2                  
+ 27     01026    UUD       EQU       ADDLL-1                  
+ 28     01030    ORG       UU+5                               
+       ****Error1:label can't be a reserved keyword
+ 29     01030              STCH      OUTPUT,X                 57a014
+ 30     01033              TIX       #5                       2d0005
+ 31     01036              JLT       ADD                      
+       ****Error1:ADD is invalid operand
+ 32              
+ 33     01036              LDA       =C'325  6'               03201e
+ 34     01039    FOUND     J         OUT                      
+       ****Error2:Symbol Error!
+ 35     0103c    ALPHA     WORD      2                        000002
+ 36     0103f    SAVEW     RESW      2                        
+ 37     01045    HEXCHAR   BYTE      X'61'                    61
+ 38     01046    INPUT     RESB      1                        
+ 39     01047    STRING    BYTE      C'STRING     GERGER'     
+       ****Error1:STRING     GERGER can't exceed 15 characters
+ 40     01047    OUTPUT    RESB      5                        
+ 41     0104c    OUT       END       #4                       
+ 43     0104c    *         =X'4256'                           4256
+ 44     0104e    *         =X'6256'                           6256
+ 45     01050    *         =C'3256'                           3256
+ 46     01054    *         =X'325556'                         325556
+ 47     01057    *         =C'325  6'                         325  6

@@ -56,43 +56,64 @@ pair<int,string> UpdateLocationCounter::setLocationCounter(int locationCounter, 
         {
             locationCounter = locationCounter + 3 * stoi(sourceLine.getOperand());
         }
-        else if(operation == "ORG"){
+        else if(operation == "ORG")
+        {
 
 
-            if(sourceLine.getContainsExpression()){
+            if(sourceLine.getContainsExpression())
+            {
 
-               ExpressionEvaluator evaluate;
-               if(evaluate.evaluateExpression(sourceLine.getOperand()).getLocation() != -1)
-                    locationCounter = evaluate.evaluateExpression(sourceLine.getOperand()).getLocation();
+                ExpressionEvaluator evaluate;
+                int result = evaluate.evaluateExpression(sourceLine.getOperand()).getLocation();
+                if(result != -1 && result != -2)
+                    locationCounter = result;
+                else if(result == -1)
+                    error = "Not Absolute and Not Relative";
+                else if(result == -2)
+                    error = "This symbol is not exist until now";
+
             }
-            else if(symbolTable->hashtable.count(sourceLine.getOperand()) != 0){
+            else if(symbolTable->hashtable.count(sourceLine.getOperand()) != 0)
+            {
                 locationCounter = symbolTable->hashtable[sourceLine.getOperand()].getLocation();
             }
 
-            else if(sourceLine.getOperand() == "*"){
-                    // ha ha ha ha
+            else if(sourceLine.getOperand() == "*")
+            {
+                // ha ha ha ha
             }
             else if(sourceLine.getOperand() != "*")
                 error = "This symbol is not exist until now";
 
         }
 
-        else if(operation == "EQU"){
+        else if(operation == "EQU")
+        {
 
-             if(symbolTable == nullptr)
+            if(symbolTable == nullptr)
                 return make_pair(locationCounter, "");
 
-            if(sourceLine.getContainsExpression()){
-               ExpressionEvaluator evaluate;
-               if(evaluate.evaluateExpression(sourceLine.getOperand()).getLocation() != -1) {
-                    cout<<"here"<<evaluate.evaluateExpression(sourceLine.getOperand()).getLocation();
-                   symbolTable->insert(sourceLine.getLable(), evaluate.evaluateExpression(sourceLine.getOperand()).getLocation());
+            if(sourceLine.getContainsExpression())
+            {
+                ExpressionEvaluator evaluate;
+                int result = evaluate.evaluateExpression(sourceLine.getOperand()).getLocation();
+                if(result != -1 && result != -2)
+                {
+                    //   cout<<"here"<<evaluate.evaluateExpression(sourceLine.getOperand()).getLocation();
+                    symbolTable->insert(sourceLine.getLable(), result);
                 }
+                else if(result == -1)
+                    error = "Not Absolute and Not Relative";
+                else if(result == -2)
+                    error = "This symbol is not exist until now";
+
             }
-            else if(symbolTable->hashtable.count(sourceLine.getOperand()) != 0){
+            else if(symbolTable->hashtable.count(sourceLine.getOperand()) != 0)
+            {
                 symbolTable->insert(sourceLine.getLable(), symbolTable->hashtable[sourceLine.getOperand()].getLocation());
             }
-            else if(sourceLine.getOperand() == "*"){
+            else if(sourceLine.getOperand() == "*")
+            {
                 symbolTable->insert(sourceLine.getLable(), locationCounter);
             }
             else

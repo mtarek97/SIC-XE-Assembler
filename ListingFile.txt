@@ -1,11 +1,57 @@
 Line    Loc            Source statement       
-  0     00000    ADDER               START               0000                
-  1     00000    ST                  LDZ                 X1                  
-       ****Error:LDZ is invalid operation
-  2     00000    ST2                 LDX                 #3                  
-  3     00003                        SUB                 X2,X                
-  4     00006                        STA                 Z                   
-  5     00009    X                   WORD                6,5                 
+  0              .234567890123456789 
+  1              .234567890123456789.234567890123456789 
+  2              .234567890123456789 
+  3              .234567890123456789 
+  4              .234567890123456789 
+  5     00000    LAB2C               START               1000                
+  6     01000    LDA                 LDA                 ALPHA               
        ****Error:label can't be a reserved keyword
-  6     00009    Z                   RESW                1                   
-  7     0000c                        END                 ST2                 
+  7     01000                        LDB                 #10                 
+  8     01003                        LDX                 #0                  YGYGYG 3T34T34T EGRGERGERG GRERGERG 
+  9     01006                        ADDR                A,B                 
+ 10     01008                        STA                 SAVEW,X             
+ 11     0100b                        LDX                 #1                  
+ 12     0100e                        STA                 SAVEW,X             
+ 13              .Format 4 erg wwww sss 
+ 14     01011                        +SUB                #12                 
+ 15     01015                        LDX                 #0                  
+ 16     01018                        LDA                 =X'4256'            
+ 17     0101b                        LDA                 =X'6256'            
+ 18     0101e                        LDA                 =C'3256'            
+ 19     01021                        LDA                 =X'325556'          
+ 20     01024                        STA                 INPUT               
+ 21     01027    ADDLL               LDCH                STRING,X            
+ 22     0102a                        COMP                INPUT               
+ 23     0102d                        JEQ                 FOUND               
+ 24     ffffffff    UU                  EQU                 ADDLLKKK            
+       ****Error:This symbol is not exist until now
+ 25              
+ 26     ffffffff    UUB                 EQU                 UU                  
+       ****Error:This symbol is not exist until now
+ 27              
+ 28     01025    UUC                 EQU                 ADDLL-2             
+ 29     01026    UUD                 EQU                 ADDLL-1             
+ 30     01030    ORG                 UU+5                                    
+       ****Error:label can't be a reserved keyword
+ 31     01030                        STCH                OUTPUT,X            
+ 32     01033                        TIX                 #5                  
+ 33     01036                        JLT                 ADD                 
+       ****Error:ADD is invalid operand
+ 34              
+ 35     01036                        LDA                 =C'325  6'          
+ 36     01039    FOUND               J                   OUT                 
+ 37     0103c    ALPHA               WORD                2                   
+ 38     0103f    SAVEW               RESW                2                   
+ 39     01045    HEXCHAR             BYTE                X'61'               
+ 40     01046    INPUT               RESB                1                   
+ 41     01047    STRING              BYTE                C'STRING     GERGER'
+       ****Error:STRING     GERGER can't exceed 15 characters
+ 42     01047    OUTPUT              RESB                5                   
+ 43     0104c    OUT                 END                 #4                  
+       ****Error:label must be blank at END statement
+ 44     0104c    *                   =X'4256'                                
+ 45     0104e    *                   =X'6256'                                
+ 46     01050    *                   =C'3256'                                
+ 47     01054    *                   =X'325556'                              
+ 48     01057    *                   =C'325  6'                              
