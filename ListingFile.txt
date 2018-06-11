@@ -1,4 +1,5 @@
 Line    Loc            Source statement       
+<<<<<<< HEAD
   0              ..2345678901234567890 
   1     00000                        START               0                   
   2     00000    FIRST               STL                 RETADR              
@@ -52,3 +53,62 @@ Line    Loc            Source statement
  50     01073                        RSUB                                    
  51     01076    OUTPUT              BYTE                X'05'               
  52     01077                        END                 FIRST               
+=======
+  0              .234567890123456789 
+  1              .234567890123456789.234567890123456789 
+  2              .234567890123456789 
+  3              .234567890123456789 
+  4              .234567890123456789 
+  5     00000    LAB2C               START               1000                
+  6     01000    AB                  LDA                 ALPHA               
+  7     01003                        LDB                 #10                 
+  8     01006                        LDX                 #0                  YGYGYG 3T34T34T EGRGERGERG GRERGERG 
+  9     01009                        ADDR                A,B                 
+ 10     0100b                        STA                 SAVEW,X             
+ 11     0100e                        LDX                 #1                  
+ 12     01011                        STA                 SAVEW,X             
+ 13              .Format 4 erg wwww sss 
+ 14     01014                        +SUB                #12                 
+ 15     01018                        LDX                 #0                  
+ 16     0101b                        LDA                 =X'4256'            
+ 17     0101e                        LDA                 =X'6256'            
+ 18     01021                        LDA                 =C'3256'            
+ 19     01024                        LDA                 =X'325556'          
+ 20     01027                        STA                 INPUT               
+ 21     0102a    ADDLL               LDCH                STRING,X            
+ 22     0102d                        COMP                INPUT               
+ 23     01030                        JEQ                 FOUND               
+ 24     ffffffff    UU                  EQU                 ADDLLKKK            
+       ****Error:This symbol is not exist until now
+ 25              
+ 26     ffffffff    UUB                 EQU                 UU                  
+       ****Error:This symbol is not exist until now
+ 27              
+ 28     ffffffff    UUC                 EQU                 ADDLL+AB            
+       ****Error:Not Absolute and Not Relative
+ 29              
+ 30     01029    UUD                 EQU                 ADDLL-1             
+ 31     01033    ORG                 UU+5                                    
+       ****Error:label can't be a reserved keyword
+ 32     01033                        STCH                OUTPUT,X            
+ 33     01036                        TIX                 #5                  
+ 34     01039                        JLT                 ADD                 
+       ****Error:ADD is invalid operand
+ 35              
+ 36     01039                        LDA                 =C'325  6'          
+ 37     0103c    FOUND               J                   OUT                 
+ 38     0103f    ALPHA               WORD                2                   
+ 39     01042    SAVEW               RESW                2                   
+ 40     01048    HEXCHAR             BYTE                X'61'               
+ 41     01049    INPUT               RESB                1                   
+ 42     0104a    STRING              BYTE                C'STRING     GERGER'
+       ****Error:STRING     GERGER can't exceed 15 characters
+ 43     0104a    OUTPUT              RESB                5                   
+ 44     0104f    OUT                 END                 #4                  
+       ****Error:label must be blank at END statement
+ 45     0104f    *                   =X'4256'                                
+ 46     01051    *                   =X'6256'                                
+ 47     01053    *                   =C'3256'                                
+ 48     01057    *                   =X'325556'                              
+ 49     0105a    *                   =C'325  6'                              
+>>>>>>> 844641d02ffad877b694befc854334dd63be2015

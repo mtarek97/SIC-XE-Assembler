@@ -62,9 +62,9 @@ string ObjectCodeGenerator::getErrorMessage() {
     return this->errorMessage;
 }
 
-std::string ObjectCodeGenerator::getObjectCode(SourceLine sourceLine) {
-    string operation = sourceLine.getOperation();
-    string operand = sourceLine.getOperand();
+std::string ObjectCodeGenerator::getObjectCode(SourceLine* sourceLine) {
+    string operation = sourceLine->getOperation();
+    string operand = sourceLine->getOperand();
     //Detect Literal Pool
     if(isLiteral(operation)){
         return getConstantHEX(operation);
@@ -95,8 +95,8 @@ std::string ObjectCodeGenerator::getObjectCode(SourceLine sourceLine) {
         // Literal Table Needed..
         else if (!isDirective(operation)) {
             string currentCase = getCase(sourceLine);
-            string operation = sourceLine.getOperation();
-            string operand = sourceLine.getOperand();
+            string operation = sourceLine->getOperation();
+            string operand = sourceLine->getOperand();
             if(currentCase == "CASE0"){ // Format 4 - Indirect (@) - Expression
                 string parsed_operation = operation.substr(1,operation.size());
                 string parsed_operand = operand.substr(1,operand.size());
@@ -107,8 +107,14 @@ std::string ObjectCodeGenerator::getObjectCode(SourceLine sourceLine) {
                 string parsed_operation = operation.substr(1,operation.size());
                 string parsed_operand = operand.substr(1,operand.size());
                 string opCode = opCodeTable->getInfo(parsed_operation).getOpCode();
-                int displacement = symbolTable->search(parsed_operand).getLocation();
-                return calculateObjectCode(opCode,2,1,displacement,format4Flag);
+                if(symbolTable->search(parsed_operand).getLocation() != -1){
+                    int displacement = symbolTable->search(parsed_operand).getLocation();
+                    return calculateObjectCode(opCode,2,1,displacement,format4Flag);
+                }
+                else{
+                    sourceLine->setErrorMessage("Symbol Error!");
+                    return SOME_THING_WRONG;
+                }
             }else if(currentCase == "CASE2"){ //Format 3 - Indirect (@) - Absolute Expression
                 string parsed_operand = operand.substr(1,operand.size());
                 string opCode = opCodeTable->getInfo(operation).getOpCode();
@@ -117,23 +123,41 @@ std::string ObjectCodeGenerator::getObjectCode(SourceLine sourceLine) {
             }else if(currentCase == "CASE3"){ //Format 3 - Indirect (@) - Relative (PC) Expression
                 string parsed_operand = operand.substr(1,operand.size());
                 string opCode = opCodeTable->getInfo(operation).getOpCode();
-                int displacement = expressionEvaluator.evaluateExpression(parsed_operand).getLocation() - sourceLine.getNextInstruction();
+                int displacement = expressionEvaluator.evaluateExpression(parsed_operand).getLocation() - sourceLine->getNextInstruction();
                 return calculateObjectCode(opCode,2,2,displacement,format3Flag);
             }else if(currentCase == "CASE4"){ //Format 3 - Indirect (@) - Relative (BASE) Expression
                 string parsed_operand = operand.substr(1,operand.size());
                 string opCode = opCodeTable->getInfo(operation).getOpCode();
-                int displacement = expressionEvaluator.evaluateExpression(parsed_operand).getLocation() - symbolTable->search(currentBaseAddress).getLocation();
-                return calculateObjectCode(opCode,2,4,displacement,format3Flag);
+                if(symbolTable->search(currentBaseAddress).getLocation() != -1) {
+                    int displacement = expressionEvaluator.evaluateExpression(parsed_operand).getLocation() - symbolTable->search(currentBaseAddress).getLocation();
+                    return calculateObjectCode(opCode, 2, 4, displacement, format3Flag);
+                }
+                else{
+                    sourceLine->setErrorMessage("Symbol Error!");
+                    return SOME_THING_WRONG;
+                }
             }else if(currentCase == "CASE5"){ //Format 3 - Indirect (@) - PC
                 string parsed_operand = operand.substr(1,operand.size());
                 string opCode = opCodeTable->getInfo(operation).getOpCode();
-                int displacement =symbolTable->search(parsed_operand).getLocation() - sourceLine.getNextInstruction();
-                return calculateObjectCode(opCode,2,2,displacement,format3Flag);
+                if(symbolTable->search(parsed_operand).getLocation() != -1) {
+                    int displacement = symbolTable->search(parsed_operand).getLocation() - sourceLine->getNextInstruction();
+                    return calculateObjectCode(opCode, 2, 2, displacement, format3Flag);
+                }
+                else{
+                    sourceLine->setErrorMessage("Symbol Error!");
+                    return SOME_THING_WRONG;
+                }
             }else if(currentCase == "CASE6"){ //Format 3 - Indirect (@) - BASE
                 string parsed_operand = operand.substr(1,operand.size());
                 string opCode = opCodeTable->getInfo(operation).getOpCode();
-                int displacement =symbolTable->search(parsed_operand).getLocation() - symbolTable->search(currentBaseAddress).getLocation();
-                return calculateObjectCode(opCode,2,4,displacement,format3Flag);
+                if(symbolTable->search(parsed_operand).getLocation() != -1 || symbolTable->search(currentBaseAddress).getLocation() != -1) {
+                    int displacement = symbolTable->search(parsed_operand).getLocation() - symbolTable->search(currentBaseAddress).getLocation();
+                    return calculateObjectCode(opCode, 2, 4, displacement, format3Flag);
+                }
+                else{
+                    sourceLine->setErrorMessage("Symbol Error!");
+                    return SOME_THING_WRONG;
+                }
             }else if(currentCase == "CASE7"){ //Format 4 - Immediate (#)- Expression
                 string parsed_operation = operation.substr(1,operation.size());
                 string parsed_operand = operand.substr(1,operand.size());
@@ -144,8 +168,14 @@ std::string ObjectCodeGenerator::getObjectCode(SourceLine sourceLine) {
                 string parsed_operation = operation.substr(1,operation.size());
                 string parsed_operand = operand.substr(1,operand.size());
                 string opCode = opCodeTable->getInfo(parsed_operation).getOpCode();
-                int displacement = symbolTable->search(parsed_operand).getLocation();
-                return calculateObjectCode(opCode,1,1,displacement,format4Flag);
+                if(symbolTable->search(parsed_operand).getLocation() != -1) {
+                    int displacement = symbolTable->search(parsed_operand).getLocation();
+                    return calculateObjectCode(opCode, 1, 1, displacement, format4Flag);
+                }
+                else{
+                    sourceLine->setErrorMessage("Symbol Error!");
+                    return SOME_THING_WRONG;
+                }
             }else if(currentCase == "CASE9"){ //Format 4 - Immediate (#)- Const.
                 string parsed_operation = operation.substr(1,operation.size());
                 string parsed_operand = operand.substr(1,operand.size());
@@ -160,23 +190,41 @@ std::string ObjectCodeGenerator::getObjectCode(SourceLine sourceLine) {
             }else if(currentCase == "CASE11"){ //Format 3 - Immediate (#) - Relative (PC) Expression
                 string parsed_operand = operand.substr(1,operand.size());
                 string opCode = opCodeTable->getInfo(operation).getOpCode();
-                int displacement = expressionEvaluator.evaluateExpression(parsed_operand).getLocation() - sourceLine.getNextInstruction();
+                int displacement = expressionEvaluator.evaluateExpression(parsed_operand).getLocation() - sourceLine->getNextInstruction();
                 return calculateObjectCode(opCode,1,2,displacement,format3Flag);
             }else if(currentCase == "CASE12"){ //Format 3 - Immediate (#) - Relative (BASE) Expression
                 string parsed_operand = operand.substr(1,operand.size());
                 string opCode = opCodeTable->getInfo(operation).getOpCode();
-                int displacement = expressionEvaluator.evaluateExpression(parsed_operand).getLocation() - symbolTable->search(currentBaseAddress).getLocation();
-                return calculateObjectCode(opCode,1,4,displacement,format3Flag);
+                if(symbolTable->search(currentBaseAddress).getLocation() != -1) {
+                    int displacement = expressionEvaluator.evaluateExpression(parsed_operand).getLocation() - symbolTable->search(currentBaseAddress).getLocation();
+                    return calculateObjectCode(opCode, 1, 4, displacement, format3Flag);
+                }
+                else{
+                    sourceLine->setErrorMessage("Symbol Error!");
+                    return SOME_THING_WRONG;
+                }
             }else if(currentCase == "CASE13"){ //Format 3 - Immediate (#) - PC - Symbol
                 string parsed_operand = operand.substr(1,operand.size());
                 string opCode = opCodeTable->getInfo(operation).getOpCode();
-                int displacement =symbolTable->search(parsed_operand).getLocation() - sourceLine.getNextInstruction();
-                return calculateObjectCode(opCode,1,2,displacement,format3Flag);
+                if(symbolTable->search(parsed_operand).getLocation() != -1) {
+                    int displacement = symbolTable->search(parsed_operand).getLocation() - sourceLine->getNextInstruction();
+                    return calculateObjectCode(opCode, 1, 2, displacement, format3Flag);
+                }
+                else{
+                    sourceLine->setErrorMessage("Symbol Error!");
+                    return SOME_THING_WRONG;
+                }
             }else if(currentCase == "CASE14"){ //Format 3 - Immediate (#) - BASE - Symbol
                 string parsed_operand = operand.substr(1,operand.size());
                 string opCode = opCodeTable->getInfo(operation).getOpCode();
-                int displacement =symbolTable->search(parsed_operand).getLocation() - symbolTable->search(currentBaseAddress).getLocation();
-                return calculateObjectCode(opCode,1,4,displacement,format3Flag);
+                if(symbolTable->search(parsed_operand).getLocation() != -1 || symbolTable->search(currentBaseAddress).getLocation() != -1) {
+                    int displacement = symbolTable->search(parsed_operand).getLocation() - symbolTable->search(currentBaseAddress).getLocation();
+                    return calculateObjectCode(opCode, 1, 4, displacement, format3Flag);
+                }
+                else{
+                    sourceLine->setErrorMessage("Symbol Error!");
+                    return SOME_THING_WRONG;
+                }
             }else if(currentCase == "CASE15"){ //Format 3 - Immediate (#) - Const.
                 string parsed_operand = operand.substr(1,operand.size());
                 string opCode = opCodeTable->getInfo(operation).getOpCode();
@@ -192,8 +240,14 @@ std::string ObjectCodeGenerator::getObjectCode(SourceLine sourceLine) {
                 string parsed_operation = operation.substr(1,operation.size());
                 string parsed_operand = operand.substr(0, operand.find(','));
                 string opCode = opCodeTable->getInfo(parsed_operation).getOpCode();
-                int displacement = symbolTable->search(parsed_operand).getLocation();
-                return calculateObjectCode(opCode,3,9,displacement,format4Flag);
+                if(symbolTable->search(parsed_operand).getLocation() != -1) {
+                    int displacement = symbolTable->search(parsed_operand).getLocation();
+                    return calculateObjectCode(opCode, 3, 9, displacement, format4Flag);
+                }
+                else{
+                    sourceLine->setErrorMessage("Symbol Error!");
+                    return SOME_THING_WRONG;
+                }
             }else if(currentCase == "CASE18"){ // Format 3 - Indexed (,X) - Absolute Expression
                 string parsed_operand = operand.substr(0, operand.find(','));
                 string opCode = opCodeTable->getInfo(operation).getOpCode();
@@ -202,23 +256,41 @@ std::string ObjectCodeGenerator::getObjectCode(SourceLine sourceLine) {
             }else if(currentCase == "CASE19"){ // Format 3 - Indexed (,X) - Relative (PC) Expression
                 string parsed_operand = operand.substr(0, operand.find(','));
                 string opCode = opCodeTable->getInfo(operation).getOpCode();
-                int displacement = expressionEvaluator.evaluateExpression(parsed_operand).getLocation() - sourceLine.getNextInstruction();
+                int displacement = expressionEvaluator.evaluateExpression(parsed_operand).getLocation() - sourceLine->getNextInstruction();
                 return calculateObjectCode(opCode,3,10,displacement,format3Flag);
             }else if(currentCase == "CASE20"){ // Format 3 - Indexed (,X) - Relative (BASE) Expression
                 string parsed_operand = operand.substr(0, operand.find(','));
                 string opCode = opCodeTable->getInfo(operation).getOpCode();
-                int displacement = expressionEvaluator.evaluateExpression(parsed_operand).getLocation() - symbolTable->search(currentBaseAddress).getLocation();
-                return calculateObjectCode(opCode,3,12,displacement,format3Flag);
+                if(symbolTable->search(currentBaseAddress).getLocation() != -1) {
+                    int displacement = expressionEvaluator.evaluateExpression(parsed_operand).getLocation() - symbolTable->search(currentBaseAddress).getLocation();
+                    return calculateObjectCode(opCode, 3, 12, displacement, format3Flag);
+                }
+                else{
+                    sourceLine->setErrorMessage("Symbol Error!");
+                    return SOME_THING_WRONG;
+                }
             }else if(currentCase == "CASE21"){ // Format 3 - Indexed (,X) - PC
                 string parsed_operand = operand.substr(0, operand.find(','));
                 string opCode = opCodeTable->getInfo(operation).getOpCode();
-                int displacement =symbolTable->search(parsed_operand).getLocation() - sourceLine.getNextInstruction();
-                return calculateObjectCode(opCode,3,10,displacement,format3Flag);
+                if(symbolTable->search(parsed_operand).getLocation() != -1) {
+                    int displacement = symbolTable->search(parsed_operand).getLocation() - sourceLine->getNextInstruction();
+                    return calculateObjectCode(opCode, 3, 10, displacement, format3Flag);
+                }
+                else{
+                    sourceLine->setErrorMessage("Symbol Error!");
+                    return SOME_THING_WRONG;
+                }
             }else if(currentCase == "CASE22"){ // Format 3 - Indexed (,X) - BASE
                 string parsed_operand = operand.substr(0, operand.find(','));
                 string opCode = opCodeTable->getInfo(operation).getOpCode();
-                int displacement =symbolTable->search(parsed_operand).getLocation() - symbolTable->search(currentBaseAddress).getLocation();
-                return calculateObjectCode(opCode,3,12,displacement,format3Flag);
+                if(symbolTable->search(parsed_operand).getLocation() != -1 || symbolTable->search(currentBaseAddress).getLocation() != -1) {
+                    int displacement = symbolTable->search(parsed_operand).getLocation() - symbolTable->search(currentBaseAddress).getLocation();
+                    return calculateObjectCode(opCode, 3, 12, displacement, format3Flag);
+                }
+                else{
+                    sourceLine->setErrorMessage("Symbol Error!");
+                    return SOME_THING_WRONG;
+                }
             }else if(currentCase == "CASE23"){ //Format 4 - Expression
                 string parsed_operation = operation.substr(1,operation.size());
                 string opCode = opCodeTable->getInfo(parsed_operation).getOpCode();
@@ -240,33 +312,57 @@ std::string ObjectCodeGenerator::getObjectCode(SourceLine sourceLine) {
                 return calculateObjectCode(opCode,3,0,displacement,format3Flag);
             }else if(currentCase == "CASE27"){ // Format 3 - Expression - Relative (PC)
                 string opCode = opCodeTable->getInfo(operation).getOpCode();
-                int displacement = expressionEvaluator.evaluateExpression(operand).getLocation() - sourceLine.getNextInstruction();
+                int displacement = expressionEvaluator.evaluateExpression(operand).getLocation() - sourceLine->getNextInstruction();
                 return calculateObjectCode(opCode,3,2,displacement,format3Flag);
             }else if(currentCase == "CASE28"){ // Format 3 - Expression - Relative (BASE)
                 string opCode = opCodeTable->getInfo(operation).getOpCode();
-                int displacement = expressionEvaluator.evaluateExpression(operand).getLocation() - symbolTable->search(currentBaseAddress).getLocation();
-                return calculateObjectCode(opCode,3,4,displacement,format3Flag);
+                if( symbolTable->search(currentBaseAddress).getLocation() != -1) {
+                    int displacement = expressionEvaluator.evaluateExpression(operand).getLocation() - symbolTable->search(currentBaseAddress).getLocation();
+                    return calculateObjectCode(opCode, 3, 4, displacement, format3Flag);
+                }
+                else{
+                    sourceLine->setErrorMessage("Symbol Error!");
+                    return SOME_THING_WRONG;
+                }
             }else if(currentCase == "CASE29"){ // Format 3 - Literal - PC
                 string opCode = opCodeTable->getInfo(operation).getOpCode();
-                int displacement = literalTable->getTable()[operand].second - sourceLine.getNextInstruction();
+                int displacement = literalTable->getTable()[operand].second - sourceLine->getNextInstruction();
                 return calculateObjectCode(opCode,3,2,displacement,format3Flag);
             }else if(currentCase == "CASE30"){ // Format 3 - Literal - BASE
                 string opCode = opCodeTable->getInfo(operation).getOpCode();
-                int displacement = literalTable->getTable()[operand].second - symbolTable->search(currentBaseAddress).getLocation();
-                return calculateObjectCode(opCode,3,4,displacement,format3Flag);
+                if( symbolTable->search(currentBaseAddress).getLocation() != -1) {
+                    int displacement = literalTable->getTable()[operand].second - symbolTable->search(currentBaseAddress).getLocation();
+                    return calculateObjectCode(opCode, 3, 4, displacement, format3Flag);
+                }
+                else{
+                    sourceLine->setErrorMessage("Symbol Error!");
+                    return SOME_THING_WRONG;
+                }
             }else if(currentCase == "CASE31"){ // Format 3 - PC
                 string opCode = opCodeTable->getInfo(operation).getOpCode();
-                int displacement =symbolTable->search(operand).getLocation() - sourceLine.getNextInstruction();
-                return calculateObjectCode(opCode,3,2,displacement,format3Flag);
+                if(symbolTable->search(operand).getLocation() != -1) {
+                    int displacement = symbolTable->search(operand).getLocation() - sourceLine->getNextInstruction();
+                    return calculateObjectCode(opCode, 3, 2, displacement, format3Flag);
+                }
+                else{
+                    sourceLine->setErrorMessage("Symbol Error!");
+                    return SOME_THING_WRONG;
+                }
             }else if(currentCase == "CASE32"){ // Format 3 - BASE
                 string opCode = opCodeTable->getInfo(operation).getOpCode();
-                int displacement =symbolTable->search(operand).getLocation() - symbolTable->search(currentBaseAddress).getLocation();
-                return calculateObjectCode(opCode,3,4,displacement,format3Flag);
+                if(symbolTable->search(operand).getLocation() != -1 || symbolTable->search(currentBaseAddress).getLocation() != -1) {
+                    int displacement = symbolTable->search(operand).getLocation() - symbolTable->search(currentBaseAddress).getLocation();
+                    return calculateObjectCode(opCode, 3, 4, displacement, format3Flag);
+                }
+                else{
+                    sourceLine->setErrorMessage("Symbol Error!");
+                    return SOME_THING_WRONG;
+                }
             }else if(currentCase == "CASE_EXPRESSION_ERROR"){ // Expression Evaluator Returned Error !
-                sourceLine.setErrorMessage("Error in Expression!");
+                sourceLine->setErrorMessage("Error in Expression!");
                 return SOME_THING_WRONG;
             }else if(currentCase == "CASE_DISP_ERROR"){ // Displacement is > 2047 || < -2048 in case PC , or < 0 || > 4095 in case BASE !
-                sourceLine.setErrorMessage("Displacement Error!");
+                sourceLine->setErrorMessage("Displacement Error!");
                 return SOME_THING_WRONG;
             }
         }
@@ -281,7 +377,7 @@ std::string ObjectCodeGenerator::getObjectCode(SourceLine sourceLine) {
             if (objectCodeHex.size() == 6)
             return objectCodeHex;
             else if (objectCodeHex.size() > 6){
-                sourceLine.setErrorMessage("Error in WORD!");
+                sourceLine->setErrorMessage("Error in WORD!");
                 return SOME_THING_WRONG;
             }
             else{
@@ -292,7 +388,7 @@ std::string ObjectCodeGenerator::getObjectCode(SourceLine sourceLine) {
             }
         }
         else{
-            sourceLine.setErrorMessage("NOT SUPPORTED !!");
+            sourceLine->setErrorMessage("NOT SUPPORTED !!");
             return SOME_THING_WRONG;
         }
     }
@@ -386,9 +482,9 @@ string ObjectCodeGenerator::getConstantHEX(string constant) {
        return constant.substr(constant.find_first_of('\'')+1,constant.find_last_of('\'')- constant.find_first_of('\'') - 1);
     };
 }
-string ObjectCodeGenerator::getCase(SourceLine sourceLine){
-    string operation = sourceLine.getOperation();
-    string operand = sourceLine.getOperand();
+string ObjectCodeGenerator::getCase(SourceLine* sourceLine){
+    string operation = sourceLine->getOperation();
+    string operand = sourceLine->getOperand();
     if(isIndirect(operand)){
         string parsed_operand = operand.substr(1,operand.size());
         if(isFormat4Byte(operation)){
@@ -410,7 +506,7 @@ string ObjectCodeGenerator::getCase(SourceLine sourceLine){
                     return "CASE2";
                 }
                 else if(info.getType() == 'r'){
-                    int displacement = info.getLocation() - sourceLine.getNextInstruction();
+                    int displacement = info.getLocation() - sourceLine->getNextInstruction();
                     if(displacement >= min3Byte && displacement <= max3Byte){
                         return "CASE3";
                     }
@@ -429,7 +525,7 @@ string ObjectCodeGenerator::getCase(SourceLine sourceLine){
                 }
             }
             else{
-                int displacement = symbolTable->search(parsed_operand).getLocation() - sourceLine.getNextInstruction();
+                int displacement = symbolTable->search(parsed_operand).getLocation() - sourceLine->getNextInstruction();
                 if(displacement >= min3Byte && displacement <= max3Byte){ // PC
                     return "CASE5";
                 }
@@ -468,7 +564,7 @@ string ObjectCodeGenerator::getCase(SourceLine sourceLine){
                     return "CASE10";
                 }
                 else if(info.getType() == 'r'){
-                    int displacement = info.getLocation() - sourceLine.getNextInstruction();
+                    int displacement = info.getLocation() - sourceLine->getNextInstruction();
                     if(displacement >= min3Byte && displacement <= max3Byte){
                         return "CASE11";
                     }
@@ -487,7 +583,7 @@ string ObjectCodeGenerator::getCase(SourceLine sourceLine){
                 }
             }
             else if (symbolTable->search(parsed_operand).getLocation() != -1) {
-                int displacement = symbolTable->search(parsed_operand).getLocation() - sourceLine.getNextInstruction();
+                int displacement = symbolTable->search(parsed_operand).getLocation() - sourceLine->getNextInstruction();
                 if (displacement >= min3Byte && displacement <= max3Byte) { // PC
                     return "CASE13";
                 } else {
@@ -526,7 +622,7 @@ string ObjectCodeGenerator::getCase(SourceLine sourceLine){
                     return "CASE18";
                 }
                 else if(info.getType() == 'r'){
-                    int displacement = info.getLocation() - sourceLine.getNextInstruction();
+                    int displacement = info.getLocation() - sourceLine->getNextInstruction();
                     if(displacement >= min3Byte && displacement <= max3Byte){
                         return "CASE19";
                     }
@@ -545,7 +641,7 @@ string ObjectCodeGenerator::getCase(SourceLine sourceLine){
                 }
             }
             else{
-                int displacement = symbolTable->search(parsed_operand).getLocation() - sourceLine.getNextInstruction();
+                int displacement = symbolTable->search(parsed_operand).getLocation() - sourceLine->getNextInstruction();
                 if(displacement >= min3Byte && displacement <= max3Byte){ // PC
                     return "CASE21";
                 }
@@ -584,7 +680,7 @@ string ObjectCodeGenerator::getCase(SourceLine sourceLine){
                     return "CASE26";
                 }
                 else if(info.getType() == 'r'){
-                    int displacement = info.getLocation() - sourceLine.getNextInstruction();
+                    int displacement = info.getLocation() - sourceLine->getNextInstruction();
                     if(displacement >= min3Byte && displacement <= max3Byte){
                         return "CASE27";
                     }
@@ -603,7 +699,7 @@ string ObjectCodeGenerator::getCase(SourceLine sourceLine){
                 }
             }
             else if (isLiteral(operand)){
-                int displacement = literalTable->getTable()[operand].second - sourceLine.getNextInstruction();
+                int displacement = literalTable->getTable()[operand].second - sourceLine->getNextInstruction();
                 if(displacement >= min3Byte && displacement <= max3Byte){ // PC
                     return "CASE29";
                 }
@@ -618,7 +714,7 @@ string ObjectCodeGenerator::getCase(SourceLine sourceLine){
                 }
             }
             else{
-                int displacement = symbolTable->search(operand).getLocation() - sourceLine.getNextInstruction();
+                int displacement = symbolTable->search(operand).getLocation() - sourceLine->getNextInstruction();
                 if(displacement >= min3Byte && displacement <= max3Byte){ // PC
                     return "CASE31";
                 }

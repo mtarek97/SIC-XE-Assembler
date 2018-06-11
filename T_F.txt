@@ -4,7 +4,7 @@
 .234567890123456789
 .234567890123456789
 LAb2C    START   1000
-lda      lda     ALPHA
+ab      lda     ALPHA
          LDB     #10
          LDX     #0 ygygyg 3t34t34t egrgergerg grergerg
          ADDR    A,B
@@ -23,8 +23,8 @@ ADDll      LDCH    STRING,X
          COMP    INPUT
          JEQ     FOUND
 uu equ ADDllkkk
-uub equ ADDll-3
-uuc equ ADDll-2
+uub equ uu
+uuc equ Addll+ab
 uud equ ADDll-1
 org   uu+5
          STCH    OUTPUT,X

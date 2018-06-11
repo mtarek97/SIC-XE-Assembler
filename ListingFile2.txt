@@ -1,4 +1,5 @@
 Line    Loc            Source statement                      Object Code   
+<<<<<<< HEAD
   0              ..2345678901234567890 
   1     00000              START     0                        
   2     00000    FIRST     STL       RETADR                   17202d
@@ -52,3 +53,57 @@ Line    Loc            Source statement                      Object Code
  50     01073              RSUB                               4f0000
  51     01076    OUTPUT    BYTE      X'05'                    05
  52     01077              END       FIRST                    
+=======
+  0              .234567890123456789 
+  1              .234567890123456789.234567890123456789 
+  2              .234567890123456789 
+  3              .234567890123456789 
+  4              .234567890123456789 
+  5     01000    LAB2C     START     1000                     
+  6     01000    AB        LDA       ALPHA                    03203c
+  7     01003              LDB       #10                      69000a
+  8     01006              LDX       #0                       050000YGYGYG 3T34T34T EGRGERGERG GRERGERG 
+  9     01009              ADDR      A,B                      9003
+ 10     0100b              STA       SAVEW,X                  0fa034
+ 11     0100e              LDX       #1                       050001
+ 12     01011              STA       SAVEW,X                  0fa02e
+ 13              .Format 4 erg wwww sss 
+ 14     01014              +SUB      #12                      1d10000c
+ 15     01018              LDX       #0                       050000
+ 16     0101b              LDA       =X'4256'                 032031
+ 17     0101e              LDA       =X'6256'                 032030
+ 18     01021              LDA       =C'3256'                 03202f
+ 19     01024              LDA       =X'325556'               032030
+ 20     01027              STA       INPUT                    0f201f
+ 21     0102a    ADDLL     LDCH      STRING,X                 
+       ****Error2:Symbol Error!
+ 22     0102d              COMP      INPUT                    2b2019
+ 23     01030              JEQ       FOUND                    33203d
+ 24     ffffffff    UU        EQU       ADDLLKKK                 
+ 25     ffffffff    UUB       EQU       UU                       
+ 26     ffffffff    UUC       EQU       ADDLL+AB                 
+ 27     01029    UUD       EQU       ADDLL-1                  
+ 28     01033    ORG       UU+5                               
+       ****Error1:label can't be a reserved keyword
+ 29     01033              STCH      OUTPUT,X                 57a014
+ 30     01036              TIX       #5                       2d0005
+ 31     01039              JLT       ADD                      
+       ****Error1:ADD is invalid operand
+ 32              
+ 33     01039              LDA       =C'325  6'               03201e
+ 34     0103c    FOUND     J         OUT                      
+       ****Error2:Symbol Error!
+ 35     0103f    ALPHA     WORD      2                        000002
+ 36     01042    SAVEW     RESW      2                        
+ 37     01048    HEXCHAR   BYTE      X'61'                    61
+ 38     01049    INPUT     RESB      1                        
+ 39     0104a    STRING    BYTE      C'STRING     GERGER'     
+       ****Error1:STRING     GERGER can't exceed 15 characters
+ 40     0104a    OUTPUT    RESB      5                        
+ 41     0104f    OUT       END       #4                       
+ 43     0104f    *         =X'4256'                           4256
+ 44     01051    *         =X'6256'                           6256
+ 45     01053    *         =C'3256'                           3256
+ 46     01057    *         =X'325556'                         325556
+ 47     0105a    *         =C'325  6'                         325  6
+>>>>>>> 844641d02ffad877b694befc854334dd63be2015

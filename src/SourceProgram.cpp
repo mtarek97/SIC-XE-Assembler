@@ -51,6 +51,9 @@ vector<SourceLine> SourceProgram::parse(char* fileName)
             sourceLine.setLocationCounter(locationCounter);
             updateLocationCounter(&sourceLine);
             lineNumber++;
+            if(getUpper(sourceLine.getOperation()) == "START"){
+                sourceLine.setLocationCounter(locationCounter);
+            }
             if(getUpper(sourceLine.getOperation()) == "EQU"){
                 sourceLine.setLocationCounter(symbolTable->search(getUpper(sourceLine.getLable())).getLocation());
             }
