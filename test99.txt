@@ -3,6 +3,7 @@ st ldz x1
 st2 ldx #3
  sub x2,x
  sta z
-x1 word 6,5
+xr equ z-st
+yr equ 50-st
 z resw 1
-w END st2
+p END st2

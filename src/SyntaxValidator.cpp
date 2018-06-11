@@ -340,7 +340,8 @@ bool SyntaxValidator::checkDirectiveOperand()
     {
         bool hasExpression = ValidatorUtilities::isExpression(operand,this->GENERAL_EXPRESSION_ALLOWED);
         this->sourceLine->setContainsExpression(hasExpression);
-        if(!ValidatorUtilities::isSymbol(operand,LABEL_MAXLENGTH) && !(operand=="*") && !sourceLine->getContainsExpression())
+        if(!ValidatorUtilities::isSymbol(operand,LABEL_MAXLENGTH) && !(operand=="*")
+           && !ValidatorUtilities::isHexAddress(operand,6) && !sourceLine->getContainsExpression())
         {
             this->sourceLine->setErrorMessage("operand must be a symbol or a constant number");
             return false;
@@ -350,7 +351,8 @@ bool SyntaxValidator::checkDirectiveOperand()
     {
         bool hasExpression = ValidatorUtilities::isExpression(operand,this->GENERAL_EXPRESSION_ALLOWED);
         this->sourceLine->setContainsExpression(hasExpression);
-        if(!ValidatorUtilities::isSymbol(operand,LABEL_MAXLENGTH) && !(operand=="*") && !sourceLine->getContainsExpression())
+        if(!ValidatorUtilities::isSymbol(operand,LABEL_MAXLENGTH) && !(operand=="*")
+           && !ValidatorUtilities::isHexAddress(operand,6) && !sourceLine->getContainsExpression())
         {
             this->sourceLine->setErrorMessage("operand must be a symbol or a constant number");
             return false;
